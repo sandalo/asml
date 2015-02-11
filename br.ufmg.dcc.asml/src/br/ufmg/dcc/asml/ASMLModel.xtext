@@ -1,0 +1,180 @@
+grammar br.ufmg.dcc.asml.ASMLModel with org.eclipse.xtext.common.Terminals
+
+generate aSMLModel "http://www.ufmg.br/dcc/asml/ASMLModel"
+
+
+
+
+ASMLModel:
+  'architecture' name=ID_ASML '{'
+       ('import' importURI=STRING';')?
+  		(views += View)*
+  '}'
+;
+
+terminal ID_ASML : ('a'..'z'|'A'..'Z'|'_'|'.') ('a'..'z'|'A'..'Z'|'_'|'-'|'.'|'0'..'9')*;
+
+View: 'view' name=ID_ASML '{'
+  		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
+  		(components += AbstractComponent)*
+  		(restrictions += Restriction)*
+  '}'
+;
+
+enum Cardinality:
+  One="1" | Zero="0" | OneOrMany="1..*" | ZeroOrMany="0..*";
+
+
+AbstractComponent:   Layer | Module | MetaModule | Class | Method | ConfigurationElement | FrameworkInstantiation|FrameworkClass; 
+Attribute: name=ID_ASML ':' value=STRING;
+
+AbstractNameConvetion: STRING | ClassMatching;
+Component:
+  'component' name=ID_ASML '{'
+  		('matching' matching=STRING';')? 
+  		('cardinality' cardinality=Cardinality';')? 
+  		(components += AbstractComponent)*
+  		(restrictions += Restriction)*
+  '}'
+;
+
+FrameworkInstantiation:
+  'framework-instantiation' name=ID_ASML '{'
+  		(components += AbstractComponent)*
+  		(restrictions += Restriction)*
+  '}'
+;
+
+FrameworkClass:
+  'framework-class' name=ID_ASML '{'
+  		javaCLass = STRING';'
+  '}'
+;
+
+
+enum ExpressionMatchingClause:
+	NAME_START_WITH='name start with' | NAME_ENDS_WITH='name ends with'
+;
+
+ExpressionMatchingOperator: AND='and' | OR= 'or';
+
+
+enum LayerMatchingClause:
+	RELATED_TO_COMPONENT='related to component' | EXTERNAL_DEFINITION = 'external definition'
+;
+
+enum ModuleMatchingParamenter:
+	PAKCAGE='by package name' | FOLDER='by folder name'  | PAKCAGE_AND_FOLDER='by package and folder name' | EXTERNAL_DEFINITION = 'by external implementation'
+;
+
+
+LayerMatching:
+	(layerMatching=LayerMatchingClause parameter=[AbstractComponent|QualifiedName])
+;
+
+ModuleMatching:
+	(parameter=ModuleMatchingParamenter)
+;
+
+
+
+ClassMatching:
+	(expressionMatching=ExpressionMatchingClause parameter=STRING)
+//	(operator=ExpressionMatchingOperator expressionMatchings=ExpressionMatchingClause parameter=STRING)?
+;
+
+ConfigurationElement: Configuration | XmlDocument | XmlElement | File ;
+
+File:
+  'file' name=ID_ASML '{'
+  		('matching' matching=AbstractNameConvetion';')? 
+  		('cardinality' cardinality=Cardinality';')? 
+  '}'
+;
+
+Configuration:
+  'configuration' name=ID_ASML '{'
+  		('matching' matching=STRING';')? 
+  		('cardinality' cardinality=Cardinality';')?
+  		(configurationElement += ConfigurationElement)*
+  '}'
+;
+
+Method:
+  'method' name=ID_ASML '{'
+  		('matching' matching=STRING';')? 
+  		('cardinality' cardinality=Cardinality';')? 
+  '}'
+;
+
+Class:
+  'class' name=ID_ASML '{'
+  		('description' description=STRING';')? 
+  		('matching:' matching=AbstractNameConvetion';')? 
+  		('cardinality' cardinality=Cardinality';')? 
+  		(methods += Method)*
+  '}'
+;
+
+XmlElement:
+  'xmlElement' name=ID_ASML '{'
+  		('matching' matching=STRING';')? 
+  		('cardinality' cardinality=Cardinality';')? 
+  '}'
+;
+
+XmlDocument:
+  'xmlDocument' name=ID_ASML '{'
+  		('matching' matching=STRING';')? 
+  		('cardinality' cardinality=Cardinality';')? 
+  '}'
+;
+
+Layer:
+  'layer' name=ID_ASML '{'
+  		('matching' matching=LayerMatching';')? 
+  		(modules += Module)*
+  		(restrictions += Restriction)*
+  '}'
+;
+
+Module:
+  'module' name=ID_ASML '{'
+   		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
+  		('matching' matching=ModuleMatching ';')? 
+  		(components += AbstractComponent)*
+  		(restrictions += Restriction)*
+  '}'
+;
+ 
+MetaModule:
+  'meta-module' name=ID_ASML '{'
+   		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
+  		('matching' matching=ModuleMatching ';')? 
+  		(components += AbstractComponent)*
+  		(restrictions += Restriction)*
+  '}'
+;
+ 
+QualifiedName:
+  ID_ASML ('.' ID_ASML)*
+; 
+ 
+enum GroupClause:
+	NULL = 'null' | ONLY='only' | ANY='any' | NO_ONE='no one'
+;
+
+enum PermissionClause:
+	NULL='null' | MUST='must' | CAN='can' | CANNOT ='cannot'
+;
+
+enum RelactionType:
+	ACCESS='access' | DECLARE='declare' | HANDLE='handle' | EXTEND='extend' | IMPLEMENT = 'implement' | CREATE='create' | THROW='throw' | USEANOTATION='use annotation'
+	| DEPEND = 'depend' | REQUIRES='requires'
+;
+
+
+Restriction:
+	'restriction' '{' (groupClause=GroupClause)? componentA+=([AbstractComponent|QualifiedName])*  (permissionClause=PermissionClause)? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName]'}' 
+; 
+// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
