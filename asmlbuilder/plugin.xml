@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="asmlBuilder"
+         name="ASML Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="asmlbuilder.builder.ASMLBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="asmlNature"
+         name="ASML Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="asmlbuilder.builder.ASMLNature">
+         </run>
+      </runtime>
+      <builder
+            id="asmlbuilder.asmlBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands"> 
+      <category
+            name="ASML Project Nature commands"
+            id="asmlbuilder.asmlNature.category">
+      </category>
+      <command
+            name="Add/RemoveASML Project Nature"
+            defaultHandler="asmlbuilder.builder.AddRemoveASMLNatureHandler"
+            categoryId="asmlbuilder.asmlNature.category"
+            id="asmlbuilder.addRemoveASMLNature">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+         <command
+               commandId="asmlbuilder.addRemoveASMLNature"
+               label="Disable ASML builder"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                        <test
+                              value="asmlbuilder.asmlNature"
+                              property="org.eclipse.core.resources.projectNature">
+                        </test>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="asmlbuilder.addRemoveASMLNature"
+               label="Enable ASML builder"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                        <not>
+                           <test
+                                 value="asmlbuilder.asmlNature"
+                                 property="org.eclipse.core.resources.projectNature">
+                           </test>
+                        </not>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         id="asmlProblem"
+         name="ASML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+</plugin>
