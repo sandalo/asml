@@ -6,24 +6,24 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Class</b></em>'.
+ * A representation of the model object '<em><b>Meta Class</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Class#getDescription <em>Description</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Class#getMatching <em>Matching</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Class#getCardinality <em>Cardinality</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Class#getMethods <em>Methods</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getDescription <em>Description</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getMatching <em>Matching</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getCardinality <em>Cardinality</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getMethods <em>Methods</em>}</li>
  * </ul>
  * </p>
  *
- * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getClass_()
+ * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaClass()
  * @model
  * @generated
  */
-public interface Class extends AbstractComponent
+public interface MetaClass extends AbstractComponent
 {
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -35,14 +35,14 @@ public interface Class extends AbstractComponent
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getClass_Description()
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaClass_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Class#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -61,14 +61,14 @@ public interface Class extends AbstractComponent
    * <!-- end-user-doc -->
    * @return the value of the '<em>Matching</em>' containment reference.
    * @see #setMatching(AbstractNameConvetion)
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getClass_Matching()
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaClass_Matching()
    * @model containment="true"
    * @generated
    */
   AbstractNameConvetion getMatching();
 
   /**
-   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Class#getMatching <em>Matching</em>}' containment reference.
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getMatching <em>Matching</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Matching</em>' containment reference.
@@ -89,14 +89,14 @@ public interface Class extends AbstractComponent
    * @return the value of the '<em>Cardinality</em>' attribute.
    * @see br.ufmg.dcc.asml.aSMLModel.Cardinality
    * @see #setCardinality(Cardinality)
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getClass_Cardinality()
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaClass_Cardinality()
    * @model
    * @generated
    */
   Cardinality getCardinality();
 
   /**
-   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Class#getCardinality <em>Cardinality</em>}' attribute.
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getCardinality <em>Cardinality</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Cardinality</em>' attribute.
@@ -116,10 +116,10 @@ public interface Class extends AbstractComponent
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Methods</em>' containment reference list.
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getClass_Methods()
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaClass_Methods()
    * @model containment="true"
    * @generated
    */
   EList<Method> getMethods();
 
-} // Class
+} // MetaClass

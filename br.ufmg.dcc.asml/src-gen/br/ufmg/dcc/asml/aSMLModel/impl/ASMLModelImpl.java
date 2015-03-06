@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getImportURI <em>Import URI</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getViews <em>Views</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getIgnore <em>Ignore</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +90,16 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
    * @ordered
    */
   protected EList<View> views;
+
+  /**
+   * The cached value of the '{@link #getIgnore() <em>Ignore</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIgnore()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> ignore;
 
   /**
    * <!-- begin-user-doc -->
@@ -175,6 +187,20 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getIgnore()
+  {
+    if (ignore == null)
+    {
+      ignore = new EDataTypeEList<String>(String.class, this, ASMLModelPackage.ASML_MODEL__IGNORE);
+    }
+    return ignore;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -202,6 +228,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
         return getImportURI();
       case ASMLModelPackage.ASML_MODEL__VIEWS:
         return getViews();
+      case ASMLModelPackage.ASML_MODEL__IGNORE:
+        return getIgnore();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -227,6 +255,10 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
         getViews().clear();
         getViews().addAll((Collection<? extends View>)newValue);
         return;
+      case ASMLModelPackage.ASML_MODEL__IGNORE:
+        getIgnore().clear();
+        getIgnore().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -250,6 +282,9 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
       case ASMLModelPackage.ASML_MODEL__VIEWS:
         getViews().clear();
         return;
+      case ASMLModelPackage.ASML_MODEL__IGNORE:
+        getIgnore().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -270,6 +305,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
         return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
       case ASMLModelPackage.ASML_MODEL__VIEWS:
         return views != null && !views.isEmpty();
+      case ASMLModelPackage.ASML_MODEL__IGNORE:
+        return ignore != null && !ignore.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -289,6 +326,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
     result.append(name);
     result.append(", importURI: ");
     result.append(importURI);
+    result.append(", ignore: ");
+    result.append(ignore);
     result.append(')');
     return result.toString();
   }

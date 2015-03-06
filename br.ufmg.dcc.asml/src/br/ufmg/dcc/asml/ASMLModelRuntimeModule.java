@@ -3,6 +3,10 @@
  */
 package br.ufmg.dcc.asml;
 
+import org.eclipse.xtext.formatting.IFormatter;
+
+import br.ufmg.dcc.asml.formatting.ASMLModelFormatter;
+
 
 /**
  * Use this class to register components to be used at runtime / without the
@@ -20,4 +24,9 @@ public class ASMLModelRuntimeModule extends br.ufmg.dcc.asml.AbstractASMLModelRu
 		  annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(ASMLImportUriGlobalScopeProvider.class);	
 	}
 	*/
+	
+	@Override
+	public Class<? extends IFormatter> bindIFormatter() {
+		return ASMLModelFormatter.class;
+	}
 }

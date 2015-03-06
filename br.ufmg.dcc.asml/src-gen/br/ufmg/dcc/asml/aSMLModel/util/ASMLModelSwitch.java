@@ -2,29 +2,7 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.util;
 
-import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
-import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
-import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
-import br.ufmg.dcc.asml.aSMLModel.Attribute;
-import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.Component;
-import br.ufmg.dcc.asml.aSMLModel.Configuration;
-import br.ufmg.dcc.asml.aSMLModel.ConfigurationElement;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator;
-import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkClass;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation;
-import br.ufmg.dcc.asml.aSMLModel.Layer;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
-import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.Method;
-import br.ufmg.dcc.asml.aSMLModel.Module;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
-import br.ufmg.dcc.asml.aSMLModel.Restriction;
-import br.ufmg.dcc.asml.aSMLModel.View;
-import br.ufmg.dcc.asml.aSMLModel.XmlDocument;
-import br.ufmg.dcc.asml.aSMLModel.XmlElement;
+import br.ufmg.dcc.asml.aSMLModel.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -129,41 +107,10 @@ public class ASMLModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ASMLModelPackage.COMPONENT:
-      {
-        Component component = (Component)theEObject;
-        T result = caseComponent(component);
-        if (result == null) result = caseAbstractComponent(component);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.FRAMEWORK_INSTANTIATION:
-      {
-        FrameworkInstantiation frameworkInstantiation = (FrameworkInstantiation)theEObject;
-        T result = caseFrameworkInstantiation(frameworkInstantiation);
-        if (result == null) result = caseAbstractComponent(frameworkInstantiation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.FRAMEWORK_CLASS:
-      {
-        FrameworkClass frameworkClass = (FrameworkClass)theEObject;
-        T result = caseFrameworkClass(frameworkClass);
-        if (result == null) result = caseAbstractComponent(frameworkClass);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ASMLModelPackage.EXPRESSION_MATCHING_OPERATOR:
       {
         ExpressionMatchingOperator expressionMatchingOperator = (ExpressionMatchingOperator)theEObject;
         T result = caseExpressionMatchingOperator(expressionMatchingOperator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.LAYER_MATCHING:
-      {
-        LayerMatching layerMatching = (LayerMatching)theEObject;
-        T result = caseLayerMatching(layerMatching);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -216,11 +163,19 @@ public class ASMLModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ASMLModelPackage.CLASS:
+      case ASMLModelPackage.META_CLASS:
       {
-        br.ufmg.dcc.asml.aSMLModel.Class class_ = (br.ufmg.dcc.asml.aSMLModel.Class)theEObject;
-        T result = caseClass(class_);
-        if (result == null) result = caseAbstractComponent(class_);
+        MetaClass metaClass = (MetaClass)theEObject;
+        T result = caseMetaClass(metaClass);
+        if (result == null) result = caseAbstractComponent(metaClass);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ASMLModelPackage.EXTERNAL_CLASS:
+      {
+        ExternalClass externalClass = (ExternalClass)theEObject;
+        T result = caseExternalClass(externalClass);
+        if (result == null) result = caseAbstractComponent(externalClass);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -242,14 +197,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ASMLModelPackage.LAYER:
-      {
-        Layer layer = (Layer)theEObject;
-        T result = caseLayer(layer);
-        if (result == null) result = caseAbstractComponent(layer);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ASMLModelPackage.MODULE:
       {
         Module module = (Module)theEObject;
@@ -263,6 +210,14 @@ public class ASMLModelSwitch<T> extends Switch<T>
         MetaModule metaModule = (MetaModule)theEObject;
         T result = caseMetaModule(metaModule);
         if (result == null) result = caseAbstractComponent(metaModule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ASMLModelPackage.EXTERNAL_MODULE:
+      {
+        ExternalModule externalModule = (ExternalModule)theEObject;
+        T result = caseExternalModule(externalModule);
+        if (result == null) result = caseAbstractComponent(externalModule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -358,54 +313,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Component</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseComponent(Component object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Framework Instantiation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Framework Instantiation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFrameworkInstantiation(FrameworkInstantiation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Framework Class</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Framework Class</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFrameworkClass(FrameworkClass object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression Matching Operator</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -417,22 +324,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpressionMatchingOperator(ExpressionMatchingOperator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Layer Matching</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Layer Matching</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLayerMatching(LayerMatching object)
   {
     return null;
   }
@@ -534,17 +425,33 @@ public class ASMLModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Meta Class</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Class</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Meta Class</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseClass(br.ufmg.dcc.asml.aSMLModel.Class object)
+  public T caseMetaClass(MetaClass object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>External Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternalClass(ExternalClass object)
   {
     return null;
   }
@@ -582,22 +489,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Layer</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Layer</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLayer(Layer object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -625,6 +516,22 @@ public class ASMLModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMetaModule(MetaModule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>External Module</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External Module</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternalModule(ExternalModule object)
   {
     return null;
   }

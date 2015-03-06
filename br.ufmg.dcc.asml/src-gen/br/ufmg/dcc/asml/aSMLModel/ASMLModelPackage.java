@@ -95,13 +95,22 @@ public interface ASMLModelPackage extends EPackage
   int ASML_MODEL__VIEWS = 2;
 
   /**
+   * The feature id for the '<em><b>Ignore</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASML_MODEL__IGNORE = 3;
+
+  /**
    * The number of structural features of the '<em>ASML Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASML_MODEL_FEATURE_COUNT = 3;
+  int ASML_MODEL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl <em>View</em>}' class.
@@ -243,153 +252,6 @@ public interface ASMLModelPackage extends EPackage
   int ABSTRACT_NAME_CONVETION_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl <em>Component</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getComponent()
-   * @generated
-   */
-  int COMPONENT = 5;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__NAME = ABSTRACT_COMPONENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Matching</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Cardinality</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__CARDINALITY = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Components</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__COMPONENTS = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Restrictions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__RESTRICTIONS = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>Component</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.FrameworkInstantiationImpl <em>Framework Instantiation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.FrameworkInstantiationImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getFrameworkInstantiation()
-   * @generated
-   */
-  int FRAMEWORK_INSTANTIATION = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_INSTANTIATION__NAME = ABSTRACT_COMPONENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Components</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_INSTANTIATION__COMPONENTS = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Restrictions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_INSTANTIATION__RESTRICTIONS = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Framework Instantiation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_INSTANTIATION_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.FrameworkClassImpl <em>Framework Class</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.FrameworkClassImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getFrameworkClass()
-   * @generated
-   */
-  int FRAMEWORK_CLASS = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_CLASS__NAME = ABSTRACT_COMPONENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Java CLass</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_CLASS__JAVA_CLASS = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Framework Class</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAMEWORK_CLASS_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExpressionMatchingOperatorImpl <em>Expression Matching Operator</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -397,7 +259,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getExpressionMatchingOperator()
    * @generated
    */
-  int EXPRESSION_MATCHING_OPERATOR = 8;
+  int EXPRESSION_MATCHING_OPERATOR = 5;
 
   /**
    * The feature id for the '<em><b>AND</b></em>' attribute.
@@ -427,43 +289,6 @@ public interface ASMLModelPackage extends EPackage
   int EXPRESSION_MATCHING_OPERATOR_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.LayerMatchingImpl <em>Layer Matching</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.LayerMatchingImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getLayerMatching()
-   * @generated
-   */
-  int LAYER_MATCHING = 9;
-
-  /**
-   * The feature id for the '<em><b>Layer Matching</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_MATCHING__LAYER_MATCHING = 0;
-
-  /**
-   * The feature id for the '<em><b>Parameter</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_MATCHING__PARAMETER = 1;
-
-  /**
-   * The number of structural features of the '<em>Layer Matching</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_MATCHING_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ModuleMatchingImpl <em>Module Matching</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -471,7 +296,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getModuleMatching()
    * @generated
    */
-  int MODULE_MATCHING = 10;
+  int MODULE_MATCHING = 6;
 
   /**
    * The feature id for the '<em><b>Parameter</b></em>' attribute.
@@ -499,7 +324,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getClassMatching()
    * @generated
    */
-  int CLASS_MATCHING = 11;
+  int CLASS_MATCHING = 7;
 
   /**
    * The feature id for the '<em><b>Expression Matching</b></em>' attribute.
@@ -536,7 +361,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getConfigurationElement()
    * @generated
    */
-  int CONFIGURATION_ELEMENT = 12;
+  int CONFIGURATION_ELEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -573,7 +398,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getFile()
    * @generated
    */
-  int FILE = 13;
+  int FILE = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -619,7 +444,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getConfiguration()
    * @generated
    */
-  int CONFIGURATION = 14;
+  int CONFIGURATION = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -674,7 +499,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getMethod()
    * @generated
    */
-  int METHOD = 15;
+  int METHOD = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -713,14 +538,14 @@ public interface ASMLModelPackage extends EPackage
   int METHOD_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl <em>Class</em>}' class.
+   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl <em>Meta Class</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getClass_()
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getMetaClass()
    * @generated
    */
-  int CLASS = 16;
+  int META_CLASS = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -729,7 +554,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__NAME = ABSTRACT_COMPONENT__NAME;
+  int META_CLASS__NAME = ABSTRACT_COMPONENT__NAME;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -738,7 +563,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__DESCRIPTION = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
+  int META_CLASS__DESCRIPTION = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Matching</b></em>' containment reference.
@@ -747,7 +572,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
+  int META_CLASS__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Cardinality</b></em>' attribute.
@@ -756,7 +581,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__CARDINALITY = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
+  int META_CLASS__CARDINALITY = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Methods</b></em>' containment reference list.
@@ -765,16 +590,62 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS__METHODS = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
+  int META_CLASS__METHODS = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
 
   /**
-   * The number of structural features of the '<em>Class</em>' class.
+   * The number of structural features of the '<em>Meta Class</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
+  int META_CLASS_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalClassImpl <em>External Class</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ExternalClassImpl
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getExternalClass()
+   * @generated
+   */
+  int EXTERNAL_CLASS = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_CLASS__NAME = ABSTRACT_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_CLASS__DESCRIPTION = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_CLASS__TYPE = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>External Class</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_CLASS_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.XmlElementImpl <em>Xml Element</em>}' class.
@@ -784,7 +655,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getXmlElement()
    * @generated
    */
-  int XML_ELEMENT = 17;
+  int XML_ELEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -830,7 +701,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getXmlDocument()
    * @generated
    */
-  int XML_DOCUMENT = 18;
+  int XML_DOCUMENT = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -869,61 +740,6 @@ public interface ASMLModelPackage extends EPackage
   int XML_DOCUMENT_FEATURE_COUNT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.LayerImpl <em>Layer</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.LayerImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getLayer()
-   * @generated
-   */
-  int LAYER = 19;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER__NAME = ABSTRACT_COMPONENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Matching</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Modules</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER__MODULES = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Restrictions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER__RESTRICTIONS = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Layer</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYER_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
-
-  /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ModuleImpl <em>Module</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -931,7 +747,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getModule()
    * @generated
    */
-  int MODULE = 20;
+  int MODULE = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -995,7 +811,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getMetaModule()
    * @generated
    */
-  int META_MODULE = 21;
+  int META_MODULE = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1052,6 +868,70 @@ public interface ASMLModelPackage extends EPackage
   int META_MODULE_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
 
   /**
+   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl <em>External Module</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getExternalModule()
+   * @generated
+   */
+  int EXTERNAL_MODULE = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_MODULE__NAME = ABSTRACT_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_MODULE__ATTRIBUTES = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Matching</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_MODULE__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Components</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_MODULE__COMPONENTS = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Restrictions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_MODULE__RESTRICTIONS = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>External Module</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_MODULE_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
+
+  /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl <em>Restriction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1059,7 +939,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getRestriction()
    * @generated
    */
-  int RESTRICTION = 22;
+  int RESTRICTION = 19;
 
   /**
    * The feature id for the '<em><b>Group Clause</b></em>' attribute.
@@ -1107,13 +987,22 @@ public interface ASMLModelPackage extends EPackage
   int RESTRICTION__COMPONENT_B = 4;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTRICTION__DESCRIPTION = 5;
+
+  /**
    * The number of structural features of the '<em>Restriction</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RESTRICTION_FEATURE_COUNT = 5;
+  int RESTRICTION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.Cardinality <em>Cardinality</em>}' enum.
@@ -1123,7 +1012,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getCardinality()
    * @generated
    */
-  int CARDINALITY = 23;
+  int CARDINALITY = 20;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause <em>Expression Matching Clause</em>}' enum.
@@ -1133,17 +1022,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getExpressionMatchingClause()
    * @generated
    */
-  int EXPRESSION_MATCHING_CLAUSE = 24;
-
-  /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause <em>Layer Matching Clause</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getLayerMatchingClause()
-   * @generated
-   */
-  int LAYER_MATCHING_CLAUSE = 25;
+  int EXPRESSION_MATCHING_CLAUSE = 21;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.ModuleMatchingParamenter <em>Module Matching Paramenter</em>}' enum.
@@ -1153,7 +1032,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getModuleMatchingParamenter()
    * @generated
    */
-  int MODULE_MATCHING_PARAMENTER = 26;
+  int MODULE_MATCHING_PARAMENTER = 22;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.GroupClause <em>Group Clause</em>}' enum.
@@ -1163,7 +1042,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getGroupClause()
    * @generated
    */
-  int GROUP_CLAUSE = 27;
+  int GROUP_CLAUSE = 23;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.PermissionClause <em>Permission Clause</em>}' enum.
@@ -1173,7 +1052,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getPermissionClause()
    * @generated
    */
-  int PERMISSION_CLAUSE = 28;
+  int PERMISSION_CLAUSE = 24;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.RelactionType <em>Relaction Type</em>}' enum.
@@ -1183,7 +1062,7 @@ public interface ASMLModelPackage extends EPackage
    * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getRelactionType()
    * @generated
    */
-  int RELACTION_TYPE = 29;
+  int RELACTION_TYPE = 25;
 
 
   /**
@@ -1228,6 +1107,17 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    */
   EReference getASMLModel_Views();
+
+  /**
+   * Returns the meta object for the attribute list '{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getIgnore <em>Ignore</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Ignore</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModel#getIgnore()
+   * @see #getASMLModel()
+   * @generated
+   */
+  EAttribute getASMLModel_Ignore();
 
   /**
    * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.View <em>View</em>}'.
@@ -1347,113 +1237,6 @@ public interface ASMLModelPackage extends EPackage
   EClass getAbstractNameConvetion();
 
   /**
-   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.Component <em>Component</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Component</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Component
-   * @generated
-   */
-  EClass getComponent();
-
-  /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.Component#getMatching <em>Matching</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Matching</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Component#getMatching()
-   * @see #getComponent()
-   * @generated
-   */
-  EAttribute getComponent_Matching();
-
-  /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.Component#getCardinality <em>Cardinality</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Cardinality</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Component#getCardinality()
-   * @see #getComponent()
-   * @generated
-   */
-  EAttribute getComponent_Cardinality();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.Component#getComponents <em>Components</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Components</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Component#getComponents()
-   * @see #getComponent()
-   * @generated
-   */
-  EReference getComponent_Components();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.Component#getRestrictions <em>Restrictions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Restrictions</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Component#getRestrictions()
-   * @see #getComponent()
-   * @generated
-   */
-  EReference getComponent_Restrictions();
-
-  /**
-   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation <em>Framework Instantiation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Framework Instantiation</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation
-   * @generated
-   */
-  EClass getFrameworkInstantiation();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation#getComponents <em>Components</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Components</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation#getComponents()
-   * @see #getFrameworkInstantiation()
-   * @generated
-   */
-  EReference getFrameworkInstantiation_Components();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation#getRestrictions <em>Restrictions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Restrictions</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation#getRestrictions()
-   * @see #getFrameworkInstantiation()
-   * @generated
-   */
-  EReference getFrameworkInstantiation_Restrictions();
-
-  /**
-   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkClass <em>Framework Class</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Framework Class</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkClass
-   * @generated
-   */
-  EClass getFrameworkClass();
-
-  /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkClass#getJavaCLass <em>Java CLass</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Java CLass</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkClass#getJavaCLass()
-   * @see #getFrameworkClass()
-   * @generated
-   */
-  EAttribute getFrameworkClass_JavaCLass();
-
-  /**
    * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator <em>Expression Matching Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1484,38 +1267,6 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    */
   EAttribute getExpressionMatchingOperator_OR();
-
-  /**
-   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatching <em>Layer Matching</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Layer Matching</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.LayerMatching
-   * @generated
-   */
-  EClass getLayerMatching();
-
-  /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatching#getLayerMatching <em>Layer Matching</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Layer Matching</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.LayerMatching#getLayerMatching()
-   * @see #getLayerMatching()
-   * @generated
-   */
-  EAttribute getLayerMatching_LayerMatching();
-
-  /**
-   * Returns the meta object for the reference '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatching#getParameter <em>Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parameter</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.LayerMatching#getParameter()
-   * @see #getLayerMatching()
-   * @generated
-   */
-  EReference getLayerMatching_Parameter();
 
   /**
    * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.ModuleMatching <em>Module Matching</em>}'.
@@ -1677,58 +1428,90 @@ public interface ASMLModelPackage extends EPackage
   EAttribute getMethod_Cardinality();
 
   /**
-   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.Class <em>Class</em>}'.
+   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass <em>Meta Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Class</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Class
+   * @return the meta object for class '<em>Meta Class</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass
    * @generated
    */
-  EClass getClass_();
+  EClass getMetaClass();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.Class#getDescription <em>Description</em>}'.
+   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Description</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Class#getDescription()
-   * @see #getClass_()
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass#getDescription()
+   * @see #getMetaClass()
    * @generated
    */
-  EAttribute getClass_Description();
+  EAttribute getMetaClass_Description();
 
   /**
-   * Returns the meta object for the containment reference '{@link br.ufmg.dcc.asml.aSMLModel.Class#getMatching <em>Matching</em>}'.
+   * Returns the meta object for the containment reference '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getMatching <em>Matching</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Matching</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Class#getMatching()
-   * @see #getClass_()
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass#getMatching()
+   * @see #getMetaClass()
    * @generated
    */
-  EReference getClass_Matching();
+  EReference getMetaClass_Matching();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.Class#getCardinality <em>Cardinality</em>}'.
+   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getCardinality <em>Cardinality</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Cardinality</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Class#getCardinality()
-   * @see #getClass_()
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass#getCardinality()
+   * @see #getMetaClass()
    * @generated
    */
-  EAttribute getClass_Cardinality();
+  EAttribute getMetaClass_Cardinality();
 
   /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.Class#getMethods <em>Methods</em>}'.
+   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getMethods <em>Methods</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Methods</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Class#getMethods()
-   * @see #getClass_()
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass#getMethods()
+   * @see #getMetaClass()
    * @generated
    */
-  EReference getClass_Methods();
+  EReference getMetaClass_Methods();
+
+  /**
+   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.ExternalClass <em>External Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>External Class</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalClass
+   * @generated
+   */
+  EClass getExternalClass();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.ExternalClass#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalClass#getDescription()
+   * @see #getExternalClass()
+   * @generated
+   */
+  EAttribute getExternalClass_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.ExternalClass#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalClass#getType()
+   * @see #getExternalClass()
+   * @generated
+   */
+  EAttribute getExternalClass_Type();
 
   /**
    * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.XmlElement <em>Xml Element</em>}'.
@@ -1771,49 +1554,6 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    */
   EAttribute getXmlDocument_Matching();
-
-  /**
-   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.Layer <em>Layer</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Layer</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Layer
-   * @generated
-   */
-  EClass getLayer();
-
-  /**
-   * Returns the meta object for the containment reference '{@link br.ufmg.dcc.asml.aSMLModel.Layer#getMatching <em>Matching</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Matching</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Layer#getMatching()
-   * @see #getLayer()
-   * @generated
-   */
-  EReference getLayer_Matching();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.Layer#getModules <em>Modules</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Modules</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Layer#getModules()
-   * @see #getLayer()
-   * @generated
-   */
-  EReference getLayer_Modules();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.Layer#getRestrictions <em>Restrictions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Restrictions</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Layer#getRestrictions()
-   * @see #getLayer()
-   * @generated
-   */
-  EReference getLayer_Restrictions();
 
   /**
    * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.Module <em>Module</em>}'.
@@ -1924,6 +1664,60 @@ public interface ASMLModelPackage extends EPackage
   EReference getMetaModule_Restrictions();
 
   /**
+   * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule <em>External Module</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>External Module</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule
+   * @generated
+   */
+  EClass getExternalModule();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule#getAttributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attributes</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule#getAttributes()
+   * @see #getExternalModule()
+   * @generated
+   */
+  EReference getExternalModule_Attributes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule#getMatching <em>Matching</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Matching</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule#getMatching()
+   * @see #getExternalModule()
+   * @generated
+   */
+  EReference getExternalModule_Matching();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule#getComponents <em>Components</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Components</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule#getComponents()
+   * @see #getExternalModule()
+   * @generated
+   */
+  EReference getExternalModule_Components();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule#getRestrictions <em>Restrictions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Restrictions</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule#getRestrictions()
+   * @see #getExternalModule()
+   * @generated
+   */
+  EReference getExternalModule_Restrictions();
+
+  /**
    * Returns the meta object for class '{@link br.ufmg.dcc.asml.aSMLModel.Restriction <em>Restriction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1989,6 +1783,17 @@ public interface ASMLModelPackage extends EPackage
   EReference getRestriction_ComponentB();
 
   /**
+   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription()
+   * @see #getRestriction()
+   * @generated
+   */
+  EAttribute getRestriction_Description();
+
+  /**
    * Returns the meta object for enum '{@link br.ufmg.dcc.asml.aSMLModel.Cardinality <em>Cardinality</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2007,16 +1812,6 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    */
   EEnum getExpressionMatchingClause();
-
-  /**
-   * Returns the meta object for enum '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause <em>Layer Matching Clause</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Layer Matching Clause</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause
-   * @generated
-   */
-  EEnum getLayerMatchingClause();
 
   /**
    * Returns the meta object for enum '{@link br.ufmg.dcc.asml.aSMLModel.ModuleMatchingParamenter <em>Module Matching Paramenter</em>}'.
@@ -2116,6 +1911,14 @@ public interface ASMLModelPackage extends EPackage
     EReference ASML_MODEL__VIEWS = eINSTANCE.getASMLModel_Views();
 
     /**
+     * The meta object literal for the '<em><b>Ignore</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASML_MODEL__IGNORE = eINSTANCE.getASMLModel_Ignore();
+
+    /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl <em>View</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2212,92 +2015,6 @@ public interface ASMLModelPackage extends EPackage
     EClass ABSTRACT_NAME_CONVETION = eINSTANCE.getAbstractNameConvetion();
 
     /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl <em>Component</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getComponent()
-     * @generated
-     */
-    EClass COMPONENT = eINSTANCE.getComponent();
-
-    /**
-     * The meta object literal for the '<em><b>Matching</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPONENT__MATCHING = eINSTANCE.getComponent_Matching();
-
-    /**
-     * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMPONENT__CARDINALITY = eINSTANCE.getComponent_Cardinality();
-
-    /**
-     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPONENT__COMPONENTS = eINSTANCE.getComponent_Components();
-
-    /**
-     * The meta object literal for the '<em><b>Restrictions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPONENT__RESTRICTIONS = eINSTANCE.getComponent_Restrictions();
-
-    /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.FrameworkInstantiationImpl <em>Framework Instantiation</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.FrameworkInstantiationImpl
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getFrameworkInstantiation()
-     * @generated
-     */
-    EClass FRAMEWORK_INSTANTIATION = eINSTANCE.getFrameworkInstantiation();
-
-    /**
-     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FRAMEWORK_INSTANTIATION__COMPONENTS = eINSTANCE.getFrameworkInstantiation_Components();
-
-    /**
-     * The meta object literal for the '<em><b>Restrictions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FRAMEWORK_INSTANTIATION__RESTRICTIONS = eINSTANCE.getFrameworkInstantiation_Restrictions();
-
-    /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.FrameworkClassImpl <em>Framework Class</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.FrameworkClassImpl
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getFrameworkClass()
-     * @generated
-     */
-    EClass FRAMEWORK_CLASS = eINSTANCE.getFrameworkClass();
-
-    /**
-     * The meta object literal for the '<em><b>Java CLass</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FRAMEWORK_CLASS__JAVA_CLASS = eINSTANCE.getFrameworkClass_JavaCLass();
-
-    /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExpressionMatchingOperatorImpl <em>Expression Matching Operator</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2322,32 +2039,6 @@ public interface ASMLModelPackage extends EPackage
      * @generated
      */
     EAttribute EXPRESSION_MATCHING_OPERATOR__OR = eINSTANCE.getExpressionMatchingOperator_OR();
-
-    /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.LayerMatchingImpl <em>Layer Matching</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.LayerMatchingImpl
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getLayerMatching()
-     * @generated
-     */
-    EClass LAYER_MATCHING = eINSTANCE.getLayerMatching();
-
-    /**
-     * The meta object literal for the '<em><b>Layer Matching</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute LAYER_MATCHING__LAYER_MATCHING = eINSTANCE.getLayerMatching_LayerMatching();
-
-    /**
-     * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LAYER_MATCHING__PARAMETER = eINSTANCE.getLayerMatching_Parameter();
 
     /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ModuleMatchingImpl <em>Module Matching</em>}' class.
@@ -2482,14 +2173,14 @@ public interface ASMLModelPackage extends EPackage
     EAttribute METHOD__CARDINALITY = eINSTANCE.getMethod_Cardinality();
 
     /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl <em>Class</em>}' class.
+     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl <em>Meta Class</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getClass_()
+     * @see br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl
+     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getMetaClass()
      * @generated
      */
-    EClass CLASS = eINSTANCE.getClass_();
+    EClass META_CLASS = eINSTANCE.getMetaClass();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -2497,7 +2188,7 @@ public interface ASMLModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLASS__DESCRIPTION = eINSTANCE.getClass_Description();
+    EAttribute META_CLASS__DESCRIPTION = eINSTANCE.getMetaClass_Description();
 
     /**
      * The meta object literal for the '<em><b>Matching</b></em>' containment reference feature.
@@ -2505,7 +2196,7 @@ public interface ASMLModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__MATCHING = eINSTANCE.getClass_Matching();
+    EReference META_CLASS__MATCHING = eINSTANCE.getMetaClass_Matching();
 
     /**
      * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
@@ -2513,7 +2204,7 @@ public interface ASMLModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLASS__CARDINALITY = eINSTANCE.getClass_Cardinality();
+    EAttribute META_CLASS__CARDINALITY = eINSTANCE.getMetaClass_Cardinality();
 
     /**
      * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.
@@ -2521,7 +2212,33 @@ public interface ASMLModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__METHODS = eINSTANCE.getClass_Methods();
+    EReference META_CLASS__METHODS = eINSTANCE.getMetaClass_Methods();
+
+    /**
+     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalClassImpl <em>External Class</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufmg.dcc.asml.aSMLModel.impl.ExternalClassImpl
+     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getExternalClass()
+     * @generated
+     */
+    EClass EXTERNAL_CLASS = eINSTANCE.getExternalClass();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTERNAL_CLASS__DESCRIPTION = eINSTANCE.getExternalClass_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTERNAL_CLASS__TYPE = eINSTANCE.getExternalClass_Type();
 
     /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.XmlElementImpl <em>Xml Element</em>}' class.
@@ -2558,40 +2275,6 @@ public interface ASMLModelPackage extends EPackage
      * @generated
      */
     EAttribute XML_DOCUMENT__MATCHING = eINSTANCE.getXmlDocument_Matching();
-
-    /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.LayerImpl <em>Layer</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.LayerImpl
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getLayer()
-     * @generated
-     */
-    EClass LAYER = eINSTANCE.getLayer();
-
-    /**
-     * The meta object literal for the '<em><b>Matching</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LAYER__MATCHING = eINSTANCE.getLayer_Matching();
-
-    /**
-     * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LAYER__MODULES = eINSTANCE.getLayer_Modules();
-
-    /**
-     * The meta object literal for the '<em><b>Restrictions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LAYER__RESTRICTIONS = eINSTANCE.getLayer_Restrictions();
 
     /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ModuleImpl <em>Module</em>}' class.
@@ -2678,6 +2361,48 @@ public interface ASMLModelPackage extends EPackage
     EReference META_MODULE__RESTRICTIONS = eINSTANCE.getMetaModule_Restrictions();
 
     /**
+     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl <em>External Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl
+     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getExternalModule()
+     * @generated
+     */
+    EClass EXTERNAL_MODULE = eINSTANCE.getExternalModule();
+
+    /**
+     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNAL_MODULE__ATTRIBUTES = eINSTANCE.getExternalModule_Attributes();
+
+    /**
+     * The meta object literal for the '<em><b>Matching</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNAL_MODULE__MATCHING = eINSTANCE.getExternalModule_Matching();
+
+    /**
+     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNAL_MODULE__COMPONENTS = eINSTANCE.getExternalModule_Components();
+
+    /**
+     * The meta object literal for the '<em><b>Restrictions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNAL_MODULE__RESTRICTIONS = eINSTANCE.getExternalModule_Restrictions();
+
+    /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl <em>Restriction</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2728,6 +2453,14 @@ public interface ASMLModelPackage extends EPackage
     EReference RESTRICTION__COMPONENT_B = eINSTANCE.getRestriction_ComponentB();
 
     /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RESTRICTION__DESCRIPTION = eINSTANCE.getRestriction_Description();
+
+    /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.Cardinality <em>Cardinality</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2746,16 +2479,6 @@ public interface ASMLModelPackage extends EPackage
      * @generated
      */
     EEnum EXPRESSION_MATCHING_CLAUSE = eINSTANCE.getExpressionMatchingClause();
-
-    /**
-     * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause <em>Layer Matching Clause</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause
-     * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getLayerMatchingClause()
-     * @generated
-     */
-    EEnum LAYER_MATCHING_CLAUSE = eINSTANCE.getLayerMatchingClause();
 
     /**
      * The meta object literal for the '{@link br.ufmg.dcc.asml.aSMLModel.ModuleMatchingParamenter <em>Module Matching Paramenter</em>}' enum.

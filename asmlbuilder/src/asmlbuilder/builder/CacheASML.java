@@ -13,9 +13,15 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.dom.ASTNode;
 
+import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 
 public class CacheASML {
+	 ASMLModel asmlModel;
+	public CacheASML(ASMLModel asmlModel){
+		this.asmlModel = asmlModel;
+	}
+	
 	public Map<AbstractComponent, Set<IResource>> getInstancesOfComponentsFound() {
 		return instancesOfComponentsFound;
 	}
@@ -207,6 +213,10 @@ public class CacheASML {
 
 	public Map<IResource, IType> getResourcesITypes() {
 		return resourcesITypes;
+	}
+
+	public ASMLModel getAsmlModel() {
+		return asmlModel;
 	}
 
 }

@@ -68,33 +68,6 @@ public interface ASMLModelFactory extends EFactory
   AbstractNameConvetion createAbstractNameConvetion();
 
   /**
-   * Returns a new object of class '<em>Component</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Component</em>'.
-   * @generated
-   */
-  Component createComponent();
-
-  /**
-   * Returns a new object of class '<em>Framework Instantiation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Framework Instantiation</em>'.
-   * @generated
-   */
-  FrameworkInstantiation createFrameworkInstantiation();
-
-  /**
-   * Returns a new object of class '<em>Framework Class</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Framework Class</em>'.
-   * @generated
-   */
-  FrameworkClass createFrameworkClass();
-
-  /**
    * Returns a new object of class '<em>Expression Matching Operator</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -102,15 +75,6 @@ public interface ASMLModelFactory extends EFactory
    * @generated
    */
   ExpressionMatchingOperator createExpressionMatchingOperator();
-
-  /**
-   * Returns a new object of class '<em>Layer Matching</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Layer Matching</em>'.
-   * @generated
-   */
-  LayerMatching createLayerMatching();
 
   /**
    * Returns a new object of class '<em>Module Matching</em>'.
@@ -167,13 +131,22 @@ public interface ASMLModelFactory extends EFactory
   Method createMethod();
 
   /**
-   * Returns a new object of class '<em>Class</em>'.
+   * Returns a new object of class '<em>Meta Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Class</em>'.
+   * @return a new object of class '<em>Meta Class</em>'.
    * @generated
    */
-  Class createClass();
+  MetaClass createMetaClass();
+
+  /**
+   * Returns a new object of class '<em>External Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>External Class</em>'.
+   * @generated
+   */
+  ExternalClass createExternalClass();
 
   /**
    * Returns a new object of class '<em>Xml Element</em>'.
@@ -194,15 +167,6 @@ public interface ASMLModelFactory extends EFactory
   XmlDocument createXmlDocument();
 
   /**
-   * Returns a new object of class '<em>Layer</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Layer</em>'.
-   * @generated
-   */
-  Layer createLayer();
-
-  /**
    * Returns a new object of class '<em>Module</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -219,6 +183,15 @@ public interface ASMLModelFactory extends EFactory
    * @generated
    */
   MetaModule createMetaModule();
+
+  /**
+   * Returns a new object of class '<em>External Module</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>External Module</em>'.
+   * @generated
+   */
+  ExternalModule createExternalModule();
 
   /**
    * Returns a new object of class '<em>Restriction</em>'.

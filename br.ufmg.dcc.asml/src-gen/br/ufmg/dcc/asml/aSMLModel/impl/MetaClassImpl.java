@@ -5,6 +5,7 @@ package br.ufmg.dcc.asml.aSMLModel.impl;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
 import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
 import br.ufmg.dcc.asml.aSMLModel.Cardinality;
+import br.ufmg.dcc.asml.aSMLModel.MetaClass;
 import br.ufmg.dcc.asml.aSMLModel.Method;
 
 import java.util.Collection;
@@ -24,21 +25,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Class</b></em>'.
+ * An implementation of the model object '<em><b>Meta Class</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl#getMatching <em>Matching</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl#getCardinality <em>Cardinality</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ClassImpl#getMethods <em>Methods</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getMatching <em>Matching</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getCardinality <em>Cardinality</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getMethods <em>Methods</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml.aSMLModel.Class
+public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
 {
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -105,7 +106,7 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ClassImpl()
+  protected MetaClassImpl()
   {
     super();
   }
@@ -118,7 +119,7 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   @Override
   protected EClass eStaticClass()
   {
-    return ASMLModelPackage.Literals.CLASS;
+    return ASMLModelPackage.Literals.META_CLASS;
   }
 
   /**
@@ -141,7 +142,7 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
     String oldDescription = description;
     description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.CLASS__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_CLASS__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -165,7 +166,7 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
     matching = newMatching;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASMLModelPackage.CLASS__MATCHING, oldMatching, newMatching);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_CLASS__MATCHING, oldMatching, newMatching);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -182,14 +183,14 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
     {
       NotificationChain msgs = null;
       if (matching != null)
-        msgs = ((InternalEObject)matching).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.CLASS__MATCHING, null, msgs);
+        msgs = ((InternalEObject)matching).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.META_CLASS__MATCHING, null, msgs);
       if (newMatching != null)
-        msgs = ((InternalEObject)newMatching).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.CLASS__MATCHING, null, msgs);
+        msgs = ((InternalEObject)newMatching).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.META_CLASS__MATCHING, null, msgs);
       msgs = basicSetMatching(newMatching, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.CLASS__MATCHING, newMatching, newMatching));
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_CLASS__MATCHING, newMatching, newMatching));
   }
 
   /**
@@ -212,7 +213,7 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
     Cardinality oldCardinality = cardinality;
     cardinality = newCardinality == null ? CARDINALITY_EDEFAULT : newCardinality;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.CLASS__CARDINALITY, oldCardinality, cardinality));
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_CLASS__CARDINALITY, oldCardinality, cardinality));
   }
 
   /**
@@ -224,7 +225,7 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   {
     if (methods == null)
     {
-      methods = new EObjectContainmentEList<Method>(Method.class, this, ASMLModelPackage.CLASS__METHODS);
+      methods = new EObjectContainmentEList<Method>(Method.class, this, ASMLModelPackage.META_CLASS__METHODS);
     }
     return methods;
   }
@@ -239,9 +240,9 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   {
     switch (featureID)
     {
-      case ASMLModelPackage.CLASS__MATCHING:
+      case ASMLModelPackage.META_CLASS__MATCHING:
         return basicSetMatching(null, msgs);
-      case ASMLModelPackage.CLASS__METHODS:
+      case ASMLModelPackage.META_CLASS__METHODS:
         return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -257,13 +258,13 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   {
     switch (featureID)
     {
-      case ASMLModelPackage.CLASS__DESCRIPTION:
+      case ASMLModelPackage.META_CLASS__DESCRIPTION:
         return getDescription();
-      case ASMLModelPackage.CLASS__MATCHING:
+      case ASMLModelPackage.META_CLASS__MATCHING:
         return getMatching();
-      case ASMLModelPackage.CLASS__CARDINALITY:
+      case ASMLModelPackage.META_CLASS__CARDINALITY:
         return getCardinality();
-      case ASMLModelPackage.CLASS__METHODS:
+      case ASMLModelPackage.META_CLASS__METHODS:
         return getMethods();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -280,16 +281,16 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   {
     switch (featureID)
     {
-      case ASMLModelPackage.CLASS__DESCRIPTION:
+      case ASMLModelPackage.META_CLASS__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case ASMLModelPackage.CLASS__MATCHING:
+      case ASMLModelPackage.META_CLASS__MATCHING:
         setMatching((AbstractNameConvetion)newValue);
         return;
-      case ASMLModelPackage.CLASS__CARDINALITY:
+      case ASMLModelPackage.META_CLASS__CARDINALITY:
         setCardinality((Cardinality)newValue);
         return;
-      case ASMLModelPackage.CLASS__METHODS:
+      case ASMLModelPackage.META_CLASS__METHODS:
         getMethods().clear();
         getMethods().addAll((Collection<? extends Method>)newValue);
         return;
@@ -307,16 +308,16 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   {
     switch (featureID)
     {
-      case ASMLModelPackage.CLASS__DESCRIPTION:
+      case ASMLModelPackage.META_CLASS__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case ASMLModelPackage.CLASS__MATCHING:
+      case ASMLModelPackage.META_CLASS__MATCHING:
         setMatching((AbstractNameConvetion)null);
         return;
-      case ASMLModelPackage.CLASS__CARDINALITY:
+      case ASMLModelPackage.META_CLASS__CARDINALITY:
         setCardinality(CARDINALITY_EDEFAULT);
         return;
-      case ASMLModelPackage.CLASS__METHODS:
+      case ASMLModelPackage.META_CLASS__METHODS:
         getMethods().clear();
         return;
     }
@@ -333,13 +334,13 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
   {
     switch (featureID)
     {
-      case ASMLModelPackage.CLASS__DESCRIPTION:
+      case ASMLModelPackage.META_CLASS__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case ASMLModelPackage.CLASS__MATCHING:
+      case ASMLModelPackage.META_CLASS__MATCHING:
         return matching != null;
-      case ASMLModelPackage.CLASS__CARDINALITY:
+      case ASMLModelPackage.META_CLASS__CARDINALITY:
         return cardinality != CARDINALITY_EDEFAULT;
-      case ASMLModelPackage.CLASS__METHODS:
+      case ASMLModelPackage.META_CLASS__METHODS:
         return methods != null && !methods.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -364,4 +365,4 @@ public class ClassImpl extends AbstractComponentImpl implements br.ufmg.dcc.asml
     return result.toString();
   }
 
-} //ClassImpl
+} //MetaClassImpl

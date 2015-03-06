@@ -8,6 +8,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -17,6 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ASMLModelGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ASMLModel_CommaKeyword_5_1_1_q;
+	protected AbstractElementAlias match_ASMLModel___IgnoreKeyword_5_0_SemicolonKeyword_5_2__q;
+	protected AbstractElementAlias match_ExternalModule_CommaKeyword_3_0_2_q;
+	protected AbstractElementAlias match_ExternalModule_SemicolonKeyword_3_1_q;
 	protected AbstractElementAlias match_MetaModule_CommaKeyword_3_0_2_q;
 	protected AbstractElementAlias match_MetaModule_SemicolonKeyword_3_1_q;
 	protected AbstractElementAlias match_Module_CommaKeyword_3_0_2_q;
@@ -27,6 +32,10 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ASMLModelGrammarAccess) access;
+		match_ASMLModel_CommaKeyword_5_1_1_q = new TokenAlias(false, true, grammarAccess.getASMLModelAccess().getCommaKeyword_5_1_1());
+		match_ASMLModel___IgnoreKeyword_5_0_SemicolonKeyword_5_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getASMLModelAccess().getIgnoreKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getASMLModelAccess().getSemicolonKeyword_5_2()));
+		match_ExternalModule_CommaKeyword_3_0_2_q = new TokenAlias(false, true, grammarAccess.getExternalModuleAccess().getCommaKeyword_3_0_2());
+		match_ExternalModule_SemicolonKeyword_3_1_q = new TokenAlias(false, true, grammarAccess.getExternalModuleAccess().getSemicolonKeyword_3_1());
 		match_MetaModule_CommaKeyword_3_0_2_q = new TokenAlias(false, true, grammarAccess.getMetaModuleAccess().getCommaKeyword_3_0_2());
 		match_MetaModule_SemicolonKeyword_3_1_q = new TokenAlias(false, true, grammarAccess.getMetaModuleAccess().getSemicolonKeyword_3_1());
 		match_Module_CommaKeyword_3_0_2_q = new TokenAlias(false, true, grammarAccess.getModuleAccess().getCommaKeyword_3_0_2());
@@ -60,7 +69,15 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_MetaModule_CommaKeyword_3_0_2_q.equals(syntax))
+			if(match_ASMLModel_CommaKeyword_5_1_1_q.equals(syntax))
+				emit_ASMLModel_CommaKeyword_5_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ASMLModel___IgnoreKeyword_5_0_SemicolonKeyword_5_2__q.equals(syntax))
+				emit_ASMLModel___IgnoreKeyword_5_0_SemicolonKeyword_5_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ExternalModule_CommaKeyword_3_0_2_q.equals(syntax))
+				emit_ExternalModule_CommaKeyword_3_0_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ExternalModule_SemicolonKeyword_3_1_q.equals(syntax))
+				emit_ExternalModule_SemicolonKeyword_3_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_MetaModule_CommaKeyword_3_0_2_q.equals(syntax))
 				emit_MetaModule_CommaKeyword_3_0_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MetaModule_SemicolonKeyword_3_1_q.equals(syntax))
 				emit_MetaModule_SemicolonKeyword_3_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -76,6 +93,38 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Syntax:
+	 *     ','?
+	 */
+	protected void emit_ASMLModel_CommaKeyword_5_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('ignore' ';')?
+	 */
+	protected void emit_ASMLModel___IgnoreKeyword_5_0_SemicolonKeyword_5_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ','?
+	 */
+	protected void emit_ExternalModule_CommaKeyword_3_0_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ';'?
+	 */
+	protected void emit_ExternalModule_SemicolonKeyword_3_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Syntax:
 	 *     ','?

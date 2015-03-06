@@ -149,9 +149,4 @@ public abstract class AbstractASMLModelRuntimeModule extends DefaultRuntimeModul
 		return br.ufmg.dcc.asml.generator.ASMLModelGenerator.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
-	public Class<? extends org.eclipse.xtext.formatting.IFormatter> bindIFormatter() {
-		return br.ufmg.dcc.asml.formatting.ASMLModelFormatter.class;
-	}
-
 }

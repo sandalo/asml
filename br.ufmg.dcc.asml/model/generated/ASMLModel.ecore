@@ -6,6 +6,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
         eType="#//View" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignore" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="View">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -30,23 +32,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractNameConvetion"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//AbstractComponent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cardinality" eType="#//Cardinality"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//AbstractComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restrictions" upperBound="-1"
-        eType="#//Restriction" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FrameworkInstantiation" eSuperTypes="#//AbstractComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//AbstractComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restrictions" upperBound="-1"
-        eType="#//Restriction" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FrameworkClass" eSuperTypes="#//AbstractComponent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaCLass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ExpressionMatchingClause">
     <eLiterals name="NAME_START_WITH" literal="name start with"/>
     <eLiterals name="NAME_ENDS_WITH" value="1" literal="name ends with"/>
@@ -55,19 +40,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AND" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OR" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="LayerMatchingClause">
-    <eLiterals name="RELATED_TO_COMPONENT" literal="related to component"/>
-    <eLiterals name="EXTERNAL_DEFINITION" value="1" literal="external definition"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ModuleMatchingParamenter">
     <eLiterals name="PAKCAGE" literal="by package name"/>
     <eLiterals name="FOLDER" value="1" literal="by folder name"/>
     <eLiterals name="PAKCAGE_AND_FOLDER" value="2" literal="by package and folder name"/>
     <eLiterals name="EXTERNAL_DEFINITION" value="3" literal="by external implementation"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LayerMatching">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layerMatching" eType="#//LayerMatchingClause"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//AbstractComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModuleMatching">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" eType="#//ModuleMatchingParamenter"/>
@@ -92,7 +69,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="matching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cardinality" eType="#//Cardinality"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//AbstractComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="MetaClass" eSuperTypes="#//AbstractComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="matching" eType="#//AbstractNameConvetion"
         containment="true"/>
@@ -100,19 +77,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
         eType="#//Method" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalClass" eSuperTypes="#//AbstractComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//ConfigurationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="matching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XmlDocument" eSuperTypes="#//ConfigurationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="matching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Layer" eSuperTypes="#//AbstractComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="matching" eType="#//LayerMatching"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
-        eType="#//Module" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restrictions" upperBound="-1"
-        eType="#//Restriction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//AbstractComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
@@ -125,6 +98,16 @@
         eType="#//Restriction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetaModule" eSuperTypes="#//AbstractComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matching" eType="#//ModuleMatching"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//AbstractComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restrictions" upperBound="-1"
+        eType="#//Restriction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalModule" eSuperTypes="#//AbstractComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="matching" eType="#//ModuleMatching"
@@ -165,5 +148,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="permissionClause" eType="#//PermissionClause"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relactionType" eType="#//RelactionType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentB" eType="#//AbstractComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -3,13 +3,6 @@
  */
 package br.ufmg.dcc.asml.ui.contentassist
 
-import br.ufmg.dcc.asml.aSMLModel.AbstractComponent
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.jface.text.contentassist.CompletionProposal
-import org.eclipse.xtext.Assignment
-import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
-import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */ 
@@ -33,12 +26,12 @@ class ASMLModelProposalProvider extends AbstractASMLModelProposalProvider {
 		for (e : context.resource.allContents.toIterable.filter(typeof(br.ufmg.dcc.asml.aSMLModel.Package))) {
 			acceptor.accept(new CompletionProposal(e.name, context.getOffset(), 0, 1));
 		}
-	} */
 
 	override completeLayerMatching_Parameter(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		for (e : context.resource.allContents.toIterable.filter(typeof(AbstractComponent))) {
 			acceptor.accept(new CompletionProposal(e.name, context.getOffset(), 0, 1));
 		}
 	}
+	} */
 	
 }

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getPermissionClause <em>Permission Clause</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getRelactionType <em>Relaction Type</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentB <em>Component B</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -156,5 +157,31 @@ public interface Restriction extends EObject
    * @generated
    */
   void setComponentB(AbstractComponent value);
+
+  /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getRestriction_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
 
 } // Restriction

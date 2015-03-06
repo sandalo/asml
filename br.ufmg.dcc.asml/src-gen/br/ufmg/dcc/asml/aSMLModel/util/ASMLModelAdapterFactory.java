@@ -2,29 +2,7 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.util;
 
-import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
-import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
-import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
-import br.ufmg.dcc.asml.aSMLModel.Attribute;
-import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.Component;
-import br.ufmg.dcc.asml.aSMLModel.Configuration;
-import br.ufmg.dcc.asml.aSMLModel.ConfigurationElement;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator;
-import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkClass;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation;
-import br.ufmg.dcc.asml.aSMLModel.Layer;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
-import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.Method;
-import br.ufmg.dcc.asml.aSMLModel.Module;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
-import br.ufmg.dcc.asml.aSMLModel.Restriction;
-import br.ufmg.dcc.asml.aSMLModel.View;
-import br.ufmg.dcc.asml.aSMLModel.XmlDocument;
-import br.ufmg.dcc.asml.aSMLModel.XmlElement;
+import br.ufmg.dcc.asml.aSMLModel.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -122,29 +100,9 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
         return createAbstractNameConvetionAdapter();
       }
       @Override
-      public Adapter caseComponent(Component object)
-      {
-        return createComponentAdapter();
-      }
-      @Override
-      public Adapter caseFrameworkInstantiation(FrameworkInstantiation object)
-      {
-        return createFrameworkInstantiationAdapter();
-      }
-      @Override
-      public Adapter caseFrameworkClass(FrameworkClass object)
-      {
-        return createFrameworkClassAdapter();
-      }
-      @Override
       public Adapter caseExpressionMatchingOperator(ExpressionMatchingOperator object)
       {
         return createExpressionMatchingOperatorAdapter();
-      }
-      @Override
-      public Adapter caseLayerMatching(LayerMatching object)
-      {
-        return createLayerMatchingAdapter();
       }
       @Override
       public Adapter caseModuleMatching(ModuleMatching object)
@@ -177,9 +135,14 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
         return createMethodAdapter();
       }
       @Override
-      public Adapter caseClass(br.ufmg.dcc.asml.aSMLModel.Class object)
+      public Adapter caseMetaClass(MetaClass object)
       {
-        return createClassAdapter();
+        return createMetaClassAdapter();
+      }
+      @Override
+      public Adapter caseExternalClass(ExternalClass object)
+      {
+        return createExternalClassAdapter();
       }
       @Override
       public Adapter caseXmlElement(XmlElement object)
@@ -192,11 +155,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
         return createXmlDocumentAdapter();
       }
       @Override
-      public Adapter caseLayer(Layer object)
-      {
-        return createLayerAdapter();
-      }
-      @Override
       public Adapter caseModule(Module object)
       {
         return createModuleAdapter();
@@ -205,6 +163,11 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMetaModule(MetaModule object)
       {
         return createMetaModuleAdapter();
+      }
+      @Override
+      public Adapter caseExternalModule(ExternalModule object)
+      {
+        return createExternalModuleAdapter();
       }
       @Override
       public Adapter caseRestriction(Restriction object)
@@ -309,51 +272,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Component <em>Component</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.Component
-   * @generated
-   */
-  public Adapter createComponentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation <em>Framework Instantiation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation
-   * @generated
-   */
-  public Adapter createFrameworkInstantiationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.FrameworkClass <em>Framework Class</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.FrameworkClass
-   * @generated
-   */
-  public Adapter createFrameworkClassAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator <em>Expression Matching Operator</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -364,21 +282,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionMatchingOperatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.LayerMatching <em>Layer Matching</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.LayerMatching
-   * @generated
-   */
-  public Adapter createLayerMatchingAdapter()
   {
     return null;
   }
@@ -474,16 +377,31 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Class <em>Class</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass <em>Meta Class</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.Class
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass
    * @generated
    */
-  public Adapter createClassAdapter()
+  public Adapter createMetaClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.ExternalClass <em>External Class</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalClass
+   * @generated
+   */
+  public Adapter createExternalClassAdapter()
   {
     return null;
   }
@@ -519,21 +437,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Layer <em>Layer</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.Layer
-   * @generated
-   */
-  public Adapter createLayerAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Module <em>Module</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -559,6 +462,21 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMetaModuleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule <em>External Module</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule
+   * @generated
+   */
+  public Adapter createExternalModuleAdapter()
   {
     return null;
   }

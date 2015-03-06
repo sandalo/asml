@@ -1,13 +1,11 @@
 package asmlbuilder.builder;
 
-import java.util.List;
-
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
 
-public 	class ASMLResourceDeltaVisitor implements IResourceDeltaVisitor {
+public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IResourceDeltaVisitor {
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -15,17 +13,28 @@ public 	class ASMLResourceDeltaVisitor implements IResourceDeltaVisitor {
 	 * org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse
 	 * .core.resources.IResourceDelta)
 	 */
-	private CacheASML cacheASML;
 
 	public ASMLResourceDeltaVisitor(CacheASML cacheASML) {
-		this.cacheASML = cacheASML;
+		super(cacheASML);
 	}
 	
 	public boolean visit(IResourceDelta delta) throws CoreException {
 		IResource resource = delta.getResource();
-		if ((resource.getFileExtension() + "").equals("class") || resource.getName().equals(".classpath")  || resource.getName().equals("target") || resource.getName().equals(".settings")) {
+		if ((resource.getFileExtension() + "").equals("class")) {
 			return false;
 		}
+		
+		boolean deep = deep(resource);
+		boolean ignoreResource = ignoreResource(resource);
+		
+		if(ignoreResource && deep){
+			return false;
+		}
+		
+		if(ignoreResource){
+			return true;
+		}
+
 		switch (delta.getKind()) {
 		case IResourceDelta.ADDED:
 			cacheASML.getResources().add(resource);

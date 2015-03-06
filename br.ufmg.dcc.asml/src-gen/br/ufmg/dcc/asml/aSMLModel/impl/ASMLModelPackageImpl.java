@@ -10,18 +10,15 @@ import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
 import br.ufmg.dcc.asml.aSMLModel.Attribute;
 import br.ufmg.dcc.asml.aSMLModel.Cardinality;
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.Component;
 import br.ufmg.dcc.asml.aSMLModel.Configuration;
 import br.ufmg.dcc.asml.aSMLModel.ConfigurationElement;
 import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause;
 import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator;
+import br.ufmg.dcc.asml.aSMLModel.ExternalClass;
+import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
 import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkClass;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation;
 import br.ufmg.dcc.asml.aSMLModel.GroupClause;
-import br.ufmg.dcc.asml.aSMLModel.Layer;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause;
+import br.ufmg.dcc.asml.aSMLModel.MetaClass;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
 import br.ufmg.dcc.asml.aSMLModel.Method;
 import br.ufmg.dcc.asml.aSMLModel.Module;
@@ -90,35 +87,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass componentEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass frameworkInstantiationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass frameworkClassEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass expressionMatchingOperatorEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass layerMatchingEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -167,7 +136,14 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass classEClass = null;
+  private EClass metaClassEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass externalClassEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -188,13 +164,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass layerEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass moduleEClass = null;
 
   /**
@@ -203,6 +172,13 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * @generated
    */
   private EClass metaModuleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass externalModuleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -224,13 +200,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * @generated
    */
   private EEnum expressionMatchingClauseEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum layerMatchingClauseEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -368,6 +337,16 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getASMLModel_Ignore()
+  {
+    return (EAttribute)asmlModelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getView()
   {
     return viewEClass;
@@ -478,106 +457,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getComponent()
-  {
-    return componentEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getComponent_Matching()
-  {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getComponent_Cardinality()
-  {
-    return (EAttribute)componentEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getComponent_Components()
-  {
-    return (EReference)componentEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getComponent_Restrictions()
-  {
-    return (EReference)componentEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getFrameworkInstantiation()
-  {
-    return frameworkInstantiationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFrameworkInstantiation_Components()
-  {
-    return (EReference)frameworkInstantiationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFrameworkInstantiation_Restrictions()
-  {
-    return (EReference)frameworkInstantiationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getFrameworkClass()
-  {
-    return frameworkClassEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFrameworkClass_JavaCLass()
-  {
-    return (EAttribute)frameworkClassEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExpressionMatchingOperator()
   {
     return expressionMatchingOperatorEClass;
@@ -601,36 +480,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
   public EAttribute getExpressionMatchingOperator_OR()
   {
     return (EAttribute)expressionMatchingOperatorEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLayerMatching()
-  {
-    return layerMatchingEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getLayerMatching_LayerMatching()
-  {
-    return (EAttribute)layerMatchingEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLayerMatching_Parameter()
-  {
-    return (EReference)layerMatchingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -788,9 +637,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getClass_()
+  public EClass getMetaClass()
   {
-    return classEClass;
+    return metaClassEClass;
   }
 
   /**
@@ -798,9 +647,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClass_Description()
+  public EAttribute getMetaClass_Description()
   {
-    return (EAttribute)classEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)metaClassEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -808,9 +657,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Matching()
+  public EReference getMetaClass_Matching()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(1);
+    return (EReference)metaClassEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -818,9 +667,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClass_Cardinality()
+  public EAttribute getMetaClass_Cardinality()
   {
-    return (EAttribute)classEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)metaClassEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -828,9 +677,39 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Methods()
+  public EReference getMetaClass_Methods()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(3);
+    return (EReference)metaClassEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExternalClass()
+  {
+    return externalClassEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExternalClass_Description()
+  {
+    return (EAttribute)externalClassEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExternalClass_Type()
+  {
+    return (EAttribute)externalClassEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -871,46 +750,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
   public EAttribute getXmlDocument_Matching()
   {
     return (EAttribute)xmlDocumentEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLayer()
-  {
-    return layerEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLayer_Matching()
-  {
-    return (EReference)layerEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLayer_Modules()
-  {
-    return (EReference)layerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLayer_Restrictions()
-  {
-    return (EReference)layerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1018,6 +857,56 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getExternalModule()
+  {
+    return externalModuleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExternalModule_Attributes()
+  {
+    return (EReference)externalModuleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExternalModule_Matching()
+  {
+    return (EReference)externalModuleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExternalModule_Components()
+  {
+    return (EReference)externalModuleEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExternalModule_Restrictions()
+  {
+    return (EReference)externalModuleEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRestriction()
   {
     return restrictionEClass;
@@ -1078,6 +967,16 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getRestriction_Description()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getCardinality()
   {
     return cardinalityEEnum;
@@ -1091,16 +990,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
   public EEnum getExpressionMatchingClause()
   {
     return expressionMatchingClauseEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getLayerMatchingClause()
-  {
-    return layerMatchingClauseEEnum;
   }
 
   /**
@@ -1177,6 +1066,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEAttribute(asmlModelEClass, ASML_MODEL__NAME);
     createEAttribute(asmlModelEClass, ASML_MODEL__IMPORT_URI);
     createEReference(asmlModelEClass, ASML_MODEL__VIEWS);
+    createEAttribute(asmlModelEClass, ASML_MODEL__IGNORE);
 
     viewEClass = createEClass(VIEW);
     createEAttribute(viewEClass, VIEW__NAME);
@@ -1193,26 +1083,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
 
     abstractNameConvetionEClass = createEClass(ABSTRACT_NAME_CONVETION);
 
-    componentEClass = createEClass(COMPONENT);
-    createEAttribute(componentEClass, COMPONENT__MATCHING);
-    createEAttribute(componentEClass, COMPONENT__CARDINALITY);
-    createEReference(componentEClass, COMPONENT__COMPONENTS);
-    createEReference(componentEClass, COMPONENT__RESTRICTIONS);
-
-    frameworkInstantiationEClass = createEClass(FRAMEWORK_INSTANTIATION);
-    createEReference(frameworkInstantiationEClass, FRAMEWORK_INSTANTIATION__COMPONENTS);
-    createEReference(frameworkInstantiationEClass, FRAMEWORK_INSTANTIATION__RESTRICTIONS);
-
-    frameworkClassEClass = createEClass(FRAMEWORK_CLASS);
-    createEAttribute(frameworkClassEClass, FRAMEWORK_CLASS__JAVA_CLASS);
-
     expressionMatchingOperatorEClass = createEClass(EXPRESSION_MATCHING_OPERATOR);
     createEAttribute(expressionMatchingOperatorEClass, EXPRESSION_MATCHING_OPERATOR__AND);
     createEAttribute(expressionMatchingOperatorEClass, EXPRESSION_MATCHING_OPERATOR__OR);
-
-    layerMatchingEClass = createEClass(LAYER_MATCHING);
-    createEAttribute(layerMatchingEClass, LAYER_MATCHING__LAYER_MATCHING);
-    createEReference(layerMatchingEClass, LAYER_MATCHING__PARAMETER);
 
     moduleMatchingEClass = createEClass(MODULE_MATCHING);
     createEAttribute(moduleMatchingEClass, MODULE_MATCHING__PARAMETER);
@@ -1235,22 +1108,21 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEAttribute(methodEClass, METHOD__MATCHING);
     createEAttribute(methodEClass, METHOD__CARDINALITY);
 
-    classEClass = createEClass(CLASS);
-    createEAttribute(classEClass, CLASS__DESCRIPTION);
-    createEReference(classEClass, CLASS__MATCHING);
-    createEAttribute(classEClass, CLASS__CARDINALITY);
-    createEReference(classEClass, CLASS__METHODS);
+    metaClassEClass = createEClass(META_CLASS);
+    createEAttribute(metaClassEClass, META_CLASS__DESCRIPTION);
+    createEReference(metaClassEClass, META_CLASS__MATCHING);
+    createEAttribute(metaClassEClass, META_CLASS__CARDINALITY);
+    createEReference(metaClassEClass, META_CLASS__METHODS);
+
+    externalClassEClass = createEClass(EXTERNAL_CLASS);
+    createEAttribute(externalClassEClass, EXTERNAL_CLASS__DESCRIPTION);
+    createEAttribute(externalClassEClass, EXTERNAL_CLASS__TYPE);
 
     xmlElementEClass = createEClass(XML_ELEMENT);
     createEAttribute(xmlElementEClass, XML_ELEMENT__MATCHING);
 
     xmlDocumentEClass = createEClass(XML_DOCUMENT);
     createEAttribute(xmlDocumentEClass, XML_DOCUMENT__MATCHING);
-
-    layerEClass = createEClass(LAYER);
-    createEReference(layerEClass, LAYER__MATCHING);
-    createEReference(layerEClass, LAYER__MODULES);
-    createEReference(layerEClass, LAYER__RESTRICTIONS);
 
     moduleEClass = createEClass(MODULE);
     createEReference(moduleEClass, MODULE__ATTRIBUTES);
@@ -1264,17 +1136,23 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEReference(metaModuleEClass, META_MODULE__COMPONENTS);
     createEReference(metaModuleEClass, META_MODULE__RESTRICTIONS);
 
+    externalModuleEClass = createEClass(EXTERNAL_MODULE);
+    createEReference(externalModuleEClass, EXTERNAL_MODULE__ATTRIBUTES);
+    createEReference(externalModuleEClass, EXTERNAL_MODULE__MATCHING);
+    createEReference(externalModuleEClass, EXTERNAL_MODULE__COMPONENTS);
+    createEReference(externalModuleEClass, EXTERNAL_MODULE__RESTRICTIONS);
+
     restrictionEClass = createEClass(RESTRICTION);
     createEAttribute(restrictionEClass, RESTRICTION__GROUP_CLAUSE);
     createEReference(restrictionEClass, RESTRICTION__COMPONENT_A);
     createEAttribute(restrictionEClass, RESTRICTION__PERMISSION_CLAUSE);
     createEAttribute(restrictionEClass, RESTRICTION__RELACTION_TYPE);
     createEReference(restrictionEClass, RESTRICTION__COMPONENT_B);
+    createEAttribute(restrictionEClass, RESTRICTION__DESCRIPTION);
 
     // Create enums
     cardinalityEEnum = createEEnum(CARDINALITY);
     expressionMatchingClauseEEnum = createEEnum(EXPRESSION_MATCHING_CLAUSE);
-    layerMatchingClauseEEnum = createEEnum(LAYER_MATCHING_CLAUSE);
     moduleMatchingParamenterEEnum = createEEnum(MODULE_MATCHING_PARAMENTER);
     groupClauseEEnum = createEEnum(GROUP_CLAUSE);
     permissionClauseEEnum = createEEnum(PERMISSION_CLAUSE);
@@ -1310,26 +1188,25 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    componentEClass.getESuperTypes().add(this.getAbstractComponent());
-    frameworkInstantiationEClass.getESuperTypes().add(this.getAbstractComponent());
-    frameworkClassEClass.getESuperTypes().add(this.getAbstractComponent());
     classMatchingEClass.getESuperTypes().add(this.getAbstractNameConvetion());
     configurationElementEClass.getESuperTypes().add(this.getAbstractComponent());
     fileEClass.getESuperTypes().add(this.getConfigurationElement());
     configurationEClass.getESuperTypes().add(this.getConfigurationElement());
     methodEClass.getESuperTypes().add(this.getAbstractComponent());
-    classEClass.getESuperTypes().add(this.getAbstractComponent());
+    metaClassEClass.getESuperTypes().add(this.getAbstractComponent());
+    externalClassEClass.getESuperTypes().add(this.getAbstractComponent());
     xmlElementEClass.getESuperTypes().add(this.getConfigurationElement());
     xmlDocumentEClass.getESuperTypes().add(this.getConfigurationElement());
-    layerEClass.getESuperTypes().add(this.getAbstractComponent());
     moduleEClass.getESuperTypes().add(this.getAbstractComponent());
     metaModuleEClass.getESuperTypes().add(this.getAbstractComponent());
+    externalModuleEClass.getESuperTypes().add(this.getAbstractComponent());
 
     // Initialize classes and features; add operations and parameters
     initEClass(asmlModelEClass, ASMLModel.class, "ASMLModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getASMLModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, ASMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getASMLModel_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, ASMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getASMLModel_Views(), this.getView(), null, "views", null, 0, -1, ASMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getASMLModel_Ignore(), ecorePackage.getEString(), "ignore", null, 0, -1, ASMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getView_Name(), ecorePackage.getEString(), "name", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1346,26 +1223,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
 
     initEClass(abstractNameConvetionEClass, AbstractNameConvetion.class, "AbstractNameConvetion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getComponent_Matching(), ecorePackage.getEString(), "matching", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComponent_Cardinality(), this.getCardinality(), "cardinality", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Components(), this.getAbstractComponent(), null, "components", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(frameworkInstantiationEClass, FrameworkInstantiation.class, "FrameworkInstantiation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFrameworkInstantiation_Components(), this.getAbstractComponent(), null, "components", null, 0, -1, FrameworkInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFrameworkInstantiation_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, FrameworkInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(frameworkClassEClass, FrameworkClass.class, "FrameworkClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFrameworkClass_JavaCLass(), ecorePackage.getEString(), "javaCLass", null, 0, 1, FrameworkClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(expressionMatchingOperatorEClass, ExpressionMatchingOperator.class, "ExpressionMatchingOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpressionMatchingOperator_AND(), ecorePackage.getEString(), "AND", null, 0, 1, ExpressionMatchingOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpressionMatchingOperator_OR(), ecorePackage.getEString(), "OR", null, 0, 1, ExpressionMatchingOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(layerMatchingEClass, LayerMatching.class, "LayerMatching", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLayerMatching_LayerMatching(), this.getLayerMatchingClause(), "layerMatching", null, 0, 1, LayerMatching.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLayerMatching_Parameter(), this.getAbstractComponent(), null, "parameter", null, 0, 1, LayerMatching.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleMatchingEClass, ModuleMatching.class, "ModuleMatching", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModuleMatching_Parameter(), this.getModuleMatchingParamenter(), "parameter", null, 0, 1, ModuleMatching.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1388,22 +1248,21 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEAttribute(getMethod_Matching(), ecorePackage.getEString(), "matching", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethod_Cardinality(), this.getCardinality(), "cardinality", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(classEClass, br.ufmg.dcc.asml.aSMLModel.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClass_Description(), ecorePackage.getEString(), "description", null, 0, 1, br.ufmg.dcc.asml.aSMLModel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Matching(), this.getAbstractNameConvetion(), null, "matching", null, 0, 1, br.ufmg.dcc.asml.aSMLModel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClass_Cardinality(), this.getCardinality(), "cardinality", null, 0, 1, br.ufmg.dcc.asml.aSMLModel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Methods(), this.getMethod(), null, "methods", null, 0, -1, br.ufmg.dcc.asml.aSMLModel.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(metaClassEClass, MetaClass.class, "MetaClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMetaClass_Description(), ecorePackage.getEString(), "description", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMetaClass_Matching(), this.getAbstractNameConvetion(), null, "matching", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMetaClass_Cardinality(), this.getCardinality(), "cardinality", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMetaClass_Methods(), this.getMethod(), null, "methods", null, 0, -1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(externalClassEClass, ExternalClass.class, "ExternalClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExternalClass_Description(), ecorePackage.getEString(), "description", null, 0, 1, ExternalClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExternalClass_Type(), ecorePackage.getEString(), "type", null, 0, 1, ExternalClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(xmlElementEClass, XmlElement.class, "XmlElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getXmlElement_Matching(), ecorePackage.getEString(), "matching", null, 0, 1, XmlElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(xmlDocumentEClass, XmlDocument.class, "XmlDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getXmlDocument_Matching(), ecorePackage.getEString(), "matching", null, 0, 1, XmlDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLayer_Matching(), this.getLayerMatching(), null, "matching", null, 0, 1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLayer_Modules(), this.getModule(), null, "modules", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLayer_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, Layer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModule_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1417,12 +1276,19 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEReference(getMetaModule_Components(), this.getAbstractComponent(), null, "components", null, 0, -1, MetaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMetaModule_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, MetaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(externalModuleEClass, ExternalModule.class, "ExternalModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExternalModule_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, ExternalModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalModule_Matching(), this.getModuleMatching(), null, "matching", null, 0, 1, ExternalModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalModule_Components(), this.getAbstractComponent(), null, "components", null, 0, -1, ExternalModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalModule_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, ExternalModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(restrictionEClass, Restriction.class, "Restriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRestriction_GroupClause(), this.getGroupClause(), "groupClause", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRestriction_ComponentA(), this.getAbstractComponent(), null, "componentA", null, 0, -1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_PermissionClause(), this.getPermissionClause(), "permissionClause", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_RelactionType(), this.getRelactionType(), "relactionType", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRestriction_ComponentB(), this.getAbstractComponent(), null, "componentB", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_Description(), ecorePackage.getEString(), "description", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(cardinalityEEnum, Cardinality.class, "Cardinality");
@@ -1434,10 +1300,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEEnum(expressionMatchingClauseEEnum, ExpressionMatchingClause.class, "ExpressionMatchingClause");
     addEEnumLiteral(expressionMatchingClauseEEnum, ExpressionMatchingClause.NAME_START_WITH);
     addEEnumLiteral(expressionMatchingClauseEEnum, ExpressionMatchingClause.NAME_ENDS_WITH);
-
-    initEEnum(layerMatchingClauseEEnum, LayerMatchingClause.class, "LayerMatchingClause");
-    addEEnumLiteral(layerMatchingClauseEEnum, LayerMatchingClause.RELATED_TO_COMPONENT);
-    addEEnumLiteral(layerMatchingClauseEEnum, LayerMatchingClause.EXTERNAL_DEFINITION);
 
     initEEnum(moduleMatchingParamenterEEnum, ModuleMatchingParamenter.class, "ModuleMatchingParamenter");
     addEEnumLiteral(moduleMatchingParamenterEEnum, ModuleMatchingParamenter.PAKCAGE);

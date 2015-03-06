@@ -1,7 +1,6 @@
 package asmlbuilder.builder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -47,17 +46,13 @@ import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
 import br.ufmg.dcc.asml.aSMLModel.Attribute;
-import br.ufmg.dcc.asml.aSMLModel.Class;
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.Component;
 import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause;
+import br.ufmg.dcc.asml.aSMLModel.ExternalClass;
+import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
 import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkClass;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation;
 import br.ufmg.dcc.asml.aSMLModel.GroupClause;
-import br.ufmg.dcc.asml.aSMLModel.Layer;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause;
+import br.ufmg.dcc.asml.aSMLModel.MetaClass;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
 import br.ufmg.dcc.asml.aSMLModel.Module;
 import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
@@ -109,7 +104,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		if (this.timeStampResource != timeStampResource) {
 			this.timeStampResource = timeStampResource;
 			asmlModel = (ASMLModel) resource.getContents().get(0);
-			cacheASML = new CacheASML();
+			cacheASML = new CacheASML(asmlModel);
 			resourceVisitor = new ASMLResourceVisitor(cacheASML);
 			resourceDeltaVisitor = new ASMLResourceDeltaVisitor(cacheASML);
 			asmlReosurceJavaVisitor = new ASMLReosurceJavaVisitor(cacheASML);
@@ -123,6 +118,14 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	}
 
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
+		
+		try {
+			Class c = getJavaProject().findType("br.ufmg.vaccine.Vaccine").getClass();
+			 c = Class.forName("br.ufmg.vaccine.Vaccine");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		IProject project = getProject();
 		project.deleteMarkers(MARKER_TYPE, true, IResource.DEPTH_INFINITE);
 		inicializaASML(project);
@@ -242,19 +245,11 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 			return component;
 		} else if (componentParentsName[0].equals(component.getName())) {
 			EList<? extends AbstractComponent> abstractComponents = null;
-			if (component instanceof Component) {
-				abstractComponents = getComponentsChildren(component);
-			} else if (component instanceof Layer) {
-				abstractComponents = ((Layer) component).getModules();
-			} else if (component instanceof br.ufmg.dcc.asml.aSMLModel.Class) {
+			if (component instanceof MetaClass) {
 				return component;
 			}
 			if (abstractComponents == null) {
 				return null;
-			} else {
-				for (AbstractComponent abstractComponent : abstractComponents) {
-					return searchCmponent(Arrays.copyOfRange(componentParentsName, 1, componentParentsName.length), abstractComponent);
-				}
 			}
 		}
 		return null;
@@ -264,14 +259,14 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		if (!getComponentsChildren(abstractComponent).isEmpty()) {
 			validateComponentChildrenRetrictions(abstractComponent);
 		}
-		if (abstractComponent instanceof Component || abstractComponent instanceof Module || abstractComponent instanceof FrameworkInstantiation) {
+		if (abstractComponent instanceof Module || abstractComponent instanceof MetaModule || abstractComponent instanceof ExternalModule) {
 			EList<Restriction> restrictions = null;
-			if (abstractComponent instanceof Component)
-				restrictions = ((Component) abstractComponent).getRestrictions();
 			if (abstractComponent instanceof Module)
 				restrictions = ((Module) abstractComponent).getRestrictions();
-			if (abstractComponent instanceof FrameworkInstantiation)
-				restrictions = ((FrameworkInstantiation) abstractComponent).getRestrictions();
+			if (abstractComponent instanceof MetaModule)
+				restrictions = ((MetaModule) abstractComponent).getRestrictions();
+			if (abstractComponent instanceof ExternalModule)
+				restrictions = ((ExternalModule) abstractComponent).getRestrictions();
 			for (Restriction restriction : restrictions) {
 				EList<AbstractComponent> componentsA = restriction.getComponentA();
 				AbstractComponent componentB = restriction.getComponentB();
@@ -291,9 +286,6 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	void validateLocalization(AbstractComponent abstractComponent) {
 		if (!getComponentsChildren(abstractComponent).isEmpty()) {
 			validateLocalizationChildren(abstractComponent);
-		}
-		if (abstractComponent instanceof Layer) {
-			return;
 		}
 		Set<IResource> resourcesFilho = cacheASML.getInstancesByComponent((AbstractComponent) abstractComponent);
 		for (IResource resourceFilho : resourcesFilho) {
@@ -323,9 +315,9 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	private void anyComponentAMustRequiresCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
 		Set<IResource> instances = cacheASML.getInstancesByComponent(componentA);
 		for (IResource iResource : instances) {
-			if (componentB instanceof Class && componentA instanceof Class) {
-				Class classeB = (Class) componentB;
-				Class classeA = (Class) componentA;
+			if (componentB instanceof MetaClass && componentA instanceof MetaClass) {
+				MetaClass classeB = (MetaClass) componentB;
+				MetaClass classeA = (MetaClass) componentA;
 				AbstractNameConvetion matchingB = classeB.getMatching();
 				AbstractNameConvetion matchingA = classeA.getMatching();
 				if (matchingB instanceof ClassMatching && matchingA instanceof ClassMatching) {
@@ -342,8 +334,8 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 					}
 				}
 			}
-			if (componentB instanceof Class && componentA instanceof File) {
-				Class classeB = (Class) componentB;
+			if (componentB instanceof MetaClass && componentA instanceof File) {
+				MetaClass classeB = (MetaClass) componentB;
 				File classeA = (File) componentA;
 				AbstractNameConvetion matchingB = classeB.getMatching();
 				AbstractNameConvetion matchingA = classeA.getMatching();
@@ -361,8 +353,8 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 					}
 				}
 			}
-			if (componentB instanceof Class && componentA instanceof Module) {
-				Class classeB = (Class) componentB;
+			if (componentB instanceof MetaClass && componentA instanceof Module) {
+				MetaClass classeB = (MetaClass) componentB;
 				Module classeA = (Module) componentA;
 				AbstractNameConvetion matchingB = classeB.getMatching();
 				ModuleMatching matchingA = classeA.getMatching();
@@ -386,7 +378,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		int lineNumber = 0;
 		for (IResource iResource : instances) {
 			boolean achou = false;
-			if (componentA instanceof Class && componentB instanceof FrameworkClass) {
+			if (componentA instanceof MetaClass && componentB instanceof ExternalClass) {
 				if (iResource instanceof IFile) {
 					Set<ASMLASTNode> asmlASTNodes = cacheASML.getInstancesOfASTNodeJavaFound().get(iResource).get(TypeDeclaration.class);
 					for (ASMLASTNode asmlASTNode : asmlASTNodes) {
@@ -396,7 +388,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 							ITypeHierarchy typeHierarchy = iType.newSupertypeHierarchy(new NullProgressMonitor());
 							IType[] iTypes = typeHierarchy.getAllSupertypes(iType);
 							for (IType iType2 : iTypes) {
-								if (iType2.getFullyQualifiedName().equals(((FrameworkClass) componentB).getJavaCLass())) {
+								if (iType2.getFullyQualifiedName().equals(componentB.getName())) {
 									achou = true;
 								}
 							}
@@ -408,7 +400,12 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 				}
 			}
 			if (!achou) {
-				cacheASML.getViolations().add(new Violation(iResource, "Classes do tipo " + componentA.getName() + " devem herdar da classe " + componentB.getName(), lineNumber, IMarker.SEVERITY_ERROR));
+				String message = "";
+				if (restriction.getDescription() != null)
+					message = restriction.getDescription();
+				else
+					message = "Classes do tipo " + componentA.getName() + " devem herdar da classe " + componentB.getName();
+				cacheASML.getViolations().add(new Violation(iResource, message, lineNumber, IMarker.SEVERITY_ERROR));
 			}
 		}
 	}
@@ -477,16 +474,14 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 				continue;
 			if (component instanceof File && resource instanceof IFile && (resource.getFileExtension().equals("xml") || resource.getFileExtension().equals("html") || !resource.getFileExtension().equals("java"))) {
 				matching = matchingFile(resource, component);
-			} else if (component instanceof Class && resource instanceof IFile && resource.getFileExtension().equals("java")) {
+			} else if (component instanceof MetaClass && resource instanceof IFile && resource.getFileExtension().equals("java")) {
 				matching = matchingJava(resource, component);
-			} else if ((component instanceof Layer) && resource instanceof IFolder) {
-				matching = matchingLayer(resource, (Layer) component);
 			} else if ((component instanceof Module) && resource instanceof IFolder) {
 				matching = matchingModule(resource, (Module) component);
-			} else if (component instanceof Component && resource instanceof IFolder) {
-				matching = matchingComponent(component, resource);
 			} else if ((component instanceof MetaModule) && resource instanceof IFolder) {
 				matching = matchingMetaModule(resource, (MetaModule) component);
+			} else if ((component instanceof ExternalModule) && resource instanceof IFolder) {
+				matching = matchingExternalModule(resource, (ExternalModule) component);
 			}
 			if (matching) {
 				matching = localizacaoCorreta(component, resource);
@@ -515,12 +510,10 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		}
 		if (!(eoPai instanceof View)) {
 			AbstractComponent eoPai2 = (AbstractComponent) eoPai;
-			if (!(eoPai2 instanceof FrameworkInstantiation)) {// Framework é
-																// conceito
-																// abstrato
+			if (!(eoPai2 instanceof MetaModule)&&!(eoPai2 instanceof ExternalModule)) {// Framework é conceito abstrato
 				String name = eoPai2.getName();
 				if (eoPai2 instanceof Module && !((Module) eoPai2).getAttributes().isEmpty() && ((Module) eoPai2).getAttributes().get(0).getName().equals("namespace")) {
-					name = ((Module) eoPai2).getAttributes().get(0).getValue().split("\\.")[1];//TODO Urgente
+					name = ((Module) eoPai2).getAttributes().get(0).getValue().split("\\.")[1];// TODO
 				}
 				if (!(resourcePai.getName().replaceAll("." + resourcePai.getFileExtension(), "").equals(name))) {
 					matching = false;
@@ -537,47 +530,27 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	}
 
 	private EList<? extends AbstractComponent> getComponentsChildren(AbstractComponent component) {
-		if (component instanceof Component) {
-			return ((Component) component).getComponents();
-		} else if (component instanceof FrameworkInstantiation) {
-			return ((FrameworkInstantiation) component).getComponents();
-		} else if (component instanceof Module) {
+		if (component instanceof Module) {
 			return ((Module) component).getComponents();
 		} else if (component instanceof MetaModule) {
 			return ((MetaModule) component).getComponents();
-		} else if (component instanceof Layer) {
-			return ((Layer) component).getModules();
+		}else if (component instanceof ExternalModule) {
+			return ((ExternalModule) component).getComponents();
 		}
 		return new BasicEList<AbstractComponent>();// Lista vazia
 	}
 
 	boolean findJavaClass(IResource resource, AbstractComponent component) {
-		if (component instanceof Class) {
+		if (component instanceof MetaClass) {
 			if (matchingJava(resource, component)) {
 				return true;
-			}
-		} else {
-			if (component instanceof Component) {
-				EList<? extends AbstractComponent> children = getComponentsChildren(component);
-				for (AbstractComponent child : children) {
-					boolean existJavaClass = findJavaClass(resource, child);
-					if (existJavaClass)
-						return existJavaClass;
-				}
-			} else if (component instanceof Package) {
-				EList<? extends AbstractComponent> children = ((Layer) component).getModules();
-				for (AbstractComponent child : children) {
-					boolean existJavaClass = findJavaClass(resource, child);
-					if (existJavaClass)
-						return existJavaClass;
-				}
 			}
 		}
 		return false;
 	}
 
 	private boolean matchingJava(IResource resource, AbstractComponent abstractComponent) {
-		Class class1 = (Class) abstractComponent;
+		MetaClass class1 = (MetaClass) abstractComponent;
 		AbstractNameConvetion abstractNameConvetion = class1.getMatching();
 		if (abstractNameConvetion instanceof ClassMatching) {
 			ClassMatching expressionMatching = (ClassMatching) abstractNameConvetion;
@@ -663,41 +636,6 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		return resource.getName();
 	}
 
-	boolean findPackage(IResource resource, Layer layer_) {
-		if (matchingLayer(resource, layer_)) {
-			return true;
-		} else {
-			EList<? extends AbstractComponent> abstractComponents = layer_.getModules();
-			for (AbstractComponent abstractComponent : abstractComponents) {
-				if (abstractComponent instanceof Layer) {
-					Layer componentChild = (Layer) abstractComponent;
-					return findPackage(resource, componentChild);
-				} else if (abstractComponent instanceof Class) {
-					Class componentChild = (Class) abstractComponent;
-					return findJavaClass(resource, componentChild);
-				}
-			}
-		}
-		return false;
-	}
-
-	private boolean matchingLayer(IResource resource, Layer layer) {
-		LayerMatching layerMatching = layer.getMatching();
-		if (layerMatching != null && layerMatching.getLayerMatching() != null & layerMatching.getLayerMatching().equals(LayerMatchingClause.RELATED_TO_COMPONENT)) {
-			if (cacheASML.existInstancesOfComponentWithName(resource.getName(), layerMatching.getParameter().getName())) {
-				return true;
-			}
-		} else {
-			String fullPath = resource.getFullPath().toString().replaceAll("/", ".");
-			if (fullPath.endsWith(layer.getName())) {
-				return true;
-			}
-			return false;
-		}
-		boolean basicMatching = resource.getName().equals(layer.getName()) || layer.getName().contains(resource.getName() + ".") || layer.getName().contains("." + resource.getName());
-		return basicMatching;
-	}
-
 	private boolean matchingModule(IResource resource, Module module) {
 		boolean isNameSapce = isNameSpace(resource, module);
 		if (isNameSapce) {
@@ -714,6 +652,35 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	}
 
 	private boolean matchingMetaModule(IResource resource, MetaModule metaModule) {
+		try {
+			boolean isNameSapce = isNameSpace(resource, metaModule);
+			if (isNameSapce) {
+				return true;
+			} else {
+				EObject parent = metaModule.eContainer();
+				while (parent != null && parent instanceof Module) {
+					if (isNameSpace(resource, (Module) parent)) {
+						return false;
+					}
+					parent = (EObject) parent.eContainer();
+				}
+				if (isJavaPackage(resource) && !isNameSpace(resource, metaModule)) {
+					int level = geModuleLevel(metaModule);
+					int level2 = getPackageLevel(resource);
+					if (level == level2)
+						return true;
+					else
+						return false;
+				}
+			}
+			return false;
+		} catch (JavaModelException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	private boolean matchingExternalModule(IResource resource, ExternalModule metaModule) {
 		try {
 			boolean isNameSapce = isNameSpace(resource, metaModule);
 			if (isNameSapce) {

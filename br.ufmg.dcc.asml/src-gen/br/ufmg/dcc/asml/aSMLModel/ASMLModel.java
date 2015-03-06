@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getName <em>Name</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getImportURI <em>Import URI</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getViews <em>Views</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getIgnore <em>Ignore</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,5 +94,21 @@ public interface ASMLModel extends EObject
    * @generated
    */
   EList<View> getViews();
+
+  /**
+   * Returns the value of the '<em><b>Ignore</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ignore</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ignore</em>' attribute list.
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getASMLModel_Ignore()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getIgnore();
 
 } // ASMLModel

@@ -4,8 +4,9 @@ package br.ufmg.dcc.asml.aSMLModel.impl;
 
 import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.Cardinality;
-import br.ufmg.dcc.asml.aSMLModel.Component;
+import br.ufmg.dcc.asml.aSMLModel.Attribute;
+import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
+import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
 import br.ufmg.dcc.asml.aSMLModel.Restriction;
 
 import java.util.Collection;
@@ -25,61 +26,41 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Component</b></em>'.
+ * An implementation of the model object '<em><b>External Module</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl#getMatching <em>Matching</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl#getCardinality <em>Cardinality</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ComponentImpl#getRestrictions <em>Restrictions</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl#getMatching <em>Matching</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalModuleImpl#getRestrictions <em>Restrictions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ComponentImpl extends AbstractComponentImpl implements Component
+public class ExternalModuleImpl extends AbstractComponentImpl implements ExternalModule
 {
   /**
-   * The default value of the '{@link #getMatching() <em>Matching</em>}' attribute.
+   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttributes()
+   * @generated
+   * @ordered
+   */
+  protected EList<Attribute> attributes;
+
+  /**
+   * The cached value of the '{@link #getMatching() <em>Matching</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMatching()
    * @generated
    * @ordered
    */
-  protected static final String MATCHING_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMatching() <em>Matching</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMatching()
-   * @generated
-   * @ordered
-   */
-  protected String matching = MATCHING_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCardinality()
-   * @generated
-   * @ordered
-   */
-  protected static final Cardinality CARDINALITY_EDEFAULT = Cardinality.ONE;
-
-  /**
-   * The cached value of the '{@link #getCardinality() <em>Cardinality</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCardinality()
-   * @generated
-   * @ordered
-   */
-  protected Cardinality cardinality = CARDINALITY_EDEFAULT;
+  protected ModuleMatching matching;
 
   /**
    * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -106,7 +87,7 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ComponentImpl()
+  protected ExternalModuleImpl()
   {
     super();
   }
@@ -119,7 +100,7 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   @Override
   protected EClass eStaticClass()
   {
-    return ASMLModelPackage.Literals.COMPONENT;
+    return ASMLModelPackage.Literals.EXTERNAL_MODULE;
   }
 
   /**
@@ -127,7 +108,21 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMatching()
+  public EList<Attribute> getAttributes()
+  {
+    if (attributes == null)
+    {
+      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ASMLModelPackage.EXTERNAL_MODULE__ATTRIBUTES);
+    }
+    return attributes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModuleMatching getMatching()
   {
     return matching;
   }
@@ -137,12 +132,16 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMatching(String newMatching)
+  public NotificationChain basicSetMatching(ModuleMatching newMatching, NotificationChain msgs)
   {
-    String oldMatching = matching;
+    ModuleMatching oldMatching = matching;
     matching = newMatching;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.COMPONENT__MATCHING, oldMatching, matching));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASMLModelPackage.EXTERNAL_MODULE__MATCHING, oldMatching, newMatching);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -150,22 +149,20 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
-  public Cardinality getCardinality()
+  public void setMatching(ModuleMatching newMatching)
   {
-    return cardinality;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCardinality(Cardinality newCardinality)
-  {
-    Cardinality oldCardinality = cardinality;
-    cardinality = newCardinality == null ? CARDINALITY_EDEFAULT : newCardinality;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.COMPONENT__CARDINALITY, oldCardinality, cardinality));
+    if (newMatching != matching)
+    {
+      NotificationChain msgs = null;
+      if (matching != null)
+        msgs = ((InternalEObject)matching).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.EXTERNAL_MODULE__MATCHING, null, msgs);
+      if (newMatching != null)
+        msgs = ((InternalEObject)newMatching).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.EXTERNAL_MODULE__MATCHING, null, msgs);
+      msgs = basicSetMatching(newMatching, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.EXTERNAL_MODULE__MATCHING, newMatching, newMatching));
   }
 
   /**
@@ -177,7 +174,7 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     if (components == null)
     {
-      components = new EObjectContainmentEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.COMPONENT__COMPONENTS);
+      components = new EObjectContainmentEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.EXTERNAL_MODULE__COMPONENTS);
     }
     return components;
   }
@@ -191,7 +188,7 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     if (restrictions == null)
     {
-      restrictions = new EObjectContainmentEList<Restriction>(Restriction.class, this, ASMLModelPackage.COMPONENT__RESTRICTIONS);
+      restrictions = new EObjectContainmentEList<Restriction>(Restriction.class, this, ASMLModelPackage.EXTERNAL_MODULE__RESTRICTIONS);
     }
     return restrictions;
   }
@@ -206,9 +203,13 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     switch (featureID)
     {
-      case ASMLModelPackage.COMPONENT__COMPONENTS:
+      case ASMLModelPackage.EXTERNAL_MODULE__ATTRIBUTES:
+        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case ASMLModelPackage.EXTERNAL_MODULE__MATCHING:
+        return basicSetMatching(null, msgs);
+      case ASMLModelPackage.EXTERNAL_MODULE__COMPONENTS:
         return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
-      case ASMLModelPackage.COMPONENT__RESTRICTIONS:
+      case ASMLModelPackage.EXTERNAL_MODULE__RESTRICTIONS:
         return ((InternalEList<?>)getRestrictions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -224,13 +225,13 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     switch (featureID)
     {
-      case ASMLModelPackage.COMPONENT__MATCHING:
+      case ASMLModelPackage.EXTERNAL_MODULE__ATTRIBUTES:
+        return getAttributes();
+      case ASMLModelPackage.EXTERNAL_MODULE__MATCHING:
         return getMatching();
-      case ASMLModelPackage.COMPONENT__CARDINALITY:
-        return getCardinality();
-      case ASMLModelPackage.COMPONENT__COMPONENTS:
+      case ASMLModelPackage.EXTERNAL_MODULE__COMPONENTS:
         return getComponents();
-      case ASMLModelPackage.COMPONENT__RESTRICTIONS:
+      case ASMLModelPackage.EXTERNAL_MODULE__RESTRICTIONS:
         return getRestrictions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -247,17 +248,18 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     switch (featureID)
     {
-      case ASMLModelPackage.COMPONENT__MATCHING:
-        setMatching((String)newValue);
+      case ASMLModelPackage.EXTERNAL_MODULE__ATTRIBUTES:
+        getAttributes().clear();
+        getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
-      case ASMLModelPackage.COMPONENT__CARDINALITY:
-        setCardinality((Cardinality)newValue);
+      case ASMLModelPackage.EXTERNAL_MODULE__MATCHING:
+        setMatching((ModuleMatching)newValue);
         return;
-      case ASMLModelPackage.COMPONENT__COMPONENTS:
+      case ASMLModelPackage.EXTERNAL_MODULE__COMPONENTS:
         getComponents().clear();
         getComponents().addAll((Collection<? extends AbstractComponent>)newValue);
         return;
-      case ASMLModelPackage.COMPONENT__RESTRICTIONS:
+      case ASMLModelPackage.EXTERNAL_MODULE__RESTRICTIONS:
         getRestrictions().clear();
         getRestrictions().addAll((Collection<? extends Restriction>)newValue);
         return;
@@ -275,16 +277,16 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     switch (featureID)
     {
-      case ASMLModelPackage.COMPONENT__MATCHING:
-        setMatching(MATCHING_EDEFAULT);
+      case ASMLModelPackage.EXTERNAL_MODULE__ATTRIBUTES:
+        getAttributes().clear();
         return;
-      case ASMLModelPackage.COMPONENT__CARDINALITY:
-        setCardinality(CARDINALITY_EDEFAULT);
+      case ASMLModelPackage.EXTERNAL_MODULE__MATCHING:
+        setMatching((ModuleMatching)null);
         return;
-      case ASMLModelPackage.COMPONENT__COMPONENTS:
+      case ASMLModelPackage.EXTERNAL_MODULE__COMPONENTS:
         getComponents().clear();
         return;
-      case ASMLModelPackage.COMPONENT__RESTRICTIONS:
+      case ASMLModelPackage.EXTERNAL_MODULE__RESTRICTIONS:
         getRestrictions().clear();
         return;
     }
@@ -301,35 +303,16 @@ public class ComponentImpl extends AbstractComponentImpl implements Component
   {
     switch (featureID)
     {
-      case ASMLModelPackage.COMPONENT__MATCHING:
-        return MATCHING_EDEFAULT == null ? matching != null : !MATCHING_EDEFAULT.equals(matching);
-      case ASMLModelPackage.COMPONENT__CARDINALITY:
-        return cardinality != CARDINALITY_EDEFAULT;
-      case ASMLModelPackage.COMPONENT__COMPONENTS:
+      case ASMLModelPackage.EXTERNAL_MODULE__ATTRIBUTES:
+        return attributes != null && !attributes.isEmpty();
+      case ASMLModelPackage.EXTERNAL_MODULE__MATCHING:
+        return matching != null;
+      case ASMLModelPackage.EXTERNAL_MODULE__COMPONENTS:
         return components != null && !components.isEmpty();
-      case ASMLModelPackage.COMPONENT__RESTRICTIONS:
+      case ASMLModelPackage.EXTERNAL_MODULE__RESTRICTIONS:
         return restrictions != null && !restrictions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (matching: ");
-    result.append(matching);
-    result.append(", cardinality: ");
-    result.append(cardinality);
-    result.append(')');
-    return result.toString();
-  }
-
-} //ComponentImpl
+} //ExternalModuleImpl

@@ -9,7 +9,6 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultSemanticHighlightingCal
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
 
 public class ASMLSemanticHighlightingCalculator extends
 		DefaultSemanticHighlightingCalculator {
@@ -21,11 +20,6 @@ public class ASMLSemanticHighlightingCalculator extends
 		TreeIterator<Object> it = EcoreUtil.getAllContents(_resource, true);
 		while (it.hasNext()) {
 			Object o = it.next();  
-			if (o instanceof LayerMatching) {
-				LayerMatching packageMatching = (LayerMatching) o;
-				ICompositeNode n = NodeModelUtils.getNode(packageMatching);
-				acceptor.addPosition(n.getOffset(),n.getLength(),ASMLSemanticHighlightingConfiguration.METHOD);
-			}else
 			if (o instanceof ClassMatching) {
 				ClassMatching expressionNameConvention = (ClassMatching) o;
 				ICompositeNode n = NodeModelUtils.getNode(expressionNameConvention);

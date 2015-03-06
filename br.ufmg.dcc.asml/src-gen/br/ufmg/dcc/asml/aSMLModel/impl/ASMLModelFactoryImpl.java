@@ -2,37 +2,7 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.impl;
 
-import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
-import br.ufmg.dcc.asml.aSMLModel.ASMLModelFactory;
-import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
-import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
-import br.ufmg.dcc.asml.aSMLModel.Attribute;
-import br.ufmg.dcc.asml.aSMLModel.Cardinality;
-import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.Component;
-import br.ufmg.dcc.asml.aSMLModel.Configuration;
-import br.ufmg.dcc.asml.aSMLModel.ConfigurationElement;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator;
-import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkClass;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation;
-import br.ufmg.dcc.asml.aSMLModel.GroupClause;
-import br.ufmg.dcc.asml.aSMLModel.Layer;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatchingClause;
-import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.Method;
-import br.ufmg.dcc.asml.aSMLModel.Module;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatchingParamenter;
-import br.ufmg.dcc.asml.aSMLModel.PermissionClause;
-import br.ufmg.dcc.asml.aSMLModel.RelactionType;
-import br.ufmg.dcc.asml.aSMLModel.Restriction;
-import br.ufmg.dcc.asml.aSMLModel.View;
-import br.ufmg.dcc.asml.aSMLModel.XmlDocument;
-import br.ufmg.dcc.asml.aSMLModel.XmlElement;
+import br.ufmg.dcc.asml.aSMLModel.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -100,23 +70,20 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
       case ASMLModelPackage.ABSTRACT_COMPONENT: return createAbstractComponent();
       case ASMLModelPackage.ATTRIBUTE: return createAttribute();
       case ASMLModelPackage.ABSTRACT_NAME_CONVETION: return createAbstractNameConvetion();
-      case ASMLModelPackage.COMPONENT: return createComponent();
-      case ASMLModelPackage.FRAMEWORK_INSTANTIATION: return createFrameworkInstantiation();
-      case ASMLModelPackage.FRAMEWORK_CLASS: return createFrameworkClass();
       case ASMLModelPackage.EXPRESSION_MATCHING_OPERATOR: return createExpressionMatchingOperator();
-      case ASMLModelPackage.LAYER_MATCHING: return createLayerMatching();
       case ASMLModelPackage.MODULE_MATCHING: return createModuleMatching();
       case ASMLModelPackage.CLASS_MATCHING: return createClassMatching();
       case ASMLModelPackage.CONFIGURATION_ELEMENT: return createConfigurationElement();
       case ASMLModelPackage.FILE: return createFile();
       case ASMLModelPackage.CONFIGURATION: return createConfiguration();
       case ASMLModelPackage.METHOD: return createMethod();
-      case ASMLModelPackage.CLASS: return createClass();
+      case ASMLModelPackage.META_CLASS: return createMetaClass();
+      case ASMLModelPackage.EXTERNAL_CLASS: return createExternalClass();
       case ASMLModelPackage.XML_ELEMENT: return createXmlElement();
       case ASMLModelPackage.XML_DOCUMENT: return createXmlDocument();
-      case ASMLModelPackage.LAYER: return createLayer();
       case ASMLModelPackage.MODULE: return createModule();
       case ASMLModelPackage.META_MODULE: return createMetaModule();
+      case ASMLModelPackage.EXTERNAL_MODULE: return createExternalModule();
       case ASMLModelPackage.RESTRICTION: return createRestriction();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -137,8 +104,6 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
         return createCardinalityFromString(eDataType, initialValue);
       case ASMLModelPackage.EXPRESSION_MATCHING_CLAUSE:
         return createExpressionMatchingClauseFromString(eDataType, initialValue);
-      case ASMLModelPackage.LAYER_MATCHING_CLAUSE:
-        return createLayerMatchingClauseFromString(eDataType, initialValue);
       case ASMLModelPackage.MODULE_MATCHING_PARAMENTER:
         return createModuleMatchingParamenterFromString(eDataType, initialValue);
       case ASMLModelPackage.GROUP_CLAUSE:
@@ -166,8 +131,6 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
         return convertCardinalityToString(eDataType, instanceValue);
       case ASMLModelPackage.EXPRESSION_MATCHING_CLAUSE:
         return convertExpressionMatchingClauseToString(eDataType, instanceValue);
-      case ASMLModelPackage.LAYER_MATCHING_CLAUSE:
-        return convertLayerMatchingClauseToString(eDataType, instanceValue);
       case ASMLModelPackage.MODULE_MATCHING_PARAMENTER:
         return convertModuleMatchingParamenterToString(eDataType, instanceValue);
       case ASMLModelPackage.GROUP_CLAUSE:
@@ -241,54 +204,10 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Component createComponent()
-  {
-    ComponentImpl component = new ComponentImpl();
-    return component;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FrameworkInstantiation createFrameworkInstantiation()
-  {
-    FrameworkInstantiationImpl frameworkInstantiation = new FrameworkInstantiationImpl();
-    return frameworkInstantiation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FrameworkClass createFrameworkClass()
-  {
-    FrameworkClassImpl frameworkClass = new FrameworkClassImpl();
-    return frameworkClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public ExpressionMatchingOperator createExpressionMatchingOperator()
   {
     ExpressionMatchingOperatorImpl expressionMatchingOperator = new ExpressionMatchingOperatorImpl();
     return expressionMatchingOperator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LayerMatching createLayerMatching()
-  {
-    LayerMatchingImpl layerMatching = new LayerMatchingImpl();
-    return layerMatching;
   }
 
   /**
@@ -362,10 +281,21 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public br.ufmg.dcc.asml.aSMLModel.Class createClass()
+  public MetaClass createMetaClass()
   {
-    ClassImpl class_ = new ClassImpl();
-    return class_;
+    MetaClassImpl metaClass = new MetaClassImpl();
+    return metaClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExternalClass createExternalClass()
+  {
+    ExternalClassImpl externalClass = new ExternalClassImpl();
+    return externalClass;
   }
 
   /**
@@ -395,17 +325,6 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public Layer createLayer()
-  {
-    LayerImpl layer = new LayerImpl();
-    return layer;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Module createModule()
   {
     ModuleImpl module = new ModuleImpl();
@@ -421,6 +340,17 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
   {
     MetaModuleImpl metaModule = new MetaModuleImpl();
     return metaModule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExternalModule createExternalModule()
+  {
+    ExternalModuleImpl externalModule = new ExternalModuleImpl();
+    return externalModule;
   }
 
   /**
@@ -474,28 +404,6 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * @generated
    */
   public String convertExpressionMatchingClauseToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LayerMatchingClause createLayerMatchingClauseFromString(EDataType eDataType, String initialValue)
-  {
-    LayerMatchingClause result = LayerMatchingClause.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertLayerMatchingClauseToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

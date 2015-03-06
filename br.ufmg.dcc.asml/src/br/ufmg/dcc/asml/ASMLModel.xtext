@@ -1,14 +1,13 @@
 grammar br.ufmg.dcc.asml.ASMLModel with org.eclipse.xtext.common.Terminals
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 generate aSMLModel "http://www.ufmg.br/dcc/asml/ASMLModel"
-
-
-
 
 ASMLModel:
   'architecture' name=ID_ASML '{'
        ('import' importURI=STRING';')?
   		(views += View)*
+  		('ignore'((ignore+=STRING)(',')?)*(';'))?
   '}'
 ;
 
@@ -25,31 +24,12 @@ enum Cardinality:
   One="1" | Zero="0" | OneOrMany="1..*" | ZeroOrMany="0..*";
 
 
-AbstractComponent:   Layer | Module | MetaModule | Class | Method | ConfigurationElement | FrameworkInstantiation|FrameworkClass; 
+AbstractComponent:   Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement; 
+
 Attribute: name=ID_ASML ':' value=STRING;
 
 AbstractNameConvetion: STRING | ClassMatching;
-Component:
-  'component' name=ID_ASML '{'
-  		('matching' matching=STRING';')? 
-  		('cardinality' cardinality=Cardinality';')? 
-  		(components += AbstractComponent)*
-  		(restrictions += Restriction)*
-  '}'
-;
 
-FrameworkInstantiation:
-  'framework-instantiation' name=ID_ASML '{'
-  		(components += AbstractComponent)*
-  		(restrictions += Restriction)*
-  '}'
-;
-
-FrameworkClass:
-  'framework-class' name=ID_ASML '{'
-  		javaCLass = STRING';'
-  '}'
-;
 
 
 enum ExpressionMatchingClause:
@@ -58,29 +38,17 @@ enum ExpressionMatchingClause:
 
 ExpressionMatchingOperator: AND='and' | OR= 'or';
 
-
-enum LayerMatchingClause:
-	RELATED_TO_COMPONENT='related to component' | EXTERNAL_DEFINITION = 'external definition'
-;
-
 enum ModuleMatchingParamenter:
 	PAKCAGE='by package name' | FOLDER='by folder name'  | PAKCAGE_AND_FOLDER='by package and folder name' | EXTERNAL_DEFINITION = 'by external implementation'
-;
-
-
-LayerMatching:
-	(layerMatching=LayerMatchingClause parameter=[AbstractComponent|QualifiedName])
 ;
 
 ModuleMatching:
 	(parameter=ModuleMatchingParamenter)
 ;
 
-
-
 ClassMatching:
-	(expressionMatching=ExpressionMatchingClause parameter=STRING)
-//	(operator=ExpressionMatchingOperator expressionMatchings=ExpressionMatchingClause parameter=STRING)?
+//	(expressionMatching=ExpressionMatchingClause parameter=STRING)
+	(expressionMatchings=ExpressionMatchingClause parameter=STRING (operator=ExpressionMatchingOperator )?)?
 ;
 
 ConfigurationElement: Configuration | XmlDocument | XmlElement | File ;
@@ -107,14 +75,22 @@ Method:
   '}'
 ;
 
-Class:
-  'class' name=ID_ASML '{'
+MetaClass:
+  'meta-class' name=ID_ASML '{'
   		('description' description=STRING';')? 
   		('matching:' matching=AbstractNameConvetion';')? 
   		('cardinality' cardinality=Cardinality';')? 
   		(methods += Method)*
   '}'
 ;
+
+ExternalClass:
+  'external-class' name=ID_ASML '{'
+  		('description' description=STRING';')? 
+  		('type' type=STRING';')? 
+  '}'
+;
+
 
 XmlElement:
   'xmlElement' name=ID_ASML '{'
@@ -130,13 +106,6 @@ XmlDocument:
   '}'
 ;
 
-Layer:
-  'layer' name=ID_ASML '{'
-  		('matching' matching=LayerMatching';')? 
-  		(modules += Module)*
-  		(restrictions += Restriction)*
-  '}'
-;
 
 Module:
   'module' name=ID_ASML '{'
@@ -149,6 +118,15 @@ Module:
  
 MetaModule:
   'meta-module' name=ID_ASML '{'
+   		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
+  		('matching' matching=ModuleMatching ';')? 
+  		(components += AbstractComponent)*
+  		(restrictions += Restriction)*
+  '}'
+;
+ 
+ExternalModule:
+  'external-module' name=ID_ASML '{'
    		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
   		('matching' matching=ModuleMatching ';')? 
   		(components += AbstractComponent)*
@@ -175,6 +153,6 @@ enum RelactionType:
 
 
 Restriction:
-	'restriction' '{' (groupClause=GroupClause)? componentA+=([AbstractComponent|QualifiedName])*  (permissionClause=PermissionClause)? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName]'}' 
+	'restriction' '{' (groupClause=GroupClause)? componentA+=([AbstractComponent|QualifiedName])*  (permissionClause=PermissionClause)? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName] ('description' description=STRING)?'}' 
 ; 
 // Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.

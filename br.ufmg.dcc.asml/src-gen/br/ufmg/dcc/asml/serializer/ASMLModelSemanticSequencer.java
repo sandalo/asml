@@ -4,14 +4,12 @@ import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
 import br.ufmg.dcc.asml.aSMLModel.Attribute;
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.Component;
 import br.ufmg.dcc.asml.aSMLModel.Configuration;
 import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingOperator;
+import br.ufmg.dcc.asml.aSMLModel.ExternalClass;
+import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
 import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkClass;
-import br.ufmg.dcc.asml.aSMLModel.FrameworkInstantiation;
-import br.ufmg.dcc.asml.aSMLModel.Layer;
-import br.ufmg.dcc.asml.aSMLModel.LayerMatching;
+import br.ufmg.dcc.asml.aSMLModel.MetaClass;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
 import br.ufmg.dcc.asml.aSMLModel.Method;
 import br.ufmg.dcc.asml.aSMLModel.Module;
@@ -55,24 +53,10 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
-			case ASMLModelPackage.CLASS:
-				if(context == grammarAccess.getAbstractComponentRule() ||
-				   context == grammarAccess.getClassRule()) {
-					sequence_Class(context, (br.ufmg.dcc.asml.aSMLModel.Class) semanticObject); 
-					return; 
-				}
-				else break;
 			case ASMLModelPackage.CLASS_MATCHING:
 				if(context == grammarAccess.getAbstractNameConvetionRule() ||
 				   context == grammarAccess.getClassMatchingRule()) {
 					sequence_ClassMatching(context, (ClassMatching) semanticObject); 
-					return; 
-				}
-				else break;
-			case ASMLModelPackage.COMPONENT:
-				if(context == grammarAccess.getAbstractComponentRule() ||
-				   context == grammarAccess.getComponentRule()) {
-					sequence_Component(context, (Component) semanticObject); 
 					return; 
 				}
 				else break;
@@ -90,6 +74,20 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
+			case ASMLModelPackage.EXTERNAL_CLASS:
+				if(context == grammarAccess.getAbstractComponentRule() ||
+				   context == grammarAccess.getExternalClassRule()) {
+					sequence_ExternalClass(context, (ExternalClass) semanticObject); 
+					return; 
+				}
+				else break;
+			case ASMLModelPackage.EXTERNAL_MODULE:
+				if(context == grammarAccess.getAbstractComponentRule() ||
+				   context == grammarAccess.getExternalModuleRule()) {
+					sequence_ExternalModule(context, (ExternalModule) semanticObject); 
+					return; 
+				}
+				else break;
 			case ASMLModelPackage.FILE:
 				if(context == grammarAccess.getAbstractComponentRule() ||
 				   context == grammarAccess.getConfigurationElementRule() ||
@@ -98,30 +96,10 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
-			case ASMLModelPackage.FRAMEWORK_CLASS:
+			case ASMLModelPackage.META_CLASS:
 				if(context == grammarAccess.getAbstractComponentRule() ||
-				   context == grammarAccess.getFrameworkClassRule()) {
-					sequence_FrameworkClass(context, (FrameworkClass) semanticObject); 
-					return; 
-				}
-				else break;
-			case ASMLModelPackage.FRAMEWORK_INSTANTIATION:
-				if(context == grammarAccess.getAbstractComponentRule() ||
-				   context == grammarAccess.getFrameworkInstantiationRule()) {
-					sequence_FrameworkInstantiation(context, (FrameworkInstantiation) semanticObject); 
-					return; 
-				}
-				else break;
-			case ASMLModelPackage.LAYER:
-				if(context == grammarAccess.getAbstractComponentRule() ||
-				   context == grammarAccess.getLayerRule()) {
-					sequence_Layer(context, (Layer) semanticObject); 
-					return; 
-				}
-				else break;
-			case ASMLModelPackage.LAYER_MATCHING:
-				if(context == grammarAccess.getLayerMatchingRule()) {
-					sequence_LayerMatching(context, (LayerMatching) semanticObject); 
+				   context == grammarAccess.getMetaClassRule()) {
+					sequence_MetaClass(context, (MetaClass) semanticObject); 
 					return; 
 				}
 				else break;
@@ -186,7 +164,7 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID_ASML importURI=STRING? views+=View*)
+	 *     (name=ID_ASML importURI=STRING? views+=View* ignore+=STRING*)
 	 */
 	protected void sequence_ASMLModel(EObject context, ASMLModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -233,24 +211,6 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID_ASML description=STRING? matching=AbstractNameConvetion? cardinality=Cardinality? methods+=Method*)
-	 */
-	protected void sequence_Class(EObject context, br.ufmg.dcc.asml.aSMLModel.Class semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID_ASML matching=STRING? cardinality=Cardinality? components+=AbstractComponent* restrictions+=Restriction*)
-	 */
-	protected void sequence_Component(EObject context, Component semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID_ASML matching=STRING? cardinality=Cardinality? configurationElement+=ConfigurationElement*)
 	 */
 	protected void sequence_Configuration(EObject context, Configuration semanticObject) {
@@ -269,6 +229,24 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
+	 *     (name=ID_ASML description=STRING? type=STRING?)
+	 */
+	protected void sequence_ExternalClass(EObject context, ExternalClass semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID_ASML attributes+=Attribute* matching=ModuleMatching? components+=AbstractComponent* restrictions+=Restriction*)
+	 */
+	protected void sequence_ExternalModule(EObject context, ExternalModule semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID_ASML matching=AbstractNameConvetion? cardinality=Cardinality?)
 	 */
 	protected void sequence_File(EObject context, File semanticObject) {
@@ -278,56 +256,9 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID_ASML javaCLass=STRING)
+	 *     (name=ID_ASML description=STRING? matching=AbstractNameConvetion? cardinality=Cardinality? methods+=Method*)
 	 */
-	protected void sequence_FrameworkClass(EObject context, FrameworkClass semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ASMLModelPackage.Literals.ABSTRACT_COMPONENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ASMLModelPackage.Literals.ABSTRACT_COMPONENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, ASMLModelPackage.Literals.FRAMEWORK_CLASS__JAVA_CLASS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ASMLModelPackage.Literals.FRAMEWORK_CLASS__JAVA_CLASS));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFrameworkClassAccess().getNameID_ASMLTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFrameworkClassAccess().getJavaCLassSTRINGTerminalRuleCall_3_0(), semanticObject.getJavaCLass());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID_ASML components+=AbstractComponent* restrictions+=Restriction*)
-	 */
-	protected void sequence_FrameworkInstantiation(EObject context, FrameworkInstantiation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (layerMatching=LayerMatchingClause parameter=[AbstractComponent|QualifiedName])
-	 */
-	protected void sequence_LayerMatching(EObject context, LayerMatching semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ASMLModelPackage.Literals.LAYER_MATCHING__LAYER_MATCHING) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ASMLModelPackage.Literals.LAYER_MATCHING__LAYER_MATCHING));
-			if(transientValues.isValueTransient(semanticObject, ASMLModelPackage.Literals.LAYER_MATCHING__PARAMETER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ASMLModelPackage.Literals.LAYER_MATCHING__PARAMETER));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLayerMatchingAccess().getLayerMatchingLayerMatchingClauseEnumRuleCall_0_0(), semanticObject.getLayerMatching());
-		feeder.accept(grammarAccess.getLayerMatchingAccess().getParameterAbstractComponentQualifiedNameParserRuleCall_1_0_1(), semanticObject.getParameter());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID_ASML matching=LayerMatching? modules+=Module* restrictions+=Restriction*)
-	 */
-	protected void sequence_Layer(EObject context, Layer semanticObject) {
+	protected void sequence_MetaClass(EObject context, MetaClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -382,7 +313,8 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         componentA+=[AbstractComponent|QualifiedName]* 
 	 *         permissionClause=PermissionClause? 
 	 *         relactionType=RelactionType 
-	 *         componentB=[AbstractComponent|QualifiedName]
+	 *         componentB=[AbstractComponent|QualifiedName] 
+	 *         description=STRING?
 	 *     )
 	 */
 	protected void sequence_Restriction(EObject context, Restriction semanticObject) {

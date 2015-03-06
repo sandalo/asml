@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getPermissionClause <em>Permission Clause</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getRelactionType <em>Relaction Type</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getComponentB <em>Component B</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,6 +122,26 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @ordered
    */
   protected AbstractComponent componentB;
+
+  /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -274,6 +295,29 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.RESTRICTION__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -290,6 +334,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         if (resolve) return getComponentB();
         return basicGetComponentB();
+      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
+        return getDescription();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -321,6 +367,9 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         setComponentB((AbstractComponent)newValue);
         return;
+      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -350,6 +399,9 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         setComponentB((AbstractComponent)null);
         return;
+      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -374,6 +426,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
         return relactionType != RELACTION_TYPE_EDEFAULT;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         return componentB != null;
+      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
     }
     return super.eIsSet(featureID);
   }
@@ -395,6 +449,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
     result.append(permissionClause);
     result.append(", relactionType: ");
     result.append(relactionType);
+    result.append(", description: ");
+    result.append(description);
     result.append(')');
     return result.toString();
   }

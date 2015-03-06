@@ -32,13 +32,21 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Assignment cViewsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cViewsViewParserRuleCall_4_0 = (RuleCall)cViewsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cIgnoreKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Group cGroup_5_1 = (Group)cGroup_5.eContents().get(1);
+		private final Assignment cIgnoreAssignment_5_1_0 = (Assignment)cGroup_5_1.eContents().get(0);
+		private final RuleCall cIgnoreSTRINGTerminalRuleCall_5_1_0_0 = (RuleCall)cIgnoreAssignment_5_1_0.eContents().get(0);
+		private final Keyword cCommaKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ASMLModel:
-		//	"architecture" name=ID_ASML "{" ("import" importURI=STRING ";")? views+=View* "}";
+		//	"architecture" name=ID_ASML "{" ("import" importURI=STRING ";")? views+=View* ("ignore" (ignore+=STRING ","?)* ";")?
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"architecture" name=ID_ASML "{" ("import" importURI=STRING ";")? views+=View* "}"
+		//"architecture" name=ID_ASML "{" ("import" importURI=STRING ";")? views+=View* ("ignore" (ignore+=STRING ","?)* ";")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"architecture"
@@ -74,8 +82,29 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		//View
 		public RuleCall getViewsViewParserRuleCall_4_0() { return cViewsViewParserRuleCall_4_0; }
 
+		//("ignore" (ignore+=STRING ","?)* ";")?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"ignore"
+		public Keyword getIgnoreKeyword_5_0() { return cIgnoreKeyword_5_0; }
+
+		//(ignore+=STRING ","?)*
+		public Group getGroup_5_1() { return cGroup_5_1; }
+
+		//ignore+=STRING
+		public Assignment getIgnoreAssignment_5_1_0() { return cIgnoreAssignment_5_1_0; }
+
+		//STRING
+		public RuleCall getIgnoreSTRINGTerminalRuleCall_5_1_0_0() { return cIgnoreSTRINGTerminalRuleCall_5_1_0_0; }
+
+		//","?
+		public Keyword getCommaKeyword_5_1_1() { return cCommaKeyword_5_1_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5_2() { return cSemicolonKeyword_5_2; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class ViewElements extends AbstractParserRuleElementFinder {
@@ -159,51 +188,41 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	public class AbstractComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractComponent");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cLayerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cModuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cMetaModuleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cClassParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cMethodParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cConfigurationElementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cComponentParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cFrameworkInstantiationParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cFrameworkClassParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cModuleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMetaModuleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cExternalModuleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cMetaClassParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cExternalClassParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cMethodParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cConfigurationElementParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//AbstractComponent:
-		//	Layer | Module | MetaModule | Class | Method | ConfigurationElement | Component | FrameworkInstantiation |
-		//	FrameworkClass;
+		//	Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement;
 		public ParserRule getRule() { return rule; }
 
-		//Layer | Module | MetaModule | Class | Method | ConfigurationElement | Component | FrameworkInstantiation |
-		//FrameworkClass
+		//Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Layer
-		public RuleCall getLayerParserRuleCall_0() { return cLayerParserRuleCall_0; }
-
 		//Module
-		public RuleCall getModuleParserRuleCall_1() { return cModuleParserRuleCall_1; }
+		public RuleCall getModuleParserRuleCall_0() { return cModuleParserRuleCall_0; }
 
 		//MetaModule
-		public RuleCall getMetaModuleParserRuleCall_2() { return cMetaModuleParserRuleCall_2; }
+		public RuleCall getMetaModuleParserRuleCall_1() { return cMetaModuleParserRuleCall_1; }
 
-		//Class
-		public RuleCall getClassParserRuleCall_3() { return cClassParserRuleCall_3; }
+		//ExternalModule
+		public RuleCall getExternalModuleParserRuleCall_2() { return cExternalModuleParserRuleCall_2; }
+
+		//MetaClass
+		public RuleCall getMetaClassParserRuleCall_3() { return cMetaClassParserRuleCall_3; }
+
+		//ExternalClass
+		public RuleCall getExternalClassParserRuleCall_4() { return cExternalClassParserRuleCall_4; }
 
 		//Method
-		public RuleCall getMethodParserRuleCall_4() { return cMethodParserRuleCall_4; }
+		public RuleCall getMethodParserRuleCall_5() { return cMethodParserRuleCall_5; }
 
 		//ConfigurationElement
-		public RuleCall getConfigurationElementParserRuleCall_5() { return cConfigurationElementParserRuleCall_5; }
-
-		//Component
-		public RuleCall getComponentParserRuleCall_6() { return cComponentParserRuleCall_6; }
-
-		//FrameworkInstantiation
-		public RuleCall getFrameworkInstantiationParserRuleCall_7() { return cFrameworkInstantiationParserRuleCall_7; }
-
-		//FrameworkClass
-		public RuleCall getFrameworkClassParserRuleCall_8() { return cFrameworkClassParserRuleCall_8; }
+		public RuleCall getConfigurationElementParserRuleCall_6() { return cConfigurationElementParserRuleCall_6; }
 	}
 
 	public class AttributeElements extends AbstractParserRuleElementFinder {
@@ -258,188 +277,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getClassMatchingParserRuleCall_1() { return cClassMatchingParserRuleCall_1; }
 	}
 
-	public class ComponentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Component");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cMatchingKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cMatchingAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cMatchingSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cMatchingAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cCardinalityKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cCardinalityAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cCardinalityCardinalityEnumRuleCall_4_1_0 = (RuleCall)cCardinalityAssignment_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cComponentsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cComponentsAbstractComponentParserRuleCall_5_0 = (RuleCall)cComponentsAssignment_5.eContents().get(0);
-		private final Assignment cRestrictionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cRestrictionsRestrictionParserRuleCall_6_0 = (RuleCall)cRestrictionsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		
-		//Component:
-		//	"component" name=ID_ASML "{" ("matching" matching=STRING ";")? ("cardinality" cardinality=Cardinality ";")?
-		//	components+=AbstractComponent* restrictions+=Restriction* "}";
-		public ParserRule getRule() { return rule; }
-
-		//"component" name=ID_ASML "{" ("matching" matching=STRING ";")? ("cardinality" cardinality=Cardinality ";")?
-		//components+=AbstractComponent* restrictions+=Restriction* "}"
-		public Group getGroup() { return cGroup; }
-
-		//"component"
-		public Keyword getComponentKeyword_0() { return cComponentKeyword_0; }
-
-		//name=ID_ASML
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID_ASML
-		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//("matching" matching=STRING ";")?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"matching"
-		public Keyword getMatchingKeyword_3_0() { return cMatchingKeyword_3_0; }
-
-		//matching=STRING
-		public Assignment getMatchingAssignment_3_1() { return cMatchingAssignment_3_1; }
-
-		//STRING
-		public RuleCall getMatchingSTRINGTerminalRuleCall_3_1_0() { return cMatchingSTRINGTerminalRuleCall_3_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
-
-		//("cardinality" cardinality=Cardinality ";")?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"cardinality"
-		public Keyword getCardinalityKeyword_4_0() { return cCardinalityKeyword_4_0; }
-
-		//cardinality=Cardinality
-		public Assignment getCardinalityAssignment_4_1() { return cCardinalityAssignment_4_1; }
-
-		//Cardinality
-		public RuleCall getCardinalityCardinalityEnumRuleCall_4_1_0() { return cCardinalityCardinalityEnumRuleCall_4_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
-
-		//components+=AbstractComponent*
-		public Assignment getComponentsAssignment_5() { return cComponentsAssignment_5; }
-
-		//AbstractComponent
-		public RuleCall getComponentsAbstractComponentParserRuleCall_5_0() { return cComponentsAbstractComponentParserRuleCall_5_0; }
-
-		//restrictions+=Restriction*
-		public Assignment getRestrictionsAssignment_6() { return cRestrictionsAssignment_6; }
-
-		//Restriction
-		public RuleCall getRestrictionsRestrictionParserRuleCall_6_0() { return cRestrictionsRestrictionParserRuleCall_6_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
-	}
-
-	public class FrameworkInstantiationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FrameworkInstantiation");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFrameworkInstantiationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cComponentsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cComponentsAbstractComponentParserRuleCall_3_0 = (RuleCall)cComponentsAssignment_3.eContents().get(0);
-		private final Assignment cRestrictionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cRestrictionsRestrictionParserRuleCall_4_0 = (RuleCall)cRestrictionsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//FrameworkInstantiation:
-		//	"framework-instantiation" name=ID_ASML "{" components+=AbstractComponent* restrictions+=Restriction* "}";
-		public ParserRule getRule() { return rule; }
-
-		//"framework-instantiation" name=ID_ASML "{" components+=AbstractComponent* restrictions+=Restriction* "}"
-		public Group getGroup() { return cGroup; }
-
-		//"framework-instantiation"
-		public Keyword getFrameworkInstantiationKeyword_0() { return cFrameworkInstantiationKeyword_0; }
-
-		//name=ID_ASML
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID_ASML
-		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//components+=AbstractComponent*
-		public Assignment getComponentsAssignment_3() { return cComponentsAssignment_3; }
-
-		//AbstractComponent
-		public RuleCall getComponentsAbstractComponentParserRuleCall_3_0() { return cComponentsAbstractComponentParserRuleCall_3_0; }
-
-		//restrictions+=Restriction*
-		public Assignment getRestrictionsAssignment_4() { return cRestrictionsAssignment_4; }
-
-		//Restriction
-		public RuleCall getRestrictionsRestrictionParserRuleCall_4_0() { return cRestrictionsRestrictionParserRuleCall_4_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-
-	public class FrameworkClassElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FrameworkClass");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFrameworkClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cJavaCLassAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cJavaCLassSTRINGTerminalRuleCall_3_0 = (RuleCall)cJavaCLassAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//FrameworkClass:
-		//	"framework-class" name=ID_ASML "{" javaCLass=STRING ";" "}";
-		public ParserRule getRule() { return rule; }
-
-		//"framework-class" name=ID_ASML "{" javaCLass=STRING ";" "}"
-		public Group getGroup() { return cGroup; }
-
-		//"framework-class"
-		public Keyword getFrameworkClassKeyword_0() { return cFrameworkClassKeyword_0; }
-
-		//name=ID_ASML
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID_ASML
-		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//javaCLass=STRING
-		public Assignment getJavaCLassAssignment_3() { return cJavaCLassAssignment_3; }
-
-		//STRING
-		public RuleCall getJavaCLassSTRINGTerminalRuleCall_3_0() { return cJavaCLassSTRINGTerminalRuleCall_3_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-
 	public class ExpressionMatchingOperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExpressionMatchingOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -466,38 +303,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"or"
 		public Keyword getOROrKeyword_1_0() { return cOROrKeyword_1_0; }
-	}
-
-	public class LayerMatchingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LayerMatching");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cLayerMatchingAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cLayerMatchingLayerMatchingClauseEnumRuleCall_0_0 = (RuleCall)cLayerMatchingAssignment_0.eContents().get(0);
-		private final Assignment cParameterAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cParameterAbstractComponentCrossReference_1_0 = (CrossReference)cParameterAssignment_1.eContents().get(0);
-		private final RuleCall cParameterAbstractComponentQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cParameterAbstractComponentCrossReference_1_0.eContents().get(1);
-		
-		//LayerMatching:
-		//	layerMatching=LayerMatchingClause parameter=[AbstractComponent|QualifiedName];
-		public ParserRule getRule() { return rule; }
-
-		//layerMatching=LayerMatchingClause parameter=[AbstractComponent|QualifiedName]
-		public Group getGroup() { return cGroup; }
-
-		//layerMatching=LayerMatchingClause
-		public Assignment getLayerMatchingAssignment_0() { return cLayerMatchingAssignment_0; }
-
-		//LayerMatchingClause
-		public RuleCall getLayerMatchingLayerMatchingClauseEnumRuleCall_0_0() { return cLayerMatchingLayerMatchingClauseEnumRuleCall_0_0; }
-
-		//parameter=[AbstractComponent|QualifiedName]
-		public Assignment getParameterAssignment_1() { return cParameterAssignment_1; }
-
-		//[AbstractComponent|QualifiedName]
-		public CrossReference getParameterAbstractComponentCrossReference_1_0() { return cParameterAbstractComponentCrossReference_1_0; }
-
-		//QualifiedName
-		public RuleCall getParameterAbstractComponentQualifiedNameParserRuleCall_1_0_1() { return cParameterAbstractComponentQualifiedNameParserRuleCall_1_0_1; }
 	}
 
 	public class ModuleMatchingElements extends AbstractParserRuleElementFinder {
@@ -801,10 +606,10 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
-	public class ClassElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Class");
+	public class MetaClassElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MetaClass");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cMetaClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -827,17 +632,17 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMethodsMethodParserRuleCall_6_0 = (RuleCall)cMethodsAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		//Class:
-		//	"class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion ";")?
-		//	("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
+		//MetaClass:
+		//	"meta-class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion
+		//	";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion ";")?
+		//"meta-class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion ";")?
 		//("cardinality" cardinality=Cardinality ";")? methods+=Method* "}"
 		public Group getGroup() { return cGroup; }
 
-		//"class"
-		public Keyword getClassKeyword_0() { return cClassKeyword_0; }
+		//"meta-class"
+		public Keyword getMetaClassKeyword_0() { return cMetaClassKeyword_0; }
 
 		//name=ID_ASML
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -901,6 +706,78 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+
+	public class ExternalClassElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExternalClass");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExternalClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDescriptionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cDescriptionAssignment_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cTypeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cTypeAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//ExternalClass:
+		//	"external-class" name=ID_ASML "{" ("description" description=STRING ";")? ("type" type=STRING ";")? "}";
+		public ParserRule getRule() { return rule; }
+
+		//"external-class" name=ID_ASML "{" ("description" description=STRING ";")? ("type" type=STRING ";")? "}"
+		public Group getGroup() { return cGroup; }
+
+		//"external-class"
+		public Keyword getExternalClassKeyword_0() { return cExternalClassKeyword_0; }
+
+		//name=ID_ASML
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID_ASML
+		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//("description" description=STRING ";")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"description"
+		public Keyword getDescriptionKeyword_3_0() { return cDescriptionKeyword_3_0; }
+
+		//description=STRING
+		public Assignment getDescriptionAssignment_3_1() { return cDescriptionAssignment_3_1; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_1_0() { return cDescriptionSTRINGTerminalRuleCall_3_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
+
+		//("type" type=STRING ";")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"type"
+		public Keyword getTypeKeyword_4_0() { return cTypeKeyword_4_0; }
+
+		//type=STRING
+		public Assignment getTypeAssignment_4_1() { return cTypeAssignment_4_1; }
+
+		//STRING
+		public RuleCall getTypeSTRINGTerminalRuleCall_4_1_0() { return cTypeSTRINGTerminalRuleCall_4_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class XmlElementElements extends AbstractParserRuleElementFinder {
@@ -1045,74 +922,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-
-	public class LayerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Layer");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLayerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cMatchingKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cMatchingAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cMatchingLayerMatchingParserRuleCall_3_1_0 = (RuleCall)cMatchingAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cModulesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cModulesModuleParserRuleCall_4_0 = (RuleCall)cModulesAssignment_4.eContents().get(0);
-		private final Assignment cRestrictionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cRestrictionsRestrictionParserRuleCall_5_0 = (RuleCall)cRestrictionsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		
-		//Layer:
-		//	"layer" name=ID_ASML "{" ("matching" matching=LayerMatching ";")? modules+=Module* restrictions+=Restriction* "}";
-		public ParserRule getRule() { return rule; }
-
-		//"layer" name=ID_ASML "{" ("matching" matching=LayerMatching ";")? modules+=Module* restrictions+=Restriction* "}"
-		public Group getGroup() { return cGroup; }
-
-		//"layer"
-		public Keyword getLayerKeyword_0() { return cLayerKeyword_0; }
-
-		//name=ID_ASML
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID_ASML
-		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//("matching" matching=LayerMatching ";")?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"matching"
-		public Keyword getMatchingKeyword_3_0() { return cMatchingKeyword_3_0; }
-
-		//matching=LayerMatching
-		public Assignment getMatchingAssignment_3_1() { return cMatchingAssignment_3_1; }
-
-		//LayerMatching
-		public RuleCall getMatchingLayerMatchingParserRuleCall_3_1_0() { return cMatchingLayerMatchingParserRuleCall_3_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
-
-		//modules+=Module*
-		public Assignment getModulesAssignment_4() { return cModulesAssignment_4; }
-
-		//Module
-		public RuleCall getModulesModuleParserRuleCall_4_0() { return cModulesModuleParserRuleCall_4_0; }
-
-		//restrictions+=Restriction*
-		public Assignment getRestrictionsAssignment_5() { return cRestrictionsAssignment_5; }
-
-		//Restriction
-		public RuleCall getRestrictionsRestrictionParserRuleCall_5_0() { return cRestrictionsRestrictionParserRuleCall_5_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class ModuleElements extends AbstractParserRuleElementFinder {
@@ -1311,6 +1120,104 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
+	public class ExternalModuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExternalModule");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExternalModuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cGroup_3.eContents().get(0);
+		private final Keyword cAttributesKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Assignment cAttributesAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
+		private final RuleCall cAttributesAttributeParserRuleCall_3_0_1_0 = (RuleCall)cAttributesAssignment_3_0_1.eContents().get(0);
+		private final Keyword cCommaKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
+		private final Keyword cSemicolonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cMatchingKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMatchingAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMatchingModuleMatchingParserRuleCall_4_1_0 = (RuleCall)cMatchingAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cComponentsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cComponentsAbstractComponentParserRuleCall_5_0 = (RuleCall)cComponentsAssignment_5.eContents().get(0);
+		private final Assignment cRestrictionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cRestrictionsRestrictionParserRuleCall_6_0 = (RuleCall)cRestrictionsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//ExternalModule:
+		//	"external-module" name=ID_ASML "{" (("attributes" attributes+=Attribute ","?)* ";")? ("matching"
+		//	matching=ModuleMatching ";")? components+=AbstractComponent* restrictions+=Restriction* "}";
+		public ParserRule getRule() { return rule; }
+
+		//"external-module" name=ID_ASML "{" (("attributes" attributes+=Attribute ","?)* ";")? ("matching" matching=ModuleMatching
+		//";")? components+=AbstractComponent* restrictions+=Restriction* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"external-module"
+		public Keyword getExternalModuleKeyword_0() { return cExternalModuleKeyword_0; }
+
+		//name=ID_ASML
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID_ASML
+		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//(("attributes" attributes+=Attribute ","?)* ";")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//("attributes" attributes+=Attribute ","?)*
+		public Group getGroup_3_0() { return cGroup_3_0; }
+
+		//"attributes"
+		public Keyword getAttributesKeyword_3_0_0() { return cAttributesKeyword_3_0_0; }
+
+		//attributes+=Attribute
+		public Assignment getAttributesAssignment_3_0_1() { return cAttributesAssignment_3_0_1; }
+
+		//Attribute
+		public RuleCall getAttributesAttributeParserRuleCall_3_0_1_0() { return cAttributesAttributeParserRuleCall_3_0_1_0; }
+
+		//","?
+		public Keyword getCommaKeyword_3_0_2() { return cCommaKeyword_3_0_2; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3_1() { return cSemicolonKeyword_3_1; }
+
+		//("matching" matching=ModuleMatching ";")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"matching"
+		public Keyword getMatchingKeyword_4_0() { return cMatchingKeyword_4_0; }
+
+		//matching=ModuleMatching
+		public Assignment getMatchingAssignment_4_1() { return cMatchingAssignment_4_1; }
+
+		//ModuleMatching
+		public RuleCall getMatchingModuleMatchingParserRuleCall_4_1_0() { return cMatchingModuleMatchingParserRuleCall_4_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
+
+		//components+=AbstractComponent*
+		public Assignment getComponentsAssignment_5() { return cComponentsAssignment_5; }
+
+		//AbstractComponent
+		public RuleCall getComponentsAbstractComponentParserRuleCall_5_0() { return cComponentsAbstractComponentParserRuleCall_5_0; }
+
+		//restrictions+=Restriction*
+		public Assignment getRestrictionsAssignment_6() { return cRestrictionsAssignment_6; }
+
+		//Restriction
+		public RuleCall getRestrictionsRestrictionParserRuleCall_6_0() { return cRestrictionsRestrictionParserRuleCall_6_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+	}
+
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1356,16 +1263,22 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cComponentBAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final CrossReference cComponentBAbstractComponentCrossReference_6_0 = (CrossReference)cComponentBAssignment_6.eContents().get(0);
 		private final RuleCall cComponentBAbstractComponentQualifiedNameParserRuleCall_6_0_1 = (RuleCall)cComponentBAbstractComponentCrossReference_6_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cDescriptionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cDescriptionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cDescriptionAssignment_7_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
 		//Restriction:
 		//	"restriction" "{" groupClause=GroupClause? componentA+=[AbstractComponent|QualifiedName]*
-		//	permissionClause=PermissionClause? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName] "}";
+		//	permissionClause=PermissionClause? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName]
+		//	("description" description=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"restriction" "{" groupClause=GroupClause? componentA+=[AbstractComponent|QualifiedName]*
-		//permissionClause=PermissionClause? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName] "}"
+		//permissionClause=PermissionClause? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName]
+		//("description" description=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"restriction"
@@ -1410,8 +1323,20 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getComponentBAbstractComponentQualifiedNameParserRuleCall_6_0_1() { return cComponentBAbstractComponentQualifiedNameParserRuleCall_6_0_1; }
 
+		//("description" description=STRING)?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"description"
+		public Keyword getDescriptionKeyword_7_0() { return cDescriptionKeyword_7_0; }
+
+		//description=STRING
+		public Assignment getDescriptionAssignment_7_1() { return cDescriptionAssignment_7_1; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_7_1_0() { return cDescriptionSTRINGTerminalRuleCall_7_1_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	
 	
@@ -1485,34 +1410,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"name ends with"
 		public Keyword getNAME_ENDS_WITHNameEndsWithKeyword_1_0() { return cNAME_ENDS_WITHNameEndsWithKeyword_1_0; }
-	}
-
-	public class LayerMatchingClauseElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "LayerMatchingClause");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cRELATED_TO_COMPONENTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cRELATED_TO_COMPONENTRelatedToComponentKeyword_0_0 = (Keyword)cRELATED_TO_COMPONENTEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cEXTERNAL_DEFINITIONEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cEXTERNAL_DEFINITIONExternalDefinitionKeyword_1_0 = (Keyword)cEXTERNAL_DEFINITIONEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum LayerMatchingClause:
-		//	RELATED_TO_COMPONENT="related to component" | EXTERNAL_DEFINITION="external definition";
-		public EnumRule getRule() { return rule; }
-
-		//RELATED_TO_COMPONENT="related to component" | EXTERNAL_DEFINITION="external definition"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//RELATED_TO_COMPONENT="related to component"
-		public EnumLiteralDeclaration getRELATED_TO_COMPONENTEnumLiteralDeclaration_0() { return cRELATED_TO_COMPONENTEnumLiteralDeclaration_0; }
-
-		//"related to component"
-		public Keyword getRELATED_TO_COMPONENTRelatedToComponentKeyword_0_0() { return cRELATED_TO_COMPONENTRelatedToComponentKeyword_0_0; }
-
-		//EXTERNAL_DEFINITION="external definition"
-		public EnumLiteralDeclaration getEXTERNAL_DEFINITIONEnumLiteralDeclaration_1() { return cEXTERNAL_DEFINITIONEnumLiteralDeclaration_1; }
-
-		//"external definition"
-		public Keyword getEXTERNAL_DEFINITIONExternalDefinitionKeyword_1_0() { return cEXTERNAL_DEFINITIONExternalDefinitionKeyword_1_0; }
 	}
 
 	public class ModuleMatchingParamenterElements extends AbstractEnumRuleElementFinder {
@@ -1750,26 +1647,22 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	private final AbstractComponentElements pAbstractComponent;
 	private final AttributeElements pAttribute;
 	private final AbstractNameConvetionElements pAbstractNameConvetion;
-	private final ComponentElements pComponent;
-	private final FrameworkInstantiationElements pFrameworkInstantiation;
-	private final FrameworkClassElements pFrameworkClass;
 	private final ExpressionMatchingClauseElements unknownRuleExpressionMatchingClause;
 	private final ExpressionMatchingOperatorElements pExpressionMatchingOperator;
-	private final LayerMatchingClauseElements unknownRuleLayerMatchingClause;
 	private final ModuleMatchingParamenterElements unknownRuleModuleMatchingParamenter;
-	private final LayerMatchingElements pLayerMatching;
 	private final ModuleMatchingElements pModuleMatching;
 	private final ClassMatchingElements pClassMatching;
 	private final ConfigurationElementElements pConfigurationElement;
 	private final FileElements pFile;
 	private final ConfigurationElements pConfiguration;
 	private final MethodElements pMethod;
-	private final ClassElements pClass;
+	private final MetaClassElements pMetaClass;
+	private final ExternalClassElements pExternalClass;
 	private final XmlElementElements pXmlElement;
 	private final XmlDocumentElements pXmlDocument;
-	private final LayerElements pLayer;
 	private final ModuleElements pModule;
 	private final MetaModuleElements pMetaModule;
+	private final ExternalModuleElements pExternalModule;
 	private final QualifiedNameElements pQualifiedName;
 	private final GroupClauseElements unknownRuleGroupClause;
 	private final PermissionClauseElements unknownRulePermissionClause;
@@ -1792,26 +1685,22 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAbstractComponent = new AbstractComponentElements();
 		this.pAttribute = new AttributeElements();
 		this.pAbstractNameConvetion = new AbstractNameConvetionElements();
-		this.pComponent = new ComponentElements();
-		this.pFrameworkInstantiation = new FrameworkInstantiationElements();
-		this.pFrameworkClass = new FrameworkClassElements();
 		this.unknownRuleExpressionMatchingClause = new ExpressionMatchingClauseElements();
 		this.pExpressionMatchingOperator = new ExpressionMatchingOperatorElements();
-		this.unknownRuleLayerMatchingClause = new LayerMatchingClauseElements();
 		this.unknownRuleModuleMatchingParamenter = new ModuleMatchingParamenterElements();
-		this.pLayerMatching = new LayerMatchingElements();
 		this.pModuleMatching = new ModuleMatchingElements();
 		this.pClassMatching = new ClassMatchingElements();
 		this.pConfigurationElement = new ConfigurationElementElements();
 		this.pFile = new FileElements();
 		this.pConfiguration = new ConfigurationElements();
 		this.pMethod = new MethodElements();
-		this.pClass = new ClassElements();
+		this.pMetaClass = new MetaClassElements();
+		this.pExternalClass = new ExternalClassElements();
 		this.pXmlElement = new XmlElementElements();
 		this.pXmlDocument = new XmlDocumentElements();
-		this.pLayer = new LayerElements();
 		this.pModule = new ModuleElements();
 		this.pMetaModule = new MetaModuleElements();
+		this.pExternalModule = new ExternalModuleElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.unknownRuleGroupClause = new GroupClauseElements();
 		this.unknownRulePermissionClause = new PermissionClauseElements();
@@ -1847,7 +1736,8 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//ASMLModel:
-	//	"architecture" name=ID_ASML "{" ("import" importURI=STRING ";")? views+=View* "}";
+	//	"architecture" name=ID_ASML "{" ("import" importURI=STRING ";")? views+=View* ("ignore" (ignore+=STRING ","?)* ";")?
+	//	"}";
 	public ASMLModelElements getASMLModelAccess() {
 		return pASMLModel;
 	}
@@ -1884,8 +1774,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AbstractComponent:
-	//	Layer | Module | MetaModule | Class | Method | ConfigurationElement | Component | FrameworkInstantiation |
-	//	FrameworkClass;
+	//	Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement;
 	public AbstractComponentElements getAbstractComponentAccess() {
 		return pAbstractComponent;
 	}
@@ -1914,37 +1803,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		return getAbstractNameConvetionAccess().getRule();
 	}
 
-	//Component:
-	//	"component" name=ID_ASML "{" ("matching" matching=STRING ";")? ("cardinality" cardinality=Cardinality ";")?
-	//	components+=AbstractComponent* restrictions+=Restriction* "}";
-	public ComponentElements getComponentAccess() {
-		return pComponent;
-	}
-	
-	public ParserRule getComponentRule() {
-		return getComponentAccess().getRule();
-	}
-
-	//FrameworkInstantiation:
-	//	"framework-instantiation" name=ID_ASML "{" components+=AbstractComponent* restrictions+=Restriction* "}";
-	public FrameworkInstantiationElements getFrameworkInstantiationAccess() {
-		return pFrameworkInstantiation;
-	}
-	
-	public ParserRule getFrameworkInstantiationRule() {
-		return getFrameworkInstantiationAccess().getRule();
-	}
-
-	//FrameworkClass:
-	//	"framework-class" name=ID_ASML "{" javaCLass=STRING ";" "}";
-	public FrameworkClassElements getFrameworkClassAccess() {
-		return pFrameworkClass;
-	}
-	
-	public ParserRule getFrameworkClassRule() {
-		return getFrameworkClassAccess().getRule();
-	}
-
 	//enum ExpressionMatchingClause:
 	//	NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with";
 	public ExpressionMatchingClauseElements getExpressionMatchingClauseAccess() {
@@ -1965,16 +1823,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionMatchingOperatorAccess().getRule();
 	}
 
-	//enum LayerMatchingClause:
-	//	RELATED_TO_COMPONENT="related to component" | EXTERNAL_DEFINITION="external definition";
-	public LayerMatchingClauseElements getLayerMatchingClauseAccess() {
-		return unknownRuleLayerMatchingClause;
-	}
-	
-	public EnumRule getLayerMatchingClauseRule() {
-		return getLayerMatchingClauseAccess().getRule();
-	}
-
 	//enum ModuleMatchingParamenter:
 	//	PAKCAGE="by package name" | FOLDER="by folder name" | PAKCAGE_AND_FOLDER="by package and folder name" |
 	//	EXTERNAL_DEFINITION="by external implementation";
@@ -1984,16 +1832,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getModuleMatchingParamenterRule() {
 		return getModuleMatchingParamenterAccess().getRule();
-	}
-
-	//LayerMatching:
-	//	layerMatching=LayerMatchingClause parameter=[AbstractComponent|QualifiedName];
-	public LayerMatchingElements getLayerMatchingAccess() {
-		return pLayerMatching;
-	}
-	
-	public ParserRule getLayerMatchingRule() {
-		return getLayerMatchingAccess().getRule();
 	}
 
 	//ModuleMatching:
@@ -2059,15 +1897,25 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		return getMethodAccess().getRule();
 	}
 
-	//Class:
-	//	"class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion ";")?
-	//	("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
-	public ClassElements getClassAccess() {
-		return pClass;
+	//MetaClass:
+	//	"meta-class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion
+	//	";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
+	public MetaClassElements getMetaClassAccess() {
+		return pMetaClass;
 	}
 	
-	public ParserRule getClassRule() {
-		return getClassAccess().getRule();
+	public ParserRule getMetaClassRule() {
+		return getMetaClassAccess().getRule();
+	}
+
+	//ExternalClass:
+	//	"external-class" name=ID_ASML "{" ("description" description=STRING ";")? ("type" type=STRING ";")? "}";
+	public ExternalClassElements getExternalClassAccess() {
+		return pExternalClass;
+	}
+	
+	public ParserRule getExternalClassRule() {
+		return getExternalClassAccess().getRule();
 	}
 
 	//XmlElement:
@@ -2090,16 +1938,6 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		return getXmlDocumentAccess().getRule();
 	}
 
-	//Layer:
-	//	"layer" name=ID_ASML "{" ("matching" matching=LayerMatching ";")? modules+=Module* restrictions+=Restriction* "}";
-	public LayerElements getLayerAccess() {
-		return pLayer;
-	}
-	
-	public ParserRule getLayerRule() {
-		return getLayerAccess().getRule();
-	}
-
 	//Module:
 	//	"module" name=ID_ASML "{" (("attributes" attributes+=Attribute ","?)* ";")? ("matching" matching=ModuleMatching ";")?
 	//	components+=AbstractComponent* restrictions+=Restriction* "}";
@@ -2120,6 +1958,17 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMetaModuleRule() {
 		return getMetaModuleAccess().getRule();
+	}
+
+	//ExternalModule:
+	//	"external-module" name=ID_ASML "{" (("attributes" attributes+=Attribute ","?)* ";")? ("matching"
+	//	matching=ModuleMatching ";")? components+=AbstractComponent* restrictions+=Restriction* "}";
+	public ExternalModuleElements getExternalModuleAccess() {
+		return pExternalModule;
+	}
+	
+	public ParserRule getExternalModuleRule() {
+		return getExternalModuleAccess().getRule();
 	}
 
 	//QualifiedName:
@@ -2166,7 +2015,8 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
 	//Restriction:
 	//	"restriction" "{" groupClause=GroupClause? componentA+=[AbstractComponent|QualifiedName]*
-	//	permissionClause=PermissionClause? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName] "}";
+	//	permissionClause=PermissionClause? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName]
+	//	("description" description=STRING)? "}";
 	public RestrictionElements getRestrictionAccess() {
 		return pRestriction;
 	}
