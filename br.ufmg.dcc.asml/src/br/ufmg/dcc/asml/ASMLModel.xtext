@@ -33,7 +33,7 @@ AbstractNameConvetion: STRING | ClassMatching;
 
 
 enum ExpressionMatchingClause:
-	NAME_START_WITH='name start with' | NAME_ENDS_WITH='name ends with'
+	NAME_START_WITH='name start with' | NAME_ENDS_WITH='name ends with' | ANNOTATED_WITH='annotated with'
 ;
 
 ExpressionMatchingOperator: AND='and' | OR= 'or';
@@ -47,8 +47,8 @@ ModuleMatching:
 ;
 
 ClassMatching:
-//	(expressionMatching=ExpressionMatchingClause parameter=STRING)
-	(expressionMatchings=ExpressionMatchingClause parameter=STRING (operator=ExpressionMatchingOperator )?)?
+	(expressionMatching=ExpressionMatchingClause parameter=STRING)
+//	(expressionMatchings=ExpressionMatchingClause parameter=STRING (operator=ExpressionMatchingOperator )?)?
 ;
 
 ConfigurationElement: Configuration | XmlDocument | XmlElement | File ;
@@ -76,7 +76,7 @@ Method:
 ;
 
 MetaClass:
-  'meta-class' name=ID_ASML '{'
+  'meta-class' name=ID_ASML ('extends' extends=[MetaClass|QualifiedName])?  '{'
   		('description' description=STRING';')? 
   		('matching:' matching=AbstractNameConvetion';')? 
   		('cardinality' cardinality=Cardinality';')? 

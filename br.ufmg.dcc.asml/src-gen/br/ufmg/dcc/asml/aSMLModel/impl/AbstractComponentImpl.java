@@ -2,176 +2,185 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.impl;
 
-import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
-import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
+import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Component</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Abstract Component</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getName <em>Name</em>}</li>
+ * <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getName <em>
+ * Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AbstractComponentImpl extends MinimalEObjectImpl.Container implements AbstractComponent
-{
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
+public class AbstractComponentImpl extends MinimalEObjectImpl.Container implements AbstractComponent {
+	private final Set<ASMLResource> resources = new HashSet<ASMLResource>();
 
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected AbstractComponentImpl()
-  {
-    super();
-  }
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EClass eStaticClass()
-  {
-    return ASMLModelPackage.Literals.ABSTRACT_COMPONENT;
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AbstractComponentImpl() {
+		super();
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ASMLModelPackage.Literals.ABSTRACT_COMPONENT;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.ABSTRACT_COMPONENT__NAME, oldName, name));
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-        return getName();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.ABSTRACT_COMPONENT__NAME, oldName, name));
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-        setName((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+			return getName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+			setName((String) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-    }
-    return super.eIsSet(featureID);
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-} //AbstractComponentImpl
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
+
+	public Set<ASMLResource> getResources() {
+		return Collections.unmodifiableSet( resources );
+	}
+
+	public void addResources(ASMLResource resource) {
+		resources.add(resource);
+	}
+	
+	public void resourceClear(){
+		resources.clear();
+	}
+	public void resourceRemove(AbstractComponent component){
+		resources.remove(component);
+	}
+
+
+} // AbstractComponentImpl

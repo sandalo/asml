@@ -1,5 +1,6 @@
 package asmlbuilder.builder;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,231 +8,186 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IPlatformRunnable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.jdt.core.IClasspathAttribute;
+import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IPackageFragment;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.ITypeHierarchy;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.xml.sax.SAXException;
+import org.eclipse.jdt.ui.wizards.JavaCapabilityConfigurationPage;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
 
+import asmlbuilder.classloader.ASMLClassLoader;
+import asmlbuilder.classpath_util.ClassPathUtil;
+import asmlbuilder.constants.ASMLConstant;
+import asmlbuilder.matching.IMatching;
+import asmlbuilder.restriction.RestricionChecker;
 import br.ufmg.dcc.asml.ASMLModelStandaloneSetup;
+import br.ufmg.dcc.asml.ASMLResource;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
-import br.ufmg.dcc.asml.aSMLModel.Attribute;
-import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause;
-import br.ufmg.dcc.asml.aSMLModel.ExternalClass;
 import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
-import br.ufmg.dcc.asml.aSMLModel.File;
-import br.ufmg.dcc.asml.aSMLModel.GroupClause;
 import br.ufmg.dcc.asml.aSMLModel.MetaClass;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
 import br.ufmg.dcc.asml.aSMLModel.Module;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
-import br.ufmg.dcc.asml.aSMLModel.PermissionClause;
-import br.ufmg.dcc.asml.aSMLModel.RelactionType;
 import br.ufmg.dcc.asml.aSMLModel.Restriction;
 import br.ufmg.dcc.asml.aSMLModel.View;
 
 public class ASMLBuilder extends IncrementalProjectBuilder {
 	private static final Logger log = Logger.getLogger(ASMLBuilder.class.getName());
 
-	private IClasspathContainer classpathMavenContainer;
-	private CacheASML cacheASML;
-	private ASMLResourceVisitor resourceVisitor;
-	private ASMLResourceDeltaVisitor resourceDeltaVisitor;
-	private ASMLReosurceJavaVisitor asmlReosurceJavaVisitor;
-	private ASTJavaParser astJavaParser;
-	public static final String BUILDER_ID = "asmlbuilder.asmlBuilder";
-	private static final String MARKER_TYPE = "asmlbuilder.asmlProblem";
-	private SAXParserFactory parserFactory;
-	private IJavaProject javaProject;
-	private ASMLModel asmlModel;
-
-	private long timeStampResource;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.core.internal.events.InternalBuilder#build(int,
-	 * java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
-	 */
-	private String recuperaPathVaccine(IProject project, IClasspathEntry iClasspathEntryVaccine) {
-		String path_vaccine_in_open_project;
-		if (iClasspathEntryVaccine.getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
-			path_vaccine_in_open_project = "jar:file:/" + iClasspathEntryVaccine.getPath() + "!" + "/vaccine.asml";
-		} else {
-			String workspacePath = project.getPathVariableManager().getValue("WORKSPACE_LOC").toString();
-			path_vaccine_in_open_project = "file:/" + workspacePath + iClasspathEntryVaccine.getPath() + "/src/main/resources/" + "vaccine.asml";
-		}
-		return path_vaccine_in_open_project;
-	}
-
-	private void parserArchitecture(String path_vaccine_in_open_project) {
-		ASMLModelStandaloneSetup.doSetup();
-		ResourceSet rs = new ResourceSetImpl();
-		URI createURI = URI.createURI(path_vaccine_in_open_project);
-		Resource resource = rs.getResource(createURI, true);
-		long timeStampResource = resource.getTimeStamp();
-		if (this.timeStampResource != timeStampResource) {
-			this.timeStampResource = timeStampResource;
-			asmlModel = (ASMLModel) resource.getContents().get(0);
-			cacheASML = new CacheASML(asmlModel);
-			resourceVisitor = new ASMLResourceVisitor(cacheASML);
-			resourceDeltaVisitor = new ASMLResourceDeltaVisitor(cacheASML);
-			asmlReosurceJavaVisitor = new ASMLReosurceJavaVisitor(cacheASML);
-			astJavaParser = new ASTJavaParser(asmlReosurceJavaVisitor);
-		} else {
-			cacheASML.getResourcesNotMatchedInStaticAnalysis().clear();
-			cacheASML.getResourcesMatchedInStaticAnalysis().clear();
-		}
-		// cacheASML.getInstancesOfComponentsFound().clear();
-		cacheASML.getViolations().clear();
-	}
+	private ASMLContext asmlContext;
+	private StringBuilder ident = new StringBuilder();
 
 	protected IProject[] build(int kind, Map args, IProgressMonitor monitor) throws CoreException {
-		
-		try {
-			Class c = getJavaProject().findType("br.ufmg.vaccine.Vaccine").getClass();
-			 c = Class.forName("br.ufmg.vaccine.Vaccine");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		inicialize();
+		visite(kind);
+		matching();
+		validate();
+		print_violations();
+		return null;
+	}
+
+	private void print_violations() {
+		for (ASMLResource rerource : asmlContext.getResources()) {
+			System.out.println(rerource);
+			if (rerource.getComponents().isEmpty())
+				MarkerUtils.addMarker(rerource.getResource(), "Componente não identificado pela arquitura!", 0, IMarker.SEVERITY_ERROR, ASMLConstant.MARKER_TYPE);
 		}
-		
-		IProject project = getProject();
-		project.deleteMarkers(MARKER_TYPE, true, IResource.DEPTH_INFINITE);
-		inicializaASML(project);
+
+		for (Violation violation : asmlContext.getViolations()) {
+			MarkerUtils.addMarker(violation.getResource(), violation.getMessage(), violation.getLineNumber(), violation.getSeverity(), ASMLConstant.MARKER_TYPE);
+		}
+		asmlContext.print();
+	}
+
+	private void visite(int kind) throws CoreException {
+		IProject project = asmlContext.getJavaProject().getProject();
 		if (kind == FULL_BUILD) {
-			project.accept(resourceVisitor);
+			project.accept(asmlContext.getResourceVisitor());
 		} else {
+			asmlContext.getViolations().clear();
 			IResourceDelta delta = getDelta(project);
 			if (delta == null) {
-				project.accept(resourceVisitor);
+				project.accept(asmlContext.getResourceVisitor());
 			} else {
-				delta.accept(resourceDeltaVisitor);
+				delta.accept(asmlContext.getResourceDeltaVisitor());
 			}
 		}
+	}
 
-		matching();
-
-		for (IResource resourceNotMatchedInStaticAnalysis : cacheASML.getResourcesNotMatchedInStaticAnalysis()) {
-			MarkerUtils.addMarker(resourceNotMatchedInStaticAnalysis, "Componente não validado pela arquitura!", 0, IMarker.SEVERITY_ERROR, MARKER_TYPE);
-		}
-
-		validate();
-
-		for (Violation violation : cacheASML.getViolations()) {
-			MarkerUtils.addMarker(violation.getResource(), violation.getMessage(), violation.getLineNumber(), violation.getSeverity(), MARKER_TYPE);
-		}
-
-		return null;
+	private IProject inicialize() throws CoreException {
+		IProject project = getProject();
+		inicializaASML(project);
+		project.deleteMarkers(ASMLConstant.MARKER_TYPE, true, IResource.DEPTH_INFINITE);
+		return project;
 	}
 
 	private void inicializaASML(IProject project) throws CoreException {
 		try {
-			javaProject = JavaCore.create(project);
-			IClasspathEntry iClasspathEntryVaccine = recuperaClassPathDaVaccina();
-			String path_vaccine = "";// "jar:file:/C:/Users/sandalo/workspace-indigo/parser-architecturemodel/lib/vaccine.jar!/br/sandalo/dsl/xtex/parser/teste.arch";
-			if (iClasspathEntryVaccine != null) {
-				path_vaccine = recuperaPathVaccine(project, iClasspathEntryVaccine);
-				parserArchitecture(path_vaccine);
+			IJavaProject javaProject = JavaCore.create(project);
+			String path_vaccine = ClassPathUtil.recuperaPathVaccine(javaProject);
+			if (asmlContext == null) {
+				asmlContext = new ASMLContext();
+				IClasspathEntry iClasspathEntryVaccine = ClassPathUtil.recuperaClassPathDaVaccina(javaProject);
+				IClasspathContainer classpathMavenContainer = ClassPathUtil.recuperaMavenContainerClassPath(javaProject);
+				asmlContext.setJavaProject(javaProject);
+				asmlContext.setClasspathMavenContainer(classpathMavenContainer);
+				if (path_vaccine != null && !"".equals(path_vaccine)) {
+					Resource resource = recuperaASMLModelResource(path_vaccine);
+					ASMLModel asmlModel = (ASMLModel) resource.getContents().get(0);
+					asmlContext.setTimeStampResource(resource.getTimeStamp());
+					asmlContext.setAsmlModel(asmlModel);
+					asmlContext.clearAll();
+					asmlContext.setAstJavaParser(new ASTJavaParser(new ASMLReosurceJavaVisitor(asmlContext)));
+					asmlContext.setResourceVisitor(new ASMLResourceVisitor(asmlContext));
+					asmlContext.setResourceDeltaVisitor(new ASMLResourceDeltaVisitor(asmlContext));
+					String workspacePath = project.getPathVariableManager().getValue("WORKSPACE_LOC").toString();// TODO:
+																													// Melhor
+																													// as
+																													// duas
+																													// linhas
+																													// abaixo
+					URL[] urls = new URL[] { new URL("file:/" + workspacePath + iClasspathEntryVaccine.getPath() + "/target/classes/") };
+					asmlContext.setClassLoader(new ASMLClassLoader(urls, this.getClass().getClassLoader()));
+					asmlContext.getViolations().clear();
+					asmlContext.clearResource();
+				} else {
+					System.out.println("Não  encotrou a vaccine...");
+					throw new CoreException(Status.CANCEL_STATUS);
+				}
+			} else {
+				Resource resource = recuperaASMLModelResource(path_vaccine);
+				if (asmlContext.getTimeStampResource() != resource.getTimeStamp()) {
+					ASMLModel asmlModel = (ASMLModel) resource.getContents().get(0);
+					asmlContext.setAsmlModel(asmlModel);
+					asmlContext.setTimeStampResource(resource.getTimeStamp());
+					asmlContext.clearAll();
+				} else {
+					asmlContext.getViolations().clear();
+				}
 			}
 		} catch (Throwable e) {
 			throw new CoreException(Status.CANCEL_STATUS);
 		}
 	}
 
-	private IClasspathEntry recuperaClassPathDaVaccina() throws JavaModelException {
-		IClasspathContainer classpathMavenContainer = recuperaMavenContainerClassPath();
-		if (classpathMavenContainer == null) {
-			log.info("Não encoutro o classPathContainer Maven.");
-			return null;
-		}
-		IClasspathEntry[] classpathEntryMaven = classpathMavenContainer.getClasspathEntries();
-		log.info("Começa a varredura para encontrar iClasspathEntry de vaccine...");
-		for (IClasspathEntry iClasspathEntry : classpathEntryMaven) {
-			log.info("Encontrou " + iClasspathEntry.getPath().toString());
-			IClasspathAttribute attributes[] = iClasspathEntry.getExtraAttributes();
-			for (IClasspathAttribute iClasspathAttribute : attributes) {
-				if (iClasspathAttribute.getValue().contains("vaccine")) {
-					log.info("Encontrou jar ou porjeto maven da vaccine...:" + iClasspathEntry.getPath().toString());
-					return iClasspathEntry;
-				}
-			}
-		}
-		log.info("Não encontrou iClasspathEntry");
-		return null;
-	}
-
-	public IClasspathContainer recuperaMavenContainerClassPath() throws JavaModelException {
-		if (classpathMavenContainer != null)
-			return classpathMavenContainer;
-		IClasspathEntry[] rawClasspath = getJavaProject().getRawClasspath();
-		log.info("rawClasspath encontrados: " + rawClasspath + " size:" + rawClasspath.length);
-		IClasspathEntry iClasspathEntryMAVEN = null;
-		for (IClasspathEntry iClasspathEntry : rawClasspath) {
-			log.info("   encontrou a entrada:" + iClasspathEntry.getPath() + " EntryKind:" + iClasspathEntry.getEntryKind() + " no classpath.");
-			if (iClasspathEntry.getPath().toString().contains("MAVEN")) {
-				iClasspathEntryMAVEN = iClasspathEntry;
-				log.info("      vai recuperar o classpathContainer no path: " + iClasspathEntryMAVEN.getPath() + " size:" + rawClasspath.length);
-				classpathMavenContainer = JavaCore.getClasspathContainer(iClasspathEntryMAVEN.getPath(), getJavaProject());
-				log.info("       Recuperou o classpathContainer MAVEN");
-				return classpathMavenContainer;
-			}
-		}
-		return null;
+	private Resource recuperaASMLModelResource(String path_vaccine) {
+		// Injector injector = Guice.createInjector(new
+		// ASMLModelStandaloneSetup());
+		ASMLModelStandaloneSetup.doSetup();
+		ResourceSet rs = new ResourceSetImpl();
+		URI createURI = URI.createURI(path_vaccine);
+		Resource resource = rs.getResource(createURI, true);
+		return resource;
 	}
 
 	public IJavaProject getJavaProject() {
-		return javaProject;
+		return asmlContext.getJavaProject();
 	}
 
 	protected void clean(IProgressMonitor monitor) throws CoreException {
 		// delete markers set and files created
-		getProject().deleteMarkers(MARKER_TYPE, true, IResource.DEPTH_INFINITE);
+		getProject().deleteMarkers(ASMLConstant.MARKER_TYPE, true, IResource.DEPTH_INFINITE);
 	}
 
 	void matching() {
-		EList<View> views = asmlModel.getViews();
+		ident = new StringBuilder();
+		EList<View> views = asmlContext.getAsmlModel().getViews();
 		loop_view: for (View view : views) {
 			for (AbstractComponent component : view.getComponents()) {
-				if (findComponentInstance(component)) {
-					break loop_view;
-				}
+				String string = "/" + component.getName();
+				System.out.println(ident.append(string));
+				matchingComponentInstance(component);
+				System.out.println(ident.replace(ident.length() - string.length(), ident.length(), ""));
 			}
 		}
 	}
 
 	void validate() {
-		EList<View> views = asmlModel.getViews();
+		EList<View> views = asmlContext.getAsmlModel().getViews();
 		for (View view : views) {
 			for (AbstractComponent component : view.getComponents()) {
 				validateComponentRestrictions(component);
@@ -259,25 +215,16 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		if (!getComponentsChildren(abstractComponent).isEmpty()) {
 			validateComponentChildrenRetrictions(abstractComponent);
 		}
-		if (abstractComponent instanceof Module || abstractComponent instanceof MetaModule || abstractComponent instanceof ExternalModule) {
-			EList<Restriction> restrictions = null;
-			if (abstractComponent instanceof Module)
-				restrictions = ((Module) abstractComponent).getRestrictions();
-			if (abstractComponent instanceof MetaModule)
-				restrictions = ((MetaModule) abstractComponent).getRestrictions();
-			if (abstractComponent instanceof ExternalModule)
-				restrictions = ((ExternalModule) abstractComponent).getRestrictions();
-			for (Restriction restriction : restrictions) {
-				EList<AbstractComponent> componentsA = restriction.getComponentA();
-				AbstractComponent componentB = restriction.getComponentB();
-				for (AbstractComponent componentA : componentsA) {
-					if (restriction.getGroupClause().equals(GroupClause.NULL) && restriction.getPermissionClause().equals(PermissionClause.NULL) && restriction.getRelactionType().equals(RelactionType.REQUIRES)) {
-						anyComponentAMustRequiresCompontB(restriction, componentA, componentB);
-					} else if (restriction.getGroupClause().equals(GroupClause.ANY) && restriction.getPermissionClause().equals(PermissionClause.MUST) && restriction.getRelactionType().equals(RelactionType.EXTEND)) {
-						anyComponentAMustExtendCompontB(restriction, componentA, componentB);
-					} else if (restriction.getGroupClause().equals(GroupClause.ONLY) && restriction.getPermissionClause().equals(PermissionClause.CAN) && restriction.getRelactionType().equals(RelactionType.HANDLE)) {
-						onlyComponentAHandleCompontB(restriction, componentA, componentB);
-					}
+		EList<Restriction> restrictions = ASMLContext.getRestrictions(abstractComponent);
+		for (Restriction restriction : restrictions) {
+			EList<AbstractComponent> componentsA = restriction.getComponentA();
+			AbstractComponent componentB = restriction.getComponentB();
+			for (AbstractComponent componentA : componentsA) {
+				RestricionChecker restricionChecker = asmlContext.getAsmlBinder().getBindRestrictionChecker().get(restriction.getRelactionType());
+				if (restricionChecker != null) {
+					restricionChecker.checker(restriction, componentA, componentB);
+				} else {
+					System.out.println("Restriction checker ainda não implementado.");
 				}
 			}
 		}
@@ -287,145 +234,11 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		if (!getComponentsChildren(abstractComponent).isEmpty()) {
 			validateLocalizationChildren(abstractComponent);
 		}
-		Set<IResource> resourcesFilho = cacheASML.getInstancesByComponent((AbstractComponent) abstractComponent);
-		for (IResource resourceFilho : resourcesFilho) {
-			if (!localizacaoCorreta(abstractComponent, resourceFilho)) {
+		Set<ASMLResource> resourcesFilho = asmlContext.getInstancesByComponent((AbstractComponent) abstractComponent);
+		for (ASMLResource resourceFilho : resourcesFilho) {
+			if (!localizacaoCorreta(abstractComponent, resourceFilho.getResource())) {
 				String message = "O  componente  " + abstractComponent.getName() + " esta localizado no lugar errado";
-				cacheASML.getViolations().add(new Violation(resourceFilho, message, 1, IMarker.SEVERITY_ERROR));
-			}
-		}
-
-		/*
-		 * EObject eoPai = abstractComponent.eContainer(); Set<IResource>
-		 * resourcesPai = null; if (eoPai instanceof View || eoPai instanceof
-		 * FrameworkInstantiation) { resourcesPai = new HashSet<IResource>();
-		 * resourcesPai.add(getProject()); } else { resourcesPai =
-		 * cacheASML.getInstancesByComponent((AbstractComponent) eoPai); } for
-		 * (IResource resourceFilho : resourcesFilho) { if
-		 * (isNameSpace(resourceFilho, abstractComponent)) { continue; }
-		 * matching = false; for (IResource resourcePai : resourcesPai) { if
-		 * (resourcePai
-		 * .getFullPath().equals(resourceFilho.getParent().getFullPath())) {
-		 * matching = true; break; } } if (!matching) { String message =
-		 * "O  componente  " + abstractComponent.getName() +
-		 * " esta localizado no lugar errado"; cacheASML.getViolations().add(new
-		 * Violation(resourceFilho, message, 1, IMarker.SEVERITY_ERROR)); } }
-		 */}
-
-	private void anyComponentAMustRequiresCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		Set<IResource> instances = cacheASML.getInstancesByComponent(componentA);
-		for (IResource iResource : instances) {
-			if (componentB instanceof MetaClass && componentA instanceof MetaClass) {
-				MetaClass classeB = (MetaClass) componentB;
-				MetaClass classeA = (MetaClass) componentA;
-				AbstractNameConvetion matchingB = classeB.getMatching();
-				AbstractNameConvetion matchingA = classeA.getMatching();
-				if (matchingB instanceof ClassMatching && matchingA instanceof ClassMatching) {
-					ClassMatching classMatchigB = (ClassMatching) matchingB;
-					ClassMatching classMatchigA = (ClassMatching) matchingA;
-					String resourcetName = iResource.getName();
-					if (classMatchigB.getExpressionMatching().equals(ExpressionMatchingClause.NAME_ENDS_WITH)) {
-						resourcetName = extractResourceName(iResource);
-						resourcetName = resourcetName.replaceAll(classMatchigA.getParameter(), classMatchigB.getParameter());
-						if (!cacheASML.existInstancesOfComponentWithName(resourcetName, componentB.getName())) {
-							String message = "Todo componente " + componentA.getName() + " depende da existência de um componente " + componentB.getName() + " de mesmo nome. Descrição do componente " + classeA.getName() + ": " + classeA.getDescription() + ". " + "Descrição do componente " + classeB.getName() + ": " + classeB.getDescription() + ".";
-							cacheASML.getViolations().add(new Violation(iResource, message, 1, IMarker.SEVERITY_ERROR));
-						}
-					}
-				}
-			}
-			if (componentB instanceof MetaClass && componentA instanceof File) {
-				MetaClass classeB = (MetaClass) componentB;
-				File classeA = (File) componentA;
-				AbstractNameConvetion matchingB = classeB.getMatching();
-				AbstractNameConvetion matchingA = classeA.getMatching();
-				if (matchingB instanceof ClassMatching && matchingA instanceof ClassMatching) {
-					ClassMatching classMatchigB = (ClassMatching) matchingB;
-					ClassMatching classMatchigA = (ClassMatching) matchingA;
-					String resourcetName = iResource.getName();
-					if (classMatchigB.getExpressionMatching().equals(ExpressionMatchingClause.NAME_ENDS_WITH)) {
-						resourcetName = extractResourceName(iResource);
-						resourcetName = resourcetName.replaceAll(classMatchigA.getParameter(), classMatchigB.getParameter());
-						if (!cacheASML.existInstancesOfComponentWithName(resourcetName, componentB.getName())) {
-							String message = "Todo componente " + componentA.getName() + " depende da existência de um componente " + componentB.getName() + " de mesmo nome. Descrição do componente " + classeA.getName() + ": " + "Implmentar descrição" + ". " + "Descrição do componente " + classeB.getName() + ": " + classeB.getDescription() + ".";
-							cacheASML.getViolations().add(new Violation(iResource, message, 1, IMarker.SEVERITY_ERROR));
-						}
-					}
-				}
-			}
-			if (componentB instanceof MetaClass && componentA instanceof Module) {
-				MetaClass classeB = (MetaClass) componentB;
-				Module classeA = (Module) componentA;
-				AbstractNameConvetion matchingB = classeB.getMatching();
-				ModuleMatching matchingA = classeA.getMatching();
-				if (matchingB instanceof ClassMatching) {
-					ClassMatching classMatchigB = (ClassMatching) matchingB;
-					String resourcetName = iResource.getName();
-					resourcetName = extractResourceName(iResource);
-					resourcetName = resourcetName + classMatchigB.getParameter();
-					if (!cacheASML.existInstancesOfComponentWithName(resourcetName, componentB.getName())) {
-						String message = "Todo componente  " + componentA.getName() + " depende da existência de um componente " + componentB.getName() + " de mesmo nome. Descrição do componente " + classeA.getName() + ": " + "Implmentar descrição" + ". " + "\nDescrição do componente " + classeB.getName() + ": " + classeB.getDescription() + ".";
-						cacheASML.getViolations().add(new Violation(iResource, message, 1, IMarker.SEVERITY_ERROR));
-					}
-				}
-			}
-
-		}
-	}
-
-	private void anyComponentAMustExtendCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		Set<IResource> instances = cacheASML.getInstancesByComponent(componentA);
-		int lineNumber = 0;
-		for (IResource iResource : instances) {
-			boolean achou = false;
-			if (componentA instanceof MetaClass && componentB instanceof ExternalClass) {
-				if (iResource instanceof IFile) {
-					Set<ASMLASTNode> asmlASTNodes = cacheASML.getInstancesOfASTNodeJavaFound().get(iResource).get(TypeDeclaration.class);
-					for (ASMLASTNode asmlASTNode : asmlASTNodes) {
-						TypeDeclaration typeDeclaration = (TypeDeclaration) asmlASTNode.getAstNode();
-						try {
-							IType iType = getType((IResource) asmlASTNode.getResource());
-							ITypeHierarchy typeHierarchy = iType.newSupertypeHierarchy(new NullProgressMonitor());
-							IType[] iTypes = typeHierarchy.getAllSupertypes(iType);
-							for (IType iType2 : iTypes) {
-								if (iType2.getFullyQualifiedName().equals(componentB.getName())) {
-									achou = true;
-								}
-							}
-						} catch (JavaModelException e) {
-							e.printStackTrace();
-						}
-						lineNumber = asmlASTNode.getCompilationUnit().getLineNumber(typeDeclaration.getStartPosition());
-					}
-				}
-			}
-			if (!achou) {
-				String message = "";
-				if (restriction.getDescription() != null)
-					message = restriction.getDescription();
-				else
-					message = "Classes do tipo " + componentA.getName() + " devem herdar da classe " + componentB.getName();
-				cacheASML.getViolations().add(new Violation(iResource, message, lineNumber, IMarker.SEVERITY_ERROR));
-			}
-		}
-	}
-
-	private void onlyComponentAHandleCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		Set<IResource> instances = cacheASML.getInstancesByComponent(componentB);
-		for (IResource iResource : instances) {
-			if (cacheASML.existInstancesOfComponentWithName(iResource.getName(), componentB.getName())) {
-				Set<IResource> resourcesComponenteA = cacheASML.getInstancesByComponent(componentA);
-				boolean not_found = true;
-				for (IResource resourceComponenteA : resourcesComponenteA) {
-					if (resourceComponenteA.getFullPath().isPrefixOf(iResource.getFullPath())) {
-						not_found = false;
-						break;
-					}
-				}
-				if (not_found) {
-					String message = "Somente componente o " + componentA.getName() + " pode tratar, lidar ou conter componentes " + componentB.getName();
-					cacheASML.getViolations().add(new Violation(iResource, message, 1, IMarker.SEVERITY_ERROR));
-				}
+				asmlContext.getViolations().add(new Violation(resourceFilho.getResource(), message, 1, IMarker.SEVERITY_ERROR));
 			}
 		}
 	}
@@ -444,88 +257,37 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		}
 	}
 
-	boolean findComponentInstance(AbstractComponent component) {
-		if (!getComponentsChildren(component).isEmpty()) {
-			boolean findInChildrenComponents = findInChildrenComponents(component);
-			if (findInChildrenComponents) {
-				return findInChildrenComponents;
-			} else
-				return matching(component);
-		} else
-			return matching(component);
-	}
-
-	private boolean findInChildrenComponents(AbstractComponent component) {
-		EList<? extends AbstractComponent> abstractComponents = getComponentsChildren(component);
-		for (AbstractComponent abstractComponent : abstractComponents) {
-			boolean existComponent = findComponentInstance(abstractComponent);
-			if (existComponent)
-				return existComponent;
+	void matchingComponentInstance(AbstractComponent component) {
+		EList<? extends AbstractComponent> abstractComponentsChildren = getComponentsChildren(component);
+		for (AbstractComponent child : abstractComponentsChildren) {
+			String string = "/" + child.getName();
+			System.out.println(ident.append(string));
+			matchingComponentInstance(child);
+			System.out.println(ident.replace(ident.length() - string.length(), ident.length(), ""));
 		}
-		return false;
+		matching(component);
 	}
 
-	private boolean matching(AbstractComponent component) {
-		List<IResource> resources = new ArrayList<IResource>(cacheASML.getResources());
+	private void matching(AbstractComponent component) {
+		asmlContext.addMatchingCustom(component);
+		asmlContext.addDeclaredComponents(component);
+		List<ASMLResource> resources = new ArrayList<ASMLResource>(asmlContext.getResources());
 		Collections.reverse(resources);
-		for (IResource resource : resources) {
-			boolean matching = false;
-			if (resource.getName().equals(getProject().getName()))
+		boolean matching = false;
+		for (ASMLResource resource : resources) {
+			IMatching iMatching = asmlContext.getMatching(component);
+			if (iMatching == null)
 				continue;
-			if (component instanceof File && resource instanceof IFile && (resource.getFileExtension().equals("xml") || resource.getFileExtension().equals("html") || !resource.getFileExtension().equals("java"))) {
-				matching = matchingFile(resource, component);
-			} else if (component instanceof MetaClass && resource instanceof IFile && resource.getFileExtension().equals("java")) {
-				matching = matchingJava(resource, component);
-			} else if ((component instanceof Module) && resource instanceof IFolder) {
-				matching = matchingModule(resource, (Module) component);
-			} else if ((component instanceof MetaModule) && resource instanceof IFolder) {
-				matching = matchingMetaModule(resource, (MetaModule) component);
-			} else if ((component instanceof ExternalModule) && resource instanceof IFolder) {
-				matching = matchingExternalModule(resource, (ExternalModule) component);
-			}
+			matching = iMatching.matching(resource, component);
 			if (matching) {
-				matching = localizacaoCorreta(component, resource);
-			}
-			if (!matching) {
-				if (!cacheASML.getResourcesMatchedInStaticAnalysis().contains(resource)) {
-					cacheASML.getResourcesNotMatchedInStaticAnalysis().add(resource);
-				}
-			} else {
-				cacheASML.getResourcesNotMatchedInStaticAnalysis().remove(resource);
-				cacheASML.getResourcesMatchedInStaticAnalysis().add(resource);
-				cacheASML.addInstanceOfComponent(component, resource);
+				component.addResources(resource);
+				resource.addComponents(component);
 			}
 		}
-
-		return false;
 	}
 
 	private boolean localizacaoCorreta(AbstractComponent component, IResource resource) {
 		boolean matching = true;
-		EObject eoPai = component.eContainer();
-		IResource resourcePai = resource.getParent();
-		while (eoPai instanceof MetaModule) {
-			eoPai = eoPai.eContainer();
-			resourcePai = resourcePai.getParent();
-		}
-		if (!(eoPai instanceof View)) {
-			AbstractComponent eoPai2 = (AbstractComponent) eoPai;
-			if (!(eoPai2 instanceof MetaModule)&&!(eoPai2 instanceof ExternalModule)) {// Framework é conceito abstrato
-				String name = eoPai2.getName();
-				if (eoPai2 instanceof Module && !((Module) eoPai2).getAttributes().isEmpty() && ((Module) eoPai2).getAttributes().get(0).getName().equals("namespace")) {
-					name = ((Module) eoPai2).getAttributes().get(0).getValue().split("\\.")[1];// TODO
-				}
-				if (!(resourcePai.getName().replaceAll("." + resourcePai.getFileExtension(), "").equals(name))) {
-					matching = false;
-				}
-			}
-		}
-		return matching;
-	}
-
-	private boolean matchingComponent(AbstractComponent component, IResource resource) {
-		boolean matching;
-		matching = resource.getName().replaceAll("." + resource.getFileExtension(), "").equals(component.getName());
 		return matching;
 	}
 
@@ -534,255 +296,10 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 			return ((Module) component).getComponents();
 		} else if (component instanceof MetaModule) {
 			return ((MetaModule) component).getComponents();
-		}else if (component instanceof ExternalModule) {
+		} else if (component instanceof ExternalModule) {
 			return ((ExternalModule) component).getComponents();
 		}
 		return new BasicEList<AbstractComponent>();// Lista vazia
 	}
 
-	boolean findJavaClass(IResource resource, AbstractComponent component) {
-		if (component instanceof MetaClass) {
-			if (matchingJava(resource, component)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean matchingJava(IResource resource, AbstractComponent abstractComponent) {
-		MetaClass class1 = (MetaClass) abstractComponent;
-		AbstractNameConvetion abstractNameConvetion = class1.getMatching();
-		if (abstractNameConvetion instanceof ClassMatching) {
-			ClassMatching expressionMatching = (ClassMatching) abstractNameConvetion;
-			ExpressionMatchingClause clause = expressionMatching.getExpressionMatching();
-			if (clause.equals(ExpressionMatchingClause.NAME_ENDS_WITH)) {
-				String parameter = expressionMatching.getParameter() + "";
-				String resourceName = extractResourceName(resource);
-				if (resourceName.endsWith(parameter)) {
-					astJavaParser.parse((IFile) resource, cacheASML);
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private IType getType(IResource resource) {
-		IType iType = null;
-		try {
-			IClasspathEntry[] classpathEntries = getJavaProject().getRawClasspath();
-			String logicalName = " ";
-			for (IClasspathEntry iClasspathEntry : classpathEntries) {
-				if (iClasspathEntry.getPath().isPrefixOf(resource.getFullPath())) {
-					logicalName = resource.getFullPath().toString().replace(iClasspathEntry.getPath().toString(), "");
-					break;
-				}
-			}
-			logicalName = logicalName.substring(1).replace("/", ".").replace(".java", "");
-
-			iType = getJavaProject().findType(logicalName);
-		} catch (JavaModelException e) {
-			e.printStackTrace();
-		}
-		return iType;
-	}
-
-	private boolean matchingFile(IResource resource, AbstractComponent component) {
-		br.ufmg.dcc.asml.aSMLModel.File file = (File) component;
-		AbstractNameConvetion abstractNameConvetion = file.getMatching();
-		String fileExtensioWithPoint = "." + resource.getFileExtension();
-		if (abstractNameConvetion != null) {
-			if (abstractNameConvetion instanceof ClassMatching) {
-				ClassMatching expressionMatching = (ClassMatching) abstractNameConvetion;
-				ExpressionMatchingClause clause = expressionMatching.getExpressionMatching();
-				if (clause.equals(ExpressionMatchingClause.NAME_ENDS_WITH)) {
-					String parameter = expressionMatching.getParameter() + "";
-					String resourceName = extractResourceName(resource);
-					if (resourceName.endsWith(parameter)) {
-						return true;
-					}
-				}
-			}
-		} else {
-			String replaceAll = resource.getName().replaceAll(fileExtensioWithPoint, "");
-			if (replaceAll.equals(component.getName()) || component.getName().equals(fileExtensioWithPoint))
-				return true;
-		}
-
-		return false;
-	}
-
-	private String extractResourceName(IResource resource) {
-		String fileExtensioWithPoint = "";
-		int positionExtension = 0;
-		if (resource.getFileExtension() != null) {
-			fileExtensioWithPoint = "." + resource.getFileExtension();
-			positionExtension = resource.getName().indexOf(fileExtensioWithPoint);
-		} else {
-			positionExtension = resource.getName().length();
-		}
-		if (positionExtension == 0) {
-			return resource.getName();
-		}
-		int index = positionExtension - 1;
-		if (index != 0) {
-			while (Character.isDigit(resource.getName().charAt(index))) {
-				index--;
-			}
-			String resourceName = resource.getName().replaceAll(fileExtensioWithPoint, "");
-			resourceName = resourceName.substring(0, index + 1);
-			return resourceName;
-		}
-		return resource.getName();
-	}
-
-	private boolean matchingModule(IResource resource, Module module) {
-		boolean isNameSapce = isNameSpace(resource, module);
-		if (isNameSapce) {
-			return true;
-		} else {
-			String resourceName = resource.getName();
-			String fullPath = resource.getFullPath().toString().replaceAll("/", ".");
-			if (fullPath.endsWith(module.getName())) {
-				return true;
-			}
-			boolean basicMatching = resourceName.equals(module.getName()) || module.getName().contains(resourceName + ".") || module.getName().contains("." + resourceName);
-			return basicMatching;
-		}
-	}
-
-	private boolean matchingMetaModule(IResource resource, MetaModule metaModule) {
-		try {
-			boolean isNameSapce = isNameSpace(resource, metaModule);
-			if (isNameSapce) {
-				return true;
-			} else {
-				EObject parent = metaModule.eContainer();
-				while (parent != null && parent instanceof Module) {
-					if (isNameSpace(resource, (Module) parent)) {
-						return false;
-					}
-					parent = (EObject) parent.eContainer();
-				}
-				if (isJavaPackage(resource) && !isNameSpace(resource, metaModule)) {
-					int level = geModuleLevel(metaModule);
-					int level2 = getPackageLevel(resource);
-					if (level == level2)
-						return true;
-					else
-						return false;
-				}
-			}
-			return false;
-		} catch (JavaModelException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	private boolean matchingExternalModule(IResource resource, ExternalModule metaModule) {
-		try {
-			boolean isNameSapce = isNameSpace(resource, metaModule);
-			if (isNameSapce) {
-				return true;
-			} else {
-				EObject parent = metaModule.eContainer();
-				while (parent != null && parent instanceof Module) {
-					if (isNameSpace(resource, (Module) parent)) {
-						return false;
-					}
-					parent = (EObject) parent.eContainer();
-				}
-				if (isJavaPackage(resource) && !isNameSpace(resource, metaModule)) {
-					int level = geModuleLevel(metaModule);
-					int level2 = getPackageLevel(resource);
-					if (level == level2)
-						return true;
-					else
-						return false;
-				}
-			}
-			return false;
-		} catch (JavaModelException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	private int geModuleLevel(EObject module) {
-		int level = 1;
-		EObject parent;
-		parent = module.eContainer();
-		while (parent != null && parent instanceof Module) {
-			EList<Attribute> attributes = null;
-			if (parent instanceof Module)
-				attributes = ((Module) (parent)).getAttributes();
-			else if (parent instanceof MetaModule)
-				attributes = ((MetaModule) (parent)).getAttributes();
-			if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
-				Attribute attribute = attributes.get(0);
-				String[] names = attribute.getValue().split("\\.");
-				level = level + names.length;
-			} else {
-				level++;
-			}
-			parent = (EObject) parent.eContainer();
-		}
-		return level;
-	}
-
-	private boolean isJavaPackage(IResource resource) throws JavaModelException {
-		IPackageFragment packageFragment = getJavaProject().findPackageFragment(resource.getFullPath());
-		if (packageFragment == null)
-			return false;
-		packageFragment.getElementName();
-		if (packageFragment.getElementName().equals("")) {
-			return false;
-		}
-		return true;
-	}
-
-	private int getPackageLevel(IResource resource) throws JavaModelException {
-		IPackageFragment packageFragment = getJavaProject().findPackageFragment(resource.getFullPath());
-		if (packageFragment == null)
-			return 0;
-		packageFragment.getElementName();
-		if (packageFragment.getElementName().equals("")) {
-			return 0;
-		}
-		return packageFragment.getElementName().split("\\.").length;
-	}
-
-	private boolean isNameSpace(IResource resource, AbstractComponent abstractComponent) {
-		if (!(abstractComponent instanceof Module)) {
-			return false;
-		}
-		Module module = (Module) abstractComponent;
-		boolean isNameSapce = false;
-		EList<Attribute> attributes = module.getAttributes();
-		if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
-			String resourceName = resource.getName();
-			Attribute attribute = attributes.get(0);
-			String[] names = attribute.getValue().split("\\.");
-			for (String name : names) {
-				if (resourceName.equals(name)) {
-					isNameSapce = true;
-				}
-			}
-		}
-		return isNameSapce;
-	}
-
-	/*
-	 * XMLErrorHandler reporter = new XMLErrorHandler(file); try {
-	 * getParser().parse(file.getContents(), reporter); } catch (Exception e1) {
-	 * }
-	 */
-
-	private SAXParser getParser() throws ParserConfigurationException, SAXException {
-		if (parserFactory == null) {
-			parserFactory = SAXParserFactory.newInstance();
-		}
-		return parserFactory.newSAXParser();
-	}
 }

@@ -4,8 +4,6 @@ package br.ufmg.dcc.asml.aSMLModel;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>View</b></em>'.
@@ -14,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.View#getName <em>Name</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.View#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.View#getComponents <em>Components</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.View#getRestrictions <em>Restrictions</em>}</li>
@@ -25,34 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface View extends EObject
+public interface View extends AbstractComponent
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getView_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.View#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
    * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.Attribute}.

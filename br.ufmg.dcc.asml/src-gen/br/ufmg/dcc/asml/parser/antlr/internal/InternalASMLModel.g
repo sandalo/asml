@@ -389,7 +389,35 @@ ruleAbstractComponent returns [EObject current=null]
         $current = $this_ConfigurationElement_6.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |(
+    { 
+        newCompositeNode(grammarAccess.getAbstractComponentAccess().getViewParserRuleCall_7_0()); 
+    }
+    this_View_7=ruleView
+    { 
+        $current = $this_View_7.current; 
+        afterParserOrEnumRuleCall();
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAbstractComponentAccess().getRestrictionsRestrictionParserRuleCall_7_1_0()); 
+	    }
+		lv_restrictions_8_0=ruleRestriction		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAbstractComponentRule());
+	        }
+       		add(
+       			$current, 
+       			"restrictions",
+        		lv_restrictions_8_0, 
+        		"Restriction");
+	        afterParserOrEnumRuleCall();
+	    }
+
 )
+)*))
 ;
 
 
@@ -1013,19 +1041,38 @@ ruleMetaClass returns [EObject current=null]
 	    }
 
 )
-)	otherlv_2='{' 
+)(	otherlv_2='extends' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getMetaClassAccess().getLeftCurlyBracketKeyword_2());
-    }
-(	otherlv_3='description' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getMetaClassAccess().getDescriptionKeyword_3_0());
+    	newLeafNode(otherlv_2, grammarAccess.getMetaClassAccess().getExtendsKeyword_2_0());
     }
 (
 (
-		lv_description_4_0=RULE_STRING
 		{
-			newLeafNode(lv_description_4_0, grammarAccess.getMetaClassAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMetaClassRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getMetaClassAccess().getExtendsMetaClassCrossReference_2_1_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_4='{' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getMetaClassAccess().getLeftCurlyBracketKeyword_3());
+    }
+(	otherlv_5='description' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getMetaClassAccess().getDescriptionKeyword_4_0());
+    }
+(
+(
+		lv_description_6_0=RULE_STRING
+		{
+			newLeafNode(lv_description_6_0, grammarAccess.getMetaClassAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1034,88 +1081,88 @@ ruleMetaClass returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"description",
-        		lv_description_4_0, 
+        		lv_description_6_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_5=';' 
+)	otherlv_7=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getMetaClassAccess().getSemicolonKeyword_3_2());
+    	newLeafNode(otherlv_7, grammarAccess.getMetaClassAccess().getSemicolonKeyword_4_2());
     }
-)?(	otherlv_6='matching:' 
+)?(	otherlv_8='matching:' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getMetaClassAccess().getMatchingKeyword_4_0());
+    	newLeafNode(otherlv_8, grammarAccess.getMetaClassAccess().getMatchingKeyword_5_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMetaClassAccess().getMatchingAbstractNameConvetionParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getMetaClassAccess().getMatchingAbstractNameConvetionParserRuleCall_5_1_0()); 
 	    }
-		lv_matching_7_0=ruleAbstractNameConvetion		{
+		lv_matching_9_0=ruleAbstractNameConvetion		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMetaClassRule());
 	        }
        		set(
        			$current, 
        			"matching",
-        		lv_matching_7_0, 
+        		lv_matching_9_0, 
         		"AbstractNameConvetion");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_8=';' 
+)	otherlv_10=';' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getMetaClassAccess().getSemicolonKeyword_4_2());
+    	newLeafNode(otherlv_10, grammarAccess.getMetaClassAccess().getSemicolonKeyword_5_2());
     }
-)?(	otherlv_9='cardinality' 
+)?(	otherlv_11='cardinality' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getMetaClassAccess().getCardinalityKeyword_5_0());
+    	newLeafNode(otherlv_11, grammarAccess.getMetaClassAccess().getCardinalityKeyword_6_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMetaClassAccess().getCardinalityCardinalityEnumRuleCall_5_1_0()); 
+	        newCompositeNode(grammarAccess.getMetaClassAccess().getCardinalityCardinalityEnumRuleCall_6_1_0()); 
 	    }
-		lv_cardinality_10_0=ruleCardinality		{
+		lv_cardinality_12_0=ruleCardinality		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMetaClassRule());
 	        }
        		set(
        			$current, 
        			"cardinality",
-        		lv_cardinality_10_0, 
+        		lv_cardinality_12_0, 
         		"Cardinality");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_11=';' 
+)	otherlv_13=';' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getMetaClassAccess().getSemicolonKeyword_5_2());
+    	newLeafNode(otherlv_13, grammarAccess.getMetaClassAccess().getSemicolonKeyword_6_2());
     }
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMetaClassAccess().getMethodsMethodParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getMetaClassAccess().getMethodsMethodParserRuleCall_7_0()); 
 	    }
-		lv_methods_12_0=ruleMethod		{
+		lv_methods_14_0=ruleMethod		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMetaClassRule());
 	        }
        		add(
        			$current, 
        			"methods",
-        		lv_methods_12_0, 
+        		lv_methods_14_0, 
         		"Method");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_13='}' 
+)*	otherlv_15='}' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getMetaClassAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_15, grammarAccess.getMetaClassAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -2087,6 +2134,12 @@ ruleExpressionMatchingClause returns [Enumerator current=null]
 	{
         $current = grammarAccess.getExpressionMatchingClauseAccess().getNAME_ENDS_WITHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_1, grammarAccess.getExpressionMatchingClauseAccess().getNAME_ENDS_WITHEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='annotated with' 
+	{
+        $current = grammarAccess.getExpressionMatchingClauseAccess().getANNOTATED_WITHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getExpressionMatchingClauseAccess().getANNOTATED_WITHEnumLiteralDeclaration_2()); 
     }
 ));
 

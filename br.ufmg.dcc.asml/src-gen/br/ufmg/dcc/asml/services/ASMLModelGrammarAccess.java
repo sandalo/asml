@@ -195,12 +195,18 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExternalClassParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cMethodParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cConfigurationElementParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final RuleCall cViewParserRuleCall_7_0 = (RuleCall)cGroup_7.eContents().get(0);
+		private final Assignment cRestrictionsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cRestrictionsRestrictionParserRuleCall_7_1_0 = (RuleCall)cRestrictionsAssignment_7_1.eContents().get(0);
 		
 		//AbstractComponent:
-		//	Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement;
+		//	Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement | View
+		//	restrictions+=Restriction*;
 		public ParserRule getRule() { return rule; }
 
-		//Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement
+		//Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement | View
+		//restrictions+=Restriction*
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Module
@@ -223,6 +229,18 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ConfigurationElement
 		public RuleCall getConfigurationElementParserRuleCall_6() { return cConfigurationElementParserRuleCall_6; }
+
+		//View restrictions+=Restriction*
+		public Group getGroup_7() { return cGroup_7; }
+
+		//View
+		public RuleCall getViewParserRuleCall_7_0() { return cViewParserRuleCall_7_0; }
+
+		//restrictions+=Restriction*
+		public Assignment getRestrictionsAssignment_7_1() { return cRestrictionsAssignment_7_1; }
+
+		//Restriction
+		public RuleCall getRestrictionsRestrictionParserRuleCall_7_1_0() { return cRestrictionsRestrictionParserRuleCall_7_1_0; }
 	}
 
 	public class AttributeElements extends AbstractParserRuleElementFinder {
@@ -329,7 +347,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cParameterAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cParameterSTRINGTerminalRuleCall_1_0 = (RuleCall)cParameterAssignment_1.eContents().get(0);
 		
-		////	(operator=ExpressionMatchingOperator expressionMatchings=ExpressionMatchingClause parameter=STRING)?
+		////	(expressionMatchings=ExpressionMatchingClause parameter=STRING (operator=ExpressionMatchingOperator )?)?
 		//ClassMatching:
 		//	expressionMatching=ExpressionMatchingClause parameter=STRING;
 		public ParserRule getRule() { return rule; }
@@ -612,33 +630,38 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMetaClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameID_ASMLTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cDescriptionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cDescriptionAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExtendsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cExtendsMetaClassCrossReference_2_1_0 = (CrossReference)cExtendsAssignment_2_1.eContents().get(0);
+		private final RuleCall cExtendsMetaClassQualifiedNameParserRuleCall_2_1_0_1 = (RuleCall)cExtendsMetaClassCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cMatchingKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cMatchingAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cMatchingAbstractNameConvetionParserRuleCall_4_1_0 = (RuleCall)cMatchingAssignment_4_1.eContents().get(0);
+		private final Keyword cDescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cCardinalityKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cCardinalityAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cCardinalityCardinalityEnumRuleCall_5_1_0 = (RuleCall)cCardinalityAssignment_5_1.eContents().get(0);
+		private final Keyword cMatchingKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cMatchingAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMatchingAbstractNameConvetionParserRuleCall_5_1_0 = (RuleCall)cMatchingAssignment_5_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		private final Assignment cMethodsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cMethodsMethodParserRuleCall_6_0 = (RuleCall)cMethodsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCardinalityKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cCardinalityAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cCardinalityCardinalityEnumRuleCall_6_1_0 = (RuleCall)cCardinalityAssignment_6_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Assignment cMethodsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMethodsMethodParserRuleCall_7_0 = (RuleCall)cMethodsAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//MetaClass:
-		//	"meta-class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion
-		//	";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
+		//	"meta-class" name=ID_ASML ("extends" extends=[MetaClass|QualifiedName])? "{" ("description" description=STRING ";")?
+		//	("matching:" matching=AbstractNameConvetion ";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"meta-class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion ";")?
-		//("cardinality" cardinality=Cardinality ";")? methods+=Method* "}"
+		//"meta-class" name=ID_ASML ("extends" extends=[MetaClass|QualifiedName])? "{" ("description" description=STRING ";")?
+		//("matching:" matching=AbstractNameConvetion ";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"meta-class"
@@ -650,62 +673,77 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		//ID_ASML
 		public RuleCall getNameID_ASMLTerminalRuleCall_1_0() { return cNameID_ASMLTerminalRuleCall_1_0; }
 
+		//("extends" extends=[MetaClass|QualifiedName])?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"extends"
+		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+
+		//extends=[MetaClass|QualifiedName]
+		public Assignment getExtendsAssignment_2_1() { return cExtendsAssignment_2_1; }
+
+		//[MetaClass|QualifiedName]
+		public CrossReference getExtendsMetaClassCrossReference_2_1_0() { return cExtendsMetaClassCrossReference_2_1_0; }
+
+		//QualifiedName
+		public RuleCall getExtendsMetaClassQualifiedNameParserRuleCall_2_1_0_1() { return cExtendsMetaClassQualifiedNameParserRuleCall_2_1_0_1; }
+
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//("description" description=STRING ";")?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"description"
-		public Keyword getDescriptionKeyword_3_0() { return cDescriptionKeyword_3_0; }
-
-		//description=STRING
-		public Assignment getDescriptionAssignment_3_1() { return cDescriptionAssignment_3_1; }
-
-		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_1_0() { return cDescriptionSTRINGTerminalRuleCall_3_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
-
-		//("matching:" matching=AbstractNameConvetion ";")?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"matching:"
-		public Keyword getMatchingKeyword_4_0() { return cMatchingKeyword_4_0; }
+		//"description"
+		public Keyword getDescriptionKeyword_4_0() { return cDescriptionKeyword_4_0; }
 
-		//matching=AbstractNameConvetion
-		public Assignment getMatchingAssignment_4_1() { return cMatchingAssignment_4_1; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_4_1() { return cDescriptionAssignment_4_1; }
 
-		//AbstractNameConvetion
-		public RuleCall getMatchingAbstractNameConvetionParserRuleCall_4_1_0() { return cMatchingAbstractNameConvetionParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_1_0() { return cDescriptionSTRINGTerminalRuleCall_4_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_4_2() { return cSemicolonKeyword_4_2; }
 
-		//("cardinality" cardinality=Cardinality ";")?
+		//("matching:" matching=AbstractNameConvetion ";")?
 		public Group getGroup_5() { return cGroup_5; }
 
-		//"cardinality"
-		public Keyword getCardinalityKeyword_5_0() { return cCardinalityKeyword_5_0; }
+		//"matching:"
+		public Keyword getMatchingKeyword_5_0() { return cMatchingKeyword_5_0; }
 
-		//cardinality=Cardinality
-		public Assignment getCardinalityAssignment_5_1() { return cCardinalityAssignment_5_1; }
+		//matching=AbstractNameConvetion
+		public Assignment getMatchingAssignment_5_1() { return cMatchingAssignment_5_1; }
 
-		//Cardinality
-		public RuleCall getCardinalityCardinalityEnumRuleCall_5_1_0() { return cCardinalityCardinalityEnumRuleCall_5_1_0; }
+		//AbstractNameConvetion
+		public RuleCall getMatchingAbstractNameConvetionParserRuleCall_5_1_0() { return cMatchingAbstractNameConvetionParserRuleCall_5_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_5_2() { return cSemicolonKeyword_5_2; }
 
+		//("cardinality" cardinality=Cardinality ";")?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"cardinality"
+		public Keyword getCardinalityKeyword_6_0() { return cCardinalityKeyword_6_0; }
+
+		//cardinality=Cardinality
+		public Assignment getCardinalityAssignment_6_1() { return cCardinalityAssignment_6_1; }
+
+		//Cardinality
+		public RuleCall getCardinalityCardinalityEnumRuleCall_6_1_0() { return cCardinalityCardinalityEnumRuleCall_6_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_6_2() { return cSemicolonKeyword_6_2; }
+
 		//methods+=Method*
-		public Assignment getMethodsAssignment_6() { return cMethodsAssignment_6; }
+		public Assignment getMethodsAssignment_7() { return cMethodsAssignment_7; }
 
 		//Method
-		public RuleCall getMethodsMethodParserRuleCall_6_0() { return cMethodsMethodParserRuleCall_6_0; }
+		public RuleCall getMethodsMethodParserRuleCall_7_0() { return cMethodsMethodParserRuleCall_7_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class ExternalClassElements extends AbstractParserRuleElementFinder {
@@ -1391,12 +1429,14 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNAME_START_WITHNameStartWithKeyword_0_0 = (Keyword)cNAME_START_WITHEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cNAME_ENDS_WITHEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cNAME_ENDS_WITHNameEndsWithKeyword_1_0 = (Keyword)cNAME_ENDS_WITHEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cANNOTATED_WITHEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cANNOTATED_WITHAnnotatedWithKeyword_2_0 = (Keyword)cANNOTATED_WITHEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum ExpressionMatchingClause:
-		//	NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with";
+		//	NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with" | ANNOTATED_WITH="annotated with";
 		public EnumRule getRule() { return rule; }
 
-		//NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with"
+		//NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with" | ANNOTATED_WITH="annotated with"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//NAME_START_WITH="name start with"
@@ -1410,6 +1450,12 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"name ends with"
 		public Keyword getNAME_ENDS_WITHNameEndsWithKeyword_1_0() { return cNAME_ENDS_WITHNameEndsWithKeyword_1_0; }
+
+		//ANNOTATED_WITH="annotated with"
+		public EnumLiteralDeclaration getANNOTATED_WITHEnumLiteralDeclaration_2() { return cANNOTATED_WITHEnumLiteralDeclaration_2; }
+
+		//"annotated with"
+		public Keyword getANNOTATED_WITHAnnotatedWithKeyword_2_0() { return cANNOTATED_WITHAnnotatedWithKeyword_2_0; }
 	}
 
 	public class ModuleMatchingParamenterElements extends AbstractEnumRuleElementFinder {
@@ -1774,7 +1820,8 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AbstractComponent:
-	//	Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement;
+	//	Module | MetaModule | ExternalModule | MetaClass | ExternalClass | Method | ConfigurationElement | View
+	//	restrictions+=Restriction*;
 	public AbstractComponentElements getAbstractComponentAccess() {
 		return pAbstractComponent;
 	}
@@ -1804,7 +1851,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum ExpressionMatchingClause:
-	//	NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with";
+	//	NAME_START_WITH="name start with" | NAME_ENDS_WITH="name ends with" | ANNOTATED_WITH="annotated with";
 	public ExpressionMatchingClauseElements getExpressionMatchingClauseAccess() {
 		return unknownRuleExpressionMatchingClause;
 	}
@@ -1844,7 +1891,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		return getModuleMatchingAccess().getRule();
 	}
 
-	////	(operator=ExpressionMatchingOperator expressionMatchings=ExpressionMatchingClause parameter=STRING)?
+	////	(expressionMatchings=ExpressionMatchingClause parameter=STRING (operator=ExpressionMatchingOperator )?)?
 	//ClassMatching:
 	//	expressionMatching=ExpressionMatchingClause parameter=STRING;
 	public ClassMatchingElements getClassMatchingAccess() {
@@ -1898,8 +1945,8 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MetaClass:
-	//	"meta-class" name=ID_ASML "{" ("description" description=STRING ";")? ("matching:" matching=AbstractNameConvetion
-	//	";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
+	//	"meta-class" name=ID_ASML ("extends" extends=[MetaClass|QualifiedName])? "{" ("description" description=STRING ";")?
+	//	("matching:" matching=AbstractNameConvetion ";")? ("cardinality" cardinality=Cardinality ";")? methods+=Method* "}";
 	public MetaClassElements getMetaClassAccess() {
 		return pMetaClass;
 	}

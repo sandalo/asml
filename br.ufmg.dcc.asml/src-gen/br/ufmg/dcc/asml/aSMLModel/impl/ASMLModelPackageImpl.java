@@ -357,19 +357,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getView_Name()
-  {
-    return (EAttribute)viewEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getView_Attributes()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(1);
+    return (EReference)viewEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -379,7 +369,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EReference getView_Components()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(2);
+    return (EReference)viewEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -389,7 +379,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EReference getView_Restrictions()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(3);
+    return (EReference)viewEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -647,9 +637,19 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMetaClass_Extends()
+  {
+    return (EReference)metaClassEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getMetaClass_Description()
   {
-    return (EAttribute)metaClassEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)metaClassEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -659,7 +659,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EReference getMetaClass_Matching()
   {
-    return (EReference)metaClassEClass.getEStructuralFeatures().get(1);
+    return (EReference)metaClassEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -669,7 +669,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EAttribute getMetaClass_Cardinality()
   {
-    return (EAttribute)metaClassEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)metaClassEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -679,7 +679,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EReference getMetaClass_Methods()
   {
-    return (EReference)metaClassEClass.getEStructuralFeatures().get(3);
+    return (EReference)metaClassEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1069,7 +1069,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEAttribute(asmlModelEClass, ASML_MODEL__IGNORE);
 
     viewEClass = createEClass(VIEW);
-    createEAttribute(viewEClass, VIEW__NAME);
     createEReference(viewEClass, VIEW__ATTRIBUTES);
     createEReference(viewEClass, VIEW__COMPONENTS);
     createEReference(viewEClass, VIEW__RESTRICTIONS);
@@ -1109,6 +1108,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEAttribute(methodEClass, METHOD__CARDINALITY);
 
     metaClassEClass = createEClass(META_CLASS);
+    createEReference(metaClassEClass, META_CLASS__EXTENDS);
     createEAttribute(metaClassEClass, META_CLASS__DESCRIPTION);
     createEReference(metaClassEClass, META_CLASS__MATCHING);
     createEAttribute(metaClassEClass, META_CLASS__CARDINALITY);
@@ -1188,6 +1188,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    viewEClass.getESuperTypes().add(this.getAbstractComponent());
     classMatchingEClass.getESuperTypes().add(this.getAbstractNameConvetion());
     configurationElementEClass.getESuperTypes().add(this.getAbstractComponent());
     fileEClass.getESuperTypes().add(this.getConfigurationElement());
@@ -1209,7 +1210,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEAttribute(getASMLModel_Ignore(), ecorePackage.getEString(), "ignore", null, 0, -1, ASMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getView_Name(), ecorePackage.getEString(), "name", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Components(), this.getAbstractComponent(), null, "components", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1249,6 +1249,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEAttribute(getMethod_Cardinality(), this.getCardinality(), "cardinality", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(metaClassEClass, MetaClass.class, "MetaClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMetaClass_Extends(), this.getMetaClass(), null, "extends", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMetaClass_Description(), ecorePackage.getEString(), "description", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMetaClass_Matching(), this.getAbstractNameConvetion(), null, "matching", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMetaClass_Cardinality(), this.getCardinality(), "cardinality", null, 0, 1, MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1300,6 +1301,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEEnum(expressionMatchingClauseEEnum, ExpressionMatchingClause.class, "ExpressionMatchingClause");
     addEEnumLiteral(expressionMatchingClauseEEnum, ExpressionMatchingClause.NAME_START_WITH);
     addEEnumLiteral(expressionMatchingClauseEEnum, ExpressionMatchingClause.NAME_ENDS_WITH);
+    addEEnumLiteral(expressionMatchingClauseEEnum, ExpressionMatchingClause.ANNOTATED_WITH);
 
     initEEnum(moduleMatchingParamenterEEnum, ModuleMatchingParamenter.class, "ModuleMatchingParamenter");
     addEEnumLiteral(moduleMatchingParamenterEEnum, ModuleMatchingParamenter.PAKCAGE);

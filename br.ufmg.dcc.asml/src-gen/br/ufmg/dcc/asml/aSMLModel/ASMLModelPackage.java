@@ -113,61 +113,6 @@ public interface ASMLModelPackage extends EPackage
   int ASML_MODEL_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl <em>View</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl
-   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getView()
-   * @generated
-   */
-  int VIEW = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__ATTRIBUTES = 1;
-
-  /**
-   * The feature id for the '<em><b>Components</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__COMPONENTS = 2;
-
-  /**
-   * The feature id for the '<em><b>Restrictions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW__RESTRICTIONS = 3;
-
-  /**
-   * The number of structural features of the '<em>View</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEW_FEATURE_COUNT = 4;
-
-  /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl <em>Abstract Component</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -194,6 +139,61 @@ public interface ASMLModelPackage extends EPackage
    * @ordered
    */
   int ABSTRACT_COMPONENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl <em>View</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl
+   * @see br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelPackageImpl#getView()
+   * @generated
+   */
+  int VIEW = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__NAME = ABSTRACT_COMPONENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__ATTRIBUTES = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Components</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__COMPONENTS = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Restrictions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW__RESTRICTIONS = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>View</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -557,13 +557,22 @@ public interface ASMLModelPackage extends EPackage
   int META_CLASS__NAME = ABSTRACT_COMPONENT__NAME;
 
   /**
+   * The feature id for the '<em><b>Extends</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int META_CLASS__EXTENDS = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int META_CLASS__DESCRIPTION = ABSTRACT_COMPONENT_FEATURE_COUNT + 0;
+  int META_CLASS__DESCRIPTION = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Matching</b></em>' containment reference.
@@ -572,7 +581,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int META_CLASS__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 1;
+  int META_CLASS__MATCHING = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Cardinality</b></em>' attribute.
@@ -581,7 +590,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int META_CLASS__CARDINALITY = ABSTRACT_COMPONENT_FEATURE_COUNT + 2;
+  int META_CLASS__CARDINALITY = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Methods</b></em>' containment reference list.
@@ -590,7 +599,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int META_CLASS__METHODS = ABSTRACT_COMPONENT_FEATURE_COUNT + 3;
+  int META_CLASS__METHODS = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Meta Class</em>' class.
@@ -599,7 +608,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int META_CLASS_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 4;
+  int META_CLASS_FEATURE_COUNT = ABSTRACT_COMPONENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.impl.ExternalClassImpl <em>External Class</em>}' class.
@@ -1130,17 +1139,6 @@ public interface ASMLModelPackage extends EPackage
   EClass getView();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.View#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.View#getName()
-   * @see #getView()
-   * @generated
-   */
-  EAttribute getView_Name();
-
-  /**
    * Returns the meta object for the containment reference list '{@link br.ufmg.dcc.asml.aSMLModel.View#getAttributes <em>Attributes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1436,6 +1434,17 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    */
   EClass getMetaClass();
+
+  /**
+   * Returns the meta object for the reference '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getExtends <em>Extends</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Extends</em>'.
+   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass#getExtends()
+   * @see #getMetaClass()
+   * @generated
+   */
+  EReference getMetaClass_Extends();
 
   /**
    * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getDescription <em>Description</em>}'.
@@ -1929,14 +1938,6 @@ public interface ASMLModelPackage extends EPackage
     EClass VIEW = eINSTANCE.getView();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VIEW__NAME = eINSTANCE.getView_Name();
-
-    /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2181,6 +2182,14 @@ public interface ASMLModelPackage extends EPackage
      * @generated
      */
     EClass META_CLASS = eINSTANCE.getMetaClass();
+
+    /**
+     * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference META_CLASS__EXTENDS = eINSTANCE.getMetaClass_Extends();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

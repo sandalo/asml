@@ -83,6 +83,7 @@ public class ASMLModelSwitch<T> extends Switch<T>
       {
         View view = (View)theEObject;
         T result = caseView(view);
+        if (result == null) result = caseAbstractComponent(view);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

@@ -16,6 +16,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ASMLModel.ecore#//ExpressionMatchingClause">
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//ExpressionMatchingClause/NAME_START_WITH"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//ExpressionMatchingClause/NAME_ENDS_WITH"/>
+      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//ExpressionMatchingClause/ANNOTATED_WITH"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ASMLModel.ecore#//ModuleMatchingParamenter">
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//ModuleMatchingParamenter/PAKCAGE"/>
@@ -54,7 +55,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ASMLModel/ignore"/>
     </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//View">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//View/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/restrictions"/>
@@ -93,6 +93,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Method/cardinality"/>
     </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//MetaClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaClass/extends"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//MetaClass/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaClass/matching"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//MetaClass/cardinality"/>

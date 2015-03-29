@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getExtends <em>Extends</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getDescription <em>Description</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getMatching <em>Matching</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getCardinality <em>Cardinality</em>}</li>
@@ -25,6 +26,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MetaClass extends AbstractComponent
 {
+  /**
+   * Returns the value of the '<em><b>Extends</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extends</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extends</em>' reference.
+   * @see #setExtends(MetaClass)
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaClass_Extends()
+   * @model
+   * @generated
+   */
+  MetaClass getExtends();
+
+  /**
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass#getExtends <em>Extends</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extends</em>' reference.
+   * @see #getExtends()
+   * @generated
+   */
+  void setExtends(MetaClass value);
+
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->

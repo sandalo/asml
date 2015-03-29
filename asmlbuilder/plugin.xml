@@ -94,7 +94,7 @@
       </menuContribution>
    </extension>
    <extension
-         id="asmlProblem"
+         id="br.ufmg.dcc.asml.asmlproblem"
          name="ASML Problem"
          point="org.eclipse.core.resources.markers">
       <super
@@ -106,6 +106,22 @@
    </extension>
    <extension
          point="org.eclipse.ui.decorators">
+   </extension>
+   
+<extension point="org.eclipse.ui.ide.markerResolution">
+    <markerResolutionGenerator
+        markerType="org.eclipse.core.resources.problemmarker"
+        class="asmlbuilder.resolution.QuickFixer"/>
+</extension>
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="asml_builder_test"
+         name="ASMLBuilderTest">
+      <application>
+         <run
+            class="asmlbuilder.builder.BuilderTest">
+         </run>
+      </application>
    </extension>
 
 </plugin>

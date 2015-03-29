@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getMatching <em>Matching</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaClassImpl#getCardinality <em>Cardinality</em>}</li>
@@ -41,6 +42,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
 {
+  /**
+   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtends()
+   * @generated
+   * @ordered
+   */
+  protected MetaClass extends_;
+
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -120,6 +131,49 @@ public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
   protected EClass eStaticClass()
   {
     return ASMLModelPackage.Literals.META_CLASS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MetaClass getExtends()
+  {
+    if (extends_ != null && extends_.eIsProxy())
+    {
+      InternalEObject oldExtends = (InternalEObject)extends_;
+      extends_ = (MetaClass)eResolveProxy(oldExtends);
+      if (extends_ != oldExtends)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ASMLModelPackage.META_CLASS__EXTENDS, oldExtends, extends_));
+      }
+    }
+    return extends_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MetaClass basicGetExtends()
+  {
+    return extends_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtends(MetaClass newExtends)
+  {
+    MetaClass oldExtends = extends_;
+    extends_ = newExtends;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_CLASS__EXTENDS, oldExtends, extends_));
   }
 
   /**
@@ -258,6 +312,9 @@ public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
   {
     switch (featureID)
     {
+      case ASMLModelPackage.META_CLASS__EXTENDS:
+        if (resolve) return getExtends();
+        return basicGetExtends();
       case ASMLModelPackage.META_CLASS__DESCRIPTION:
         return getDescription();
       case ASMLModelPackage.META_CLASS__MATCHING:
@@ -281,6 +338,9 @@ public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
   {
     switch (featureID)
     {
+      case ASMLModelPackage.META_CLASS__EXTENDS:
+        setExtends((MetaClass)newValue);
+        return;
       case ASMLModelPackage.META_CLASS__DESCRIPTION:
         setDescription((String)newValue);
         return;
@@ -308,6 +368,9 @@ public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
   {
     switch (featureID)
     {
+      case ASMLModelPackage.META_CLASS__EXTENDS:
+        setExtends((MetaClass)null);
+        return;
       case ASMLModelPackage.META_CLASS__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
@@ -334,6 +397,8 @@ public class MetaClassImpl extends AbstractComponentImpl implements MetaClass
   {
     switch (featureID)
     {
+      case ASMLModelPackage.META_CLASS__EXTENDS:
+        return extends_ != null;
       case ASMLModelPackage.META_CLASS__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case ASMLModelPackage.META_CLASS__MATCHING:

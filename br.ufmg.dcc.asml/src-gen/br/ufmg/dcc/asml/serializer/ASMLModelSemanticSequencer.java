@@ -137,7 +137,11 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 				}
 				else break;
 			case ASMLModelPackage.VIEW:
-				if(context == grammarAccess.getViewRule()) {
+				if(context == grammarAccess.getAbstractComponentRule()) {
+					sequence_AbstractComponent_View(context, (View) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getViewRule()) {
 					sequence_View(context, (View) semanticObject); 
 					return; 
 				}
@@ -167,6 +171,15 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (name=ID_ASML importURI=STRING? views+=View* ignore+=STRING*)
 	 */
 	protected void sequence_ASMLModel(EObject context, ASMLModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID_ASML attributes+=Attribute* components+=AbstractComponent* restrictions+=Restriction* restrictions+=Restriction*)
+	 */
+	protected void sequence_AbstractComponent_View(EObject context, View semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -256,7 +269,14 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID_ASML description=STRING? matching=AbstractNameConvetion? cardinality=Cardinality? methods+=Method*)
+	 *     (
+	 *         name=ID_ASML 
+	 *         extends=[MetaClass|QualifiedName]? 
+	 *         description=STRING? 
+	 *         matching=AbstractNameConvetion? 
+	 *         cardinality=Cardinality? 
+	 *         methods+=Method*
+	 *     )
 	 */
 	protected void sequence_MetaClass(EObject context, MetaClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

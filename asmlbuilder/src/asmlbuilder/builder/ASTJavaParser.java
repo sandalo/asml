@@ -4,10 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import org.eclipse.core.resources.IFile;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+
+import br.ufmg.dcc.asml.ASMLResource;
 
 public class ASTJavaParser {
 
@@ -18,18 +21,16 @@ public class ASTJavaParser {
 	
 
 	// use ASTParse to parse string
-	public void parse(IFile iFile, CacheASML cacheASML) {
-		java.io.File file = new java.io.File(iFile.getLocation().toOSString());
-		String str = readFileToString(file);
+	public void parse(ASMLResource asmlResource) {
+		ICompilationUnit element = (ICompilationUnit) JavaCore.create(asmlResource.getResource());
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
-		parser.setSource(str.toCharArray());
+		parser.setSource(element);
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
+		parser.setResolveBindings(true);
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
-		
-		ASMLASTNode asmlastNode = new ASMLASTNode();
-		asmlastNode.setResource(iFile);
-		asmlastNode.setCompilationUnit(cu);
-		asmlReosurceJavaVisitor.setAsmlastNode(asmlastNode);
+		asmlResource.setCompilationUnitAST(cu);
+		asmlResource.setCompilationUnitType(element);
+		asmlReosurceJavaVisitor.setAsmlResource(asmlResource);
 		
 		cu.accept(asmlReosurceJavaVisitor);
 	}
@@ -42,7 +43,6 @@ public class ASTJavaParser {
 			char[] buf = new char[10];
 			int numRead = 0;
 			while ((numRead = reader.read(buf)) != -1) {
-				System.out.println(numRead);
 				String readData = String.valueOf(buf, 0, numRead);
 				fileData.append(readData);
 				buf = new char[1024];

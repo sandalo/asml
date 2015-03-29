@@ -1,9 +1,12 @@
 package asmlbuilder.builder;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
+
+import br.ufmg.dcc.asml.ASMLResource;
 
 public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IResourceDeltaVisitor {
 	/*
@@ -14,7 +17,7 @@ public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IR
 	 * .core.resources.IResourceDelta)
 	 */
 
-	public ASMLResourceDeltaVisitor(CacheASML cacheASML) {
+	public ASMLResourceDeltaVisitor(ASMLContext cacheASML) {
 		super(cacheASML);
 	}
 	
@@ -23,7 +26,6 @@ public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IR
 		if ((resource.getFileExtension() + "").equals("class")) {
 			return false;
 		}
-		
 		boolean deep = deep(resource);
 		boolean ignoreResource = ignoreResource(resource);
 		
@@ -34,20 +36,25 @@ public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IR
 		if(ignoreResource){
 			return true;
 		}
+		
+		ASMLResource asmlResource =  new ASMLResource();
+		asmlResource.setResource(resource);
 
 		switch (delta.getKind()) {
 		case IResourceDelta.ADDED:
-			cacheASML.getResources().add(resource);
+			asmlContext.addResource(asmlResource);
 			break;
 		case IResourceDelta.REMOVED:
-			cacheASML.getResources().remove(resource);
-			cacheASML.removeResourcesFromComponents(resource);
+			asmlContext.removeResource(asmlResource);
 			break;
 		case IResourceDelta.CHANGED:
-			cacheASML.getResources().remove(resource);
-			cacheASML.getResources().add(resource);
+			asmlContext.removeResource(asmlResource);
+			asmlContext.addResource(asmlResource);
 			break;
 		}
+		if(resource instanceof IFile && resource.getFileExtension().equals("java"))
+			asmlContext.getAstJavaParser().parse(asmlResource);
+
 		// return true to continue visiting children.
 		return true;
 	}

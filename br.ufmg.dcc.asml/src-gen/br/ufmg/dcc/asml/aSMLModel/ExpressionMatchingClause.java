@@ -37,7 +37,17 @@ public enum ExpressionMatchingClause implements Enumerator
    * @generated
    * @ordered
    */
-  NAME_ENDS_WITH(1, "NAME_ENDS_WITH", "name ends with");
+  NAME_ENDS_WITH(1, "NAME_ENDS_WITH", "name ends with"),
+
+  /**
+   * The '<em><b>ANNOTATED WITH</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #ANNOTATED_WITH_VALUE
+   * @generated
+   * @ordered
+   */
+  ANNOTATED_WITH(2, "ANNOTATED_WITH", "annotated with");
 
   /**
    * The '<em><b>NAME START WITH</b></em>' literal value.
@@ -70,6 +80,21 @@ public enum ExpressionMatchingClause implements Enumerator
   public static final int NAME_ENDS_WITH_VALUE = 1;
 
   /**
+   * The '<em><b>ANNOTATED WITH</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>ANNOTATED WITH</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #ANNOTATED_WITH
+   * @model literal="annotated with"
+   * @generated
+   * @ordered
+   */
+  public static final int ANNOTATED_WITH_VALUE = 2;
+
+  /**
    * An array of all the '<em><b>Expression Matching Clause</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -80,6 +105,7 @@ public enum ExpressionMatchingClause implements Enumerator
     {
       NAME_START_WITH,
       NAME_ENDS_WITH,
+      ANNOTATED_WITH,
     };
 
   /**
@@ -140,6 +166,7 @@ public enum ExpressionMatchingClause implements Enumerator
     {
       case NAME_START_WITH_VALUE: return NAME_START_WITH;
       case NAME_ENDS_WITH_VALUE: return NAME_ENDS_WITH;
+      case ANNOTATED_WITH_VALUE: return ANNOTATED_WITH;
     }
     return null;
   }

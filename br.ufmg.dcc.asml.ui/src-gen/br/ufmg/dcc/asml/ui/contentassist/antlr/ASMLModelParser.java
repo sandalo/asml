@@ -54,6 +54,7 @@ public class ASMLModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getViewAccess().getGroup(), "rule__View__Group__0");
 					put(grammarAccess.getViewAccess().getGroup_3(), "rule__View__Group_3__0");
 					put(grammarAccess.getViewAccess().getGroup_3_0(), "rule__View__Group_3_0__0");
+					put(grammarAccess.getAbstractComponentAccess().getGroup_7(), "rule__AbstractComponent__Group_7__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getClassMatchingAccess().getGroup(), "rule__ClassMatching__Group__0");
 					put(grammarAccess.getFileAccess().getGroup(), "rule__File__Group__0");
@@ -66,9 +67,10 @@ public class ASMLModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getGroup_3(), "rule__Method__Group_3__0");
 					put(grammarAccess.getMethodAccess().getGroup_4(), "rule__Method__Group_4__0");
 					put(grammarAccess.getMetaClassAccess().getGroup(), "rule__MetaClass__Group__0");
-					put(grammarAccess.getMetaClassAccess().getGroup_3(), "rule__MetaClass__Group_3__0");
+					put(grammarAccess.getMetaClassAccess().getGroup_2(), "rule__MetaClass__Group_2__0");
 					put(grammarAccess.getMetaClassAccess().getGroup_4(), "rule__MetaClass__Group_4__0");
 					put(grammarAccess.getMetaClassAccess().getGroup_5(), "rule__MetaClass__Group_5__0");
+					put(grammarAccess.getMetaClassAccess().getGroup_6(), "rule__MetaClass__Group_6__0");
 					put(grammarAccess.getExternalClassAccess().getGroup(), "rule__ExternalClass__Group__0");
 					put(grammarAccess.getExternalClassAccess().getGroup_3(), "rule__ExternalClass__Group_3__0");
 					put(grammarAccess.getExternalClassAccess().getGroup_4(), "rule__ExternalClass__Group_4__0");
@@ -102,6 +104,7 @@ public class ASMLModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getViewAccess().getAttributesAssignment_3_0_1(), "rule__View__AttributesAssignment_3_0_1");
 					put(grammarAccess.getViewAccess().getComponentsAssignment_4(), "rule__View__ComponentsAssignment_4");
 					put(grammarAccess.getViewAccess().getRestrictionsAssignment_5(), "rule__View__RestrictionsAssignment_5");
+					put(grammarAccess.getAbstractComponentAccess().getRestrictionsAssignment_7_1(), "rule__AbstractComponent__RestrictionsAssignment_7_1");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_0(), "rule__Attribute__NameAssignment_0");
 					put(grammarAccess.getAttributeAccess().getValueAssignment_2(), "rule__Attribute__ValueAssignment_2");
 					put(grammarAccess.getExpressionMatchingOperatorAccess().getANDAssignment_0(), "rule__ExpressionMatchingOperator__ANDAssignment_0");
@@ -120,10 +123,11 @@ public class ASMLModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodAccess().getMatchingAssignment_3_1(), "rule__Method__MatchingAssignment_3_1");
 					put(grammarAccess.getMethodAccess().getCardinalityAssignment_4_1(), "rule__Method__CardinalityAssignment_4_1");
 					put(grammarAccess.getMetaClassAccess().getNameAssignment_1(), "rule__MetaClass__NameAssignment_1");
-					put(grammarAccess.getMetaClassAccess().getDescriptionAssignment_3_1(), "rule__MetaClass__DescriptionAssignment_3_1");
-					put(grammarAccess.getMetaClassAccess().getMatchingAssignment_4_1(), "rule__MetaClass__MatchingAssignment_4_1");
-					put(grammarAccess.getMetaClassAccess().getCardinalityAssignment_5_1(), "rule__MetaClass__CardinalityAssignment_5_1");
-					put(grammarAccess.getMetaClassAccess().getMethodsAssignment_6(), "rule__MetaClass__MethodsAssignment_6");
+					put(grammarAccess.getMetaClassAccess().getExtendsAssignment_2_1(), "rule__MetaClass__ExtendsAssignment_2_1");
+					put(grammarAccess.getMetaClassAccess().getDescriptionAssignment_4_1(), "rule__MetaClass__DescriptionAssignment_4_1");
+					put(grammarAccess.getMetaClassAccess().getMatchingAssignment_5_1(), "rule__MetaClass__MatchingAssignment_5_1");
+					put(grammarAccess.getMetaClassAccess().getCardinalityAssignment_6_1(), "rule__MetaClass__CardinalityAssignment_6_1");
+					put(grammarAccess.getMetaClassAccess().getMethodsAssignment_7(), "rule__MetaClass__MethodsAssignment_7");
 					put(grammarAccess.getExternalClassAccess().getNameAssignment_1(), "rule__ExternalClass__NameAssignment_1");
 					put(grammarAccess.getExternalClassAccess().getDescriptionAssignment_3_1(), "rule__ExternalClass__DescriptionAssignment_3_1");
 					put(grammarAccess.getExternalClassAccess().getTypeAssignment_4_1(), "rule__ExternalClass__TypeAssignment_4_1");

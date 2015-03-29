@@ -2,7 +2,11 @@
  */
 package br.ufmg.dcc.asml.aSMLModel;
 
+import java.util.Set;
+
 import org.eclipse.emf.ecore.EObject;
+
+import br.ufmg.dcc.asml.ASMLResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +26,14 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AbstractComponent extends EObject
 {
+	
+	public Set<ASMLResource> getResources();
+
+	public void addResources(ASMLResource resource);
+
+	public void resourceClear();
+	
+	public void resourceRemove(AbstractComponent component);	
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

@@ -1,23 +1,31 @@
 package asmlbuilder.builder;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.AnnotationTypeDeclaration;
+import org.eclipse.jdt.core.dom.ClassInstanceCreation;
+import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.VariableDeclarationExpression;
+
+import br.ufmg.dcc.asml.ASMLASTNode;
+import br.ufmg.dcc.asml.ASMLResource;
 
 public  class ASMLReosurceJavaVisitor extends ASTVisitor {
 	
-	private CacheASML cacheASML;
-	private ASMLASTNode  asmlastNode;
+	private ASMLContext cacheASML;
+	private ASMLResource  asmlResource;
 
-	public ASMLReosurceJavaVisitor(CacheASML cacheASML) {
+	public ASMLReosurceJavaVisitor(ASMLContext cacheASML) {
 		this.cacheASML = cacheASML;
 	}
 	
 	public boolean visitNode(ASTNode node) {
+		ASMLASTNode asmlastNode = new ASMLASTNode();
 		asmlastNode.setAstNode(node);
-		cacheASML.addInstancesOfASTNodeJavaFound(asmlastNode.getResource(), asmlastNode);
+		asmlastNode.setResource(asmlResource);
+		ASMLResource resource = asmlastNode.getResource();
+		resource.addInstancesOfASTNodeJavaFound(asmlastNode);
 		return true; // do not continue
 	}
 	
@@ -28,17 +36,33 @@ public  class ASMLReosurceJavaVisitor extends ASTVisitor {
 	}
 	
 	@Override
+	public boolean visit(VariableDeclarationExpression node) {
+		 visitNode(node);
+		return super.visit(node);
+	}
+	
+	@Override
 	public boolean visit(TypeDeclaration node) {
 		 visitNode(node);
 		 return true;
 	}
+	
+	@Override
+	public boolean visit(ClassInstanceCreation node) {
+		 visitNode(node);
+		 return true;
+	}
+	
 
-	public ASMLASTNode getAsmlastNode() {
-		return asmlastNode;
+	@Override
+	public boolean visit(MethodInvocation node) {
+		 visitNode(node);
+		return true;
 	}
 
-	public void setAsmlastNode(ASMLASTNode asmlastNode) {
-		this.asmlastNode = asmlastNode;
+	public void setAsmlResource(ASMLResource asmlResource) {
+		this.asmlResource = asmlResource;
 	}
+	
 
 }
