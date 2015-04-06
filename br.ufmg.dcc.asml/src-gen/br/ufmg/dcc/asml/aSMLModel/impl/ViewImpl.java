@@ -10,12 +10,16 @@ import br.ufmg.dcc.asml.aSMLModel.View;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ViewImpl#getRestrictions <em>Restrictions</em>}</li>
@@ -35,8 +40,28 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ViewImpl extends AbstractComponentImpl implements View
+public class ViewImpl extends MinimalEObjectImpl.Container implements View
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -86,6 +111,29 @@ public class ViewImpl extends AbstractComponentImpl implements View
   protected EClass eStaticClass()
   {
     return ASMLModelPackage.Literals.VIEW;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.VIEW__NAME, oldName, name));
   }
 
   /**
@@ -160,6 +208,8 @@ public class ViewImpl extends AbstractComponentImpl implements View
   {
     switch (featureID)
     {
+      case ASMLModelPackage.VIEW__NAME:
+        return getName();
       case ASMLModelPackage.VIEW__ATTRIBUTES:
         return getAttributes();
       case ASMLModelPackage.VIEW__COMPONENTS:
@@ -181,6 +231,9 @@ public class ViewImpl extends AbstractComponentImpl implements View
   {
     switch (featureID)
     {
+      case ASMLModelPackage.VIEW__NAME:
+        setName((String)newValue);
+        return;
       case ASMLModelPackage.VIEW__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
@@ -207,6 +260,9 @@ public class ViewImpl extends AbstractComponentImpl implements View
   {
     switch (featureID)
     {
+      case ASMLModelPackage.VIEW__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case ASMLModelPackage.VIEW__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -230,6 +286,8 @@ public class ViewImpl extends AbstractComponentImpl implements View
   {
     switch (featureID)
     {
+      case ASMLModelPackage.VIEW__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ASMLModelPackage.VIEW__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
       case ASMLModelPackage.VIEW__COMPONENTS:
@@ -238,6 +296,23 @@ public class ViewImpl extends AbstractComponentImpl implements View
         return restrictions != null && !restrictions.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ViewImpl

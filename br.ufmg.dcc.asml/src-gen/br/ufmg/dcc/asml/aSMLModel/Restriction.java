@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentA <em>Component A</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getPermissionClause <em>Permission Clause</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getRelactionType <em>Relaction Type</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getGroupClauseB <em>Group Clause B</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentB <em>Component B</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription <em>Description</em>}</li>
  * </ul>
@@ -131,6 +132,35 @@ public interface Restriction extends EObject
    * @generated
    */
   void setRelactionType(RelactionType value);
+
+  /**
+   * Returns the value of the '<em><b>Group Clause B</b></em>' attribute.
+   * The literals are from the enumeration {@link br.ufmg.dcc.asml.aSMLModel.GroupClause}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Group Clause B</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Group Clause B</em>' attribute.
+   * @see br.ufmg.dcc.asml.aSMLModel.GroupClause
+   * @see #setGroupClauseB(GroupClause)
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getRestriction_GroupClauseB()
+   * @model
+   * @generated
+   */
+  GroupClause getGroupClauseB();
+
+  /**
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getGroupClauseB <em>Group Clause B</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Group Clause B</em>' attribute.
+   * @see br.ufmg.dcc.asml.aSMLModel.GroupClause
+   * @see #getGroupClauseB()
+   * @generated
+   */
+  void setGroupClauseB(GroupClause value);
 
   /**
    * Returns the value of the '<em><b>Component B</b></em>' reference.

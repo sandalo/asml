@@ -4,9 +4,11 @@ package br.ufmg.dcc.asml.aSMLModel;
 
 import java.util.Set;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
+import br.ufmg.dcc.asml.ComponentVisitor;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,14 +28,6 @@ import br.ufmg.dcc.asml.ASMLResource;
  */
 public interface AbstractComponent extends EObject
 {
-	
-	public Set<ASMLResource> getResources();
-
-	public void addResources(ASMLResource resource);
-
-	public void resourceClear();
-	
-	public void resourceRemove(AbstractComponent component);	
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -58,6 +52,24 @@ public interface AbstractComponent extends EObject
    * @see #getName()
    * @generated
    */
+ public EList<AbstractComponent> getComponents();
+  
   void setName(String value);
+
+  public Set<ComponentInstance> getInstances();
+  
+  public Set<ComponentInstance> getAllComponentInstances();
+
+  public void addComponentInstance(ComponentInstance resource);
+  
+  public void resourceClear();
+  
+  public String[] getAllTypesNames();
+  
+  public String[] getAllSupertypesNames();
+
+ public boolean containsType(String fullName);
+ 
+ public void accept(ComponentVisitor compVisitor);
 
 } // AbstractComponent

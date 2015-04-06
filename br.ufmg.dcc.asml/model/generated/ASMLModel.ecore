@@ -9,7 +9,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignore" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//AbstractComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="View">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
@@ -148,6 +149,7 @@
         upperBound="-1" eType="#//AbstractComponent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="permissionClause" eType="#//PermissionClause"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relactionType" eType="#//RelactionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupClauseB" eType="#//GroupClause"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentB" eType="#//AbstractComponent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

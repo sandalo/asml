@@ -1181,10 +1181,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:63:7: ( 'meta-module' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:63:9: 'meta-module'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:63:7: ( 'restrictions' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:63:9: 'restrictions'
             {
-            match("meta-module"); 
+            match("restrictions"); 
 
 
             }
@@ -1202,10 +1202,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:64:7: ( 'external-module' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:64:9: 'external-module'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:64:7: ( 'meta-module' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:64:9: 'meta-module'
             {
-            match("external-module"); 
+            match("meta-module"); 
 
 
             }
@@ -1223,10 +1223,11 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:65:7: ( '.' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:65:9: '.'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:65:7: ( 'external-module' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:65:9: 'external-module'
             {
-            match('.'); 
+            match("external-module"); 
+
 
             }
 
@@ -1243,11 +1244,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:66:7: ( 'restriction' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:66:9: 'restriction'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:66:7: ( '.' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:66:9: '.'
             {
-            match("restriction"); 
-
+            match('.'); 
 
             }
 
@@ -1264,8 +1264,8 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_ID_ASML;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8065:14: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '.' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '.' | '0' .. '9' )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8065:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '.' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '.' | '0' .. '9' )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8350:14: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '.' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '.' | '0' .. '9' )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8350:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '.' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '.' | '0' .. '9' )*
             {
             if ( input.LA(1)=='.'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1276,7 +1276,7 @@ public class InternalASMLModelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8065:44: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '.' | '0' .. '9' )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8350:44: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | '.' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -1325,10 +1325,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8067:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8067:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8352:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8352:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8067:11: ( '^' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8352:11: ( '^' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1337,7 +1337,7 @@ public class InternalASMLModelLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8067:11: '^'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8352:11: '^'
                     {
                     match('^'); 
 
@@ -1355,7 +1355,7 @@ public class InternalASMLModelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8067:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8352:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -1404,10 +1404,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8069:10: ( ( '0' .. '9' )+ )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8069:12: ( '0' .. '9' )+
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8354:10: ( ( '0' .. '9' )+ )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8354:12: ( '0' .. '9' )+
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8069:12: ( '0' .. '9' )+
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8354:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1421,7 +1421,7 @@ public class InternalASMLModelLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8069:13: '0' .. '9'
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8354:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1453,10 +1453,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1474,10 +1474,10 @@ public class InternalASMLModelLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1493,7 +1493,7 @@ public class InternalASMLModelLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:21: '\\\\' .
+                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1501,7 +1501,7 @@ public class InternalASMLModelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1526,10 +1526,10 @@ public class InternalASMLModelLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1545,7 +1545,7 @@ public class InternalASMLModelLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:54: '\\\\' .
+                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1553,7 +1553,7 @@ public class InternalASMLModelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8071:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8356:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1596,12 +1596,12 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8073:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8073:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8358:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8358:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8073:24: ( options {greedy=false; } : . )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8358:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -1626,7 +1626,7 @@ public class InternalASMLModelLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8073:52: .
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8358:52: .
             	    {
             	    matchAny(); 
 
@@ -1656,12 +1656,12 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -1674,7 +1674,7 @@ public class InternalASMLModelLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1694,7 +1694,7 @@ public class InternalASMLModelLexer extends Lexer {
                 }
             } while (true);
 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:40: ( ( '\\r' )? '\\n' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:40: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1703,9 +1703,9 @@ public class InternalASMLModelLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:41: ( '\\r' )? '\\n'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:41: ( '\\r' )? '\\n'
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:41: ( '\\r' )?
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:41: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -1714,7 +1714,7 @@ public class InternalASMLModelLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8075:41: '\\r'
+                            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8360:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1746,10 +1746,10 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8077:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8077:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8362:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8362:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8077:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8362:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt12=0;
             loop12:
             do {
@@ -1803,8 +1803,8 @@ public class InternalASMLModelLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8079:16: ( . )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8079:18: .
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8364:16: ( . )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:8364:18: .
             {
             matchAny(); 
 
@@ -2292,11 +2292,11 @@ public class InternalASMLModelLexer extends Lexer {
         "\7\52\1\uffff\1\u0109\4\52\1\uffff\1\52\1\uffff\2\52\1\u0111\6\52"+
         "\3\uffff\6\52\1\u0120\1\uffff\3\52\1\uffff\1\52\1\u0125\1\uffff"+
         "\1\u0127\6\52\1\uffff\1\52\1\u012f\2\52\3\uffff\1\u0134\1\u0135"+
-        "\1\52\1\u0137\2\52\1\u013a\1\uffff\1\u013b\1\u013c\4\uffff\1\52"+
-        "\1\uffff\2\52\3\uffff\1\u0140\2\52\1\uffff\1\u0143\1\52\1\uffff"+
-        "\1\u0145\1\uffff";
+        "\1\52\1\u0137\3\52\1\uffff\1\u013b\1\u013c\4\uffff\1\52\1\uffff"+
+        "\2\52\1\u0140\2\uffff\1\u0141\2\52\2\uffff\1\u0144\1\52\1\uffff"+
+        "\1\u0146\1\uffff";
     static final String DFA13_eofS =
-        "\u0146\uffff";
+        "\u0147\uffff";
     static final String DFA13_minS =
         "\1\0\2\56\15\60\4\uffff\1\60\1\uffff\2\60\1\55\1\60\1\101\1\uffff"+
         "\2\0\1\52\7\uffff\2\60\1\40\1\60\1\uffff\4\60\1\40\21\60\4\uffff"+
@@ -2312,8 +2312,8 @@ public class InternalASMLModelLexer extends Lexer {
         "\60\1\40\2\60\1\145\2\uffff\1\163\1\154\3\60\1\143\1\55\1\uffff"+
         "\3\60\1\uffff\1\60\1\55\1\40\1\55\1\145\3\60\1\154\1\157\1\uffff"+
         "\1\60\1\55\2\60\1\uffff\1\141\1\uffff\2\55\1\60\1\55\1\141\1\144"+
-        "\1\55\1\uffff\2\55\4\uffff\1\60\1\uffff\1\163\1\165\3\uffff\1\55"+
-        "\1\163\1\154\1\uffff\1\55\1\145\1\uffff\1\55\1\uffff";
+        "\1\60\1\uffff\2\55\4\uffff\1\60\1\uffff\1\163\1\165\1\55\2\uffff"+
+        "\1\55\1\163\1\154\2\uffff\1\55\1\145\1\uffff\1\55\1\uffff";
     static final String DFA13_maxS =
         "\1\uffff\2\71\15\172\4\uffff\1\172\1\uffff\5\172\1\uffff\2\uffff"+
         "\1\57\7\uffff\4\172\1\uffff\26\172\4\uffff\1\172\1\uffff\2\172\6"+
@@ -2327,21 +2327,22 @@ public class InternalASMLModelLexer extends Lexer {
         "\154\3\172\1\155\1\172\1\uffff\3\172\1\uffff\2\172\1\40\1\172\1"+
         "\145\3\172\1\154\1\157\1\uffff\4\172\1\uffff\1\156\1\uffff\4\172"+
         "\1\141\1\144\1\172\1\uffff\2\172\4\uffff\1\172\1\uffff\1\163\1\165"+
-        "\3\uffff\1\172\1\163\1\154\1\uffff\1\172\1\145\1\uffff\1\172\1\uffff";
+        "\1\172\2\uffff\1\172\1\163\1\154\2\uffff\1\172\1\145\1\uffff\1\172"+
+        "\1\uffff";
     static final String DFA13_acceptS =
         "\20\uffff\1\36\1\37\1\41\1\43\1\uffff\1\46\5\uffff\1\73\3\uffff"+
         "\1\77\1\100\1\3\1\1\1\73\1\4\1\2\4\uffff\1\71\26\uffff\1\36\1\37"+
-        "\1\41\1\43\1\uffff\1\46\2\uffff\1\67\1\72\1\74\1\75\1\76\1\77\2"+
+        "\1\41\1\43\1\uffff\1\46\2\uffff\1\70\1\72\1\74\1\75\1\76\1\77\2"+
         "\uffff\1\17\41\uffff\1\16\4\uffff\1\11\1\13\7\uffff\1\21\15\uffff"+
         "\1\32\7\uffff\1\14\5\uffff\1\15\1\20\22\uffff\1\61\2\uffff\1\44"+
         "\1\47\2\uffff\1\5\1\6\27\uffff\1\31\5\uffff\1\23\4\uffff\1\53\2"+
         "\uffff\1\64\1\22\1\uffff\1\30\2\uffff\1\33\1\uffff\1\25\1\uffff"+
         "\1\26\2\uffff\1\40\1\42\15\uffff\1\24\1\uffff\1\55\12\uffff\1\57"+
         "\1\50\7\uffff\1\34\3\uffff\1\7\12\uffff\1\27\4\uffff\1\45\1\uffff"+
-        "\1\54\7\uffff\1\62\2\uffff\1\10\1\12\1\65\1\51\1\uffff\1\56\2\uffff"+
-        "\1\70\1\63\1\35\3\uffff\1\52\2\uffff\1\60\1\uffff\1\66";
+        "\1\54\7\uffff\1\62\2\uffff\1\10\1\12\1\66\1\51\1\uffff\1\56\3\uffff"+
+        "\1\63\1\35\3\uffff\1\65\1\52\2\uffff\1\60\1\uffff\1\67";
     static final String DFA13_specialS =
-        "\1\0\33\uffff\1\1\1\2\u0128\uffff}>";
+        "\1\0\33\uffff\1\1\1\2\u0129\uffff}>";
     static final String[] DFA13_transitionS = {
             "\11\40\2\37\2\40\1\37\22\40\1\37\1\40\1\34\4\40\1\35\4\40\1"+
             "\23\1\40\1\30\1\36\1\2\1\1\10\33\1\25\1\22\5\40\32\31\3\40\1"+
@@ -2810,7 +2811,7 @@ public class InternalASMLModelLexer extends Lexer {
             "\51",
             "\1\u0138",
             "\1\u0139",
-            "\2\52\1\uffff\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32"+
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\22\51\1\u013a\7"+
             "\51",
             "",
             "\2\52\1\uffff\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32"+
@@ -2826,17 +2827,19 @@ public class InternalASMLModelLexer extends Lexer {
             "",
             "\1\u013e",
             "\1\u013f",
-            "",
+            "\2\52\1\uffff\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32"+
+            "\51",
             "",
             "",
             "\2\52\1\uffff\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32"+
             "\51",
-            "\1\u0141",
             "\1\u0142",
+            "\1\u0143",
+            "",
             "",
             "\2\52\1\uffff\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32"+
             "\52",
-            "\1\u0144",
+            "\1\u0145",
             "",
             "\2\52\1\uffff\12\52\7\uffff\32\52\4\uffff\1\52\1\uffff\32"+
             "\52",

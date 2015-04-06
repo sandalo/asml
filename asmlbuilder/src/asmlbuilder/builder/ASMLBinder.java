@@ -13,9 +13,12 @@ import asmlbuilder.matching.MetaModuleMatching;
 import asmlbuilder.matching.ModuleMatching;
 import asmlbuilder.restriction.ComponentAAccessCompontB;
 import asmlbuilder.restriction.ComponentACreateCompontB;
+import asmlbuilder.restriction.ComponentADeclareCompontB;
 import asmlbuilder.restriction.ComponentAExtendsCompontB;
 import asmlbuilder.restriction.ComponentAHandleCompontB;
 import asmlbuilder.restriction.ComponentARequiresCompontB;
+import asmlbuilder.restriction.ComponentAThrowCompontB;
+import asmlbuilder.restriction.ComponentAUseAnnotationCompontB;
 import asmlbuilder.restriction.RestricionChecker;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.Module;
@@ -47,6 +50,9 @@ public class ASMLBinder {
 		bindRestrictionChecker.put(RelactionType.HANDLE, new ComponentAHandleCompontB(asmlContext));
 		bindRestrictionChecker.put(RelactionType.CREATE, new ComponentACreateCompontB(asmlContext));
 		bindRestrictionChecker.put(RelactionType.ACCESS, new ComponentAAccessCompontB(asmlContext));
+		bindRestrictionChecker.put(RelactionType.DECLARE, new ComponentADeclareCompontB(asmlContext));
+		bindRestrictionChecker.put(RelactionType.THROW, new ComponentAThrowCompontB(asmlContext));
+		bindRestrictionChecker.put(RelactionType.USEANOTATION, new ComponentAUseAnnotationCompontB(asmlContext));
 	}
 	public Map<AbstractComponent, AbstraticMatching> getBindMatchingCustom() {
 		return bindMatchingCustom;

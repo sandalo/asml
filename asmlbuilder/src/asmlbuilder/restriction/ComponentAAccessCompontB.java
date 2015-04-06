@@ -8,8 +8,8 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import asmlbuilder.builder.ASMLContext;
-import br.ufmg.dcc.asml.ASMLASTNode;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstanceReference;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.GroupClause;
 import br.ufmg.dcc.asml.aSMLModel.MetaClass;
@@ -29,27 +29,28 @@ public class ComponentAAccessCompontB extends RestricionChecker {
 		}
 	}
 
-	private void onlyComponentACanAccessCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		Set<ASMLResource> allInstances = asmlContext.getResources();
+	void onlyComponentACanAccessCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
+		Set<ComponentInstance> allInstances = asmlContext.getComponentInstances();
 		int lineNumber = 1;
-		for (ASMLResource asmlResource : allInstances) {
-			IResource resource = asmlResource.getResource();
+		for (ComponentInstance componentInstance : allInstances) {
+			IResource resource = componentInstance.getResource();
 			if (resource instanceof IFile) {
 				if (componentB instanceof MetaClass && (resource.getFileExtension() + "").equals("java")) {
-					Set<ASMLASTNode> methodsInvocationsFromResource = asmlResource.getASTNodeByType(MethodInvocation.class);
-					for (ASMLASTNode methodInvocationResource : methodsInvocationsFromResource) {
+					Set<ComponentInstanceReference> methodsInvocationsFromResource = componentInstance.getReferencesByNodeType(MethodInvocation.class);
+					for2:
+					for (ComponentInstanceReference methodInvocationResource : methodsInvocationsFromResource) {
 						String nameOfClassAccessed = getNameOfClasseAccessed(methodInvocationResource);
 						if(nameOfClassAccessed.equals(""))
 							continue;
-						lineNumber = asmlResource.getCompilationUnitAST().getLineNumber(methodInvocationResource.getAstNode().getStartPosition());
+						lineNumber = componentInstance.getCompilationUnitAST().getLineNumber(methodInvocationResource.getAstNode().getStartPosition());
 						if (asmlContext.getInstanceByName(componentB, nameOfClassAccessed) != null) {
-							Set<ASMLResource> resourcesOfA = asmlContext.getInstancesByComponentHierarchy(componentA);
-							for (ASMLResource resourceThatCanAcessResourceB : resourcesOfA) {
+							Set<ComponentInstance> resourcesOfA = componentA.getAllComponentInstances();
+							for (ComponentInstance resourceThatCanAcessResourceB : resourcesOfA) {
 								if (resource.equals(resourceThatCanAcessResourceB.getResource())) {
-									break;
+									break for2;
 								}
 							}
-							addViolation(restriction, componentA, componentB, lineNumber, asmlResource,"Somente classes do componente "+componentA.getName()+" podem acessar classes do componete "+componentB.getName());
+							addViolation(restriction, componentA, componentB, lineNumber, componentInstance,"Somente classes do componente "+componentA.getName()+" podem acessar classes do componete "+componentB.getName());
 						}
 					}
 				}
@@ -58,7 +59,7 @@ public class ComponentAAccessCompontB extends RestricionChecker {
 	}
 
 
-	private String getNameOfClasseAccessed(ASMLASTNode methodInvocationResource) {
+	protected String getNameOfClasseAccessed(ComponentInstanceReference methodInvocationResource) {
 		MethodInvocation methodInvocation = (MethodInvocation) methodInvocationResource.getAstNode();
 		ITypeBinding typeBinding = methodInvocation.getExpression().resolveTypeBinding();
 		if(typeBinding==null)

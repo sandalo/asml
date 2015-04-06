@@ -9,7 +9,7 @@ import org.eclipse.core.resources.IResource;
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.builder.Violation;
 import asmlbuilder.matching.FileMatching;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
@@ -38,8 +38,8 @@ public class ComponentARequiresCompontB extends RestricionChecker {
 	}
 
 	private void anyComponentAMustRequiresCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		Set<ASMLResource> instances = asmlContext.getInstancesByComponent(componentA);
-		for (ASMLResource iResource : instances) {
+		Set<ComponentInstance> instances = componentA.getInstances();
+		for (ComponentInstance iResource : instances) {
 			boolean found = false;
 			if (componentB instanceof MetaClass && componentA instanceof MetaClass) {
 				MetaClass classeB = (MetaClass) componentB;

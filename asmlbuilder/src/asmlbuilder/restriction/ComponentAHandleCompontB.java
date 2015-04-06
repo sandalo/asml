@@ -6,7 +6,7 @@ import org.eclipse.core.resources.IMarker;
 
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.builder.Violation;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.GroupClause;
 import br.ufmg.dcc.asml.aSMLModel.PermissionClause;
@@ -14,24 +14,33 @@ import br.ufmg.dcc.asml.aSMLModel.Restriction;
 
 public class ComponentAHandleCompontB extends RestricionChecker {
 
+	private ComponentAAccessCompontB componentAAccessCompontB;
+	private ComponentADeclareCompontB componentADeclareCompontB;
+	 
 	public ComponentAHandleCompontB(ASMLContext asmlContext) {
 		super(asmlContext);
+		this.componentAAccessCompontB = new ComponentAAccessCompontB(asmlContext);
+		this.componentADeclareCompontB = new ComponentADeclareCompontB(asmlContext);
 	}
 
 	@Override
 	public void checker(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		if (restriction.getGroupClause().equals(GroupClause.ONLY) && restriction.getPermissionClause().equals(PermissionClause.CAN)) {
-			onlyComponentAHandleCompontB(restriction, componentA, componentB);
+		boolean any = restriction.getGroupClause().equals(GroupClause.ONLY)||restriction.getGroupClause().equals(GroupClause.NULL);
+		boolean can = restriction.getPermissionClause().equals(PermissionClause.CAN);
+		boolean onlyB = restriction.getGroupClauseB().equals(GroupClause.ONLY);
+		if (any && can && onlyB) {
+			componentAAccessCompontB.checker(restriction, componentA, componentB);
+			componentADeclareCompontB.checker(restriction, componentA, componentB);
 		}
 	}
 
 	private void onlyComponentAHandleCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		Set<ASMLResource> instances = asmlContext.getInstancesByComponent(componentB);
-		for (ASMLResource iResource : instances) {
+		Set<ComponentInstance> instances = componentB.getAllComponentInstances();
+		for (ComponentInstance iResource : instances) {
 			if (asmlContext.existInstancesOfComponentWithName(iResource.getResource().getName(), componentB.getName())) {
-				Set<ASMLResource> resourcesComponenteA = asmlContext.getInstancesByComponent(componentA);
+				Set<ComponentInstance> resourcesComponenteA = componentA.getAllComponentInstances();
 				boolean not_found = true;
-				for (ASMLResource resourceComponenteA : resourcesComponenteA) {
+				for (ComponentInstance resourceComponenteA : resourcesComponenteA) {
 					if (resourceComponenteA.getResource().getFullPath().isPrefixOf(iResource.getResource().getFullPath())) {
 						not_found = false;
 						break;

@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getComponentA <em>Component A</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getPermissionClause <em>Permission Clause</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getRelactionType <em>Relaction Type</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getGroupClauseB <em>Group Clause B</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getComponentB <em>Component B</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getDescription <em>Description</em>}</li>
  * </ul>
@@ -112,6 +113,26 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @ordered
    */
   protected RelactionType relactionType = RELACTION_TYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getGroupClauseB() <em>Group Clause B</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGroupClauseB()
+   * @generated
+   * @ordered
+   */
+  protected static final GroupClause GROUP_CLAUSE_B_EDEFAULT = GroupClause.NULL;
+
+  /**
+   * The cached value of the '{@link #getGroupClauseB() <em>Group Clause B</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGroupClauseB()
+   * @generated
+   * @ordered
+   */
+  protected GroupClause groupClauseB = GROUP_CLAUSE_B_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getComponentB() <em>Component B</em>}' reference.
@@ -252,6 +273,29 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * <!-- end-user-doc -->
    * @generated
    */
+  public GroupClause getGroupClauseB()
+  {
+    return groupClauseB;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGroupClauseB(GroupClause newGroupClauseB)
+  {
+    GroupClause oldGroupClauseB = groupClauseB;
+    groupClauseB = newGroupClauseB == null ? GROUP_CLAUSE_B_EDEFAULT : newGroupClauseB;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B, oldGroupClauseB, groupClauseB));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public AbstractComponent getComponentB()
   {
     if (componentB != null && componentB.eIsProxy())
@@ -331,6 +375,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
         return getPermissionClause();
       case ASMLModelPackage.RESTRICTION__RELACTION_TYPE:
         return getRelactionType();
+      case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B:
+        return getGroupClauseB();
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         if (resolve) return getComponentB();
         return basicGetComponentB();
@@ -364,6 +410,9 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__RELACTION_TYPE:
         setRelactionType((RelactionType)newValue);
         return;
+      case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B:
+        setGroupClauseB((GroupClause)newValue);
+        return;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         setComponentB((AbstractComponent)newValue);
         return;
@@ -396,6 +445,9 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__RELACTION_TYPE:
         setRelactionType(RELACTION_TYPE_EDEFAULT);
         return;
+      case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B:
+        setGroupClauseB(GROUP_CLAUSE_B_EDEFAULT);
+        return;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         setComponentB((AbstractComponent)null);
         return;
@@ -424,6 +476,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
         return permissionClause != PERMISSION_CLAUSE_EDEFAULT;
       case ASMLModelPackage.RESTRICTION__RELACTION_TYPE:
         return relactionType != RELACTION_TYPE_EDEFAULT;
+      case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B:
+        return groupClauseB != GROUP_CLAUSE_B_EDEFAULT;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         return componentB != null;
       case ASMLModelPackage.RESTRICTION__DESCRIPTION:
@@ -449,6 +503,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
     result.append(permissionClause);
     result.append(", relactionType: ");
     result.append(relactionType);
+    result.append(", groupClauseB: ");
+    result.append(groupClauseB);
     result.append(", description: ");
     result.append(description);
     result.append(')');

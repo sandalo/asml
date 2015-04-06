@@ -6,7 +6,7 @@ import java.util.Set;
 import org.eclipse.core.resources.IFile;
 
 import asmlbuilder.builder.ASMLContext;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
@@ -20,7 +20,7 @@ public class MetaClassMatching extends AbstraticMatching implements IMatching {
 	}
 
 	@Override
-	public boolean matching(ASMLResource resource, AbstractComponent component) {
+	public boolean matching(ComponentInstance resource, AbstractComponent component) {
 		String fileExtension = resource.getResource().getFileExtension()+"";
 		if (component instanceof MetaClass && resource.getResource() instanceof IFile && fileExtension.equals("java")) {
 			MetaClass class1 = (MetaClass) component;

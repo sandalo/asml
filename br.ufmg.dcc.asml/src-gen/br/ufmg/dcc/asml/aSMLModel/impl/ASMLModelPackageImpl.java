@@ -357,9 +357,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getView_Attributes()
+  public EAttribute getView_Name()
   {
-    return (EReference)viewEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)viewEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -367,7 +367,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getView_Components()
+  public EReference getView_Attributes()
   {
     return (EReference)viewEClass.getEStructuralFeatures().get(1);
   }
@@ -377,9 +377,19 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getView_Restrictions()
+  public EReference getView_Components()
   {
     return (EReference)viewEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getView_Restrictions()
+  {
+    return (EReference)viewEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -957,9 +967,19 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getRestriction_GroupClauseB()
+  {
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getRestriction_ComponentB()
   {
-    return (EReference)restrictionEClass.getEStructuralFeatures().get(4);
+    return (EReference)restrictionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -969,7 +989,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EAttribute getRestriction_Description()
   {
-    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1069,6 +1089,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEAttribute(asmlModelEClass, ASML_MODEL__IGNORE);
 
     viewEClass = createEClass(VIEW);
+    createEAttribute(viewEClass, VIEW__NAME);
     createEReference(viewEClass, VIEW__ATTRIBUTES);
     createEReference(viewEClass, VIEW__COMPONENTS);
     createEReference(viewEClass, VIEW__RESTRICTIONS);
@@ -1147,6 +1168,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     createEReference(restrictionEClass, RESTRICTION__COMPONENT_A);
     createEAttribute(restrictionEClass, RESTRICTION__PERMISSION_CLAUSE);
     createEAttribute(restrictionEClass, RESTRICTION__RELACTION_TYPE);
+    createEAttribute(restrictionEClass, RESTRICTION__GROUP_CLAUSE_B);
     createEReference(restrictionEClass, RESTRICTION__COMPONENT_B);
     createEAttribute(restrictionEClass, RESTRICTION__DESCRIPTION);
 
@@ -1188,7 +1210,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    viewEClass.getESuperTypes().add(this.getAbstractComponent());
     classMatchingEClass.getESuperTypes().add(this.getAbstractNameConvetion());
     configurationElementEClass.getESuperTypes().add(this.getAbstractComponent());
     fileEClass.getESuperTypes().add(this.getConfigurationElement());
@@ -1210,6 +1231,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEAttribute(getASMLModel_Ignore(), ecorePackage.getEString(), "ignore", null, 0, -1, ASMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getView_Name(), ecorePackage.getEString(), "name", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Components(), this.getAbstractComponent(), null, "components", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getView_Restrictions(), this.getRestriction(), null, "restrictions", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1288,6 +1310,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     initEReference(getRestriction_ComponentA(), this.getAbstractComponent(), null, "componentA", null, 0, -1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_PermissionClause(), this.getPermissionClause(), "permissionClause", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_RelactionType(), this.getRelactionType(), "relactionType", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRestriction_GroupClauseB(), this.getGroupClause(), "groupClauseB", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRestriction_ComponentB(), this.getAbstractComponent(), null, "componentB", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_Description(), ecorePackage.getEString(), "description", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

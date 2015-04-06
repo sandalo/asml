@@ -4,8 +4,14 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 
 public class ASMLResourceVisitor implements IResourceVisitor {
 	protected ASMLContext asmlContext;
@@ -30,12 +36,11 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 			return true;
 		}
 
-		ASMLResource asmlResource = new ASMLResource();
-		asmlResource.setResource(resource);
-
-		this.asmlContext.addResource(asmlResource);
-		if(resource instanceof IFile && resource.getFileExtension().equals("java"))
-			asmlContext.getAstJavaParser().parse(asmlResource);
+		ComponentInstance componentInstance = new ComponentInstance();
+		componentInstance.setResource(resource);
+		this.asmlContext.addComponentInstance(componentInstance);
+		if (resource instanceof IFile && resource.getFileExtension().equals("java"))
+			parse(componentInstance);
 
 		return true;
 	}
@@ -72,6 +77,25 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 			e.printStackTrace();
 		}
 		return ignoreResource;
+	}
+
+	// use ASTParse to parse string
+	protected void parse(ComponentInstance componentInstance) {
+		try {
+			ICompilationUnit element = (ICompilationUnit) JavaCore.create(componentInstance.getResource());
+			ASTParser parser = ASTParser.newParser(AST.JLS8);
+			parser.setSource(element);
+			parser.setKind(ASTParser.K_COMPILATION_UNIT);
+			parser.setResolveBindings(true);
+			final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+			componentInstance.setCompilationUnitAST(cu);
+			componentInstance.setType(element.getTypes()[0]);//TODO - Considera apenas um tipo por arquivo...
+			ASMLReosurceJavaVisitor reosurceJavaVisitor = asmlContext.getReosurceJavaVisitor();
+			reosurceJavaVisitor.setComponentInstance(componentInstance);
+			cu.accept(reosurceJavaVisitor);
+		} catch (JavaModelException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

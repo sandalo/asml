@@ -1,5 +1,5 @@
 ','=46
-'.'=66
+'.'=67
 '0'=13
 '0..*'=15
 '1'=12
@@ -26,7 +26,7 @@
 'extend'=33
 'extends'=56
 'external-class'=59
-'external-module'=65
+'external-module'=66
 'file'=50
 'handle'=32
 'ignore'=45
@@ -35,7 +35,7 @@
 'matching'=51
 'matching:'=58
 'meta-class'=55
-'meta-module'=64
+'meta-module'=65
 'method'=54
 'module'=63
 'must'=27
@@ -45,7 +45,7 @@
 'null'=23
 'only'=24
 'requires'=39
-'restriction'=67
+'restrictions'=64
 'throw'=36
 'type'=60
 'use annotation'=37

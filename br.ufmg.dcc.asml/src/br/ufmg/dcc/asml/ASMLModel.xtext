@@ -112,7 +112,7 @@ Module:
    		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
   		('matching' matching=ModuleMatching ';')? 
   		(components += AbstractComponent)*
-  		(restrictions += Restriction)*
+  		('restrictions' '{'(restrictions += Restriction)*'}')?
   '}'
 ;
  
@@ -121,7 +121,7 @@ MetaModule:
    		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
   		('matching' matching=ModuleMatching ';')? 
   		(components += AbstractComponent)*
-  		(restrictions += Restriction)*
+  		('restrictions' '{'(restrictions += Restriction)*'}')?
   '}'
 ;
  
@@ -130,7 +130,7 @@ ExternalModule:
    		(('attributes' (attributes+=Attribute)(',')?)*(';'))?
   		('matching' matching=ModuleMatching ';')? 
   		(components += AbstractComponent)*
-  		(restrictions += Restriction)*
+  		('restrictions' '{'(restrictions += Restriction)*'}')?
   '}'
 ;
  
@@ -153,6 +153,6 @@ enum RelactionType:
 
 
 Restriction:
-	'restriction' '{' (groupClause=GroupClause)? componentA+=([AbstractComponent|QualifiedName])*  (permissionClause=PermissionClause)? relactionType=RelactionType componentB=[AbstractComponent|QualifiedName] ('description' description=STRING)?'}' 
+	 (groupClause=GroupClause)? componentA+=([AbstractComponent|QualifiedName])*  (permissionClause=PermissionClause)? relactionType=RelactionType (groupClauseB=GroupClause)? componentB=[AbstractComponent|QualifiedName] ('description' description=STRING)?';' 
 ; 
 // Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.

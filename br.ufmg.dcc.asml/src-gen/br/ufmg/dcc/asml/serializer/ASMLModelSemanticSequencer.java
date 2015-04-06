@@ -137,11 +137,7 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 				}
 				else break;
 			case ASMLModelPackage.VIEW:
-				if(context == grammarAccess.getAbstractComponentRule()) {
-					sequence_AbstractComponent_View(context, (View) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getViewRule()) {
+				if(context == grammarAccess.getViewRule()) {
 					sequence_View(context, (View) semanticObject); 
 					return; 
 				}
@@ -171,15 +167,6 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (name=ID_ASML importURI=STRING? views+=View* ignore+=STRING*)
 	 */
 	protected void sequence_ASMLModel(EObject context, ASMLModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID_ASML attributes+=Attribute* components+=AbstractComponent* restrictions+=Restriction* restrictions+=Restriction*)
-	 */
-	protected void sequence_AbstractComponent_View(EObject context, View semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -333,6 +320,7 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         componentA+=[AbstractComponent|QualifiedName]* 
 	 *         permissionClause=PermissionClause? 
 	 *         relactionType=RelactionType 
+	 *         groupClauseB=GroupClause? 
 	 *         componentB=[AbstractComponent|QualifiedName] 
 	 *         description=STRING?
 	 *     )

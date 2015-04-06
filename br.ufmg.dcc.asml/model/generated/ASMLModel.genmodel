@@ -55,6 +55,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ASMLModel/ignore"/>
     </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//View/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/restrictions"/>
@@ -132,6 +133,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Restriction/componentA"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/permissionClause"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/relactionType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/groupClauseB"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Restriction/componentB"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/description"/>
     </genClasses>

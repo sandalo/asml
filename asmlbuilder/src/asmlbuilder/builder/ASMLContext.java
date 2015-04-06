@@ -18,13 +18,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.dom.ASTNode;
 
 import asmlbuilder.classloader.ASMLClassLoader;
 import asmlbuilder.matching.AbstraticMatching;
-import br.ufmg.dcc.asml.ASMLASTNode;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
@@ -38,11 +35,11 @@ public class ASMLContext {
 	private static final Logger log = Logger.getLogger(ASMLContext.class.getName());
 	private ASMLClassLoader classLoader;
 	private long timeStampResource;
-	private final Set<ASMLResource> resources = new TreeSet<ASMLResource>();
+	private final Set<ComponentInstance> componentInstances = new TreeSet<ComponentInstance>();
 
 	private ASMLModel asmlModel;
 	private IJavaProject javaProject;
-	private ASTJavaParser astJavaParser;
+	private ASMLReosurceJavaVisitor reosurceJavaVisitor;
 	private IClasspathContainer classpathMavenContainer;
 	private ASMLResourceVisitor resourceVisitor;
 	private ASMLResourceDeltaVisitor resourceDeltaVisitor;
@@ -52,8 +49,6 @@ public class ASMLContext {
 	
 	private List<Violation> violations = new ArrayList<Violation>();
 	
-	private Map<IResource, IType> resourcesITypes = new HashMap<IResource, IType>(100);
-	private Map<IResource, Map<Class<? extends ASTNode>, Set<ASMLASTNode>>> instancesOfASMLASTNodeJavaFound = new HashMap<IResource, Map<Class<? extends ASTNode>, Set<ASMLASTNode>>>(100);
 	private Map<MetaClass, Set<MetaClass>> sublMetaClasses = new HashMap<MetaClass, Set<MetaClass>>(100);
 
 	class ResourceComparator implements Comparator<IResource> {
@@ -63,19 +58,6 @@ public class ASMLContext {
 		}
 	}
 
-	public Set<ASMLResource> getInstancesByComponent(AbstractComponent abstractComponent) {
-		Set<ASMLResource> set = new HashSet<ASMLResource>(abstractComponent.getResources());
-		return set;
-	}
-
-	public Set<ASMLResource> getInstancesByComponentHierarchy(AbstractComponent abstractComponent) {
-		Set<ASMLResource> resources = getInstancesByComponent(abstractComponent);
-		EList<AbstractComponent> components = getComponentsChildren(abstractComponent);
-		for (AbstractComponent child : components) {
-			resources.addAll(getInstancesByComponentHierarchy(child));
-		}
-		return resources;
-	}
 
 	public AbstractComponent getComponentByName(String name) {
 		for (AbstractComponent abstractComponent : declaredComponents) {
@@ -90,19 +72,19 @@ public class ASMLContext {
 		AbstractComponent componentByName = getComponentByName(componentName);
 		if (componentByName == null)
 			return false;
-		ASMLResource instanceByName = getInstanceByName(componentByName, resourcetName);
+		ComponentInstance instanceByName = getInstanceByName(componentByName, resourcetName);
 		if (instanceByName != null)
 			return true;
 		return false;
 	}
 
-	public ASMLResource getInstanceByName(AbstractComponent abstractComponent, String name) {
+	public ComponentInstance getInstanceByName(AbstractComponent abstractComponent, String name) {
 		if(abstractComponent==null)
 			return null;
-		Set<ASMLResource> list = abstractComponent.getResources();
+		Set<ComponentInstance> list = abstractComponent.getInstances();
 		if(list==null)
 			return null;
-		for (ASMLResource iResource : list) {
+		for (ComponentInstance iResource : list) {
 			String nomeDoRecursoSemExtencao = deleteExtension(iResource.getResource());
 			name = deleteExtension(name);
 			if (nomeDoRecursoSemExtencao.equalsIgnoreCase(name)) {
@@ -121,117 +103,21 @@ public class ASMLContext {
 		return name.replace(".java", "").replace(".txt", "").replace(".xml", "").replace(".zul", "").replace(".js", "").replace(".html", "");
 	}
 
-/*	public boolean existInstancesOfComponent(AbstractComponent abstractComponent) {
-		return instancesOfComponentsFound.contains(abstractComponent);
+	public Set<ComponentInstance> getComponentInstances() {
+		return Collections.unmodifiableSet(componentInstances);
 	}
 
-	public boolean existMoreThanOneInstancesOfComponent(AbstractComponent abstractComponent) {
-		int cont = 0;
-		for (AbstractComponent abstractComponentAux : instancesOfComponentsFound) {
-			if(abstractComponent.getClass().isAssignableFrom(abstractComponentAux.getClass())){
-				cont++;
-			}
-		}
-		if(cont>0)
-			return true;
-		return false;
+	public void addComponentInstance(ComponentInstance componentInstance) {
+		System.out.println(componentInstance.getResource().getName());
+		componentInstances.add(componentInstance);
 	}
 
-	public boolean existAtLeastOneInstancesOfComponent(AbstractComponent abstractComponent) {
-		return true;///instancesOfComponentsFound.get(abstractComponent).size() > 0;
-	}
-
-	public boolean existOnlyOneInstancesOfComponent(AbstractComponent abstractComponent) {
-		return true;///instancesOfComponentsFound.get(abstractComponent).size() == 1;
-	}*/
-
-/*	public boolean addInstanceOfComponent(AbstractComponent abstractComponent, IResource iResource) {
-		Set<IResource> resources = instancesOfComponentsFound.get(abstractComponent);
-		Set<AbstractComponent> components = resourceComponents.get(iResource);
-		boolean add = false;
-		boolean add2 = false;
-		if (resources == null || components == null) {
-			if (resources == null) {
-				resources = new HashSet<IResource>();
-			}
-			if (components == null) {
-				components = new HashSet<AbstractComponent>();
-			}
-			resources.add(iResource);
-			components.add(abstractComponent);
-			add(abstractComponent, resources);
-			add(iResource, components);
-			add = true;
-		} else {
-			add = resources.add(iResource);
-			add2 = components.add(abstractComponent);
-			add = add && add2;
-		}
-		if(add){
-			System.out.println("=============================================================");
-			System.out.println("=============================================================");
-			System.out.println("Nome do componente: "+abstractComponent.getName() + " Nome do recurso "+iResource.getFullPath());
-			System.out.println("Hashcode do componente          ===> "+abstractComponent.hashCode());
-			System.out.println("Hashcode do map          ===> "+instancesOfComponentsFound.hashCode());
-			System.out.println("Hashcode da lista               ===> "+resources.hashCode());
-			System.out.println("=============================================================");
-			System.out.println("=============================================================");
-		}
-		return add;
-	}
-*/
-/*	public boolean removeResourcesFromComponents(IResource iResource) {
-		Set<AbstractComponent> components = resourceComponents.get(iResource);
-		if (components == null)
-			return false;
-		for (AbstractComponent abstractComponent : components) {
-			Set<IResource> resources = instancesOfComponentsFound.get(abstractComponent);
-			boolean remove = resources.remove(iResource);
-			if (remove) {
-				break;
-			}
-		}
-		resourceComponents.remove(iResource);
-		return false;
-	}
-
-	private void add(AbstractComponent abstractComponent, Set<IResource> resources) {
-		instancesOfComponentsFound.put(abstractComponent, resources);
-	}
-
-	private void add(IResource resource, Set<AbstractComponent> components) {
-		resourceComponents.put(resource, components);
-	}*/
-
-	public void print() { 
-		for (AbstractComponent abstractComponent : declaredComponents) {
-			System.out.println("=============================================================");
-			System.out.println("=============================================================");
-			System.out.println("Componente - Tipo:"+  abstractComponent.getClass().getName() +" Nome: "+ abstractComponent.getName());
-			Set<ASMLResource> resourcesAux = getInstancesByComponent(abstractComponent);
-			for (ASMLResource iResource : resourcesAux) {
-				System.out.println(iResource.getResource().getFullPath());
-			}
-			System.out.println("=============================================================");
-			System.out.println("=============================================================");
-		}
-	}
-
-	public Set<ASMLResource> getResources() {
-		return Collections.unmodifiableSet(resources);
-	}
-
-	public void addResource(ASMLResource asmlResource) {
-		System.out.println(asmlResource.getResource().getName());
-		resources.add(asmlResource);
-	}
-
-	public void removeResource(ASMLResource asmlResource) {
-		resources.remove(asmlResource);
+	public void removeComponentInstance(ComponentInstance componentInstance) {
+		componentInstances.remove(componentInstance);
 	}
 
 	public void clearResource() {
-		resources.clear();
+		componentInstances.clear();
 	}
 
 	
@@ -255,12 +141,12 @@ public class ASMLContext {
 		this.javaProject = javaProject;
 	}
 
-	public ASTJavaParser getAstJavaParser() {
-		return astJavaParser;
+	public ASMLReosurceJavaVisitor getReosurceJavaVisitor() {
+		return reosurceJavaVisitor;
 	}
 
-	public void setAstJavaParser(ASTJavaParser astJavaParser) {
-		this.astJavaParser = astJavaParser;
+	public void setReosurceJavaVisitor(ASMLReosurceJavaVisitor reosurceJavaVisitor) {
+		this.reosurceJavaVisitor = reosurceJavaVisitor;
 	}
 
 	public IClasspathContainer getClasspathMavenContainer() {
@@ -340,10 +226,8 @@ public class ASMLContext {
 	}
 
 	public void clearAll() {
-		resourcesITypes.clear();
-		resources.clear();
+		componentInstances.clear();
 		violations.clear();
-		instancesOfASMLASTNodeJavaFound.clear();
 	}
 
 	public Map<MetaClass, Set<MetaClass>> getSublMetaClasses() {
@@ -388,10 +272,10 @@ public class ASMLContext {
 		this.timeStampResource = timeStampResource;
 	}
 
-	public Set<ASMLResource> getResourcesMatchedInStaticAnalysis() {
-		Set<ASMLResource> resourcesMatchedInStaticAnalysis = new HashSet<ASMLResource>();
+	public Set<ComponentInstance> getResourcesMatchedInStaticAnalysis() {
+		Set<ComponentInstance> resourcesMatchedInStaticAnalysis = new HashSet<ComponentInstance>();
 		for (AbstractComponent abstractComponent : declaredComponents) {
-			resourcesMatchedInStaticAnalysis.addAll(abstractComponent.getResources());
+			resourcesMatchedInStaticAnalysis.addAll(abstractComponent.getInstances());
 		}
 		return resourcesMatchedInStaticAnalysis;
 	}

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalASMLModelParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID_ASML", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'architecture'", "'{'", "'import'", "';'", "'ignore'", "','", "'}'", "'view'", "'attributes'", "':'", "'file'", "'matching'", "'cardinality'", "'configuration'", "'method'", "'meta-class'", "'extends'", "'description'", "'matching:'", "'external-class'", "'type'", "'xmlElement'", "'xmlDocument'", "'module'", "'meta-module'", "'external-module'", "'.'", "'restriction'", "'1'", "'0'", "'1..*'", "'0..*'", "'name start with'", "'name ends with'", "'annotated with'", "'by package name'", "'by folder name'", "'by package and folder name'", "'by external implementation'", "'null'", "'only'", "'any'", "'no one'", "'must'", "'can'", "'cannot'", "'access'", "'declare'", "'handle'", "'extend'", "'implement'", "'create'", "'throw'", "'use annotation'", "'depend'", "'requires'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID_ASML", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'architecture'", "'{'", "'import'", "';'", "'ignore'", "','", "'}'", "'view'", "'attributes'", "':'", "'file'", "'matching'", "'cardinality'", "'configuration'", "'method'", "'meta-class'", "'extends'", "'description'", "'matching:'", "'external-class'", "'type'", "'xmlElement'", "'xmlDocument'", "'module'", "'restrictions'", "'meta-module'", "'external-module'", "'.'", "'1'", "'0'", "'1..*'", "'0..*'", "'name start with'", "'name ends with'", "'annotated with'", "'by package name'", "'by folder name'", "'by package and folder name'", "'by external implementation'", "'null'", "'only'", "'any'", "'no one'", "'must'", "'can'", "'cannot'", "'access'", "'declare'", "'handle'", "'extend'", "'implement'", "'create'", "'throw'", "'use annotation'", "'depend'", "'requires'"
     };
     public static final int RULE_ID_ASML=4;
     public static final int RULE_ID=6;
@@ -651,7 +651,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==19||LA9_0==22||(LA9_0>=25 && LA9_0<=27)||LA9_0==31||(LA9_0>=33 && LA9_0<=37)) ) {
+                if ( (LA9_0==22||(LA9_0>=25 && LA9_0<=27)||LA9_0==31||(LA9_0>=33 && LA9_0<=35)||(LA9_0>=37 && LA9_0<=38)) ) {
                     alt9=1;
                 }
 
@@ -700,7 +700,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==39) ) {
+                if ( (LA10_0==RULE_ID_ASML||(LA10_0>=51 && LA10_0<=67)) ) {
                     alt10=1;
                 }
 
@@ -804,7 +804,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAbstractComponent"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:319:1: ruleAbstractComponent returns [EObject current=null] : (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement | (this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )* ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:319:1: ruleAbstractComponent returns [EObject current=null] : (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement ) ;
     public final EObject ruleAbstractComponent() throws RecognitionException {
         EObject current = null;
 
@@ -822,48 +822,44 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
         EObject this_ConfigurationElement_6 = null;
 
-        EObject this_View_7 = null;
-
-        EObject lv_restrictions_8_0 = null;
-
 
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:322:28: ( (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement | (this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )* ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:323:1: (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement | (this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )* ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:322:28: ( (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:323:1: (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:323:1: (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement | (this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )* ) )
-            int alt12=8;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:323:1: (this_Module_0= ruleModule | this_MetaModule_1= ruleMetaModule | this_ExternalModule_2= ruleExternalModule | this_MetaClass_3= ruleMetaClass | this_ExternalClass_4= ruleExternalClass | this_Method_5= ruleMethod | this_ConfigurationElement_6= ruleConfigurationElement )
+            int alt11=7;
             switch ( input.LA(1) ) {
             case 35:
                 {
-                alt12=1;
-                }
-                break;
-            case 36:
-                {
-                alt12=2;
+                alt11=1;
                 }
                 break;
             case 37:
                 {
-                alt12=3;
+                alt11=2;
+                }
+                break;
+            case 38:
+                {
+                alt11=3;
                 }
                 break;
             case 27:
                 {
-                alt12=4;
+                alt11=4;
                 }
                 break;
             case 31:
                 {
-                alt12=5;
+                alt11=5;
                 }
                 break;
             case 26:
                 {
-                alt12=6;
+                alt11=6;
                 }
                 break;
             case 22:
@@ -871,22 +867,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             case 33:
             case 34:
                 {
-                alt12=7;
-                }
-                break;
-            case 19:
-                {
-                alt12=8;
+                alt11=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
                     // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:324:5: this_Module_0= ruleModule
                     {
@@ -1013,73 +1004,6 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
-                case 8 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:393:6: (this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )* )
-                    {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:393:6: (this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )* )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:394:5: this_View_7= ruleView ( (lv_restrictions_8_0= ruleRestriction ) )*
-                    {
-                     
-                            newCompositeNode(grammarAccess.getAbstractComponentAccess().getViewParserRuleCall_7_0()); 
-                        
-                    pushFollow(FOLLOW_ruleView_in_ruleAbstractComponent828);
-                    this_View_7=ruleView();
-
-                    state._fsp--;
-
-                     
-                            current = this_View_7; 
-                            afterParserOrEnumRuleCall();
-                        
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:402:1: ( (lv_restrictions_8_0= ruleRestriction ) )*
-                    loop11:
-                    do {
-                        int alt11=2;
-                        alt11 = dfa11.predict(input);
-                        switch (alt11) {
-                    	case 1 :
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:403:1: (lv_restrictions_8_0= ruleRestriction )
-                    	    {
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:403:1: (lv_restrictions_8_0= ruleRestriction )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:404:3: lv_restrictions_8_0= ruleRestriction
-                    	    {
-                    	     
-                    	    	        newCompositeNode(grammarAccess.getAbstractComponentAccess().getRestrictionsRestrictionParserRuleCall_7_1_0()); 
-                    	    	    
-                    	    pushFollow(FOLLOW_ruleRestriction_in_ruleAbstractComponent848);
-                    	    lv_restrictions_8_0=ruleRestriction();
-
-                    	    state._fsp--;
-
-
-                    	    	        if (current==null) {
-                    	    	            current = createModelElementForParent(grammarAccess.getAbstractComponentRule());
-                    	    	        }
-                    	           		add(
-                    	           			current, 
-                    	           			"restrictions",
-                    	            		lv_restrictions_8_0, 
-                    	            		"Restriction");
-                    	    	        afterParserOrEnumRuleCall();
-                    	    	    
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop11;
-                        }
-                    } while (true);
-
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -1101,7 +1025,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAttribute"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:428:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:400:1: entryRuleAttribute returns [EObject current=null] : iv_ruleAttribute= ruleAttribute EOF ;
     public final EObject entryRuleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1109,17 +1033,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:429:2: (iv_ruleAttribute= ruleAttribute EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:430:2: iv_ruleAttribute= ruleAttribute EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:401:2: (iv_ruleAttribute= ruleAttribute EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:402:2: iv_ruleAttribute= ruleAttribute EOF
             {
              newCompositeNode(grammarAccess.getAttributeRule()); 
-            pushFollow(FOLLOW_ruleAttribute_in_entryRuleAttribute886);
+            pushFollow(FOLLOW_ruleAttribute_in_entryRuleAttribute835);
             iv_ruleAttribute=ruleAttribute();
 
             state._fsp--;
 
              current =iv_ruleAttribute; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAttribute896); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAttribute845); 
 
             }
 
@@ -1137,7 +1061,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:437:1: ruleAttribute returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:409:1: ruleAttribute returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) ) ;
     public final EObject ruleAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -1148,19 +1072,19 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:440:28: ( ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:441:1: ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:412:28: ( ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:413:1: ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:441:1: ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:441:2: ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:413:1: ( ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:413:2: ( (lv_name_0_0= RULE_ID_ASML ) ) otherlv_1= ':' ( (lv_value_2_0= RULE_STRING ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:441:2: ( (lv_name_0_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:442:1: (lv_name_0_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:413:2: ( (lv_name_0_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:414:1: (lv_name_0_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:442:1: (lv_name_0_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:443:3: lv_name_0_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:414:1: (lv_name_0_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:415:3: lv_name_0_0= RULE_ID_ASML
             {
-            lv_name_0_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleAttribute938); 
+            lv_name_0_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleAttribute887); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getAttributeAccess().getNameID_ASMLTerminalRuleCall_0_0()); 
             		
@@ -1180,17 +1104,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,21,FOLLOW_21_in_ruleAttribute955); 
+            otherlv_1=(Token)match(input,21,FOLLOW_21_in_ruleAttribute904); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getAttributeAccess().getColonKeyword_1());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:463:1: ( (lv_value_2_0= RULE_STRING ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:464:1: (lv_value_2_0= RULE_STRING )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:435:1: ( (lv_value_2_0= RULE_STRING ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:436:1: (lv_value_2_0= RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:464:1: (lv_value_2_0= RULE_STRING )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:465:3: lv_value_2_0= RULE_STRING
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:436:1: (lv_value_2_0= RULE_STRING )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:437:3: lv_value_2_0= RULE_STRING
             {
-            lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAttribute972); 
+            lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAttribute921); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getAttributeAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             		
@@ -1231,7 +1155,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAbstractNameConvetion"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:489:1: entryRuleAbstractNameConvetion returns [EObject current=null] : iv_ruleAbstractNameConvetion= ruleAbstractNameConvetion EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:461:1: entryRuleAbstractNameConvetion returns [EObject current=null] : iv_ruleAbstractNameConvetion= ruleAbstractNameConvetion EOF ;
     public final EObject entryRuleAbstractNameConvetion() throws RecognitionException {
         EObject current = null;
 
@@ -1239,17 +1163,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:490:2: (iv_ruleAbstractNameConvetion= ruleAbstractNameConvetion EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:491:2: iv_ruleAbstractNameConvetion= ruleAbstractNameConvetion EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:462:2: (iv_ruleAbstractNameConvetion= ruleAbstractNameConvetion EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:463:2: iv_ruleAbstractNameConvetion= ruleAbstractNameConvetion EOF
             {
              newCompositeNode(grammarAccess.getAbstractNameConvetionRule()); 
-            pushFollow(FOLLOW_ruleAbstractNameConvetion_in_entryRuleAbstractNameConvetion1013);
+            pushFollow(FOLLOW_ruleAbstractNameConvetion_in_entryRuleAbstractNameConvetion962);
             iv_ruleAbstractNameConvetion=ruleAbstractNameConvetion();
 
             state._fsp--;
 
              current =iv_ruleAbstractNameConvetion; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAbstractNameConvetion1023); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbstractNameConvetion972); 
 
             }
 
@@ -1267,7 +1191,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAbstractNameConvetion"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:498:1: ruleAbstractNameConvetion returns [EObject current=null] : (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:470:1: ruleAbstractNameConvetion returns [EObject current=null] : (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching ) ;
     public final EObject ruleAbstractNameConvetion() throws RecognitionException {
         EObject current = null;
 
@@ -1278,30 +1202,30 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:501:28: ( (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:502:1: (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:473:28: ( (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:474:1: (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:502:1: (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching )
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:474:1: (this_STRING_0= RULE_STRING | this_ClassMatching_1= ruleClassMatching )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==RULE_STRING) ) {
-                alt13=1;
+            if ( (LA12_0==RULE_STRING) ) {
+                alt12=1;
             }
-            else if ( ((LA13_0>=44 && LA13_0<=46)) ) {
-                alt13=2;
+            else if ( ((LA12_0>=44 && LA12_0<=46)) ) {
+                alt12=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:502:2: this_STRING_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:474:2: this_STRING_0= RULE_STRING
                     {
-                    this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAbstractNameConvetion1059); 
+                    this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleAbstractNameConvetion1008); 
                      
                         newLeafNode(this_STRING_0, grammarAccess.getAbstractNameConvetionAccess().getSTRINGTerminalRuleCall_0()); 
                         
@@ -1309,12 +1233,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:508:5: this_ClassMatching_1= ruleClassMatching
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:480:5: this_ClassMatching_1= ruleClassMatching
                     {
                      
                             newCompositeNode(grammarAccess.getAbstractNameConvetionAccess().getClassMatchingParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleClassMatching_in_ruleAbstractNameConvetion1086);
+                    pushFollow(FOLLOW_ruleClassMatching_in_ruleAbstractNameConvetion1035);
                     this_ClassMatching_1=ruleClassMatching();
 
                     state._fsp--;
@@ -1347,7 +1271,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleModuleMatching"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:526:1: entryRuleModuleMatching returns [EObject current=null] : iv_ruleModuleMatching= ruleModuleMatching EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:498:1: entryRuleModuleMatching returns [EObject current=null] : iv_ruleModuleMatching= ruleModuleMatching EOF ;
     public final EObject entryRuleModuleMatching() throws RecognitionException {
         EObject current = null;
 
@@ -1355,17 +1279,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:527:2: (iv_ruleModuleMatching= ruleModuleMatching EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:528:2: iv_ruleModuleMatching= ruleModuleMatching EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:499:2: (iv_ruleModuleMatching= ruleModuleMatching EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:500:2: iv_ruleModuleMatching= ruleModuleMatching EOF
             {
              newCompositeNode(grammarAccess.getModuleMatchingRule()); 
-            pushFollow(FOLLOW_ruleModuleMatching_in_entryRuleModuleMatching1123);
+            pushFollow(FOLLOW_ruleModuleMatching_in_entryRuleModuleMatching1072);
             iv_ruleModuleMatching=ruleModuleMatching();
 
             state._fsp--;
 
              current =iv_ruleModuleMatching; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModuleMatching1133); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModuleMatching1082); 
 
             }
 
@@ -1383,7 +1307,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModuleMatching"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:535:1: ruleModuleMatching returns [EObject current=null] : ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:507:1: ruleModuleMatching returns [EObject current=null] : ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) ) ;
     public final EObject ruleModuleMatching() throws RecognitionException {
         EObject current = null;
 
@@ -1393,19 +1317,19 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:538:28: ( ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:539:1: ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:510:28: ( ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:511:1: ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:539:1: ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:540:1: (lv_parameter_0_0= ruleModuleMatchingParamenter )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:511:1: ( (lv_parameter_0_0= ruleModuleMatchingParamenter ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:512:1: (lv_parameter_0_0= ruleModuleMatchingParamenter )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:540:1: (lv_parameter_0_0= ruleModuleMatchingParamenter )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:541:3: lv_parameter_0_0= ruleModuleMatchingParamenter
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:512:1: (lv_parameter_0_0= ruleModuleMatchingParamenter )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:513:3: lv_parameter_0_0= ruleModuleMatchingParamenter
             {
              
             	        newCompositeNode(grammarAccess.getModuleMatchingAccess().getParameterModuleMatchingParamenterEnumRuleCall_0()); 
             	    
-            pushFollow(FOLLOW_ruleModuleMatchingParamenter_in_ruleModuleMatching1178);
+            pushFollow(FOLLOW_ruleModuleMatchingParamenter_in_ruleModuleMatching1127);
             lv_parameter_0_0=ruleModuleMatchingParamenter();
 
             state._fsp--;
@@ -1445,7 +1369,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleClassMatching"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:565:1: entryRuleClassMatching returns [EObject current=null] : iv_ruleClassMatching= ruleClassMatching EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:537:1: entryRuleClassMatching returns [EObject current=null] : iv_ruleClassMatching= ruleClassMatching EOF ;
     public final EObject entryRuleClassMatching() throws RecognitionException {
         EObject current = null;
 
@@ -1453,17 +1377,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:566:2: (iv_ruleClassMatching= ruleClassMatching EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:567:2: iv_ruleClassMatching= ruleClassMatching EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:538:2: (iv_ruleClassMatching= ruleClassMatching EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:539:2: iv_ruleClassMatching= ruleClassMatching EOF
             {
              newCompositeNode(grammarAccess.getClassMatchingRule()); 
-            pushFollow(FOLLOW_ruleClassMatching_in_entryRuleClassMatching1213);
+            pushFollow(FOLLOW_ruleClassMatching_in_entryRuleClassMatching1162);
             iv_ruleClassMatching=ruleClassMatching();
 
             state._fsp--;
 
              current =iv_ruleClassMatching; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleClassMatching1223); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleClassMatching1172); 
 
             }
 
@@ -1481,7 +1405,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClassMatching"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:574:1: ruleClassMatching returns [EObject current=null] : ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:546:1: ruleClassMatching returns [EObject current=null] : ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleClassMatching() throws RecognitionException {
         EObject current = null;
 
@@ -1492,22 +1416,22 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:577:28: ( ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:578:1: ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:549:28: ( ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:550:1: ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:578:1: ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:578:2: ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:550:1: ( ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:550:2: ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) ) ( (lv_parameter_1_0= RULE_STRING ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:578:2: ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:579:1: (lv_expressionMatching_0_0= ruleExpressionMatchingClause )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:550:2: ( (lv_expressionMatching_0_0= ruleExpressionMatchingClause ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:551:1: (lv_expressionMatching_0_0= ruleExpressionMatchingClause )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:579:1: (lv_expressionMatching_0_0= ruleExpressionMatchingClause )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:580:3: lv_expressionMatching_0_0= ruleExpressionMatchingClause
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:551:1: (lv_expressionMatching_0_0= ruleExpressionMatchingClause )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:552:3: lv_expressionMatching_0_0= ruleExpressionMatchingClause
             {
              
             	        newCompositeNode(grammarAccess.getClassMatchingAccess().getExpressionMatchingExpressionMatchingClauseEnumRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleExpressionMatchingClause_in_ruleClassMatching1269);
+            pushFollow(FOLLOW_ruleExpressionMatchingClause_in_ruleClassMatching1218);
             lv_expressionMatching_0_0=ruleExpressionMatchingClause();
 
             state._fsp--;
@@ -1529,13 +1453,13 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:596:2: ( (lv_parameter_1_0= RULE_STRING ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:597:1: (lv_parameter_1_0= RULE_STRING )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:568:2: ( (lv_parameter_1_0= RULE_STRING ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:569:1: (lv_parameter_1_0= RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:597:1: (lv_parameter_1_0= RULE_STRING )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:598:3: lv_parameter_1_0= RULE_STRING
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:569:1: (lv_parameter_1_0= RULE_STRING )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:570:3: lv_parameter_1_0= RULE_STRING
             {
-            lv_parameter_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleClassMatching1286); 
+            lv_parameter_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleClassMatching1235); 
 
             			newLeafNode(lv_parameter_1_0, grammarAccess.getClassMatchingAccess().getParameterSTRINGTerminalRuleCall_1_0()); 
             		
@@ -1576,7 +1500,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConfigurationElement"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:622:1: entryRuleConfigurationElement returns [EObject current=null] : iv_ruleConfigurationElement= ruleConfigurationElement EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:594:1: entryRuleConfigurationElement returns [EObject current=null] : iv_ruleConfigurationElement= ruleConfigurationElement EOF ;
     public final EObject entryRuleConfigurationElement() throws RecognitionException {
         EObject current = null;
 
@@ -1584,17 +1508,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:623:2: (iv_ruleConfigurationElement= ruleConfigurationElement EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:624:2: iv_ruleConfigurationElement= ruleConfigurationElement EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:595:2: (iv_ruleConfigurationElement= ruleConfigurationElement EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:596:2: iv_ruleConfigurationElement= ruleConfigurationElement EOF
             {
              newCompositeNode(grammarAccess.getConfigurationElementRule()); 
-            pushFollow(FOLLOW_ruleConfigurationElement_in_entryRuleConfigurationElement1327);
+            pushFollow(FOLLOW_ruleConfigurationElement_in_entryRuleConfigurationElement1276);
             iv_ruleConfigurationElement=ruleConfigurationElement();
 
             state._fsp--;
 
              current =iv_ruleConfigurationElement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConfigurationElement1337); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConfigurationElement1286); 
 
             }
 
@@ -1612,7 +1536,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConfigurationElement"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:631:1: ruleConfigurationElement returns [EObject current=null] : (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:603:1: ruleConfigurationElement returns [EObject current=null] : (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile ) ;
     public final EObject ruleConfigurationElement() throws RecognitionException {
         EObject current = null;
 
@@ -1628,47 +1552,47 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:634:28: ( (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:635:1: (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:606:28: ( (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:607:1: (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:635:1: (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile )
-            int alt14=4;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:607:1: (this_Configuration_0= ruleConfiguration | this_XmlDocument_1= ruleXmlDocument | this_XmlElement_2= ruleXmlElement | this_File_3= ruleFile )
+            int alt13=4;
             switch ( input.LA(1) ) {
             case 25:
                 {
-                alt14=1;
+                alt13=1;
                 }
                 break;
             case 34:
                 {
-                alt14=2;
+                alt13=2;
                 }
                 break;
             case 33:
                 {
-                alt14=3;
+                alt13=3;
                 }
                 break;
             case 22:
                 {
-                alt14=4;
+                alt13=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:636:5: this_Configuration_0= ruleConfiguration
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:608:5: this_Configuration_0= ruleConfiguration
                     {
                      
                             newCompositeNode(grammarAccess.getConfigurationElementAccess().getConfigurationParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleConfiguration_in_ruleConfigurationElement1384);
+                    pushFollow(FOLLOW_ruleConfiguration_in_ruleConfigurationElement1333);
                     this_Configuration_0=ruleConfiguration();
 
                     state._fsp--;
@@ -1681,12 +1605,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:646:5: this_XmlDocument_1= ruleXmlDocument
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:618:5: this_XmlDocument_1= ruleXmlDocument
                     {
                      
                             newCompositeNode(grammarAccess.getConfigurationElementAccess().getXmlDocumentParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleXmlDocument_in_ruleConfigurationElement1411);
+                    pushFollow(FOLLOW_ruleXmlDocument_in_ruleConfigurationElement1360);
                     this_XmlDocument_1=ruleXmlDocument();
 
                     state._fsp--;
@@ -1699,12 +1623,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:656:5: this_XmlElement_2= ruleXmlElement
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:628:5: this_XmlElement_2= ruleXmlElement
                     {
                      
                             newCompositeNode(grammarAccess.getConfigurationElementAccess().getXmlElementParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleXmlElement_in_ruleConfigurationElement1438);
+                    pushFollow(FOLLOW_ruleXmlElement_in_ruleConfigurationElement1387);
                     this_XmlElement_2=ruleXmlElement();
 
                     state._fsp--;
@@ -1717,12 +1641,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:666:5: this_File_3= ruleFile
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:638:5: this_File_3= ruleFile
                     {
                      
                             newCompositeNode(grammarAccess.getConfigurationElementAccess().getFileParserRuleCall_3()); 
                         
-                    pushFollow(FOLLOW_ruleFile_in_ruleConfigurationElement1465);
+                    pushFollow(FOLLOW_ruleFile_in_ruleConfigurationElement1414);
                     this_File_3=ruleFile();
 
                     state._fsp--;
@@ -1755,7 +1679,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFile"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:682:1: entryRuleFile returns [EObject current=null] : iv_ruleFile= ruleFile EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:654:1: entryRuleFile returns [EObject current=null] : iv_ruleFile= ruleFile EOF ;
     public final EObject entryRuleFile() throws RecognitionException {
         EObject current = null;
 
@@ -1763,17 +1687,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:683:2: (iv_ruleFile= ruleFile EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:684:2: iv_ruleFile= ruleFile EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:655:2: (iv_ruleFile= ruleFile EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:656:2: iv_ruleFile= ruleFile EOF
             {
              newCompositeNode(grammarAccess.getFileRule()); 
-            pushFollow(FOLLOW_ruleFile_in_entryRuleFile1500);
+            pushFollow(FOLLOW_ruleFile_in_entryRuleFile1449);
             iv_ruleFile=ruleFile();
 
             state._fsp--;
 
              current =iv_ruleFile; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFile1510); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFile1459); 
 
             }
 
@@ -1791,7 +1715,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFile"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:691:1: ruleFile returns [EObject current=null] : (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:663:1: ruleFile returns [EObject current=null] : (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
     public final EObject ruleFile() throws RecognitionException {
         EObject current = null;
 
@@ -1811,23 +1735,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:694:28: ( (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:695:1: (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:666:28: ( (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:667:1: (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:695:1: (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:695:3: otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:667:1: (otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:667:3: otherlv_0= 'file' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleFile1547); 
+            otherlv_0=(Token)match(input,22,FOLLOW_22_in_ruleFile1496); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getFileAccess().getFileKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:699:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:700:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:671:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:672:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:700:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:701:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:672:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:673:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleFile1564); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleFile1513); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getFileAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -1847,35 +1771,35 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleFile1581); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleFile1530); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getFileAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:721:1: (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:693:1: (otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';' )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA15_0==23) ) {
-                alt15=1;
+            if ( (LA14_0==23) ) {
+                alt14=1;
             }
-            switch (alt15) {
+            switch (alt14) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:721:3: otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:693:3: otherlv_3= 'matching' ( (lv_matching_4_0= ruleAbstractNameConvetion ) ) otherlv_5= ';'
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleFile1594); 
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleFile1543); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getFileAccess().getMatchingKeyword_3_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:725:1: ( (lv_matching_4_0= ruleAbstractNameConvetion ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:726:1: (lv_matching_4_0= ruleAbstractNameConvetion )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:697:1: ( (lv_matching_4_0= ruleAbstractNameConvetion ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:698:1: (lv_matching_4_0= ruleAbstractNameConvetion )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:726:1: (lv_matching_4_0= ruleAbstractNameConvetion )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:727:3: lv_matching_4_0= ruleAbstractNameConvetion
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:698:1: (lv_matching_4_0= ruleAbstractNameConvetion )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:699:3: lv_matching_4_0= ruleAbstractNameConvetion
                     {
                      
                     	        newCompositeNode(grammarAccess.getFileAccess().getMatchingAbstractNameConvetionParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleAbstractNameConvetion_in_ruleFile1615);
+                    pushFollow(FOLLOW_ruleAbstractNameConvetion_in_ruleFile1564);
                     lv_matching_4_0=ruleAbstractNameConvetion();
 
                     state._fsp--;
@@ -1897,7 +1821,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleFile1627); 
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleFile1576); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getFileAccess().getSemicolonKeyword_3_2());
                         
@@ -1907,31 +1831,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:747:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:719:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA16_0==24) ) {
-                alt16=1;
+            if ( (LA15_0==24) ) {
+                alt15=1;
             }
-            switch (alt16) {
+            switch (alt15) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:747:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:719:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
                     {
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleFile1642); 
+                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleFile1591); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getFileAccess().getCardinalityKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:751:1: ( (lv_cardinality_7_0= ruleCardinality ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:752:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:723:1: ( (lv_cardinality_7_0= ruleCardinality ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:724:1: (lv_cardinality_7_0= ruleCardinality )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:752:1: (lv_cardinality_7_0= ruleCardinality )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:753:3: lv_cardinality_7_0= ruleCardinality
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:724:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:725:3: lv_cardinality_7_0= ruleCardinality
                     {
                      
                     	        newCompositeNode(grammarAccess.getFileAccess().getCardinalityCardinalityEnumRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCardinality_in_ruleFile1663);
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleFile1612);
                     lv_cardinality_7_0=ruleCardinality();
 
                     state._fsp--;
@@ -1953,7 +1877,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleFile1675); 
+                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleFile1624); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getFileAccess().getSemicolonKeyword_4_2());
                         
@@ -1963,7 +1887,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleFile1689); 
+            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleFile1638); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getFileAccess().getRightCurlyBracketKeyword_5());
                 
@@ -1988,7 +1912,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConfiguration"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:785:1: entryRuleConfiguration returns [EObject current=null] : iv_ruleConfiguration= ruleConfiguration EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:757:1: entryRuleConfiguration returns [EObject current=null] : iv_ruleConfiguration= ruleConfiguration EOF ;
     public final EObject entryRuleConfiguration() throws RecognitionException {
         EObject current = null;
 
@@ -1996,17 +1920,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:786:2: (iv_ruleConfiguration= ruleConfiguration EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:787:2: iv_ruleConfiguration= ruleConfiguration EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:758:2: (iv_ruleConfiguration= ruleConfiguration EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:759:2: iv_ruleConfiguration= ruleConfiguration EOF
             {
              newCompositeNode(grammarAccess.getConfigurationRule()); 
-            pushFollow(FOLLOW_ruleConfiguration_in_entryRuleConfiguration1725);
+            pushFollow(FOLLOW_ruleConfiguration_in_entryRuleConfiguration1674);
             iv_ruleConfiguration=ruleConfiguration();
 
             state._fsp--;
 
              current =iv_ruleConfiguration; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConfiguration1735); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConfiguration1684); 
 
             }
 
@@ -2024,7 +1948,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConfiguration"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:794:1: ruleConfiguration returns [EObject current=null] : (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:766:1: ruleConfiguration returns [EObject current=null] : (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' ) ;
     public final EObject ruleConfiguration() throws RecognitionException {
         EObject current = null;
 
@@ -2045,23 +1969,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:797:28: ( (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:798:1: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:769:28: ( (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:770:1: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:798:1: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:798:3: otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:770:1: (otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:770:3: otherlv_0= 'configuration' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? ( (lv_configurationElement_9_0= ruleConfigurationElement ) )* otherlv_10= '}'
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleConfiguration1772); 
+            otherlv_0=(Token)match(input,25,FOLLOW_25_in_ruleConfiguration1721); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getConfigurationAccess().getConfigurationKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:802:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:803:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:774:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:775:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:803:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:804:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:775:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:776:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleConfiguration1789); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleConfiguration1738); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getConfigurationAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -2081,32 +2005,32 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleConfiguration1806); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleConfiguration1755); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getConfigurationAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:824:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:796:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA17_0==23) ) {
-                alt17=1;
+            if ( (LA16_0==23) ) {
+                alt16=1;
             }
-            switch (alt17) {
+            switch (alt16) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:824:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:796:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleConfiguration1819); 
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleConfiguration1768); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getConfigurationAccess().getMatchingKeyword_3_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:828:1: ( (lv_matching_4_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:829:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:800:1: ( (lv_matching_4_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:801:1: (lv_matching_4_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:829:1: (lv_matching_4_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:830:3: lv_matching_4_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:801:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:802:3: lv_matching_4_0= RULE_STRING
                     {
-                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleConfiguration1836); 
+                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleConfiguration1785); 
 
                     			newLeafNode(lv_matching_4_0, grammarAccess.getConfigurationAccess().getMatchingSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -2126,7 +2050,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleConfiguration1853); 
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleConfiguration1802); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getConfigurationAccess().getSemicolonKeyword_3_2());
                         
@@ -2136,31 +2060,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:850:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:822:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA18_0==24) ) {
-                alt18=1;
+            if ( (LA17_0==24) ) {
+                alt17=1;
             }
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:850:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:822:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
                     {
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleConfiguration1868); 
+                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleConfiguration1817); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getConfigurationAccess().getCardinalityKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:854:1: ( (lv_cardinality_7_0= ruleCardinality ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:855:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:826:1: ( (lv_cardinality_7_0= ruleCardinality ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:827:1: (lv_cardinality_7_0= ruleCardinality )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:855:1: (lv_cardinality_7_0= ruleCardinality )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:856:3: lv_cardinality_7_0= ruleCardinality
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:827:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:828:3: lv_cardinality_7_0= ruleCardinality
                     {
                      
                     	        newCompositeNode(grammarAccess.getConfigurationAccess().getCardinalityCardinalityEnumRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCardinality_in_ruleConfiguration1889);
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleConfiguration1838);
                     lv_cardinality_7_0=ruleCardinality();
 
                     state._fsp--;
@@ -2182,7 +2106,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleConfiguration1901); 
+                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleConfiguration1850); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getConfigurationAccess().getSemicolonKeyword_4_2());
                         
@@ -2192,28 +2116,28 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:876:3: ( (lv_configurationElement_9_0= ruleConfigurationElement ) )*
-            loop19:
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:848:3: ( (lv_configurationElement_9_0= ruleConfigurationElement ) )*
+            loop18:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA19_0==22||LA19_0==25||(LA19_0>=33 && LA19_0<=34)) ) {
-                    alt19=1;
+                if ( (LA18_0==22||LA18_0==25||(LA18_0>=33 && LA18_0<=34)) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt18) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:877:1: (lv_configurationElement_9_0= ruleConfigurationElement )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:849:1: (lv_configurationElement_9_0= ruleConfigurationElement )
             	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:877:1: (lv_configurationElement_9_0= ruleConfigurationElement )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:878:3: lv_configurationElement_9_0= ruleConfigurationElement
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:849:1: (lv_configurationElement_9_0= ruleConfigurationElement )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:850:3: lv_configurationElement_9_0= ruleConfigurationElement
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getConfigurationAccess().getConfigurationElementConfigurationElementParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleConfigurationElement_in_ruleConfiguration1924);
+            	    pushFollow(FOLLOW_ruleConfigurationElement_in_ruleConfiguration1873);
             	    lv_configurationElement_9_0=ruleConfigurationElement();
 
             	    state._fsp--;
@@ -2237,11 +2161,11 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop18;
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,18,FOLLOW_18_in_ruleConfiguration1937); 
+            otherlv_10=(Token)match(input,18,FOLLOW_18_in_ruleConfiguration1886); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getConfigurationAccess().getRightCurlyBracketKeyword_6());
                 
@@ -2266,7 +2190,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMethod"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:906:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:878:1: entryRuleMethod returns [EObject current=null] : iv_ruleMethod= ruleMethod EOF ;
     public final EObject entryRuleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -2274,17 +2198,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:907:2: (iv_ruleMethod= ruleMethod EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:908:2: iv_ruleMethod= ruleMethod EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:879:2: (iv_ruleMethod= ruleMethod EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:880:2: iv_ruleMethod= ruleMethod EOF
             {
              newCompositeNode(grammarAccess.getMethodRule()); 
-            pushFollow(FOLLOW_ruleMethod_in_entryRuleMethod1973);
+            pushFollow(FOLLOW_ruleMethod_in_entryRuleMethod1922);
             iv_ruleMethod=ruleMethod();
 
             state._fsp--;
 
              current =iv_ruleMethod; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMethod1983); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMethod1932); 
 
             }
 
@@ -2302,7 +2226,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMethod"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:915:1: ruleMethod returns [EObject current=null] : (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:887:1: ruleMethod returns [EObject current=null] : (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
     public final EObject ruleMethod() throws RecognitionException {
         EObject current = null;
 
@@ -2321,23 +2245,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:918:28: ( (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:919:1: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:890:28: ( (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:891:1: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:919:1: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:919:3: otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:891:1: (otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:891:3: otherlv_0= 'method' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleMethod2020); 
+            otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleMethod1969); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getMethodAccess().getMethodKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:923:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:924:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:895:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:896:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:924:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:925:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:896:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:897:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleMethod2037); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleMethod1986); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getMethodAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -2357,32 +2281,32 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleMethod2054); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleMethod2003); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getMethodAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:945:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:917:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA20_0==23) ) {
-                alt20=1;
+            if ( (LA19_0==23) ) {
+                alt19=1;
             }
-            switch (alt20) {
+            switch (alt19) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:945:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:917:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleMethod2067); 
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleMethod2016); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getMethodAccess().getMatchingKeyword_3_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:949:1: ( (lv_matching_4_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:950:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:921:1: ( (lv_matching_4_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:922:1: (lv_matching_4_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:950:1: (lv_matching_4_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:951:3: lv_matching_4_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:922:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:923:3: lv_matching_4_0= RULE_STRING
                     {
-                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleMethod2084); 
+                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleMethod2033); 
 
                     			newLeafNode(lv_matching_4_0, grammarAccess.getMethodAccess().getMatchingSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -2402,7 +2326,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleMethod2101); 
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleMethod2050); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getMethodAccess().getSemicolonKeyword_3_2());
                         
@@ -2412,31 +2336,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:971:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:943:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA21_0==24) ) {
-                alt21=1;
+            if ( (LA20_0==24) ) {
+                alt20=1;
             }
-            switch (alt21) {
+            switch (alt20) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:971:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:943:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
                     {
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleMethod2116); 
+                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleMethod2065); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getMethodAccess().getCardinalityKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:975:1: ( (lv_cardinality_7_0= ruleCardinality ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:976:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:947:1: ( (lv_cardinality_7_0= ruleCardinality ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:948:1: (lv_cardinality_7_0= ruleCardinality )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:976:1: (lv_cardinality_7_0= ruleCardinality )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:977:3: lv_cardinality_7_0= ruleCardinality
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:948:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:949:3: lv_cardinality_7_0= ruleCardinality
                     {
                      
                     	        newCompositeNode(grammarAccess.getMethodAccess().getCardinalityCardinalityEnumRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCardinality_in_ruleMethod2137);
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleMethod2086);
                     lv_cardinality_7_0=ruleCardinality();
 
                     state._fsp--;
@@ -2458,7 +2382,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleMethod2149); 
+                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleMethod2098); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getMethodAccess().getSemicolonKeyword_4_2());
                         
@@ -2468,7 +2392,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleMethod2163); 
+            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleMethod2112); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getMethodAccess().getRightCurlyBracketKeyword_5());
                 
@@ -2493,7 +2417,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMetaClass"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1009:1: entryRuleMetaClass returns [EObject current=null] : iv_ruleMetaClass= ruleMetaClass EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:981:1: entryRuleMetaClass returns [EObject current=null] : iv_ruleMetaClass= ruleMetaClass EOF ;
     public final EObject entryRuleMetaClass() throws RecognitionException {
         EObject current = null;
 
@@ -2501,17 +2425,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1010:2: (iv_ruleMetaClass= ruleMetaClass EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1011:2: iv_ruleMetaClass= ruleMetaClass EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:982:2: (iv_ruleMetaClass= ruleMetaClass EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:983:2: iv_ruleMetaClass= ruleMetaClass EOF
             {
              newCompositeNode(grammarAccess.getMetaClassRule()); 
-            pushFollow(FOLLOW_ruleMetaClass_in_entryRuleMetaClass2199);
+            pushFollow(FOLLOW_ruleMetaClass_in_entryRuleMetaClass2148);
             iv_ruleMetaClass=ruleMetaClass();
 
             state._fsp--;
 
              current =iv_ruleMetaClass; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMetaClass2209); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMetaClass2158); 
 
             }
 
@@ -2529,7 +2453,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMetaClass"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1018:1: ruleMetaClass returns [EObject current=null] : (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:990:1: ruleMetaClass returns [EObject current=null] : (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' ) ;
     public final EObject ruleMetaClass() throws RecognitionException {
         EObject current = null;
 
@@ -2555,23 +2479,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1021:28: ( (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1022:1: (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:993:28: ( (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:994:1: (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1022:1: (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1022:3: otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:994:1: (otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:994:3: otherlv_0= 'meta-class' ( (lv_name_1_0= RULE_ID_ASML ) ) (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )? otherlv_4= '{' (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )? (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )? (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )? ( (lv_methods_14_0= ruleMethod ) )* otherlv_15= '}'
             {
-            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleMetaClass2246); 
+            otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleMetaClass2195); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getMetaClassAccess().getMetaClassKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1026:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1027:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:998:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:999:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1027:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1028:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:999:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1000:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleMetaClass2263); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleMetaClass2212); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getMetaClassAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -2591,26 +2515,26 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1044:2: (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1016:2: (otherlv_2= 'extends' ( ( ruleQualifiedName ) ) )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA22_0==28) ) {
-                alt22=1;
+            if ( (LA21_0==28) ) {
+                alt21=1;
             }
-            switch (alt22) {
+            switch (alt21) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1044:4: otherlv_2= 'extends' ( ( ruleQualifiedName ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1016:4: otherlv_2= 'extends' ( ( ruleQualifiedName ) )
                     {
-                    otherlv_2=(Token)match(input,28,FOLLOW_28_in_ruleMetaClass2281); 
+                    otherlv_2=(Token)match(input,28,FOLLOW_28_in_ruleMetaClass2230); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getMetaClassAccess().getExtendsKeyword_2_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1048:1: ( ( ruleQualifiedName ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1049:1: ( ruleQualifiedName )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1020:1: ( ( ruleQualifiedName ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1021:1: ( ruleQualifiedName )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1049:1: ( ruleQualifiedName )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1050:3: ruleQualifiedName
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1021:1: ( ruleQualifiedName )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1022:3: ruleQualifiedName
                     {
 
                     			if (current==null) {
@@ -2620,7 +2544,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getMetaClassAccess().getExtendsMetaClassCrossReference_2_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleMetaClass2304);
+                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleMetaClass2253);
                     ruleQualifiedName();
 
                     state._fsp--;
@@ -2640,32 +2564,32 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleMetaClass2318); 
+            otherlv_4=(Token)match(input,13,FOLLOW_13_in_ruleMetaClass2267); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getMetaClassAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1067:1: (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1039:1: (otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';' )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA23_0==29) ) {
-                alt23=1;
+            if ( (LA22_0==29) ) {
+                alt22=1;
             }
-            switch (alt23) {
+            switch (alt22) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1067:3: otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1039:3: otherlv_5= 'description' ( (lv_description_6_0= RULE_STRING ) ) otherlv_7= ';'
                     {
-                    otherlv_5=(Token)match(input,29,FOLLOW_29_in_ruleMetaClass2331); 
+                    otherlv_5=(Token)match(input,29,FOLLOW_29_in_ruleMetaClass2280); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getMetaClassAccess().getDescriptionKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1071:1: ( (lv_description_6_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1072:1: (lv_description_6_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1043:1: ( (lv_description_6_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1044:1: (lv_description_6_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1072:1: (lv_description_6_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1073:3: lv_description_6_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1044:1: (lv_description_6_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1045:3: lv_description_6_0= RULE_STRING
                     {
-                    lv_description_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleMetaClass2348); 
+                    lv_description_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleMetaClass2297); 
 
                     			newLeafNode(lv_description_6_0, grammarAccess.getMetaClassAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
                     		
@@ -2685,7 +2609,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,15,FOLLOW_15_in_ruleMetaClass2365); 
+                    otherlv_7=(Token)match(input,15,FOLLOW_15_in_ruleMetaClass2314); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getMetaClassAccess().getSemicolonKeyword_4_2());
                         
@@ -2695,31 +2619,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1093:3: (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1065:3: (otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';' )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA24_0==30) ) {
-                alt24=1;
+            if ( (LA23_0==30) ) {
+                alt23=1;
             }
-            switch (alt24) {
+            switch (alt23) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1093:5: otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1065:5: otherlv_8= 'matching:' ( (lv_matching_9_0= ruleAbstractNameConvetion ) ) otherlv_10= ';'
                     {
-                    otherlv_8=(Token)match(input,30,FOLLOW_30_in_ruleMetaClass2380); 
+                    otherlv_8=(Token)match(input,30,FOLLOW_30_in_ruleMetaClass2329); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getMetaClassAccess().getMatchingKeyword_5_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1097:1: ( (lv_matching_9_0= ruleAbstractNameConvetion ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1098:1: (lv_matching_9_0= ruleAbstractNameConvetion )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1069:1: ( (lv_matching_9_0= ruleAbstractNameConvetion ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1070:1: (lv_matching_9_0= ruleAbstractNameConvetion )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1098:1: (lv_matching_9_0= ruleAbstractNameConvetion )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1099:3: lv_matching_9_0= ruleAbstractNameConvetion
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1070:1: (lv_matching_9_0= ruleAbstractNameConvetion )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1071:3: lv_matching_9_0= ruleAbstractNameConvetion
                     {
                      
                     	        newCompositeNode(grammarAccess.getMetaClassAccess().getMatchingAbstractNameConvetionParserRuleCall_5_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleAbstractNameConvetion_in_ruleMetaClass2401);
+                    pushFollow(FOLLOW_ruleAbstractNameConvetion_in_ruleMetaClass2350);
                     lv_matching_9_0=ruleAbstractNameConvetion();
 
                     state._fsp--;
@@ -2741,7 +2665,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleMetaClass2413); 
+                    otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleMetaClass2362); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getMetaClassAccess().getSemicolonKeyword_5_2());
                         
@@ -2751,31 +2675,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1119:3: (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1091:3: (otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';' )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA25_0==24) ) {
-                alt25=1;
+            if ( (LA24_0==24) ) {
+                alt24=1;
             }
-            switch (alt25) {
+            switch (alt24) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1119:5: otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1091:5: otherlv_11= 'cardinality' ( (lv_cardinality_12_0= ruleCardinality ) ) otherlv_13= ';'
                     {
-                    otherlv_11=(Token)match(input,24,FOLLOW_24_in_ruleMetaClass2428); 
+                    otherlv_11=(Token)match(input,24,FOLLOW_24_in_ruleMetaClass2377); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getMetaClassAccess().getCardinalityKeyword_6_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1123:1: ( (lv_cardinality_12_0= ruleCardinality ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1124:1: (lv_cardinality_12_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1095:1: ( (lv_cardinality_12_0= ruleCardinality ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1096:1: (lv_cardinality_12_0= ruleCardinality )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1124:1: (lv_cardinality_12_0= ruleCardinality )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1125:3: lv_cardinality_12_0= ruleCardinality
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1096:1: (lv_cardinality_12_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1097:3: lv_cardinality_12_0= ruleCardinality
                     {
                      
                     	        newCompositeNode(grammarAccess.getMetaClassAccess().getCardinalityCardinalityEnumRuleCall_6_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCardinality_in_ruleMetaClass2449);
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleMetaClass2398);
                     lv_cardinality_12_0=ruleCardinality();
 
                     state._fsp--;
@@ -2797,7 +2721,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,15,FOLLOW_15_in_ruleMetaClass2461); 
+                    otherlv_13=(Token)match(input,15,FOLLOW_15_in_ruleMetaClass2410); 
 
                         	newLeafNode(otherlv_13, grammarAccess.getMetaClassAccess().getSemicolonKeyword_6_2());
                         
@@ -2807,28 +2731,28 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1145:3: ( (lv_methods_14_0= ruleMethod ) )*
-            loop26:
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1117:3: ( (lv_methods_14_0= ruleMethod ) )*
+            loop25:
             do {
-                int alt26=2;
-                int LA26_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA26_0==26) ) {
-                    alt26=1;
+                if ( (LA25_0==26) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt26) {
+                switch (alt25) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1146:1: (lv_methods_14_0= ruleMethod )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1118:1: (lv_methods_14_0= ruleMethod )
             	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1146:1: (lv_methods_14_0= ruleMethod )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1147:3: lv_methods_14_0= ruleMethod
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1118:1: (lv_methods_14_0= ruleMethod )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1119:3: lv_methods_14_0= ruleMethod
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getMetaClassAccess().getMethodsMethodParserRuleCall_7_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleMethod_in_ruleMetaClass2484);
+            	    pushFollow(FOLLOW_ruleMethod_in_ruleMetaClass2433);
             	    lv_methods_14_0=ruleMethod();
 
             	    state._fsp--;
@@ -2852,11 +2776,11 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop26;
+            	    break loop25;
                 }
             } while (true);
 
-            otherlv_15=(Token)match(input,18,FOLLOW_18_in_ruleMetaClass2497); 
+            otherlv_15=(Token)match(input,18,FOLLOW_18_in_ruleMetaClass2446); 
 
                 	newLeafNode(otherlv_15, grammarAccess.getMetaClassAccess().getRightCurlyBracketKeyword_8());
                 
@@ -2881,7 +2805,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExternalClass"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1175:1: entryRuleExternalClass returns [EObject current=null] : iv_ruleExternalClass= ruleExternalClass EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1147:1: entryRuleExternalClass returns [EObject current=null] : iv_ruleExternalClass= ruleExternalClass EOF ;
     public final EObject entryRuleExternalClass() throws RecognitionException {
         EObject current = null;
 
@@ -2889,17 +2813,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1176:2: (iv_ruleExternalClass= ruleExternalClass EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1177:2: iv_ruleExternalClass= ruleExternalClass EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1148:2: (iv_ruleExternalClass= ruleExternalClass EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1149:2: iv_ruleExternalClass= ruleExternalClass EOF
             {
              newCompositeNode(grammarAccess.getExternalClassRule()); 
-            pushFollow(FOLLOW_ruleExternalClass_in_entryRuleExternalClass2533);
+            pushFollow(FOLLOW_ruleExternalClass_in_entryRuleExternalClass2482);
             iv_ruleExternalClass=ruleExternalClass();
 
             state._fsp--;
 
              current =iv_ruleExternalClass; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalClass2543); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalClass2492); 
 
             }
 
@@ -2917,7 +2841,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExternalClass"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1184:1: ruleExternalClass returns [EObject current=null] : (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1156:1: ruleExternalClass returns [EObject current=null] : (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
     public final EObject ruleExternalClass() throws RecognitionException {
         EObject current = null;
 
@@ -2935,23 +2859,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1187:28: ( (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1188:1: (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1159:28: ( (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1160:1: (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1188:1: (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1188:3: otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1160:1: (otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1160:3: otherlv_0= 'external-class' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )? otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleExternalClass2580); 
+            otherlv_0=(Token)match(input,31,FOLLOW_31_in_ruleExternalClass2529); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getExternalClassAccess().getExternalClassKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1192:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1193:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1164:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1165:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1193:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1194:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1165:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1166:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleExternalClass2597); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleExternalClass2546); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getExternalClassAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -2971,32 +2895,32 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleExternalClass2614); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleExternalClass2563); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getExternalClassAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1214:1: (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1186:1: (otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';' )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA27_0==29) ) {
-                alt27=1;
+            if ( (LA26_0==29) ) {
+                alt26=1;
             }
-            switch (alt27) {
+            switch (alt26) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1214:3: otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1186:3: otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ';'
                     {
-                    otherlv_3=(Token)match(input,29,FOLLOW_29_in_ruleExternalClass2627); 
+                    otherlv_3=(Token)match(input,29,FOLLOW_29_in_ruleExternalClass2576); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getExternalClassAccess().getDescriptionKeyword_3_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1218:1: ( (lv_description_4_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1219:1: (lv_description_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1190:1: ( (lv_description_4_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1191:1: (lv_description_4_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1219:1: (lv_description_4_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1220:3: lv_description_4_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1191:1: (lv_description_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1192:3: lv_description_4_0= RULE_STRING
                     {
-                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleExternalClass2644); 
+                    lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleExternalClass2593); 
 
                     			newLeafNode(lv_description_4_0, grammarAccess.getExternalClassAccess().getDescriptionSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -3016,7 +2940,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleExternalClass2661); 
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleExternalClass2610); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getExternalClassAccess().getSemicolonKeyword_3_2());
                         
@@ -3026,28 +2950,28 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1240:3: (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1212:3: (otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';' )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA28_0==32) ) {
-                alt28=1;
+            if ( (LA27_0==32) ) {
+                alt27=1;
             }
-            switch (alt28) {
+            switch (alt27) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1240:5: otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1212:5: otherlv_6= 'type' ( (lv_type_7_0= RULE_STRING ) ) otherlv_8= ';'
                     {
-                    otherlv_6=(Token)match(input,32,FOLLOW_32_in_ruleExternalClass2676); 
+                    otherlv_6=(Token)match(input,32,FOLLOW_32_in_ruleExternalClass2625); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getExternalClassAccess().getTypeKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1244:1: ( (lv_type_7_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1245:1: (lv_type_7_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1216:1: ( (lv_type_7_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1217:1: (lv_type_7_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1245:1: (lv_type_7_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1246:3: lv_type_7_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1217:1: (lv_type_7_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1218:3: lv_type_7_0= RULE_STRING
                     {
-                    lv_type_7_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleExternalClass2693); 
+                    lv_type_7_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleExternalClass2642); 
 
                     			newLeafNode(lv_type_7_0, grammarAccess.getExternalClassAccess().getTypeSTRINGTerminalRuleCall_4_1_0()); 
                     		
@@ -3067,7 +2991,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleExternalClass2710); 
+                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleExternalClass2659); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getExternalClassAccess().getSemicolonKeyword_4_2());
                         
@@ -3077,7 +3001,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleExternalClass2724); 
+            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleExternalClass2673); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getExternalClassAccess().getRightCurlyBracketKeyword_5());
                 
@@ -3102,7 +3026,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlElement"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1278:1: entryRuleXmlElement returns [EObject current=null] : iv_ruleXmlElement= ruleXmlElement EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1250:1: entryRuleXmlElement returns [EObject current=null] : iv_ruleXmlElement= ruleXmlElement EOF ;
     public final EObject entryRuleXmlElement() throws RecognitionException {
         EObject current = null;
 
@@ -3110,17 +3034,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1279:2: (iv_ruleXmlElement= ruleXmlElement EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1280:2: iv_ruleXmlElement= ruleXmlElement EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1251:2: (iv_ruleXmlElement= ruleXmlElement EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1252:2: iv_ruleXmlElement= ruleXmlElement EOF
             {
              newCompositeNode(grammarAccess.getXmlElementRule()); 
-            pushFollow(FOLLOW_ruleXmlElement_in_entryRuleXmlElement2760);
+            pushFollow(FOLLOW_ruleXmlElement_in_entryRuleXmlElement2709);
             iv_ruleXmlElement=ruleXmlElement();
 
             state._fsp--;
 
              current =iv_ruleXmlElement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleXmlElement2770); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleXmlElement2719); 
 
             }
 
@@ -3138,7 +3062,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlElement"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1287:1: ruleXmlElement returns [EObject current=null] : (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1259:1: ruleXmlElement returns [EObject current=null] : (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
     public final EObject ruleXmlElement() throws RecognitionException {
         EObject current = null;
 
@@ -3157,23 +3081,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1290:28: ( (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1291:1: (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1262:28: ( (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1263:1: (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1291:1: (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1291:3: otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1263:1: (otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1263:3: otherlv_0= 'xmlElement' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,33,FOLLOW_33_in_ruleXmlElement2807); 
+            otherlv_0=(Token)match(input,33,FOLLOW_33_in_ruleXmlElement2756); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getXmlElementAccess().getXmlElementKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1295:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1296:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1267:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1268:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1296:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1297:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1268:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1269:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleXmlElement2824); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleXmlElement2773); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getXmlElementAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -3193,32 +3117,32 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleXmlElement2841); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleXmlElement2790); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getXmlElementAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1317:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1289:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA29_0==23) ) {
-                alt29=1;
+            if ( (LA28_0==23) ) {
+                alt28=1;
             }
-            switch (alt29) {
+            switch (alt28) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1317:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1289:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleXmlElement2854); 
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleXmlElement2803); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getXmlElementAccess().getMatchingKeyword_3_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1321:1: ( (lv_matching_4_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1322:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1293:1: ( (lv_matching_4_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1294:1: (lv_matching_4_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1322:1: (lv_matching_4_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1323:3: lv_matching_4_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1294:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1295:3: lv_matching_4_0= RULE_STRING
                     {
-                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleXmlElement2871); 
+                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleXmlElement2820); 
 
                     			newLeafNode(lv_matching_4_0, grammarAccess.getXmlElementAccess().getMatchingSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -3238,7 +3162,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleXmlElement2888); 
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleXmlElement2837); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getXmlElementAccess().getSemicolonKeyword_3_2());
                         
@@ -3248,31 +3172,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1343:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1315:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA30_0==24) ) {
-                alt30=1;
+            if ( (LA29_0==24) ) {
+                alt29=1;
             }
-            switch (alt30) {
+            switch (alt29) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1343:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1315:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
                     {
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleXmlElement2903); 
+                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleXmlElement2852); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getXmlElementAccess().getCardinalityKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1347:1: ( (lv_cardinality_7_0= ruleCardinality ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1348:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1319:1: ( (lv_cardinality_7_0= ruleCardinality ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1320:1: (lv_cardinality_7_0= ruleCardinality )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1348:1: (lv_cardinality_7_0= ruleCardinality )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1349:3: lv_cardinality_7_0= ruleCardinality
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1320:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1321:3: lv_cardinality_7_0= ruleCardinality
                     {
                      
                     	        newCompositeNode(grammarAccess.getXmlElementAccess().getCardinalityCardinalityEnumRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCardinality_in_ruleXmlElement2924);
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleXmlElement2873);
                     lv_cardinality_7_0=ruleCardinality();
 
                     state._fsp--;
@@ -3294,7 +3218,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleXmlElement2936); 
+                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleXmlElement2885); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getXmlElementAccess().getSemicolonKeyword_4_2());
                         
@@ -3304,7 +3228,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleXmlElement2950); 
+            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleXmlElement2899); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getXmlElementAccess().getRightCurlyBracketKeyword_5());
                 
@@ -3329,7 +3253,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXmlDocument"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1381:1: entryRuleXmlDocument returns [EObject current=null] : iv_ruleXmlDocument= ruleXmlDocument EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1353:1: entryRuleXmlDocument returns [EObject current=null] : iv_ruleXmlDocument= ruleXmlDocument EOF ;
     public final EObject entryRuleXmlDocument() throws RecognitionException {
         EObject current = null;
 
@@ -3337,17 +3261,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1382:2: (iv_ruleXmlDocument= ruleXmlDocument EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1383:2: iv_ruleXmlDocument= ruleXmlDocument EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1354:2: (iv_ruleXmlDocument= ruleXmlDocument EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1355:2: iv_ruleXmlDocument= ruleXmlDocument EOF
             {
              newCompositeNode(grammarAccess.getXmlDocumentRule()); 
-            pushFollow(FOLLOW_ruleXmlDocument_in_entryRuleXmlDocument2986);
+            pushFollow(FOLLOW_ruleXmlDocument_in_entryRuleXmlDocument2935);
             iv_ruleXmlDocument=ruleXmlDocument();
 
             state._fsp--;
 
              current =iv_ruleXmlDocument; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleXmlDocument2996); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleXmlDocument2945); 
 
             }
 
@@ -3365,7 +3289,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXmlDocument"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1390:1: ruleXmlDocument returns [EObject current=null] : (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1362:1: ruleXmlDocument returns [EObject current=null] : (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) ;
     public final EObject ruleXmlDocument() throws RecognitionException {
         EObject current = null;
 
@@ -3384,23 +3308,23 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1393:28: ( (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1394:1: (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1365:28: ( (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1366:1: (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1394:1: (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1394:3: otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1366:1: (otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1366:3: otherlv_0= 'xmlDocument' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )? (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )? otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_34_in_ruleXmlDocument3033); 
+            otherlv_0=(Token)match(input,34,FOLLOW_34_in_ruleXmlDocument2982); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getXmlDocumentAccess().getXmlDocumentKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1398:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1399:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1370:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1371:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1399:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1400:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1371:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1372:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleXmlDocument3050); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleXmlDocument2999); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getXmlDocumentAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -3420,32 +3344,32 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleXmlDocument3067); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleXmlDocument3016); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getXmlDocumentAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1420:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1392:1: (otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';' )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA31_0==23) ) {
-                alt31=1;
+            if ( (LA30_0==23) ) {
+                alt30=1;
             }
-            switch (alt31) {
+            switch (alt30) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1420:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1392:3: otherlv_3= 'matching' ( (lv_matching_4_0= RULE_STRING ) ) otherlv_5= ';'
                     {
-                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleXmlDocument3080); 
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleXmlDocument3029); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getXmlDocumentAccess().getMatchingKeyword_3_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1424:1: ( (lv_matching_4_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1425:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1396:1: ( (lv_matching_4_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1397:1: (lv_matching_4_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1425:1: (lv_matching_4_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1426:3: lv_matching_4_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1397:1: (lv_matching_4_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1398:3: lv_matching_4_0= RULE_STRING
                     {
-                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleXmlDocument3097); 
+                    lv_matching_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleXmlDocument3046); 
 
                     			newLeafNode(lv_matching_4_0, grammarAccess.getXmlDocumentAccess().getMatchingSTRINGTerminalRuleCall_3_1_0()); 
                     		
@@ -3465,7 +3389,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleXmlDocument3114); 
+                    otherlv_5=(Token)match(input,15,FOLLOW_15_in_ruleXmlDocument3063); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getXmlDocumentAccess().getSemicolonKeyword_3_2());
                         
@@ -3475,31 +3399,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1446:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1418:3: (otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';' )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA32_0==24) ) {
-                alt32=1;
+            if ( (LA31_0==24) ) {
+                alt31=1;
             }
-            switch (alt32) {
+            switch (alt31) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1446:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1418:5: otherlv_6= 'cardinality' ( (lv_cardinality_7_0= ruleCardinality ) ) otherlv_8= ';'
                     {
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleXmlDocument3129); 
+                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleXmlDocument3078); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getXmlDocumentAccess().getCardinalityKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1450:1: ( (lv_cardinality_7_0= ruleCardinality ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1451:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1422:1: ( (lv_cardinality_7_0= ruleCardinality ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1423:1: (lv_cardinality_7_0= ruleCardinality )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1451:1: (lv_cardinality_7_0= ruleCardinality )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1452:3: lv_cardinality_7_0= ruleCardinality
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1423:1: (lv_cardinality_7_0= ruleCardinality )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1424:3: lv_cardinality_7_0= ruleCardinality
                     {
                      
                     	        newCompositeNode(grammarAccess.getXmlDocumentAccess().getCardinalityCardinalityEnumRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleCardinality_in_ruleXmlDocument3150);
+                    pushFollow(FOLLOW_ruleCardinality_in_ruleXmlDocument3099);
                     lv_cardinality_7_0=ruleCardinality();
 
                     state._fsp--;
@@ -3521,7 +3445,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleXmlDocument3162); 
+                    otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleXmlDocument3111); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getXmlDocumentAccess().getSemicolonKeyword_4_2());
                         
@@ -3531,7 +3455,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleXmlDocument3176); 
+            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleXmlDocument3125); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getXmlDocumentAccess().getRightCurlyBracketKeyword_5());
                 
@@ -3556,7 +3480,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleModule"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1484:1: entryRuleModule returns [EObject current=null] : iv_ruleModule= ruleModule EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1456:1: entryRuleModule returns [EObject current=null] : iv_ruleModule= ruleModule EOF ;
     public final EObject entryRuleModule() throws RecognitionException {
         EObject current = null;
 
@@ -3564,17 +3488,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1485:2: (iv_ruleModule= ruleModule EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1486:2: iv_ruleModule= ruleModule EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1457:2: (iv_ruleModule= ruleModule EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1458:2: iv_ruleModule= ruleModule EOF
             {
              newCompositeNode(grammarAccess.getModuleRule()); 
-            pushFollow(FOLLOW_ruleModule_in_entryRuleModule3212);
+            pushFollow(FOLLOW_ruleModule_in_entryRuleModule3161);
             iv_ruleModule=ruleModule();
 
             state._fsp--;
 
              current =iv_ruleModule; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModule3222); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModule3171); 
 
             }
 
@@ -3592,7 +3516,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModule"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1493:1: ruleModule returns [EObject current=null] : (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1465:1: ruleModule returns [EObject current=null] : (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' ) ;
     public final EObject ruleModule() throws RecognitionException {
         EObject current = null;
 
@@ -3604,36 +3528,39 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
         Token otherlv_7=null;
         Token otherlv_9=null;
+        Token otherlv_11=null;
         Token otherlv_12=null;
+        Token otherlv_14=null;
+        Token otherlv_15=null;
         EObject lv_attributes_4_0 = null;
 
         EObject lv_matching_8_0 = null;
 
         EObject lv_components_10_0 = null;
 
-        EObject lv_restrictions_11_0 = null;
+        EObject lv_restrictions_13_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1496:28: ( (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1497:1: (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1468:28: ( (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1469:1: (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1497:1: (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1497:3: otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1469:1: (otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1469:3: otherlv_0= 'module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}'
             {
-            otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleModule3259); 
+            otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleModule3208); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getModuleAccess().getModuleKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1501:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1502:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1473:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1474:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1502:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1503:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1474:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1475:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleModule3276); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleModule3225); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getModuleAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -3653,50 +3580,50 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleModule3293); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleModule3242); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1523:1: ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1495:1: ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA35_0==15||LA35_0==20) ) {
-                alt35=1;
+            if ( (LA34_0==15||LA34_0==20) ) {
+                alt34=1;
             }
-            switch (alt35) {
+            switch (alt34) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1523:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1495:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';'
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1523:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )*
-                    loop34:
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1495:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )*
+                    loop33:
                     do {
-                        int alt34=2;
-                        int LA34_0 = input.LA(1);
+                        int alt33=2;
+                        int LA33_0 = input.LA(1);
 
-                        if ( (LA34_0==20) ) {
-                            alt34=1;
+                        if ( (LA33_0==20) ) {
+                            alt33=1;
                         }
 
 
-                        switch (alt34) {
+                        switch (alt33) {
                     	case 1 :
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1523:4: otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )?
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1495:4: otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )?
                     	    {
-                    	    otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleModule3307); 
+                    	    otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleModule3256); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getModuleAccess().getAttributesKeyword_3_0_0());
                     	        
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1527:1: ( (lv_attributes_4_0= ruleAttribute ) )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1528:1: (lv_attributes_4_0= ruleAttribute )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1499:1: ( (lv_attributes_4_0= ruleAttribute ) )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1500:1: (lv_attributes_4_0= ruleAttribute )
                     	    {
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1528:1: (lv_attributes_4_0= ruleAttribute )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1529:3: lv_attributes_4_0= ruleAttribute
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1500:1: (lv_attributes_4_0= ruleAttribute )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1501:3: lv_attributes_4_0= ruleAttribute
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getModuleAccess().getAttributesAttributeParserRuleCall_3_0_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleAttribute_in_ruleModule3328);
+                    	    pushFollow(FOLLOW_ruleAttribute_in_ruleModule3277);
                     	    lv_attributes_4_0=ruleAttribute();
 
                     	    state._fsp--;
@@ -3718,18 +3645,18 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1545:2: (otherlv_5= ',' )?
-                    	    int alt33=2;
-                    	    int LA33_0 = input.LA(1);
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1517:2: (otherlv_5= ',' )?
+                    	    int alt32=2;
+                    	    int LA32_0 = input.LA(1);
 
-                    	    if ( (LA33_0==17) ) {
-                    	        alt33=1;
+                    	    if ( (LA32_0==17) ) {
+                    	        alt32=1;
                     	    }
-                    	    switch (alt33) {
+                    	    switch (alt32) {
                     	        case 1 :
-                    	            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1545:4: otherlv_5= ','
+                    	            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1517:4: otherlv_5= ','
                     	            {
-                    	            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleModule3341); 
+                    	            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleModule3290); 
 
                     	                	newLeafNode(otherlv_5, grammarAccess.getModuleAccess().getCommaKeyword_3_0_2());
                     	                
@@ -3744,11 +3671,11 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop34;
+                    	    break loop33;
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleModule3357); 
+                    otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleModule3306); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getModuleAccess().getSemicolonKeyword_3_1());
                         
@@ -3758,31 +3685,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1553:3: (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1525:3: (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA36_0==23) ) {
-                alt36=1;
+            if ( (LA35_0==23) ) {
+                alt35=1;
             }
-            switch (alt36) {
+            switch (alt35) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1553:5: otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1525:5: otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';'
                     {
-                    otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleModule3372); 
+                    otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleModule3321); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getModuleAccess().getMatchingKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1557:1: ( (lv_matching_8_0= ruleModuleMatching ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1558:1: (lv_matching_8_0= ruleModuleMatching )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1529:1: ( (lv_matching_8_0= ruleModuleMatching ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1530:1: (lv_matching_8_0= ruleModuleMatching )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1558:1: (lv_matching_8_0= ruleModuleMatching )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1559:3: lv_matching_8_0= ruleModuleMatching
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1530:1: (lv_matching_8_0= ruleModuleMatching )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1531:3: lv_matching_8_0= ruleModuleMatching
                     {
                      
                     	        newCompositeNode(grammarAccess.getModuleAccess().getMatchingModuleMatchingParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleModuleMatching_in_ruleModule3393);
+                    pushFollow(FOLLOW_ruleModuleMatching_in_ruleModule3342);
                     lv_matching_8_0=ruleModuleMatching();
 
                     state._fsp--;
@@ -3804,7 +3731,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleModule3405); 
+                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleModule3354); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getModuleAccess().getSemicolonKeyword_4_2());
                         
@@ -3814,28 +3741,28 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1579:3: ( (lv_components_10_0= ruleAbstractComponent ) )*
-            loop37:
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1551:3: ( (lv_components_10_0= ruleAbstractComponent ) )*
+            loop36:
             do {
-                int alt37=2;
-                int LA37_0 = input.LA(1);
+                int alt36=2;
+                int LA36_0 = input.LA(1);
 
-                if ( (LA37_0==19||LA37_0==22||(LA37_0>=25 && LA37_0<=27)||LA37_0==31||(LA37_0>=33 && LA37_0<=37)) ) {
-                    alt37=1;
+                if ( (LA36_0==22||(LA36_0>=25 && LA36_0<=27)||LA36_0==31||(LA36_0>=33 && LA36_0<=35)||(LA36_0>=37 && LA36_0<=38)) ) {
+                    alt36=1;
                 }
 
 
-                switch (alt37) {
+                switch (alt36) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1580:1: (lv_components_10_0= ruleAbstractComponent )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1552:1: (lv_components_10_0= ruleAbstractComponent )
             	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1580:1: (lv_components_10_0= ruleAbstractComponent )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1581:3: lv_components_10_0= ruleAbstractComponent
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1552:1: (lv_components_10_0= ruleAbstractComponent )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1553:3: lv_components_10_0= ruleAbstractComponent
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getModuleAccess().getComponentsAbstractComponentParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleAbstractComponent_in_ruleModule3428);
+            	    pushFollow(FOLLOW_ruleAbstractComponent_in_ruleModule3377);
             	    lv_components_10_0=ruleAbstractComponent();
 
             	    state._fsp--;
@@ -3859,62 +3786,91 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop37;
+            	    break loop36;
                 }
             } while (true);
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1597:3: ( (lv_restrictions_11_0= ruleRestriction ) )*
-            loop38:
-            do {
-                int alt38=2;
-                int LA38_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1569:3: (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-                if ( (LA38_0==39) ) {
-                    alt38=1;
-                }
+            if ( (LA38_0==36) ) {
+                alt38=1;
+            }
+            switch (alt38) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1569:5: otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}'
+                    {
+                    otherlv_11=(Token)match(input,36,FOLLOW_36_in_ruleModule3391); 
 
+                        	newLeafNode(otherlv_11, grammarAccess.getModuleAccess().getRestrictionsKeyword_6_0());
+                        
+                    otherlv_12=(Token)match(input,13,FOLLOW_13_in_ruleModule3403); 
 
-                switch (alt38) {
-            	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1598:1: (lv_restrictions_11_0= ruleRestriction )
-            	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1598:1: (lv_restrictions_11_0= ruleRestriction )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1599:3: lv_restrictions_11_0= ruleRestriction
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getModuleAccess().getRestrictionsRestrictionParserRuleCall_6_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleRestriction_in_ruleModule3450);
-            	    lv_restrictions_11_0=ruleRestriction();
+                        	newLeafNode(otherlv_12, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_6_1());
+                        
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1577:1: ( (lv_restrictions_13_0= ruleRestriction ) )*
+                    loop37:
+                    do {
+                        int alt37=2;
+                        int LA37_0 = input.LA(1);
 
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getModuleRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"restrictions",
-            	            		lv_restrictions_11_0, 
-            	            		"Restriction");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
+                        if ( (LA37_0==RULE_ID_ASML||(LA37_0>=51 && LA37_0<=67)) ) {
+                            alt37=1;
+                        }
 
 
-            	    }
-            	    break;
+                        switch (alt37) {
+                    	case 1 :
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1578:1: (lv_restrictions_13_0= ruleRestriction )
+                    	    {
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1578:1: (lv_restrictions_13_0= ruleRestriction )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1579:3: lv_restrictions_13_0= ruleRestriction
+                    	    {
+                    	     
+                    	    	        newCompositeNode(grammarAccess.getModuleAccess().getRestrictionsRestrictionParserRuleCall_6_2_0()); 
+                    	    	    
+                    	    pushFollow(FOLLOW_ruleRestriction_in_ruleModule3424);
+                    	    lv_restrictions_13_0=ruleRestriction();
 
-            	default :
-            	    break loop38;
-                }
-            } while (true);
+                    	    state._fsp--;
 
-            otherlv_12=(Token)match(input,18,FOLLOW_18_in_ruleModule3463); 
 
-                	newLeafNode(otherlv_12, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_7());
+                    	    	        if (current==null) {
+                    	    	            current = createModelElementForParent(grammarAccess.getModuleRule());
+                    	    	        }
+                    	           		add(
+                    	           			current, 
+                    	           			"restrictions",
+                    	            		lv_restrictions_13_0, 
+                    	            		"Restriction");
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop37;
+                        }
+                    } while (true);
+
+                    otherlv_14=(Token)match(input,18,FOLLOW_18_in_ruleModule3437); 
+
+                        	newLeafNode(otherlv_14, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_6_3());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_15=(Token)match(input,18,FOLLOW_18_in_ruleModule3451); 
+
+                	newLeafNode(otherlv_15, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_7());
                 
 
             }
@@ -3937,7 +3893,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMetaModule"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1627:1: entryRuleMetaModule returns [EObject current=null] : iv_ruleMetaModule= ruleMetaModule EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1611:1: entryRuleMetaModule returns [EObject current=null] : iv_ruleMetaModule= ruleMetaModule EOF ;
     public final EObject entryRuleMetaModule() throws RecognitionException {
         EObject current = null;
 
@@ -3945,17 +3901,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1628:2: (iv_ruleMetaModule= ruleMetaModule EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1629:2: iv_ruleMetaModule= ruleMetaModule EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1612:2: (iv_ruleMetaModule= ruleMetaModule EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1613:2: iv_ruleMetaModule= ruleMetaModule EOF
             {
              newCompositeNode(grammarAccess.getMetaModuleRule()); 
-            pushFollow(FOLLOW_ruleMetaModule_in_entryRuleMetaModule3499);
+            pushFollow(FOLLOW_ruleMetaModule_in_entryRuleMetaModule3487);
             iv_ruleMetaModule=ruleMetaModule();
 
             state._fsp--;
 
              current =iv_ruleMetaModule; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMetaModule3509); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMetaModule3497); 
 
             }
 
@@ -3973,7 +3929,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMetaModule"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1636:1: ruleMetaModule returns [EObject current=null] : (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1620:1: ruleMetaModule returns [EObject current=null] : (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' ) ;
     public final EObject ruleMetaModule() throws RecognitionException {
         EObject current = null;
 
@@ -3985,36 +3941,39 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
         Token otherlv_7=null;
         Token otherlv_9=null;
+        Token otherlv_11=null;
         Token otherlv_12=null;
+        Token otherlv_14=null;
+        Token otherlv_15=null;
         EObject lv_attributes_4_0 = null;
 
         EObject lv_matching_8_0 = null;
 
         EObject lv_components_10_0 = null;
 
-        EObject lv_restrictions_11_0 = null;
+        EObject lv_restrictions_13_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1639:28: ( (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1640:1: (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1623:28: ( (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1624:1: (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1640:1: (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1640:3: otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1624:1: (otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1624:3: otherlv_0= 'meta-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}'
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_36_in_ruleMetaModule3546); 
+            otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruleMetaModule3534); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getMetaModuleAccess().getMetaModuleKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1644:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1645:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1628:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1629:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1645:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1646:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1629:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1630:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleMetaModule3563); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleMetaModule3551); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getMetaModuleAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -4034,11 +3993,11 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleMetaModule3580); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleMetaModule3568); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1666:1: ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )?
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1650:1: ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
@@ -4047,9 +4006,9 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             }
             switch (alt41) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1666:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1650:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';'
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1666:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )*
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1650:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )*
                     loop40:
                     do {
                         int alt40=2;
@@ -4062,22 +4021,22 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                         switch (alt40) {
                     	case 1 :
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1666:4: otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )?
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1650:4: otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )?
                     	    {
-                    	    otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleMetaModule3594); 
+                    	    otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleMetaModule3582); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getMetaModuleAccess().getAttributesKeyword_3_0_0());
                     	        
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1670:1: ( (lv_attributes_4_0= ruleAttribute ) )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1671:1: (lv_attributes_4_0= ruleAttribute )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1654:1: ( (lv_attributes_4_0= ruleAttribute ) )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1655:1: (lv_attributes_4_0= ruleAttribute )
                     	    {
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1671:1: (lv_attributes_4_0= ruleAttribute )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1672:3: lv_attributes_4_0= ruleAttribute
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1655:1: (lv_attributes_4_0= ruleAttribute )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1656:3: lv_attributes_4_0= ruleAttribute
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getMetaModuleAccess().getAttributesAttributeParserRuleCall_3_0_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleAttribute_in_ruleMetaModule3615);
+                    	    pushFollow(FOLLOW_ruleAttribute_in_ruleMetaModule3603);
                     	    lv_attributes_4_0=ruleAttribute();
 
                     	    state._fsp--;
@@ -4099,7 +4058,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1688:2: (otherlv_5= ',' )?
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1672:2: (otherlv_5= ',' )?
                     	    int alt39=2;
                     	    int LA39_0 = input.LA(1);
 
@@ -4108,9 +4067,9 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     	    }
                     	    switch (alt39) {
                     	        case 1 :
-                    	            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1688:4: otherlv_5= ','
+                    	            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1672:4: otherlv_5= ','
                     	            {
-                    	            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleMetaModule3628); 
+                    	            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleMetaModule3616); 
 
                     	                	newLeafNode(otherlv_5, grammarAccess.getMetaModuleAccess().getCommaKeyword_3_0_2());
                     	                
@@ -4129,7 +4088,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleMetaModule3644); 
+                    otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleMetaModule3632); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getMetaModuleAccess().getSemicolonKeyword_3_1());
                         
@@ -4139,7 +4098,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1696:3: (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )?
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1680:3: (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )?
             int alt42=2;
             int LA42_0 = input.LA(1);
 
@@ -4148,22 +4107,22 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             }
             switch (alt42) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1696:5: otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1680:5: otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';'
                     {
-                    otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleMetaModule3659); 
+                    otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleMetaModule3647); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getMetaModuleAccess().getMatchingKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1700:1: ( (lv_matching_8_0= ruleModuleMatching ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1701:1: (lv_matching_8_0= ruleModuleMatching )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1684:1: ( (lv_matching_8_0= ruleModuleMatching ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1685:1: (lv_matching_8_0= ruleModuleMatching )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1701:1: (lv_matching_8_0= ruleModuleMatching )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1702:3: lv_matching_8_0= ruleModuleMatching
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1685:1: (lv_matching_8_0= ruleModuleMatching )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1686:3: lv_matching_8_0= ruleModuleMatching
                     {
                      
                     	        newCompositeNode(grammarAccess.getMetaModuleAccess().getMatchingModuleMatchingParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleModuleMatching_in_ruleMetaModule3680);
+                    pushFollow(FOLLOW_ruleModuleMatching_in_ruleMetaModule3668);
                     lv_matching_8_0=ruleModuleMatching();
 
                     state._fsp--;
@@ -4185,7 +4144,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleMetaModule3692); 
+                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleMetaModule3680); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getMetaModuleAccess().getSemicolonKeyword_4_2());
                         
@@ -4195,28 +4154,28 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1722:3: ( (lv_components_10_0= ruleAbstractComponent ) )*
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1706:3: ( (lv_components_10_0= ruleAbstractComponent ) )*
             loop43:
             do {
                 int alt43=2;
                 int LA43_0 = input.LA(1);
 
-                if ( (LA43_0==19||LA43_0==22||(LA43_0>=25 && LA43_0<=27)||LA43_0==31||(LA43_0>=33 && LA43_0<=37)) ) {
+                if ( (LA43_0==22||(LA43_0>=25 && LA43_0<=27)||LA43_0==31||(LA43_0>=33 && LA43_0<=35)||(LA43_0>=37 && LA43_0<=38)) ) {
                     alt43=1;
                 }
 
 
                 switch (alt43) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1723:1: (lv_components_10_0= ruleAbstractComponent )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1707:1: (lv_components_10_0= ruleAbstractComponent )
             	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1723:1: (lv_components_10_0= ruleAbstractComponent )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1724:3: lv_components_10_0= ruleAbstractComponent
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1707:1: (lv_components_10_0= ruleAbstractComponent )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1708:3: lv_components_10_0= ruleAbstractComponent
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getMetaModuleAccess().getComponentsAbstractComponentParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleAbstractComponent_in_ruleMetaModule3715);
+            	    pushFollow(FOLLOW_ruleAbstractComponent_in_ruleMetaModule3703);
             	    lv_components_10_0=ruleAbstractComponent();
 
             	    state._fsp--;
@@ -4244,58 +4203,87 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1740:3: ( (lv_restrictions_11_0= ruleRestriction ) )*
-            loop44:
-            do {
-                int alt44=2;
-                int LA44_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1724:3: (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )?
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-                if ( (LA44_0==39) ) {
-                    alt44=1;
-                }
+            if ( (LA45_0==36) ) {
+                alt45=1;
+            }
+            switch (alt45) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1724:5: otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}'
+                    {
+                    otherlv_11=(Token)match(input,36,FOLLOW_36_in_ruleMetaModule3717); 
 
+                        	newLeafNode(otherlv_11, grammarAccess.getMetaModuleAccess().getRestrictionsKeyword_6_0());
+                        
+                    otherlv_12=(Token)match(input,13,FOLLOW_13_in_ruleMetaModule3729); 
 
-                switch (alt44) {
-            	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1741:1: (lv_restrictions_11_0= ruleRestriction )
-            	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1741:1: (lv_restrictions_11_0= ruleRestriction )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1742:3: lv_restrictions_11_0= ruleRestriction
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getMetaModuleAccess().getRestrictionsRestrictionParserRuleCall_6_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleRestriction_in_ruleMetaModule3737);
-            	    lv_restrictions_11_0=ruleRestriction();
+                        	newLeafNode(otherlv_12, grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_6_1());
+                        
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1732:1: ( (lv_restrictions_13_0= ruleRestriction ) )*
+                    loop44:
+                    do {
+                        int alt44=2;
+                        int LA44_0 = input.LA(1);
 
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getMetaModuleRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"restrictions",
-            	            		lv_restrictions_11_0, 
-            	            		"Restriction");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
+                        if ( (LA44_0==RULE_ID_ASML||(LA44_0>=51 && LA44_0<=67)) ) {
+                            alt44=1;
+                        }
 
 
-            	    }
-            	    break;
+                        switch (alt44) {
+                    	case 1 :
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1733:1: (lv_restrictions_13_0= ruleRestriction )
+                    	    {
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1733:1: (lv_restrictions_13_0= ruleRestriction )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1734:3: lv_restrictions_13_0= ruleRestriction
+                    	    {
+                    	     
+                    	    	        newCompositeNode(grammarAccess.getMetaModuleAccess().getRestrictionsRestrictionParserRuleCall_6_2_0()); 
+                    	    	    
+                    	    pushFollow(FOLLOW_ruleRestriction_in_ruleMetaModule3750);
+                    	    lv_restrictions_13_0=ruleRestriction();
 
-            	default :
-            	    break loop44;
-                }
-            } while (true);
+                    	    state._fsp--;
 
-            otherlv_12=(Token)match(input,18,FOLLOW_18_in_ruleMetaModule3750); 
 
-                	newLeafNode(otherlv_12, grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_7());
+                    	    	        if (current==null) {
+                    	    	            current = createModelElementForParent(grammarAccess.getMetaModuleRule());
+                    	    	        }
+                    	           		add(
+                    	           			current, 
+                    	           			"restrictions",
+                    	            		lv_restrictions_13_0, 
+                    	            		"Restriction");
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop44;
+                        }
+                    } while (true);
+
+                    otherlv_14=(Token)match(input,18,FOLLOW_18_in_ruleMetaModule3763); 
+
+                        	newLeafNode(otherlv_14, grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_6_3());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_15=(Token)match(input,18,FOLLOW_18_in_ruleMetaModule3777); 
+
+                	newLeafNode(otherlv_15, grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_7());
                 
 
             }
@@ -4318,7 +4306,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExternalModule"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1770:1: entryRuleExternalModule returns [EObject current=null] : iv_ruleExternalModule= ruleExternalModule EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1766:1: entryRuleExternalModule returns [EObject current=null] : iv_ruleExternalModule= ruleExternalModule EOF ;
     public final EObject entryRuleExternalModule() throws RecognitionException {
         EObject current = null;
 
@@ -4326,17 +4314,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1771:2: (iv_ruleExternalModule= ruleExternalModule EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1772:2: iv_ruleExternalModule= ruleExternalModule EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1767:2: (iv_ruleExternalModule= ruleExternalModule EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1768:2: iv_ruleExternalModule= ruleExternalModule EOF
             {
              newCompositeNode(grammarAccess.getExternalModuleRule()); 
-            pushFollow(FOLLOW_ruleExternalModule_in_entryRuleExternalModule3786);
+            pushFollow(FOLLOW_ruleExternalModule_in_entryRuleExternalModule3813);
             iv_ruleExternalModule=ruleExternalModule();
 
             state._fsp--;
 
              current =iv_ruleExternalModule; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalModule3796); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalModule3823); 
 
             }
 
@@ -4354,7 +4342,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExternalModule"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1779:1: ruleExternalModule returns [EObject current=null] : (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1775:1: ruleExternalModule returns [EObject current=null] : (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' ) ;
     public final EObject ruleExternalModule() throws RecognitionException {
         EObject current = null;
 
@@ -4366,36 +4354,39 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
         Token otherlv_6=null;
         Token otherlv_7=null;
         Token otherlv_9=null;
+        Token otherlv_11=null;
         Token otherlv_12=null;
+        Token otherlv_14=null;
+        Token otherlv_15=null;
         EObject lv_attributes_4_0 = null;
 
         EObject lv_matching_8_0 = null;
 
         EObject lv_components_10_0 = null;
 
-        EObject lv_restrictions_11_0 = null;
+        EObject lv_restrictions_13_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1782:28: ( (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1783:1: (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1778:28: ( (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1779:1: (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1783:1: (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1783:3: otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* ( (lv_restrictions_11_0= ruleRestriction ) )* otherlv_12= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1779:1: (otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1779:3: otherlv_0= 'external-module' ( (lv_name_1_0= RULE_ID_ASML ) ) otherlv_2= '{' ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )? (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )? ( (lv_components_10_0= ruleAbstractComponent ) )* (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )? otherlv_15= '}'
             {
-            otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruleExternalModule3833); 
+            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleExternalModule3860); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getExternalModuleAccess().getExternalModuleKeyword_0());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1787:1: ( (lv_name_1_0= RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1788:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1783:1: ( (lv_name_1_0= RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1784:1: (lv_name_1_0= RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1788:1: (lv_name_1_0= RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1789:3: lv_name_1_0= RULE_ID_ASML
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1784:1: (lv_name_1_0= RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1785:3: lv_name_1_0= RULE_ID_ASML
             {
-            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleExternalModule3850); 
+            lv_name_1_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleExternalModule3877); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getExternalModuleAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
             		
@@ -4415,50 +4406,50 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleExternalModule3867); 
+            otherlv_2=(Token)match(input,13,FOLLOW_13_in_ruleExternalModule3894); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getExternalModuleAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1809:1: ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )?
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1805:1: ( (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';' )?
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA47_0==15||LA47_0==20) ) {
-                alt47=1;
+            if ( (LA48_0==15||LA48_0==20) ) {
+                alt48=1;
             }
-            switch (alt47) {
+            switch (alt48) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1809:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1805:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )* otherlv_6= ';'
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1809:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )*
-                    loop46:
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1805:2: (otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )? )*
+                    loop47:
                     do {
-                        int alt46=2;
-                        int LA46_0 = input.LA(1);
+                        int alt47=2;
+                        int LA47_0 = input.LA(1);
 
-                        if ( (LA46_0==20) ) {
-                            alt46=1;
+                        if ( (LA47_0==20) ) {
+                            alt47=1;
                         }
 
 
-                        switch (alt46) {
+                        switch (alt47) {
                     	case 1 :
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1809:4: otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )?
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1805:4: otherlv_3= 'attributes' ( (lv_attributes_4_0= ruleAttribute ) ) (otherlv_5= ',' )?
                     	    {
-                    	    otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleExternalModule3881); 
+                    	    otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleExternalModule3908); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getExternalModuleAccess().getAttributesKeyword_3_0_0());
                     	        
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1813:1: ( (lv_attributes_4_0= ruleAttribute ) )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1814:1: (lv_attributes_4_0= ruleAttribute )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1809:1: ( (lv_attributes_4_0= ruleAttribute ) )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1810:1: (lv_attributes_4_0= ruleAttribute )
                     	    {
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1814:1: (lv_attributes_4_0= ruleAttribute )
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1815:3: lv_attributes_4_0= ruleAttribute
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1810:1: (lv_attributes_4_0= ruleAttribute )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1811:3: lv_attributes_4_0= ruleAttribute
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getExternalModuleAccess().getAttributesAttributeParserRuleCall_3_0_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleAttribute_in_ruleExternalModule3902);
+                    	    pushFollow(FOLLOW_ruleAttribute_in_ruleExternalModule3929);
                     	    lv_attributes_4_0=ruleAttribute();
 
                     	    state._fsp--;
@@ -4480,18 +4471,18 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1831:2: (otherlv_5= ',' )?
-                    	    int alt45=2;
-                    	    int LA45_0 = input.LA(1);
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1827:2: (otherlv_5= ',' )?
+                    	    int alt46=2;
+                    	    int LA46_0 = input.LA(1);
 
-                    	    if ( (LA45_0==17) ) {
-                    	        alt45=1;
+                    	    if ( (LA46_0==17) ) {
+                    	        alt46=1;
                     	    }
-                    	    switch (alt45) {
+                    	    switch (alt46) {
                     	        case 1 :
-                    	            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1831:4: otherlv_5= ','
+                    	            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1827:4: otherlv_5= ','
                     	            {
-                    	            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleExternalModule3915); 
+                    	            otherlv_5=(Token)match(input,17,FOLLOW_17_in_ruleExternalModule3942); 
 
                     	                	newLeafNode(otherlv_5, grammarAccess.getExternalModuleAccess().getCommaKeyword_3_0_2());
                     	                
@@ -4506,11 +4497,11 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop46;
+                    	    break loop47;
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleExternalModule3931); 
+                    otherlv_6=(Token)match(input,15,FOLLOW_15_in_ruleExternalModule3958); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getExternalModuleAccess().getSemicolonKeyword_3_1());
                         
@@ -4520,31 +4511,31 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1839:3: (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )?
-            int alt48=2;
-            int LA48_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1835:3: (otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';' )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( (LA48_0==23) ) {
-                alt48=1;
+            if ( (LA49_0==23) ) {
+                alt49=1;
             }
-            switch (alt48) {
+            switch (alt49) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1839:5: otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1835:5: otherlv_7= 'matching' ( (lv_matching_8_0= ruleModuleMatching ) ) otherlv_9= ';'
                     {
-                    otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleExternalModule3946); 
+                    otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleExternalModule3973); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getExternalModuleAccess().getMatchingKeyword_4_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1843:1: ( (lv_matching_8_0= ruleModuleMatching ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1844:1: (lv_matching_8_0= ruleModuleMatching )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1839:1: ( (lv_matching_8_0= ruleModuleMatching ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1840:1: (lv_matching_8_0= ruleModuleMatching )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1844:1: (lv_matching_8_0= ruleModuleMatching )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1845:3: lv_matching_8_0= ruleModuleMatching
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1840:1: (lv_matching_8_0= ruleModuleMatching )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1841:3: lv_matching_8_0= ruleModuleMatching
                     {
                      
                     	        newCompositeNode(grammarAccess.getExternalModuleAccess().getMatchingModuleMatchingParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleModuleMatching_in_ruleExternalModule3967);
+                    pushFollow(FOLLOW_ruleModuleMatching_in_ruleExternalModule3994);
                     lv_matching_8_0=ruleModuleMatching();
 
                     state._fsp--;
@@ -4566,7 +4557,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleExternalModule3979); 
+                    otherlv_9=(Token)match(input,15,FOLLOW_15_in_ruleExternalModule4006); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getExternalModuleAccess().getSemicolonKeyword_4_2());
                         
@@ -4576,28 +4567,28 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1865:3: ( (lv_components_10_0= ruleAbstractComponent ) )*
-            loop49:
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1861:3: ( (lv_components_10_0= ruleAbstractComponent ) )*
+            loop50:
             do {
-                int alt49=2;
-                int LA49_0 = input.LA(1);
+                int alt50=2;
+                int LA50_0 = input.LA(1);
 
-                if ( (LA49_0==19||LA49_0==22||(LA49_0>=25 && LA49_0<=27)||LA49_0==31||(LA49_0>=33 && LA49_0<=37)) ) {
-                    alt49=1;
+                if ( (LA50_0==22||(LA50_0>=25 && LA50_0<=27)||LA50_0==31||(LA50_0>=33 && LA50_0<=35)||(LA50_0>=37 && LA50_0<=38)) ) {
+                    alt50=1;
                 }
 
 
-                switch (alt49) {
+                switch (alt50) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1866:1: (lv_components_10_0= ruleAbstractComponent )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1862:1: (lv_components_10_0= ruleAbstractComponent )
             	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1866:1: (lv_components_10_0= ruleAbstractComponent )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1867:3: lv_components_10_0= ruleAbstractComponent
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1862:1: (lv_components_10_0= ruleAbstractComponent )
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1863:3: lv_components_10_0= ruleAbstractComponent
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getExternalModuleAccess().getComponentsAbstractComponentParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleAbstractComponent_in_ruleExternalModule4002);
+            	    pushFollow(FOLLOW_ruleAbstractComponent_in_ruleExternalModule4029);
             	    lv_components_10_0=ruleAbstractComponent();
 
             	    state._fsp--;
@@ -4621,62 +4612,91 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop49;
-                }
-            } while (true);
-
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1883:3: ( (lv_restrictions_11_0= ruleRestriction ) )*
-            loop50:
-            do {
-                int alt50=2;
-                int LA50_0 = input.LA(1);
-
-                if ( (LA50_0==39) ) {
-                    alt50=1;
-                }
-
-
-                switch (alt50) {
-            	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1884:1: (lv_restrictions_11_0= ruleRestriction )
-            	    {
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1884:1: (lv_restrictions_11_0= ruleRestriction )
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1885:3: lv_restrictions_11_0= ruleRestriction
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getExternalModuleAccess().getRestrictionsRestrictionParserRuleCall_6_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleRestriction_in_ruleExternalModule4024);
-            	    lv_restrictions_11_0=ruleRestriction();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getExternalModuleRule());
-            	    	        }
-            	           		add(
-            	           			current, 
-            	           			"restrictions",
-            	            		lv_restrictions_11_0, 
-            	            		"Restriction");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
             	    break loop50;
                 }
             } while (true);
 
-            otherlv_12=(Token)match(input,18,FOLLOW_18_in_ruleExternalModule4037); 
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1879:3: (otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}' )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-                	newLeafNode(otherlv_12, grammarAccess.getExternalModuleAccess().getRightCurlyBracketKeyword_7());
+            if ( (LA52_0==36) ) {
+                alt52=1;
+            }
+            switch (alt52) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1879:5: otherlv_11= 'restrictions' otherlv_12= '{' ( (lv_restrictions_13_0= ruleRestriction ) )* otherlv_14= '}'
+                    {
+                    otherlv_11=(Token)match(input,36,FOLLOW_36_in_ruleExternalModule4043); 
+
+                        	newLeafNode(otherlv_11, grammarAccess.getExternalModuleAccess().getRestrictionsKeyword_6_0());
+                        
+                    otherlv_12=(Token)match(input,13,FOLLOW_13_in_ruleExternalModule4055); 
+
+                        	newLeafNode(otherlv_12, grammarAccess.getExternalModuleAccess().getLeftCurlyBracketKeyword_6_1());
+                        
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1887:1: ( (lv_restrictions_13_0= ruleRestriction ) )*
+                    loop51:
+                    do {
+                        int alt51=2;
+                        int LA51_0 = input.LA(1);
+
+                        if ( (LA51_0==RULE_ID_ASML||(LA51_0>=51 && LA51_0<=67)) ) {
+                            alt51=1;
+                        }
+
+
+                        switch (alt51) {
+                    	case 1 :
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1888:1: (lv_restrictions_13_0= ruleRestriction )
+                    	    {
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1888:1: (lv_restrictions_13_0= ruleRestriction )
+                    	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1889:3: lv_restrictions_13_0= ruleRestriction
+                    	    {
+                    	     
+                    	    	        newCompositeNode(grammarAccess.getExternalModuleAccess().getRestrictionsRestrictionParserRuleCall_6_2_0()); 
+                    	    	    
+                    	    pushFollow(FOLLOW_ruleRestriction_in_ruleExternalModule4076);
+                    	    lv_restrictions_13_0=ruleRestriction();
+
+                    	    state._fsp--;
+
+
+                    	    	        if (current==null) {
+                    	    	            current = createModelElementForParent(grammarAccess.getExternalModuleRule());
+                    	    	        }
+                    	           		add(
+                    	           			current, 
+                    	           			"restrictions",
+                    	            		lv_restrictions_13_0, 
+                    	            		"Restriction");
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop51;
+                        }
+                    } while (true);
+
+                    otherlv_14=(Token)match(input,18,FOLLOW_18_in_ruleExternalModule4089); 
+
+                        	newLeafNode(otherlv_14, grammarAccess.getExternalModuleAccess().getRightCurlyBracketKeyword_6_3());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_15=(Token)match(input,18,FOLLOW_18_in_ruleExternalModule4103); 
+
+                	newLeafNode(otherlv_15, grammarAccess.getExternalModuleAccess().getRightCurlyBracketKeyword_7());
                 
 
             }
@@ -4699,7 +4719,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1913:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1921:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -4707,17 +4727,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1914:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1915:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1922:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1923:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4074);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4140);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
 
              current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName4085); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName4151); 
 
             }
 
@@ -4735,7 +4755,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1922:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1930:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4746,40 +4766,40 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1925:28: ( (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1926:1: (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1933:28: ( (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1934:1: (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1926:1: (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1926:6: this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )*
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1934:1: (this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )* )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1934:6: this_ID_ASML_0= RULE_ID_ASML (kw= '.' this_ID_ASML_2= RULE_ID_ASML )*
             {
-            this_ID_ASML_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4125); 
+            this_ID_ASML_0=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4191); 
 
             		current.merge(this_ID_ASML_0);
                 
              
                 newLeafNode(this_ID_ASML_0, grammarAccess.getQualifiedNameAccess().getID_ASMLTerminalRuleCall_0()); 
                 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1933:1: (kw= '.' this_ID_ASML_2= RULE_ID_ASML )*
-            loop51:
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1941:1: (kw= '.' this_ID_ASML_2= RULE_ID_ASML )*
+            loop53:
             do {
-                int alt51=2;
-                int LA51_0 = input.LA(1);
+                int alt53=2;
+                int LA53_0 = input.LA(1);
 
-                if ( (LA51_0==38) ) {
-                    alt51=1;
+                if ( (LA53_0==39) ) {
+                    alt53=1;
                 }
 
 
-                switch (alt51) {
+                switch (alt53) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1934:2: kw= '.' this_ID_ASML_2= RULE_ID_ASML
+            	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1942:2: kw= '.' this_ID_ASML_2= RULE_ID_ASML
             	    {
-            	    kw=(Token)match(input,38,FOLLOW_38_in_ruleQualifiedName4144); 
+            	    kw=(Token)match(input,39,FOLLOW_39_in_ruleQualifiedName4210); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             	        
-            	    this_ID_ASML_2=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4159); 
+            	    this_ID_ASML_2=(Token)match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4225); 
 
             	    		current.merge(this_ID_ASML_2);
             	        
@@ -4791,7 +4811,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop51;
+            	    break loop53;
                 }
             } while (true);
 
@@ -4816,7 +4836,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRestriction"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1954:1: entryRuleRestriction returns [EObject current=null] : iv_ruleRestriction= ruleRestriction EOF ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1962:1: entryRuleRestriction returns [EObject current=null] : iv_ruleRestriction= ruleRestriction EOF ;
     public final EObject entryRuleRestriction() throws RecognitionException {
         EObject current = null;
 
@@ -4824,17 +4844,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1955:2: (iv_ruleRestriction= ruleRestriction EOF )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1956:2: iv_ruleRestriction= ruleRestriction EOF
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1963:2: (iv_ruleRestriction= ruleRestriction EOF )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1964:2: iv_ruleRestriction= ruleRestriction EOF
             {
              newCompositeNode(grammarAccess.getRestrictionRule()); 
-            pushFollow(FOLLOW_ruleRestriction_in_entryRuleRestriction4206);
+            pushFollow(FOLLOW_ruleRestriction_in_entryRuleRestriction4272);
             iv_ruleRestriction=ruleRestriction();
 
             state._fsp--;
 
              current =iv_ruleRestriction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRestriction4216); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRestriction4282); 
 
             }
 
@@ -4852,58 +4872,50 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRestriction"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1963:1: ruleRestriction returns [EObject current=null] : (otherlv_0= 'restriction' otherlv_1= '{' ( (lv_groupClause_2_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_4_0= rulePermissionClause ) )? ( (lv_relactionType_5_0= ruleRelactionType ) ) ( ( ruleQualifiedName ) ) (otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) ) )? otherlv_9= '}' ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1971:1: ruleRestriction returns [EObject current=null] : ( ( (lv_groupClause_0_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_2_0= rulePermissionClause ) )? ( (lv_relactionType_3_0= ruleRelactionType ) ) ( (lv_groupClauseB_4_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) ) (otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) ) )? otherlv_8= ';' ) ;
     public final EObject ruleRestriction() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token otherlv_7=null;
-        Token lv_description_8_0=null;
-        Token otherlv_9=null;
-        Enumerator lv_groupClause_2_0 = null;
+        Token otherlv_6=null;
+        Token lv_description_7_0=null;
+        Token otherlv_8=null;
+        Enumerator lv_groupClause_0_0 = null;
 
-        Enumerator lv_permissionClause_4_0 = null;
+        Enumerator lv_permissionClause_2_0 = null;
 
-        Enumerator lv_relactionType_5_0 = null;
+        Enumerator lv_relactionType_3_0 = null;
+
+        Enumerator lv_groupClauseB_4_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1966:28: ( (otherlv_0= 'restriction' otherlv_1= '{' ( (lv_groupClause_2_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_4_0= rulePermissionClause ) )? ( (lv_relactionType_5_0= ruleRelactionType ) ) ( ( ruleQualifiedName ) ) (otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) ) )? otherlv_9= '}' ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1967:1: (otherlv_0= 'restriction' otherlv_1= '{' ( (lv_groupClause_2_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_4_0= rulePermissionClause ) )? ( (lv_relactionType_5_0= ruleRelactionType ) ) ( ( ruleQualifiedName ) ) (otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) ) )? otherlv_9= '}' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1974:28: ( ( ( (lv_groupClause_0_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_2_0= rulePermissionClause ) )? ( (lv_relactionType_3_0= ruleRelactionType ) ) ( (lv_groupClauseB_4_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) ) (otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) ) )? otherlv_8= ';' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1975:1: ( ( (lv_groupClause_0_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_2_0= rulePermissionClause ) )? ( (lv_relactionType_3_0= ruleRelactionType ) ) ( (lv_groupClauseB_4_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) ) (otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) ) )? otherlv_8= ';' )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1967:1: (otherlv_0= 'restriction' otherlv_1= '{' ( (lv_groupClause_2_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_4_0= rulePermissionClause ) )? ( (lv_relactionType_5_0= ruleRelactionType ) ) ( ( ruleQualifiedName ) ) (otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) ) )? otherlv_9= '}' )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1967:3: otherlv_0= 'restriction' otherlv_1= '{' ( (lv_groupClause_2_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_4_0= rulePermissionClause ) )? ( (lv_relactionType_5_0= ruleRelactionType ) ) ( ( ruleQualifiedName ) ) (otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) ) )? otherlv_9= '}'
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1975:1: ( ( (lv_groupClause_0_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_2_0= rulePermissionClause ) )? ( (lv_relactionType_3_0= ruleRelactionType ) ) ( (lv_groupClauseB_4_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) ) (otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) ) )? otherlv_8= ';' )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1975:2: ( (lv_groupClause_0_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) )* ( (lv_permissionClause_2_0= rulePermissionClause ) )? ( (lv_relactionType_3_0= ruleRelactionType ) ) ( (lv_groupClauseB_4_0= ruleGroupClause ) )? ( ( ruleQualifiedName ) ) (otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) ) )? otherlv_8= ';'
             {
-            otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleRestriction4253); 
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1975:2: ( (lv_groupClause_0_0= ruleGroupClause ) )?
+            int alt54=2;
+            int LA54_0 = input.LA(1);
 
-                	newLeafNode(otherlv_0, grammarAccess.getRestrictionAccess().getRestrictionKeyword_0());
-                
-            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleRestriction4265); 
-
-                	newLeafNode(otherlv_1, grammarAccess.getRestrictionAccess().getLeftCurlyBracketKeyword_1());
-                
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1975:1: ( (lv_groupClause_2_0= ruleGroupClause ) )?
-            int alt52=2;
-            int LA52_0 = input.LA(1);
-
-            if ( ((LA52_0>=51 && LA52_0<=54)) ) {
-                alt52=1;
+            if ( ((LA54_0>=51 && LA54_0<=54)) ) {
+                alt54=1;
             }
-            switch (alt52) {
+            switch (alt54) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1976:1: (lv_groupClause_2_0= ruleGroupClause )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1976:1: (lv_groupClause_0_0= ruleGroupClause )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1976:1: (lv_groupClause_2_0= ruleGroupClause )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1977:3: lv_groupClause_2_0= ruleGroupClause
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1976:1: (lv_groupClause_0_0= ruleGroupClause )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1977:3: lv_groupClause_0_0= ruleGroupClause
                     {
                      
-                    	        newCompositeNode(grammarAccess.getRestrictionAccess().getGroupClauseGroupClauseEnumRuleCall_2_0()); 
+                    	        newCompositeNode(grammarAccess.getRestrictionAccess().getGroupClauseGroupClauseEnumRuleCall_0_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleGroupClause_in_ruleRestriction4286);
-                    lv_groupClause_2_0=ruleGroupClause();
+                    pushFollow(FOLLOW_ruleGroupClause_in_ruleRestriction4328);
+                    lv_groupClause_0_0=ruleGroupClause();
 
                     state._fsp--;
 
@@ -4914,7 +4926,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"groupClause",
-                            		lv_groupClause_2_0, 
+                            		lv_groupClause_0_0, 
                             		"GroupClause");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -4928,17 +4940,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             }
 
             // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1993:3: ( ( ruleQualifiedName ) )*
-            loop53:
+            loop55:
             do {
-                int alt53=2;
-                int LA53_0 = input.LA(1);
+                int alt55=2;
+                int LA55_0 = input.LA(1);
 
-                if ( (LA53_0==RULE_ID_ASML) ) {
-                    alt53=1;
+                if ( (LA55_0==RULE_ID_ASML) ) {
+                    alt55=1;
                 }
 
 
-                switch (alt53) {
+                switch (alt55) {
             	case 1 :
             	    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:1994:1: ( ruleQualifiedName )
             	    {
@@ -4951,9 +4963,9 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    	        }
             	            
             	     
-            	    	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentCrossReference_3_0()); 
+            	    	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentCrossReference_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleRestriction4310);
+            	    pushFollow(FOLLOW_ruleQualifiedName_in_ruleRestriction4352);
             	    ruleQualifiedName();
 
             	    state._fsp--;
@@ -4969,29 +4981,29 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop53;
+            	    break loop55;
                 }
             } while (true);
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2008:3: ( (lv_permissionClause_4_0= rulePermissionClause ) )?
-            int alt54=2;
-            int LA54_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2008:3: ( (lv_permissionClause_2_0= rulePermissionClause ) )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
 
-            if ( (LA54_0==51||(LA54_0>=55 && LA54_0<=57)) ) {
-                alt54=1;
+            if ( (LA56_0==51||(LA56_0>=55 && LA56_0<=57)) ) {
+                alt56=1;
             }
-            switch (alt54) {
+            switch (alt56) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2009:1: (lv_permissionClause_4_0= rulePermissionClause )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2009:1: (lv_permissionClause_2_0= rulePermissionClause )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2009:1: (lv_permissionClause_4_0= rulePermissionClause )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2010:3: lv_permissionClause_4_0= rulePermissionClause
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2009:1: (lv_permissionClause_2_0= rulePermissionClause )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2010:3: lv_permissionClause_2_0= rulePermissionClause
                     {
                      
-                    	        newCompositeNode(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_4_0()); 
+                    	        newCompositeNode(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_2_0()); 
                     	    
-                    pushFollow(FOLLOW_rulePermissionClause_in_ruleRestriction4332);
-                    lv_permissionClause_4_0=rulePermissionClause();
+                    pushFollow(FOLLOW_rulePermissionClause_in_ruleRestriction4374);
+                    lv_permissionClause_2_0=rulePermissionClause();
 
                     state._fsp--;
 
@@ -5002,7 +5014,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"permissionClause",
-                            		lv_permissionClause_4_0, 
+                            		lv_permissionClause_2_0, 
                             		"PermissionClause");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -5015,17 +5027,17 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2026:3: ( (lv_relactionType_5_0= ruleRelactionType ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2027:1: (lv_relactionType_5_0= ruleRelactionType )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2026:3: ( (lv_relactionType_3_0= ruleRelactionType ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2027:1: (lv_relactionType_3_0= ruleRelactionType )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2027:1: (lv_relactionType_5_0= ruleRelactionType )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2028:3: lv_relactionType_5_0= ruleRelactionType
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2027:1: (lv_relactionType_3_0= ruleRelactionType )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2028:3: lv_relactionType_3_0= ruleRelactionType
             {
              
-            	        newCompositeNode(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_5_0()); 
+            	        newCompositeNode(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleRelactionType_in_ruleRestriction4354);
-            lv_relactionType_5_0=ruleRelactionType();
+            pushFollow(FOLLOW_ruleRelactionType_in_ruleRestriction4396);
+            lv_relactionType_3_0=ruleRelactionType();
 
             state._fsp--;
 
@@ -5036,7 +5048,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"relactionType",
-                    		lv_relactionType_5_0, 
+                    		lv_relactionType_3_0, 
                     		"RelactionType");
             	        afterParserOrEnumRuleCall();
             	    
@@ -5046,11 +5058,53 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2044:2: ( ( ruleQualifiedName ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2045:1: ( ruleQualifiedName )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2044:2: ( (lv_groupClauseB_4_0= ruleGroupClause ) )?
+            int alt57=2;
+            int LA57_0 = input.LA(1);
+
+            if ( ((LA57_0>=51 && LA57_0<=54)) ) {
+                alt57=1;
+            }
+            switch (alt57) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2045:1: (lv_groupClauseB_4_0= ruleGroupClause )
+                    {
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2045:1: (lv_groupClauseB_4_0= ruleGroupClause )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2046:3: lv_groupClauseB_4_0= ruleGroupClause
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_4_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleGroupClause_in_ruleRestriction4417);
+                    lv_groupClauseB_4_0=ruleGroupClause();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getRestrictionRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"groupClauseB",
+                            		lv_groupClauseB_4_0, 
+                            		"GroupClause");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2062:3: ( ( ruleQualifiedName ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2063:1: ( ruleQualifiedName )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2045:1: ( ruleQualifiedName )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2046:3: ruleQualifiedName
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2063:1: ( ruleQualifiedName )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2064:3: ruleQualifiedName
             {
 
             			if (current==null) {
@@ -5058,9 +5112,9 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
             	        }
                     
              
-            	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_6_0()); 
+            	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_5_0()); 
             	    
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleRestriction4377);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleRestriction4441);
             ruleQualifiedName();
 
             state._fsp--;
@@ -5074,30 +5128,30 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2059:2: (otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) ) )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2077:2: (otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) ) )?
+            int alt58=2;
+            int LA58_0 = input.LA(1);
 
-            if ( (LA55_0==29) ) {
-                alt55=1;
+            if ( (LA58_0==29) ) {
+                alt58=1;
             }
-            switch (alt55) {
+            switch (alt58) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2059:4: otherlv_7= 'description' ( (lv_description_8_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2077:4: otherlv_6= 'description' ( (lv_description_7_0= RULE_STRING ) )
                     {
-                    otherlv_7=(Token)match(input,29,FOLLOW_29_in_ruleRestriction4390); 
+                    otherlv_6=(Token)match(input,29,FOLLOW_29_in_ruleRestriction4454); 
 
-                        	newLeafNode(otherlv_7, grammarAccess.getRestrictionAccess().getDescriptionKeyword_7_0());
+                        	newLeafNode(otherlv_6, grammarAccess.getRestrictionAccess().getDescriptionKeyword_6_0());
                         
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2063:1: ( (lv_description_8_0= RULE_STRING ) )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2064:1: (lv_description_8_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2081:1: ( (lv_description_7_0= RULE_STRING ) )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2082:1: (lv_description_7_0= RULE_STRING )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2064:1: (lv_description_8_0= RULE_STRING )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2065:3: lv_description_8_0= RULE_STRING
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2082:1: (lv_description_7_0= RULE_STRING )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2083:3: lv_description_7_0= RULE_STRING
                     {
-                    lv_description_8_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRestriction4407); 
+                    lv_description_7_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRestriction4471); 
 
-                    			newLeafNode(lv_description_8_0, grammarAccess.getRestrictionAccess().getDescriptionSTRINGTerminalRuleCall_7_1_0()); 
+                    			newLeafNode(lv_description_7_0, grammarAccess.getRestrictionAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0()); 
                     		
 
                     	        if (current==null) {
@@ -5106,7 +5160,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                            		setWithLastConsumed(
                            			current, 
                            			"description",
-                            		lv_description_8_0, 
+                            		lv_description_7_0, 
                             		"STRING");
                     	    
 
@@ -5121,9 +5175,9 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,18,FOLLOW_18_in_ruleRestriction4426); 
+            otherlv_8=(Token)match(input,15,FOLLOW_15_in_ruleRestriction4490); 
 
-                	newLeafNode(otherlv_9, grammarAccess.getRestrictionAccess().getRightCurlyBracketKeyword_8());
+                	newLeafNode(otherlv_8, grammarAccess.getRestrictionAccess().getSemicolonKeyword_7());
                 
 
             }
@@ -5146,7 +5200,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCardinality"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2093:1: ruleCardinality returns [Enumerator current=null] : ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2111:1: ruleCardinality returns [Enumerator current=null] : ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) ) ;
     public final Enumerator ruleCardinality() throws RecognitionException {
         Enumerator current = null;
 
@@ -5157,47 +5211,47 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2095:28: ( ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2096:1: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2113:28: ( ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:1: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2096:1: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) )
-            int alt56=4;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:1: ( (enumLiteral_0= '1' ) | (enumLiteral_1= '0' ) | (enumLiteral_2= '1..*' ) | (enumLiteral_3= '0..*' ) )
+            int alt59=4;
             switch ( input.LA(1) ) {
             case 40:
                 {
-                alt56=1;
+                alt59=1;
                 }
                 break;
             case 41:
                 {
-                alt56=2;
+                alt59=2;
                 }
                 break;
             case 42:
                 {
-                alt56=3;
+                alt59=3;
                 }
                 break;
             case 43:
                 {
-                alt56=4;
+                alt59=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 56, 0, input);
+                    new NoViableAltException("", 59, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt56) {
+            switch (alt59) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2096:2: (enumLiteral_0= '1' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:2: (enumLiteral_0= '1' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2096:2: (enumLiteral_0= '1' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2096:4: enumLiteral_0= '1'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:2: (enumLiteral_0= '1' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:4: enumLiteral_0= '1'
                     {
-                    enumLiteral_0=(Token)match(input,40,FOLLOW_40_in_ruleCardinality4476); 
+                    enumLiteral_0=(Token)match(input,40,FOLLOW_40_in_ruleCardinality4540); 
 
                             current = grammarAccess.getCardinalityAccess().getOneEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getCardinalityAccess().getOneEnumLiteralDeclaration_0()); 
@@ -5209,12 +5263,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2102:6: (enumLiteral_1= '0' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2120:6: (enumLiteral_1= '0' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2102:6: (enumLiteral_1= '0' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2102:8: enumLiteral_1= '0'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2120:6: (enumLiteral_1= '0' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2120:8: enumLiteral_1= '0'
                     {
-                    enumLiteral_1=(Token)match(input,41,FOLLOW_41_in_ruleCardinality4493); 
+                    enumLiteral_1=(Token)match(input,41,FOLLOW_41_in_ruleCardinality4557); 
 
                             current = grammarAccess.getCardinalityAccess().getZeroEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getCardinalityAccess().getZeroEnumLiteralDeclaration_1()); 
@@ -5226,12 +5280,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2108:6: (enumLiteral_2= '1..*' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2126:6: (enumLiteral_2= '1..*' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2108:6: (enumLiteral_2= '1..*' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2108:8: enumLiteral_2= '1..*'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2126:6: (enumLiteral_2= '1..*' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2126:8: enumLiteral_2= '1..*'
                     {
-                    enumLiteral_2=(Token)match(input,42,FOLLOW_42_in_ruleCardinality4510); 
+                    enumLiteral_2=(Token)match(input,42,FOLLOW_42_in_ruleCardinality4574); 
 
                             current = grammarAccess.getCardinalityAccess().getOneOrManyEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getCardinalityAccess().getOneOrManyEnumLiteralDeclaration_2()); 
@@ -5243,12 +5297,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:6: (enumLiteral_3= '0..*' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2132:6: (enumLiteral_3= '0..*' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:6: (enumLiteral_3= '0..*' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2114:8: enumLiteral_3= '0..*'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2132:6: (enumLiteral_3= '0..*' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2132:8: enumLiteral_3= '0..*'
                     {
-                    enumLiteral_3=(Token)match(input,43,FOLLOW_43_in_ruleCardinality4527); 
+                    enumLiteral_3=(Token)match(input,43,FOLLOW_43_in_ruleCardinality4591); 
 
                             current = grammarAccess.getCardinalityAccess().getZeroOrManyEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getCardinalityAccess().getZeroOrManyEnumLiteralDeclaration_3()); 
@@ -5280,7 +5334,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpressionMatchingClause"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2124:1: ruleExpressionMatchingClause returns [Enumerator current=null] : ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2142:1: ruleExpressionMatchingClause returns [Enumerator current=null] : ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) ) ;
     public final Enumerator ruleExpressionMatchingClause() throws RecognitionException {
         Enumerator current = null;
 
@@ -5290,42 +5344,42 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2126:28: ( ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2127:1: ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2144:28: ( ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2145:1: ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2127:1: ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) )
-            int alt57=3;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2145:1: ( (enumLiteral_0= 'name start with' ) | (enumLiteral_1= 'name ends with' ) | (enumLiteral_2= 'annotated with' ) )
+            int alt60=3;
             switch ( input.LA(1) ) {
             case 44:
                 {
-                alt57=1;
+                alt60=1;
                 }
                 break;
             case 45:
                 {
-                alt57=2;
+                alt60=2;
                 }
                 break;
             case 46:
                 {
-                alt57=3;
+                alt60=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 57, 0, input);
+                    new NoViableAltException("", 60, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt57) {
+            switch (alt60) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2127:2: (enumLiteral_0= 'name start with' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2145:2: (enumLiteral_0= 'name start with' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2127:2: (enumLiteral_0= 'name start with' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2127:4: enumLiteral_0= 'name start with'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2145:2: (enumLiteral_0= 'name start with' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2145:4: enumLiteral_0= 'name start with'
                     {
-                    enumLiteral_0=(Token)match(input,44,FOLLOW_44_in_ruleExpressionMatchingClause4572); 
+                    enumLiteral_0=(Token)match(input,44,FOLLOW_44_in_ruleExpressionMatchingClause4636); 
 
                             current = grammarAccess.getExpressionMatchingClauseAccess().getNAME_START_WITHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getExpressionMatchingClauseAccess().getNAME_START_WITHEnumLiteralDeclaration_0()); 
@@ -5337,12 +5391,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2133:6: (enumLiteral_1= 'name ends with' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2151:6: (enumLiteral_1= 'name ends with' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2133:6: (enumLiteral_1= 'name ends with' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2133:8: enumLiteral_1= 'name ends with'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2151:6: (enumLiteral_1= 'name ends with' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2151:8: enumLiteral_1= 'name ends with'
                     {
-                    enumLiteral_1=(Token)match(input,45,FOLLOW_45_in_ruleExpressionMatchingClause4589); 
+                    enumLiteral_1=(Token)match(input,45,FOLLOW_45_in_ruleExpressionMatchingClause4653); 
 
                             current = grammarAccess.getExpressionMatchingClauseAccess().getNAME_ENDS_WITHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getExpressionMatchingClauseAccess().getNAME_ENDS_WITHEnumLiteralDeclaration_1()); 
@@ -5354,12 +5408,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2139:6: (enumLiteral_2= 'annotated with' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2157:6: (enumLiteral_2= 'annotated with' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2139:6: (enumLiteral_2= 'annotated with' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2139:8: enumLiteral_2= 'annotated with'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2157:6: (enumLiteral_2= 'annotated with' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2157:8: enumLiteral_2= 'annotated with'
                     {
-                    enumLiteral_2=(Token)match(input,46,FOLLOW_46_in_ruleExpressionMatchingClause4606); 
+                    enumLiteral_2=(Token)match(input,46,FOLLOW_46_in_ruleExpressionMatchingClause4670); 
 
                             current = grammarAccess.getExpressionMatchingClauseAccess().getANNOTATED_WITHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getExpressionMatchingClauseAccess().getANNOTATED_WITHEnumLiteralDeclaration_2()); 
@@ -5391,7 +5445,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModuleMatchingParamenter"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2149:1: ruleModuleMatchingParamenter returns [Enumerator current=null] : ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2167:1: ruleModuleMatchingParamenter returns [Enumerator current=null] : ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) ) ;
     public final Enumerator ruleModuleMatchingParamenter() throws RecognitionException {
         Enumerator current = null;
 
@@ -5402,47 +5456,47 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2151:28: ( ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2152:1: ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2169:28: ( ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:1: ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2152:1: ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) )
-            int alt58=4;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:1: ( (enumLiteral_0= 'by package name' ) | (enumLiteral_1= 'by folder name' ) | (enumLiteral_2= 'by package and folder name' ) | (enumLiteral_3= 'by external implementation' ) )
+            int alt61=4;
             switch ( input.LA(1) ) {
             case 47:
                 {
-                alt58=1;
+                alt61=1;
                 }
                 break;
             case 48:
                 {
-                alt58=2;
+                alt61=2;
                 }
                 break;
             case 49:
                 {
-                alt58=3;
+                alt61=3;
                 }
                 break;
             case 50:
                 {
-                alt58=4;
+                alt61=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 58, 0, input);
+                    new NoViableAltException("", 61, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt58) {
+            switch (alt61) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2152:2: (enumLiteral_0= 'by package name' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:2: (enumLiteral_0= 'by package name' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2152:2: (enumLiteral_0= 'by package name' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2152:4: enumLiteral_0= 'by package name'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:2: (enumLiteral_0= 'by package name' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:4: enumLiteral_0= 'by package name'
                     {
-                    enumLiteral_0=(Token)match(input,47,FOLLOW_47_in_ruleModuleMatchingParamenter4651); 
+                    enumLiteral_0=(Token)match(input,47,FOLLOW_47_in_ruleModuleMatchingParamenter4715); 
 
                             current = grammarAccess.getModuleMatchingParamenterAccess().getPAKCAGEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getModuleMatchingParamenterAccess().getPAKCAGEEnumLiteralDeclaration_0()); 
@@ -5454,12 +5508,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2158:6: (enumLiteral_1= 'by folder name' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2176:6: (enumLiteral_1= 'by folder name' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2158:6: (enumLiteral_1= 'by folder name' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2158:8: enumLiteral_1= 'by folder name'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2176:6: (enumLiteral_1= 'by folder name' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2176:8: enumLiteral_1= 'by folder name'
                     {
-                    enumLiteral_1=(Token)match(input,48,FOLLOW_48_in_ruleModuleMatchingParamenter4668); 
+                    enumLiteral_1=(Token)match(input,48,FOLLOW_48_in_ruleModuleMatchingParamenter4732); 
 
                             current = grammarAccess.getModuleMatchingParamenterAccess().getFOLDEREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getModuleMatchingParamenterAccess().getFOLDEREnumLiteralDeclaration_1()); 
@@ -5471,12 +5525,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2164:6: (enumLiteral_2= 'by package and folder name' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2182:6: (enumLiteral_2= 'by package and folder name' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2164:6: (enumLiteral_2= 'by package and folder name' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2164:8: enumLiteral_2= 'by package and folder name'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2182:6: (enumLiteral_2= 'by package and folder name' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2182:8: enumLiteral_2= 'by package and folder name'
                     {
-                    enumLiteral_2=(Token)match(input,49,FOLLOW_49_in_ruleModuleMatchingParamenter4685); 
+                    enumLiteral_2=(Token)match(input,49,FOLLOW_49_in_ruleModuleMatchingParamenter4749); 
 
                             current = grammarAccess.getModuleMatchingParamenterAccess().getPAKCAGE_AND_FOLDEREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getModuleMatchingParamenterAccess().getPAKCAGE_AND_FOLDEREnumLiteralDeclaration_2()); 
@@ -5488,12 +5542,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:6: (enumLiteral_3= 'by external implementation' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2188:6: (enumLiteral_3= 'by external implementation' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:6: (enumLiteral_3= 'by external implementation' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2170:8: enumLiteral_3= 'by external implementation'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2188:6: (enumLiteral_3= 'by external implementation' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2188:8: enumLiteral_3= 'by external implementation'
                     {
-                    enumLiteral_3=(Token)match(input,50,FOLLOW_50_in_ruleModuleMatchingParamenter4702); 
+                    enumLiteral_3=(Token)match(input,50,FOLLOW_50_in_ruleModuleMatchingParamenter4766); 
 
                             current = grammarAccess.getModuleMatchingParamenterAccess().getEXTERNAL_DEFINITIONEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getModuleMatchingParamenterAccess().getEXTERNAL_DEFINITIONEnumLiteralDeclaration_3()); 
@@ -5525,7 +5579,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGroupClause"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2180:1: ruleGroupClause returns [Enumerator current=null] : ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2198:1: ruleGroupClause returns [Enumerator current=null] : ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) ) ;
     public final Enumerator ruleGroupClause() throws RecognitionException {
         Enumerator current = null;
 
@@ -5536,47 +5590,47 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2182:28: ( ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2183:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2200:28: ( ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2183:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) )
-            int alt59=4;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'only' ) | (enumLiteral_2= 'any' ) | (enumLiteral_3= 'no one' ) )
+            int alt62=4;
             switch ( input.LA(1) ) {
             case 51:
                 {
-                alt59=1;
+                alt62=1;
                 }
                 break;
             case 52:
                 {
-                alt59=2;
+                alt62=2;
                 }
                 break;
             case 53:
                 {
-                alt59=3;
+                alt62=3;
                 }
                 break;
             case 54:
                 {
-                alt59=4;
+                alt62=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 59, 0, input);
+                    new NoViableAltException("", 62, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt59) {
+            switch (alt62) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2183:2: (enumLiteral_0= 'null' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:2: (enumLiteral_0= 'null' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2183:2: (enumLiteral_0= 'null' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2183:4: enumLiteral_0= 'null'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:2: (enumLiteral_0= 'null' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:4: enumLiteral_0= 'null'
                     {
-                    enumLiteral_0=(Token)match(input,51,FOLLOW_51_in_ruleGroupClause4747); 
+                    enumLiteral_0=(Token)match(input,51,FOLLOW_51_in_ruleGroupClause4811); 
 
                             current = grammarAccess.getGroupClauseAccess().getNULLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getGroupClauseAccess().getNULLEnumLiteralDeclaration_0()); 
@@ -5588,12 +5642,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2189:6: (enumLiteral_1= 'only' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2207:6: (enumLiteral_1= 'only' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2189:6: (enumLiteral_1= 'only' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2189:8: enumLiteral_1= 'only'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2207:6: (enumLiteral_1= 'only' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2207:8: enumLiteral_1= 'only'
                     {
-                    enumLiteral_1=(Token)match(input,52,FOLLOW_52_in_ruleGroupClause4764); 
+                    enumLiteral_1=(Token)match(input,52,FOLLOW_52_in_ruleGroupClause4828); 
 
                             current = grammarAccess.getGroupClauseAccess().getONLYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getGroupClauseAccess().getONLYEnumLiteralDeclaration_1()); 
@@ -5605,12 +5659,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2195:6: (enumLiteral_2= 'any' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2213:6: (enumLiteral_2= 'any' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2195:6: (enumLiteral_2= 'any' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2195:8: enumLiteral_2= 'any'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2213:6: (enumLiteral_2= 'any' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2213:8: enumLiteral_2= 'any'
                     {
-                    enumLiteral_2=(Token)match(input,53,FOLLOW_53_in_ruleGroupClause4781); 
+                    enumLiteral_2=(Token)match(input,53,FOLLOW_53_in_ruleGroupClause4845); 
 
                             current = grammarAccess.getGroupClauseAccess().getANYEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getGroupClauseAccess().getANYEnumLiteralDeclaration_2()); 
@@ -5622,12 +5676,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:6: (enumLiteral_3= 'no one' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2219:6: (enumLiteral_3= 'no one' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:6: (enumLiteral_3= 'no one' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2201:8: enumLiteral_3= 'no one'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2219:6: (enumLiteral_3= 'no one' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2219:8: enumLiteral_3= 'no one'
                     {
-                    enumLiteral_3=(Token)match(input,54,FOLLOW_54_in_ruleGroupClause4798); 
+                    enumLiteral_3=(Token)match(input,54,FOLLOW_54_in_ruleGroupClause4862); 
 
                             current = grammarAccess.getGroupClauseAccess().getNO_ONEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getGroupClauseAccess().getNO_ONEEnumLiteralDeclaration_3()); 
@@ -5659,7 +5713,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePermissionClause"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2211:1: rulePermissionClause returns [Enumerator current=null] : ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2229:1: rulePermissionClause returns [Enumerator current=null] : ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) ) ;
     public final Enumerator rulePermissionClause() throws RecognitionException {
         Enumerator current = null;
 
@@ -5670,47 +5724,47 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2213:28: ( ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2214:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2231:28: ( ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2214:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) )
-            int alt60=4;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:1: ( (enumLiteral_0= 'null' ) | (enumLiteral_1= 'must' ) | (enumLiteral_2= 'can' ) | (enumLiteral_3= 'cannot' ) )
+            int alt63=4;
             switch ( input.LA(1) ) {
             case 51:
                 {
-                alt60=1;
+                alt63=1;
                 }
                 break;
             case 55:
                 {
-                alt60=2;
+                alt63=2;
                 }
                 break;
             case 56:
                 {
-                alt60=3;
+                alt63=3;
                 }
                 break;
             case 57:
                 {
-                alt60=4;
+                alt63=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 60, 0, input);
+                    new NoViableAltException("", 63, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt60) {
+            switch (alt63) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2214:2: (enumLiteral_0= 'null' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:2: (enumLiteral_0= 'null' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2214:2: (enumLiteral_0= 'null' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2214:4: enumLiteral_0= 'null'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:2: (enumLiteral_0= 'null' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:4: enumLiteral_0= 'null'
                     {
-                    enumLiteral_0=(Token)match(input,51,FOLLOW_51_in_rulePermissionClause4843); 
+                    enumLiteral_0=(Token)match(input,51,FOLLOW_51_in_rulePermissionClause4907); 
 
                             current = grammarAccess.getPermissionClauseAccess().getNULLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getPermissionClauseAccess().getNULLEnumLiteralDeclaration_0()); 
@@ -5722,12 +5776,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2220:6: (enumLiteral_1= 'must' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2238:6: (enumLiteral_1= 'must' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2220:6: (enumLiteral_1= 'must' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2220:8: enumLiteral_1= 'must'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2238:6: (enumLiteral_1= 'must' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2238:8: enumLiteral_1= 'must'
                     {
-                    enumLiteral_1=(Token)match(input,55,FOLLOW_55_in_rulePermissionClause4860); 
+                    enumLiteral_1=(Token)match(input,55,FOLLOW_55_in_rulePermissionClause4924); 
 
                             current = grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_1()); 
@@ -5739,12 +5793,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2226:6: (enumLiteral_2= 'can' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2244:6: (enumLiteral_2= 'can' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2226:6: (enumLiteral_2= 'can' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2226:8: enumLiteral_2= 'can'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2244:6: (enumLiteral_2= 'can' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2244:8: enumLiteral_2= 'can'
                     {
-                    enumLiteral_2=(Token)match(input,56,FOLLOW_56_in_rulePermissionClause4877); 
+                    enumLiteral_2=(Token)match(input,56,FOLLOW_56_in_rulePermissionClause4941); 
 
                             current = grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_2()); 
@@ -5756,12 +5810,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:6: (enumLiteral_3= 'cannot' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2250:6: (enumLiteral_3= 'cannot' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:6: (enumLiteral_3= 'cannot' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2232:8: enumLiteral_3= 'cannot'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2250:6: (enumLiteral_3= 'cannot' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2250:8: enumLiteral_3= 'cannot'
                     {
-                    enumLiteral_3=(Token)match(input,57,FOLLOW_57_in_rulePermissionClause4894); 
+                    enumLiteral_3=(Token)match(input,57,FOLLOW_57_in_rulePermissionClause4958); 
 
                             current = grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_3()); 
@@ -5793,7 +5847,7 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelactionType"
-    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2242:1: ruleRelactionType returns [Enumerator current=null] : ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) ) ;
+    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2260:1: ruleRelactionType returns [Enumerator current=null] : ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) ) ;
     public final Enumerator ruleRelactionType() throws RecognitionException {
         Enumerator current = null;
 
@@ -5810,77 +5864,77 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2244:28: ( ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) ) )
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2245:1: ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2262:28: ( ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) ) )
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:1: ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) )
             {
-            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2245:1: ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) )
-            int alt61=10;
+            // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:1: ( (enumLiteral_0= 'access' ) | (enumLiteral_1= 'declare' ) | (enumLiteral_2= 'handle' ) | (enumLiteral_3= 'extend' ) | (enumLiteral_4= 'implement' ) | (enumLiteral_5= 'create' ) | (enumLiteral_6= 'throw' ) | (enumLiteral_7= 'use annotation' ) | (enumLiteral_8= 'depend' ) | (enumLiteral_9= 'requires' ) )
+            int alt64=10;
             switch ( input.LA(1) ) {
             case 58:
                 {
-                alt61=1;
+                alt64=1;
                 }
                 break;
             case 59:
                 {
-                alt61=2;
+                alt64=2;
                 }
                 break;
             case 60:
                 {
-                alt61=3;
+                alt64=3;
                 }
                 break;
             case 61:
                 {
-                alt61=4;
+                alt64=4;
                 }
                 break;
             case 62:
                 {
-                alt61=5;
+                alt64=5;
                 }
                 break;
             case 63:
                 {
-                alt61=6;
+                alt64=6;
                 }
                 break;
             case 64:
                 {
-                alt61=7;
+                alt64=7;
                 }
                 break;
             case 65:
                 {
-                alt61=8;
+                alt64=8;
                 }
                 break;
             case 66:
                 {
-                alt61=9;
+                alt64=9;
                 }
                 break;
             case 67:
                 {
-                alt61=10;
+                alt64=10;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 61, 0, input);
+                    new NoViableAltException("", 64, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt61) {
+            switch (alt64) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2245:2: (enumLiteral_0= 'access' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:2: (enumLiteral_0= 'access' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2245:2: (enumLiteral_0= 'access' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2245:4: enumLiteral_0= 'access'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:2: (enumLiteral_0= 'access' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:4: enumLiteral_0= 'access'
                     {
-                    enumLiteral_0=(Token)match(input,58,FOLLOW_58_in_ruleRelactionType4939); 
+                    enumLiteral_0=(Token)match(input,58,FOLLOW_58_in_ruleRelactionType5003); 
 
                             current = grammarAccess.getRelactionTypeAccess().getACCESSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getRelactionTypeAccess().getACCESSEnumLiteralDeclaration_0()); 
@@ -5892,12 +5946,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2251:6: (enumLiteral_1= 'declare' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2269:6: (enumLiteral_1= 'declare' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2251:6: (enumLiteral_1= 'declare' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2251:8: enumLiteral_1= 'declare'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2269:6: (enumLiteral_1= 'declare' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2269:8: enumLiteral_1= 'declare'
                     {
-                    enumLiteral_1=(Token)match(input,59,FOLLOW_59_in_ruleRelactionType4956); 
+                    enumLiteral_1=(Token)match(input,59,FOLLOW_59_in_ruleRelactionType5020); 
 
                             current = grammarAccess.getRelactionTypeAccess().getDECLAREEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getRelactionTypeAccess().getDECLAREEnumLiteralDeclaration_1()); 
@@ -5909,12 +5963,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2257:6: (enumLiteral_2= 'handle' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2275:6: (enumLiteral_2= 'handle' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2257:6: (enumLiteral_2= 'handle' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2257:8: enumLiteral_2= 'handle'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2275:6: (enumLiteral_2= 'handle' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2275:8: enumLiteral_2= 'handle'
                     {
-                    enumLiteral_2=(Token)match(input,60,FOLLOW_60_in_ruleRelactionType4973); 
+                    enumLiteral_2=(Token)match(input,60,FOLLOW_60_in_ruleRelactionType5037); 
 
                             current = grammarAccess.getRelactionTypeAccess().getHANDLEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getRelactionTypeAccess().getHANDLEEnumLiteralDeclaration_2()); 
@@ -5926,12 +5980,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:6: (enumLiteral_3= 'extend' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2281:6: (enumLiteral_3= 'extend' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:6: (enumLiteral_3= 'extend' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2263:8: enumLiteral_3= 'extend'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2281:6: (enumLiteral_3= 'extend' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2281:8: enumLiteral_3= 'extend'
                     {
-                    enumLiteral_3=(Token)match(input,61,FOLLOW_61_in_ruleRelactionType4990); 
+                    enumLiteral_3=(Token)match(input,61,FOLLOW_61_in_ruleRelactionType5054); 
 
                             current = grammarAccess.getRelactionTypeAccess().getEXTENDEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getRelactionTypeAccess().getEXTENDEnumLiteralDeclaration_3()); 
@@ -5943,12 +5997,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2269:6: (enumLiteral_4= 'implement' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2287:6: (enumLiteral_4= 'implement' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2269:6: (enumLiteral_4= 'implement' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2269:8: enumLiteral_4= 'implement'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2287:6: (enumLiteral_4= 'implement' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2287:8: enumLiteral_4= 'implement'
                     {
-                    enumLiteral_4=(Token)match(input,62,FOLLOW_62_in_ruleRelactionType5007); 
+                    enumLiteral_4=(Token)match(input,62,FOLLOW_62_in_ruleRelactionType5071); 
 
                             current = grammarAccess.getRelactionTypeAccess().getIMPLEMENTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getRelactionTypeAccess().getIMPLEMENTEnumLiteralDeclaration_4()); 
@@ -5960,12 +6014,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2275:6: (enumLiteral_5= 'create' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2293:6: (enumLiteral_5= 'create' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2275:6: (enumLiteral_5= 'create' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2275:8: enumLiteral_5= 'create'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2293:6: (enumLiteral_5= 'create' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2293:8: enumLiteral_5= 'create'
                     {
-                    enumLiteral_5=(Token)match(input,63,FOLLOW_63_in_ruleRelactionType5024); 
+                    enumLiteral_5=(Token)match(input,63,FOLLOW_63_in_ruleRelactionType5088); 
 
                             current = grammarAccess.getRelactionTypeAccess().getCREATEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getRelactionTypeAccess().getCREATEEnumLiteralDeclaration_5()); 
@@ -5977,12 +6031,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2281:6: (enumLiteral_6= 'throw' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2299:6: (enumLiteral_6= 'throw' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2281:6: (enumLiteral_6= 'throw' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2281:8: enumLiteral_6= 'throw'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2299:6: (enumLiteral_6= 'throw' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2299:8: enumLiteral_6= 'throw'
                     {
-                    enumLiteral_6=(Token)match(input,64,FOLLOW_64_in_ruleRelactionType5041); 
+                    enumLiteral_6=(Token)match(input,64,FOLLOW_64_in_ruleRelactionType5105); 
 
                             current = grammarAccess.getRelactionTypeAccess().getTHROWEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getRelactionTypeAccess().getTHROWEnumLiteralDeclaration_6()); 
@@ -5994,12 +6048,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2287:6: (enumLiteral_7= 'use annotation' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2305:6: (enumLiteral_7= 'use annotation' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2287:6: (enumLiteral_7= 'use annotation' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2287:8: enumLiteral_7= 'use annotation'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2305:6: (enumLiteral_7= 'use annotation' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2305:8: enumLiteral_7= 'use annotation'
                     {
-                    enumLiteral_7=(Token)match(input,65,FOLLOW_65_in_ruleRelactionType5058); 
+                    enumLiteral_7=(Token)match(input,65,FOLLOW_65_in_ruleRelactionType5122); 
 
                             current = grammarAccess.getRelactionTypeAccess().getUSEANOTATIONEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getRelactionTypeAccess().getUSEANOTATIONEnumLiteralDeclaration_7()); 
@@ -6011,12 +6065,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2293:6: (enumLiteral_8= 'depend' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2311:6: (enumLiteral_8= 'depend' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2293:6: (enumLiteral_8= 'depend' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2293:8: enumLiteral_8= 'depend'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2311:6: (enumLiteral_8= 'depend' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2311:8: enumLiteral_8= 'depend'
                     {
-                    enumLiteral_8=(Token)match(input,66,FOLLOW_66_in_ruleRelactionType5075); 
+                    enumLiteral_8=(Token)match(input,66,FOLLOW_66_in_ruleRelactionType5139); 
 
                             current = grammarAccess.getRelactionTypeAccess().getDEPENDEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getRelactionTypeAccess().getDEPENDEnumLiteralDeclaration_8()); 
@@ -6028,12 +6082,12 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2299:6: (enumLiteral_9= 'requires' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2317:6: (enumLiteral_9= 'requires' )
                     {
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2299:6: (enumLiteral_9= 'requires' )
-                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2299:8: enumLiteral_9= 'requires'
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2317:6: (enumLiteral_9= 'requires' )
+                    // ../br.ufmg.dcc.asml/src-gen/br/ufmg/dcc/asml/parser/antlr/internal/InternalASMLModel.g:2317:8: enumLiteral_9= 'requires'
                     {
-                    enumLiteral_9=(Token)match(input,67,FOLLOW_67_in_ruleRelactionType5092); 
+                    enumLiteral_9=(Token)match(input,67,FOLLOW_67_in_ruleRelactionType5156); 
 
                             current = grammarAccess.getRelactionTypeAccess().getREQUIRESEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_9, grammarAccess.getRelactionTypeAccess().getREQUIRESEnumLiteralDeclaration_9()); 
@@ -6066,96 +6120,6 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
-    protected DFA11 dfa11 = new DFA11(this);
-    static final String DFA11_eotS =
-        "\37\uffff";
-    static final String DFA11_eofS =
-        "\1\2\36\uffff";
-    static final String DFA11_minS =
-        "\1\22\1\15\1\uffff\6\4\3\72\12\4\1\72\1\4\1\22\2\4\1\5\1\uffff"+
-        "\2\22";
-    static final String DFA11_maxS =
-        "\1\47\1\15\1\uffff\11\103\12\4\1\103\1\4\1\46\1\103\1\4\1\5\1\uffff"+
-        "\1\46\1\22";
-    static final String DFA11_acceptS =
-        "\2\uffff\1\2\31\uffff\1\1\2\uffff";
-    static final String DFA11_specialS =
-        "\37\uffff}>";
-    static final String[] DFA11_transitionS = {
-            "\2\2\2\uffff\1\2\2\uffff\3\2\3\uffff\1\2\1\uffff\5\2\1\uffff"+
-            "\1\1",
-            "\1\3",
-            "",
-            "\1\10\56\uffff\1\4\1\5\1\6\1\7\1\11\1\12\1\13\1\14\1\15\1"+
-            "\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\10\56\uffff\1\26\3\uffff\1\11\1\12\1\13\1\14\1\15\1\16"+
-            "\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\10\56\uffff\1\26\3\uffff\1\11\1\12\1\13\1\14\1\15\1\16"+
-            "\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\10\56\uffff\1\26\3\uffff\1\11\1\12\1\13\1\14\1\15\1\16"+
-            "\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\10\56\uffff\1\26\3\uffff\1\11\1\12\1\13\1\14\1\15\1\16"+
-            "\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\10\41\uffff\1\27\14\uffff\1\26\3\uffff\1\11\1\12\1\13\1"+
-            "\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\30",
-            "\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\31",
-            "\1\34\12\uffff\1\33\10\uffff\1\32",
-            "\1\10\41\uffff\1\27\14\uffff\1\26\3\uffff\1\11\1\12\1\13\1"+
-            "\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25",
-            "\1\35",
-            "\1\36",
-            "",
-            "\1\34\12\uffff\1\33\10\uffff\1\32",
-            "\1\34"
-    };
-
-    static final short[] DFA11_eot = DFA.unpackEncodedString(DFA11_eotS);
-    static final short[] DFA11_eof = DFA.unpackEncodedString(DFA11_eofS);
-    static final char[] DFA11_min = DFA.unpackEncodedStringToUnsignedChars(DFA11_minS);
-    static final char[] DFA11_max = DFA.unpackEncodedStringToUnsignedChars(DFA11_maxS);
-    static final short[] DFA11_accept = DFA.unpackEncodedString(DFA11_acceptS);
-    static final short[] DFA11_special = DFA.unpackEncodedString(DFA11_specialS);
-    static final short[][] DFA11_transition;
-
-    static {
-        int numStates = DFA11_transitionS.length;
-        DFA11_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA11_transition[i] = DFA.unpackEncodedString(DFA11_transitionS[i]);
-        }
-    }
-
-    class DFA11 extends DFA {
-
-        public DFA11(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 11;
-            this.eot = DFA11_eot;
-            this.eof = DFA11_eof;
-            this.min = DFA11_min;
-            this.max = DFA11_max;
-            this.accept = DFA11_accept;
-            this.special = DFA11_special;
-            this.transition = DFA11_transition;
-        }
-        public String getDescription() {
-            return "()* loopback of 402:1: ( (lv_restrictions_8_0= ruleRestriction ) )*";
-        }
-    }
  
 
     public static final BitSet FOLLOW_ruleASMLModel_in_entryRuleASMLModel75 = new BitSet(new long[]{0x0000000000000000L});
@@ -6176,13 +6140,13 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleView352 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_19_in_ruleView389 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleView406 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleView423 = new BitSet(new long[]{0x000000BE8E5C8000L});
+    public static final BitSet FOLLOW_13_in_ruleView423 = new BitSet(new long[]{0xFFF8006E8E548010L,0x000000000000000FL});
     public static final BitSet FOLLOW_20_in_ruleView437 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleAttribute_in_ruleView458 = new BitSet(new long[]{0x0000000000128000L});
     public static final BitSet FOLLOW_17_in_ruleView471 = new BitSet(new long[]{0x0000000000108000L});
-    public static final BitSet FOLLOW_15_in_ruleView487 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleView510 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleRestriction_in_ruleView532 = new BitSet(new long[]{0x0000008000040000L});
+    public static final BitSet FOLLOW_15_in_ruleView487 = new BitSet(new long[]{0xFFF8006E8E440010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleView510 = new BitSet(new long[]{0xFFF8006E8E440010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleRestriction_in_ruleView532 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
     public static final BitSet FOLLOW_18_in_ruleView545 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAbstractComponent_in_entryRuleAbstractComponent581 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAbstractComponent591 = new BitSet(new long[]{0x0000000000000002L});
@@ -6193,211 +6157,217 @@ public class InternalASMLModelParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleExternalClass_in_ruleAbstractComponent746 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMethod_in_ruleAbstractComponent773 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConfigurationElement_in_ruleAbstractComponent800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleView_in_ruleAbstractComponent828 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_ruleRestriction_in_ruleAbstractComponent848 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_ruleAttribute_in_entryRuleAttribute886 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAttribute896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleAttribute938 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleAttribute955 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleAttribute972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbstractNameConvetion_in_entryRuleAbstractNameConvetion1013 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAbstractNameConvetion1023 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleAbstractNameConvetion1059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClassMatching_in_ruleAbstractNameConvetion1086 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModuleMatching_in_entryRuleModuleMatching1123 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModuleMatching1133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModuleMatchingParamenter_in_ruleModuleMatching1178 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClassMatching_in_entryRuleClassMatching1213 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleClassMatching1223 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpressionMatchingClause_in_ruleClassMatching1269 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleClassMatching1286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConfigurationElement_in_entryRuleConfigurationElement1327 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConfigurationElement1337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConfiguration_in_ruleConfigurationElement1384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXmlDocument_in_ruleConfigurationElement1411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXmlElement_in_ruleConfigurationElement1438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFile_in_ruleConfigurationElement1465 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFile_in_entryRuleFile1500 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFile1510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleFile1547 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleFile1564 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleFile1581 = new BitSet(new long[]{0x0000000001840000L});
-    public static final BitSet FOLLOW_23_in_ruleFile1594 = new BitSet(new long[]{0x0000700000000020L});
-    public static final BitSet FOLLOW_ruleAbstractNameConvetion_in_ruleFile1615 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleFile1627 = new BitSet(new long[]{0x0000000001040000L});
-    public static final BitSet FOLLOW_24_in_ruleFile1642 = new BitSet(new long[]{0x00000F0000000000L});
-    public static final BitSet FOLLOW_ruleCardinality_in_ruleFile1663 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleFile1675 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleFile1689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConfiguration_in_entryRuleConfiguration1725 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConfiguration1735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleConfiguration1772 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleConfiguration1789 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleConfiguration1806 = new BitSet(new long[]{0x0000000603C40000L});
-    public static final BitSet FOLLOW_23_in_ruleConfiguration1819 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleConfiguration1836 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleConfiguration1853 = new BitSet(new long[]{0x0000000603440000L});
-    public static final BitSet FOLLOW_24_in_ruleConfiguration1868 = new BitSet(new long[]{0x00000F0000000000L});
-    public static final BitSet FOLLOW_ruleCardinality_in_ruleConfiguration1889 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleConfiguration1901 = new BitSet(new long[]{0x0000000602440000L});
-    public static final BitSet FOLLOW_ruleConfigurationElement_in_ruleConfiguration1924 = new BitSet(new long[]{0x0000000602440000L});
-    public static final BitSet FOLLOW_18_in_ruleConfiguration1937 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethod_in_entryRuleMethod1973 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMethod1983 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleMethod2020 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleMethod2037 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleMethod2054 = new BitSet(new long[]{0x0000000001840000L});
-    public static final BitSet FOLLOW_23_in_ruleMethod2067 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleMethod2084 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMethod2101 = new BitSet(new long[]{0x0000000001040000L});
-    public static final BitSet FOLLOW_24_in_ruleMethod2116 = new BitSet(new long[]{0x00000F0000000000L});
-    public static final BitSet FOLLOW_ruleCardinality_in_ruleMethod2137 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMethod2149 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleMethod2163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMetaClass_in_entryRuleMetaClass2199 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMetaClass2209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleMetaClass2246 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleMetaClass2263 = new BitSet(new long[]{0x0000000010002000L});
-    public static final BitSet FOLLOW_28_in_ruleMetaClass2281 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleMetaClass2304 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleMetaClass2318 = new BitSet(new long[]{0x0000000065040000L});
-    public static final BitSet FOLLOW_29_in_ruleMetaClass2331 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleMetaClass2348 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMetaClass2365 = new BitSet(new long[]{0x0000000045040000L});
-    public static final BitSet FOLLOW_30_in_ruleMetaClass2380 = new BitSet(new long[]{0x0000700000000020L});
-    public static final BitSet FOLLOW_ruleAbstractNameConvetion_in_ruleMetaClass2401 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMetaClass2413 = new BitSet(new long[]{0x0000000005040000L});
-    public static final BitSet FOLLOW_24_in_ruleMetaClass2428 = new BitSet(new long[]{0x00000F0000000000L});
-    public static final BitSet FOLLOW_ruleCardinality_in_ruleMetaClass2449 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMetaClass2461 = new BitSet(new long[]{0x0000000004040000L});
-    public static final BitSet FOLLOW_ruleMethod_in_ruleMetaClass2484 = new BitSet(new long[]{0x0000000004040000L});
-    public static final BitSet FOLLOW_18_in_ruleMetaClass2497 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalClass_in_entryRuleExternalClass2533 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExternalClass2543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleExternalClass2580 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleExternalClass2597 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleExternalClass2614 = new BitSet(new long[]{0x0000000120040000L});
-    public static final BitSet FOLLOW_29_in_ruleExternalClass2627 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleExternalClass2644 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleExternalClass2661 = new BitSet(new long[]{0x0000000100040000L});
-    public static final BitSet FOLLOW_32_in_ruleExternalClass2676 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleExternalClass2693 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleExternalClass2710 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleExternalClass2724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXmlElement_in_entryRuleXmlElement2760 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleXmlElement2770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleXmlElement2807 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleXmlElement2824 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleXmlElement2841 = new BitSet(new long[]{0x0000000001840000L});
-    public static final BitSet FOLLOW_23_in_ruleXmlElement2854 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleXmlElement2871 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleXmlElement2888 = new BitSet(new long[]{0x0000000001040000L});
-    public static final BitSet FOLLOW_24_in_ruleXmlElement2903 = new BitSet(new long[]{0x00000F0000000000L});
-    public static final BitSet FOLLOW_ruleCardinality_in_ruleXmlElement2924 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleXmlElement2936 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleXmlElement2950 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXmlDocument_in_entryRuleXmlDocument2986 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleXmlDocument2996 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleXmlDocument3033 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleXmlDocument3050 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleXmlDocument3067 = new BitSet(new long[]{0x0000000001840000L});
-    public static final BitSet FOLLOW_23_in_ruleXmlDocument3080 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleXmlDocument3097 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleXmlDocument3114 = new BitSet(new long[]{0x0000000001040000L});
-    public static final BitSet FOLLOW_24_in_ruleXmlDocument3129 = new BitSet(new long[]{0x00000F0000000000L});
-    public static final BitSet FOLLOW_ruleCardinality_in_ruleXmlDocument3150 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleXmlDocument3162 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleXmlDocument3176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModule_in_entryRuleModule3212 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModule3222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleModule3259 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleModule3276 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleModule3293 = new BitSet(new long[]{0x000000BE8EDC8000L});
-    public static final BitSet FOLLOW_20_in_ruleModule3307 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleAttribute_in_ruleModule3328 = new BitSet(new long[]{0x0000000000128000L});
-    public static final BitSet FOLLOW_17_in_ruleModule3341 = new BitSet(new long[]{0x0000000000108000L});
-    public static final BitSet FOLLOW_15_in_ruleModule3357 = new BitSet(new long[]{0x000000BE8ECC0000L});
-    public static final BitSet FOLLOW_23_in_ruleModule3372 = new BitSet(new long[]{0x0007800000000000L});
-    public static final BitSet FOLLOW_ruleModuleMatching_in_ruleModule3393 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleModule3405 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleModule3428 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleRestriction_in_ruleModule3450 = new BitSet(new long[]{0x0000008000040000L});
-    public static final BitSet FOLLOW_18_in_ruleModule3463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMetaModule_in_entryRuleMetaModule3499 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMetaModule3509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleMetaModule3546 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleMetaModule3563 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleMetaModule3580 = new BitSet(new long[]{0x000000BE8EDC8000L});
-    public static final BitSet FOLLOW_20_in_ruleMetaModule3594 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleAttribute_in_ruleMetaModule3615 = new BitSet(new long[]{0x0000000000128000L});
-    public static final BitSet FOLLOW_17_in_ruleMetaModule3628 = new BitSet(new long[]{0x0000000000108000L});
-    public static final BitSet FOLLOW_15_in_ruleMetaModule3644 = new BitSet(new long[]{0x000000BE8ECC0000L});
-    public static final BitSet FOLLOW_23_in_ruleMetaModule3659 = new BitSet(new long[]{0x0007800000000000L});
-    public static final BitSet FOLLOW_ruleModuleMatching_in_ruleMetaModule3680 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleMetaModule3692 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleMetaModule3715 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleRestriction_in_ruleMetaModule3737 = new BitSet(new long[]{0x0000008000040000L});
-    public static final BitSet FOLLOW_18_in_ruleMetaModule3750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalModule_in_entryRuleExternalModule3786 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExternalModule3796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleExternalModule3833 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleExternalModule3850 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleExternalModule3867 = new BitSet(new long[]{0x000000BE8EDC8000L});
-    public static final BitSet FOLLOW_20_in_ruleExternalModule3881 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleAttribute_in_ruleExternalModule3902 = new BitSet(new long[]{0x0000000000128000L});
-    public static final BitSet FOLLOW_17_in_ruleExternalModule3915 = new BitSet(new long[]{0x0000000000108000L});
-    public static final BitSet FOLLOW_15_in_ruleExternalModule3931 = new BitSet(new long[]{0x000000BE8ECC0000L});
-    public static final BitSet FOLLOW_23_in_ruleExternalModule3946 = new BitSet(new long[]{0x0007800000000000L});
-    public static final BitSet FOLLOW_ruleModuleMatching_in_ruleExternalModule3967 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleExternalModule3979 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleExternalModule4002 = new BitSet(new long[]{0x000000BE8E4C0000L});
-    public static final BitSet FOLLOW_ruleRestriction_in_ruleExternalModule4024 = new BitSet(new long[]{0x0000008000040000L});
-    public static final BitSet FOLLOW_18_in_ruleExternalModule4037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4074 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName4085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4125 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_38_in_ruleQualifiedName4144 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4159 = new BitSet(new long[]{0x0000004000000002L});
-    public static final BitSet FOLLOW_ruleRestriction_in_entryRuleRestriction4206 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRestriction4216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleRestriction4253 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleRestriction4265 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
-    public static final BitSet FOLLOW_ruleGroupClause_in_ruleRestriction4286 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRestriction4310 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
-    public static final BitSet FOLLOW_rulePermissionClause_in_ruleRestriction4332 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
-    public static final BitSet FOLLOW_ruleRelactionType_in_ruleRestriction4354 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRestriction4377 = new BitSet(new long[]{0x0000000020040000L});
-    public static final BitSet FOLLOW_29_in_ruleRestriction4390 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleRestriction4407 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleRestriction4426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleCardinality4476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleCardinality4493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleCardinality4510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleCardinality4527 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleExpressionMatchingClause4572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleExpressionMatchingClause4589 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleExpressionMatchingClause4606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleModuleMatchingParamenter4651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleModuleMatchingParamenter4668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleModuleMatchingParamenter4685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleModuleMatchingParamenter4702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleGroupClause4747 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleGroupClause4764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleGroupClause4781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleGroupClause4798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_rulePermissionClause4843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_rulePermissionClause4860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rulePermissionClause4877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_rulePermissionClause4894 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleRelactionType4939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleRelactionType4956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleRelactionType4973 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleRelactionType4990 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleRelactionType5007 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleRelactionType5024 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleRelactionType5041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleRelactionType5058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleRelactionType5075 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleRelactionType5092 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAttribute_in_entryRuleAttribute835 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAttribute845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleAttribute887 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleAttribute904 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleAttribute921 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractNameConvetion_in_entryRuleAbstractNameConvetion962 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbstractNameConvetion972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleAbstractNameConvetion1008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClassMatching_in_ruleAbstractNameConvetion1035 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModuleMatching_in_entryRuleModuleMatching1072 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModuleMatching1082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModuleMatchingParamenter_in_ruleModuleMatching1127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClassMatching_in_entryRuleClassMatching1162 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleClassMatching1172 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionMatchingClause_in_ruleClassMatching1218 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleClassMatching1235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConfigurationElement_in_entryRuleConfigurationElement1276 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConfigurationElement1286 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConfiguration_in_ruleConfigurationElement1333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXmlDocument_in_ruleConfigurationElement1360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXmlElement_in_ruleConfigurationElement1387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFile_in_ruleConfigurationElement1414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFile_in_entryRuleFile1449 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFile1459 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleFile1496 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleFile1513 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFile1530 = new BitSet(new long[]{0x0000000001840000L});
+    public static final BitSet FOLLOW_23_in_ruleFile1543 = new BitSet(new long[]{0x0000700000000020L});
+    public static final BitSet FOLLOW_ruleAbstractNameConvetion_in_ruleFile1564 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleFile1576 = new BitSet(new long[]{0x0000000001040000L});
+    public static final BitSet FOLLOW_24_in_ruleFile1591 = new BitSet(new long[]{0x00000F0000000000L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleFile1612 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleFile1624 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleFile1638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConfiguration_in_entryRuleConfiguration1674 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConfiguration1684 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleConfiguration1721 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleConfiguration1738 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleConfiguration1755 = new BitSet(new long[]{0x0000006E8FC40000L});
+    public static final BitSet FOLLOW_23_in_ruleConfiguration1768 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleConfiguration1785 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleConfiguration1802 = new BitSet(new long[]{0x0000006E8F440000L});
+    public static final BitSet FOLLOW_24_in_ruleConfiguration1817 = new BitSet(new long[]{0x00000F0000000000L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleConfiguration1838 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleConfiguration1850 = new BitSet(new long[]{0x0000006E8E440000L});
+    public static final BitSet FOLLOW_ruleConfigurationElement_in_ruleConfiguration1873 = new BitSet(new long[]{0x0000006E8E440000L});
+    public static final BitSet FOLLOW_18_in_ruleConfiguration1886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethod_in_entryRuleMethod1922 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMethod1932 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleMethod1969 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleMethod1986 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMethod2003 = new BitSet(new long[]{0x0000000001840000L});
+    public static final BitSet FOLLOW_23_in_ruleMethod2016 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleMethod2033 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMethod2050 = new BitSet(new long[]{0x0000000001040000L});
+    public static final BitSet FOLLOW_24_in_ruleMethod2065 = new BitSet(new long[]{0x00000F0000000000L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleMethod2086 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMethod2098 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleMethod2112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMetaClass_in_entryRuleMetaClass2148 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMetaClass2158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleMetaClass2195 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleMetaClass2212 = new BitSet(new long[]{0x0000000010002000L});
+    public static final BitSet FOLLOW_28_in_ruleMetaClass2230 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleMetaClass2253 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMetaClass2267 = new BitSet(new long[]{0x0000000065040000L});
+    public static final BitSet FOLLOW_29_in_ruleMetaClass2280 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleMetaClass2297 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMetaClass2314 = new BitSet(new long[]{0x0000000045040000L});
+    public static final BitSet FOLLOW_30_in_ruleMetaClass2329 = new BitSet(new long[]{0x0000700000000020L});
+    public static final BitSet FOLLOW_ruleAbstractNameConvetion_in_ruleMetaClass2350 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMetaClass2362 = new BitSet(new long[]{0x0000000005040000L});
+    public static final BitSet FOLLOW_24_in_ruleMetaClass2377 = new BitSet(new long[]{0x00000F0000000000L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleMetaClass2398 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMetaClass2410 = new BitSet(new long[]{0x0000000004040000L});
+    public static final BitSet FOLLOW_ruleMethod_in_ruleMetaClass2433 = new BitSet(new long[]{0x0000000004040000L});
+    public static final BitSet FOLLOW_18_in_ruleMetaClass2446 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalClass_in_entryRuleExternalClass2482 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExternalClass2492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleExternalClass2529 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleExternalClass2546 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleExternalClass2563 = new BitSet(new long[]{0x0000000120040000L});
+    public static final BitSet FOLLOW_29_in_ruleExternalClass2576 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleExternalClass2593 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExternalClass2610 = new BitSet(new long[]{0x0000000100040000L});
+    public static final BitSet FOLLOW_32_in_ruleExternalClass2625 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleExternalClass2642 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExternalClass2659 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleExternalClass2673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXmlElement_in_entryRuleXmlElement2709 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleXmlElement2719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleXmlElement2756 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleXmlElement2773 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleXmlElement2790 = new BitSet(new long[]{0x0000000001840000L});
+    public static final BitSet FOLLOW_23_in_ruleXmlElement2803 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleXmlElement2820 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleXmlElement2837 = new BitSet(new long[]{0x0000000001040000L});
+    public static final BitSet FOLLOW_24_in_ruleXmlElement2852 = new BitSet(new long[]{0x00000F0000000000L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleXmlElement2873 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleXmlElement2885 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleXmlElement2899 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXmlDocument_in_entryRuleXmlDocument2935 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleXmlDocument2945 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleXmlDocument2982 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleXmlDocument2999 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleXmlDocument3016 = new BitSet(new long[]{0x0000000001840000L});
+    public static final BitSet FOLLOW_23_in_ruleXmlDocument3029 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleXmlDocument3046 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleXmlDocument3063 = new BitSet(new long[]{0x0000000001040000L});
+    public static final BitSet FOLLOW_24_in_ruleXmlDocument3078 = new BitSet(new long[]{0x00000F0000000000L});
+    public static final BitSet FOLLOW_ruleCardinality_in_ruleXmlDocument3099 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleXmlDocument3111 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleXmlDocument3125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModule_in_entryRuleModule3161 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModule3171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleModule3208 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleModule3225 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleModule3242 = new BitSet(new long[]{0x0000007E8ED48000L});
+    public static final BitSet FOLLOW_20_in_ruleModule3256 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleAttribute_in_ruleModule3277 = new BitSet(new long[]{0x0000000000128000L});
+    public static final BitSet FOLLOW_17_in_ruleModule3290 = new BitSet(new long[]{0x0000000000108000L});
+    public static final BitSet FOLLOW_15_in_ruleModule3306 = new BitSet(new long[]{0x0000007E8EC40000L});
+    public static final BitSet FOLLOW_23_in_ruleModule3321 = new BitSet(new long[]{0x0007800000000000L});
+    public static final BitSet FOLLOW_ruleModuleMatching_in_ruleModule3342 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleModule3354 = new BitSet(new long[]{0x0000007E8E440000L});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleModule3377 = new BitSet(new long[]{0x0000007E8E440000L});
+    public static final BitSet FOLLOW_36_in_ruleModule3391 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleModule3403 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleRestriction_in_ruleModule3424 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_18_in_ruleModule3437 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleModule3451 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMetaModule_in_entryRuleMetaModule3487 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMetaModule3497 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleMetaModule3534 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleMetaModule3551 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMetaModule3568 = new BitSet(new long[]{0x0000007E8ED48000L});
+    public static final BitSet FOLLOW_20_in_ruleMetaModule3582 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleAttribute_in_ruleMetaModule3603 = new BitSet(new long[]{0x0000000000128000L});
+    public static final BitSet FOLLOW_17_in_ruleMetaModule3616 = new BitSet(new long[]{0x0000000000108000L});
+    public static final BitSet FOLLOW_15_in_ruleMetaModule3632 = new BitSet(new long[]{0x0000007E8EC40000L});
+    public static final BitSet FOLLOW_23_in_ruleMetaModule3647 = new BitSet(new long[]{0x0007800000000000L});
+    public static final BitSet FOLLOW_ruleModuleMatching_in_ruleMetaModule3668 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleMetaModule3680 = new BitSet(new long[]{0x0000007E8E440000L});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleMetaModule3703 = new BitSet(new long[]{0x0000007E8E440000L});
+    public static final BitSet FOLLOW_36_in_ruleMetaModule3717 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMetaModule3729 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleRestriction_in_ruleMetaModule3750 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_18_in_ruleMetaModule3763 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleMetaModule3777 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalModule_in_entryRuleExternalModule3813 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExternalModule3823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleExternalModule3860 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleExternalModule3877 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleExternalModule3894 = new BitSet(new long[]{0x0000007E8ED48000L});
+    public static final BitSet FOLLOW_20_in_ruleExternalModule3908 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleAttribute_in_ruleExternalModule3929 = new BitSet(new long[]{0x0000000000128000L});
+    public static final BitSet FOLLOW_17_in_ruleExternalModule3942 = new BitSet(new long[]{0x0000000000108000L});
+    public static final BitSet FOLLOW_15_in_ruleExternalModule3958 = new BitSet(new long[]{0x0000007E8EC40000L});
+    public static final BitSet FOLLOW_23_in_ruleExternalModule3973 = new BitSet(new long[]{0x0007800000000000L});
+    public static final BitSet FOLLOW_ruleModuleMatching_in_ruleExternalModule3994 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExternalModule4006 = new BitSet(new long[]{0x0000007E8E440000L});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_ruleExternalModule4029 = new BitSet(new long[]{0x0000007E8E440000L});
+    public static final BitSet FOLLOW_36_in_ruleExternalModule4043 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleExternalModule4055 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleRestriction_in_ruleExternalModule4076 = new BitSet(new long[]{0xFFF8000000040010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_18_in_ruleExternalModule4089 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleExternalModule4103 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName4140 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName4151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4191 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_39_in_ruleQualifiedName4210 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_ruleQualifiedName4225 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_ruleRestriction_in_entryRuleRestriction4272 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRestriction4282 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupClause_in_ruleRestriction4328 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRestriction4352 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_rulePermissionClause_in_ruleRestriction4374 = new BitSet(new long[]{0xFFF8000000000010L,0x000000000000000FL});
+    public static final BitSet FOLLOW_ruleRelactionType_in_ruleRestriction4396 = new BitSet(new long[]{0x0078000000000010L});
+    public static final BitSet FOLLOW_ruleGroupClause_in_ruleRestriction4417 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRestriction4441 = new BitSet(new long[]{0x0000000020008000L});
+    public static final BitSet FOLLOW_29_in_ruleRestriction4454 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleRestriction4471 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleRestriction4490 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleCardinality4540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleCardinality4557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleCardinality4574 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleCardinality4591 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleExpressionMatchingClause4636 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleExpressionMatchingClause4653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleExpressionMatchingClause4670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleModuleMatchingParamenter4715 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleModuleMatchingParamenter4732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleModuleMatchingParamenter4749 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleModuleMatchingParamenter4766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleGroupClause4811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleGroupClause4828 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleGroupClause4845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleGroupClause4862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_rulePermissionClause4907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_rulePermissionClause4924 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rulePermissionClause4941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_rulePermissionClause4958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleRelactionType5003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleRelactionType5020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleRelactionType5037 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleRelactionType5054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleRelactionType5071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleRelactionType5088 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleRelactionType5105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleRelactionType5122 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleRelactionType5139 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleRelactionType5156 = new BitSet(new long[]{0x0000000000000002L});
 
 }

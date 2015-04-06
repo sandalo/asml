@@ -5,22 +5,22 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
 
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 
-public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IResourceDeltaVisitor {
+public class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IResourceDeltaVisitor {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse
+	 * @see org.eclipse.core.resources.IResourceDeltaVisitor#visit(org.eclipse
 	 * .core.resources.IResourceDelta)
 	 */
 
 	public ASMLResourceDeltaVisitor(ASMLContext cacheASML) {
 		super(cacheASML);
 	}
-	
+
 	public boolean visit(IResourceDelta delta) throws CoreException {
 		IResource resource = delta.getResource();
 		if ((resource.getFileExtension() + "").equals("class")) {
@@ -28,34 +28,33 @@ public 	class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IR
 		}
 		boolean deep = deep(resource);
 		boolean ignoreResource = ignoreResource(resource);
-		
-		if(ignoreResource && deep){
+
+		if (ignoreResource && deep) {
 			return false;
 		}
-		
-		if(ignoreResource){
+
+		if (ignoreResource) {
 			return true;
 		}
-		
-		ASMLResource asmlResource =  new ASMLResource();
-		asmlResource.setResource(resource);
 
+		ComponentInstance componentInstance = null;
 		switch (delta.getKind()) {
 		case IResourceDelta.ADDED:
-			asmlContext.addResource(asmlResource);
+			componentInstance = new ComponentInstance();
+			componentInstance.setResource(resource);
+			asmlContext.addComponentInstance(componentInstance);
 			break;
 		case IResourceDelta.REMOVED:
-			asmlContext.removeResource(asmlResource);
+			componentInstance = (ComponentInstance) ComponentInstance.getComponentInstanceByIResourceName(resource);
+			asmlContext.removeComponentInstance(componentInstance);
 			break;
 		case IResourceDelta.CHANGED:
-			asmlContext.removeResource(asmlResource);
-			asmlContext.addResource(asmlResource);
+			componentInstance = (ComponentInstance) ComponentInstance.getComponentInstanceByIResourceName(resource);
+			componentInstance.setResource(resource);
 			break;
 		}
-		if(resource instanceof IFile && resource.getFileExtension().equals("java"))
-			asmlContext.getAstJavaParser().parse(asmlResource);
-
-		// return true to continue visiting children.
+		if (resource instanceof IFile && resource.getFileExtension().equals("java"))
+			parse(componentInstance);
 		return true;
 	}
 }

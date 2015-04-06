@@ -2,9 +2,10 @@ package asmlbuilder.matching;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.ecore.EObject;
 
 import asmlbuilder.builder.ASMLContext;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
 import br.ufmg.dcc.asml.aSMLModel.View;
@@ -16,15 +17,15 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	@Override
-	public boolean matching(ASMLResource resource, AbstractComponent component) {
+	public boolean matching(ComponentInstance resource, AbstractComponent component) {
 		if (resource.getResource() instanceof IFolder || resource.getResource() instanceof IProject) {
 			try {
 
 				String fisicalPathComponent = "";
-				AbstractComponent componentAux = (AbstractComponent) component;
+				EObject componentAux = (AbstractComponent) component;
 				String[] resourceSegments = resource.getResource().getFullPath().segments();
 				while (componentAux != null && !(componentAux instanceof View)) {
-					String nameSpace = ModuleMatching.getNameSpace(componentAux);
+					String nameSpace = ModuleMatching.getNameSpace((AbstractComponent) componentAux);
 					if (nameSpace.equals(""))
 						if (componentAux instanceof MetaModule)
 							/**
@@ -34,10 +35,10 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 							 */
 							fisicalPathComponent = "MetaModule" + "." + fisicalPathComponent;
 						else
-							fisicalPathComponent = componentAux.getName() + "." + fisicalPathComponent;
+							fisicalPathComponent = ((AbstractComponent)componentAux).getName() + "." + fisicalPathComponent;
 					else
 						fisicalPathComponent = nameSpace + "." + fisicalPathComponent;
-					componentAux = (AbstractComponent) componentAux.eContainer();
+					componentAux = componentAux.eContainer();
 				}
 				String[] componenteSegments = fisicalPathComponent.split("\\.");
 				

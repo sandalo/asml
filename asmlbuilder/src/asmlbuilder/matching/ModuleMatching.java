@@ -11,7 +11,7 @@ import org.eclipse.jdt.core.JavaModelException;
 
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.constants.ASMLConstant;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.Attribute;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
@@ -25,7 +25,7 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	@Override
-	public boolean matching(ASMLResource resource, AbstractComponent component) {
+	public boolean matching(ComponentInstance resource, AbstractComponent component) {
 		if (resource.getResource() instanceof IFolder) {
 			try {
 				String[] resourceSegments = resource.getResource().getFullPath().segments();
@@ -85,38 +85,39 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	public static String getFullPathComponent(AbstractComponent componentAux, boolean withNameSpace) {
+		EObject eObject = componentAux;
 		String fisicalPathComponent = "";
 		if (withNameSpace) {
-			while (componentAux != null && !(componentAux instanceof View)) {
+			while (eObject != null && !(eObject instanceof View)) {
 				/**
 				 * Este token(MetaModule) será utilizado para que a lógica
 				 * ignore a coparações com resources físicos, pois os meta
 				 * modulos // são / abstratos
 				 */
-				if (componentAux instanceof MetaModule) {
+				if (eObject instanceof MetaModule) {
 					fisicalPathComponent = "MetaModule" + "." + fisicalPathComponent;
 				} else {
-					String nameSpace = ModuleMatching.getNameSpace(componentAux);
+					String nameSpace = ModuleMatching.getNameSpace((AbstractComponent) eObject);
 					if (nameSpace.equals(""))
-						fisicalPathComponent = componentAux.getName() + "." + fisicalPathComponent;
+						fisicalPathComponent =((AbstractComponent)eObject).getName() + "." + fisicalPathComponent;
 					else
 						fisicalPathComponent = nameSpace + "." + fisicalPathComponent;
 				}
-				componentAux = (AbstractComponent) componentAux.eContainer();
+				eObject = eObject.eContainer();
 			}
 		} else {
-			while (componentAux != null && !(componentAux instanceof View)) {
+			while (eObject != null && !(eObject instanceof View)) {
 				/**
 				 * Este token(MetaModule) será utilizado para que a lógica
 				 * ignore a coparações com resources físicos, pois os meta
 				 * modulos // são / abstratos
 				 */
-				if (componentAux instanceof MetaModule) {
+				if (eObject instanceof MetaModule) {
 					fisicalPathComponent = "MetaModule" + "." + fisicalPathComponent;
 				} else {
-					fisicalPathComponent = componentAux.getName() + "." + fisicalPathComponent;
+					fisicalPathComponent = ((AbstractComponent)eObject).getName() + "." + fisicalPathComponent;
 				}
-				componentAux = (AbstractComponent) componentAux.eContainer();
+				eObject = eObject.eContainer();
 			}
 		}
 		return fisicalPathComponent;

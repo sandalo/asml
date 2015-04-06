@@ -4,7 +4,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 
 import asmlbuilder.builder.ASMLContext;
-import br.ufmg.dcc.asml.ASMLResource;
+import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
 import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
@@ -18,7 +18,7 @@ public class FileMatching extends AbstraticMatching implements IMatching {
 	}
 
 	@Override
-	public boolean matching(ASMLResource resource, AbstractComponent component) {
+	public boolean matching(ComponentInstance resource, AbstractComponent component) {
 		String fileExtension = resource.getResource().getFileExtension()+"";
 		if (component instanceof File && resource.getResource() instanceof IFile && (fileExtension.equals("xml") || fileExtension.equals("html") || !fileExtension.equals("java"))) {
 			br.ufmg.dcc.asml.aSMLModel.File file = (File) component;

@@ -13,14 +13,10 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -314,5 +310,15 @@ public class ExternalModuleImpl extends AbstractComponentImpl implements Externa
     }
     return super.eIsSet(featureID);
   }
+  
+  @Override
+	public boolean containsType(String fullName) {
+		EList<AbstractComponent> components = getComponents();
+		for (AbstractComponent abstractComponent : components) {
+			if (abstractComponent.containsType(fullName))
+			return true;
+		}
+		return false;
+	}
 
 } //ExternalModuleImpl
