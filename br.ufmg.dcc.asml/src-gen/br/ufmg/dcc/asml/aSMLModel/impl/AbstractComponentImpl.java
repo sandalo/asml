@@ -184,22 +184,27 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
     return result.toString();
   }
 
-  
-  
-  /**
-   * <!-- custom code -->
-   * 
-   * 
-   */
+	/**
+	 * @generated NOT
+	 */
   	public EList<AbstractComponent> getComponents(){return new BasicEList<AbstractComponent>();}
 
+	/**
+	 * @generated NOT
+	 */
 	private final Set<ComponentInstance> componentInstances = new HashSet<ComponentInstance>();
 
   
+	/**
+	 * @generated NOT
+	 */
 	public Set<ComponentInstance> getInstances() {
 		return Collections.unmodifiableSet(componentInstances);
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	public Set<ComponentInstance> getAllComponentInstances() {
 		Set<ComponentInstance> resourcesAux = new HashSet<ComponentInstance>();
 		EList<AbstractComponent> children = getComponents();
@@ -210,17 +215,26 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		resourcesAux.addAll(componentInstances);
 		return Collections.unmodifiableSet(resourcesAux);
 	}
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public void addComponentInstance(ComponentInstance resource) {
 		componentInstances.remove(resource);
 		componentInstances.add(resource);
 	} 
 
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public void resourceClear() {
 		componentInstances.clear();
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public String[] getAllTypesNames() {
 		String iTypesNames[] = null;
@@ -234,6 +248,9 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		return iTypesNames;
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public boolean containsType(String fullName) {
 		for (ComponentInstance componentInstances : this.componentInstances) {
@@ -245,6 +262,9 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		return false;
 	}
 	
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public String[] getAllSupertypesNames() {
 		Set<ComponentInstance> componentInstances = this.getInstances();
@@ -268,6 +288,9 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		return iTypesNames;
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	@Override
 	public void accept(ComponentVisitor compVisitor) {
 		EList<AbstractComponent> children = getComponents();

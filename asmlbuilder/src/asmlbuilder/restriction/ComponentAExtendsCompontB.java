@@ -25,16 +25,19 @@ public class ComponentAExtendsCompontB extends RestricionChecker {
 		if (restriction.getGroupClause().equals(GroupClause.ANY) && restriction.getPermissionClause().equals(PermissionClause.MUST) && restriction.getRelactionType().equals(RelactionType.EXTEND)) {
 			anyComponentAMustExtendCompontB(restriction, componentA, componentB);
 		}
+		if (restriction.getGroupClause().equals(GroupClause.ONLY) && restriction.getPermissionClause().equals(PermissionClause.CAN) && restriction.getRelactionType().equals(RelactionType.EXTEND)) {
+			onlyComponentACanExtendComponentB(restriction, componentA, componentB);
+		}
 	}
 
 	private void anyComponentAMustExtendCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
 		int lineNumber = 0;
-		for (ComponentInstance resourceOfComponentA : componentA.getAllComponentInstances()) {
+		for (ComponentInstance instancesOfA : componentA.getAllComponentInstances()) {
 			boolean extend = false;
 			String typeName2 = componentB.getName();
-			if (resourceOfComponentA.getResource() instanceof IFile) {
-				Set<ComponentInstanceReference> typeDeclarationsInResourcesA = resourceOfComponentA.getReferencesByNodeType(TypeDeclaration.class);
-				for (ComponentInstanceReference typeDeclarationInResourceA : typeDeclarationsInResourcesA) {
+			if (instancesOfA.getResource() instanceof IFile) {
+				Set<ComponentInstanceReference> referencesOfInstaceOfA = instancesOfA.getReferencesByNodeType(TypeDeclaration.class);
+				for (ComponentInstanceReference typeDeclarationInResourceA : referencesOfInstaceOfA) {
 					ComponentInstance resourceDeclaredInA = typeDeclarationInResourceA.getComponentInstanceOwner();
 					extend = resourceDeclaredInA.extendsAtLeastOneOf(componentB);
 					if (extend) {
@@ -45,10 +48,30 @@ public class ComponentAExtendsCompontB extends RestricionChecker {
 			}
 			if (!extend) {
 				String defaultMessage = "Classes  do tipo   " + componentA.getName() + " devem herdar da classe " + typeName2;
-				addViolation(restriction, componentA, componentB, lineNumber, resourceOfComponentA, defaultMessage);
+				addViolation(restriction, componentA, componentB, lineNumber, instancesOfA, defaultMessage);
 			}
 		}
 	}
 
+	private void onlyComponentACanExtendComponentB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
+		int lineNumber = 0;
+		for (ComponentInstance instance : asmlContext.getComponentInstances()) {
+			boolean extend = false;
+			boolean isA = false;
+			Set<ComponentInstanceReference> references = instance.getReferencesByNodeType(TypeDeclaration.class);
+			for (ComponentInstanceReference reference : references) {
+				ComponentInstance componentInstanceReferenced = reference.getComponentInstanceReferenced();
+				extend = componentInstanceReferenced.extendsAtLeastOneOf(componentB);
+				if (extend) {
+					isA = componentInstanceReferenced.instanceOf(componentA);
+					if (!isA) {
+						lineNumber = reference.getLineNumber();
+						String defaultMessage = "Somente  classes do tipo  " + componentA.getName() + " podem herdar de classe do tipo " + componentB.getName();
+						addViolation(restriction, componentA, componentB, lineNumber, instance, defaultMessage);
+					}
+				}
+			}
+		}
+	}
 
 }

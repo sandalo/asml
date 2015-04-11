@@ -46,10 +46,14 @@ public class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IRe
 			break;
 		case IResourceDelta.REMOVED:
 			componentInstance = (ComponentInstance) ComponentInstance.getComponentInstanceByIResourceName(resource);
+			if(componentInstance ==null)
+				return false;
 			asmlContext.removeComponentInstance(componentInstance);
 			break;
 		case IResourceDelta.CHANGED:
 			componentInstance = (ComponentInstance) ComponentInstance.getComponentInstanceByIResourceName(resource);
+			if(componentInstance ==null)
+				return false;
 			componentInstance.setResource(resource);
 			break;
 		}

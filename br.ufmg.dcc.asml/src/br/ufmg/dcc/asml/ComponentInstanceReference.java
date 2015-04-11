@@ -5,7 +5,9 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.IAnnotationBinding;
+import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.SingleMemberAnnotation;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 public class ComponentInstanceReference {
 	private ASTNode astNode;
@@ -39,6 +41,8 @@ public class ComponentInstanceReference {
 		try {
 			if (astNode instanceof SingleMemberAnnotation)
 				componentInstanceReferenced = getTypeInSingleMemberAnnotation();
+			else if (astNode instanceof TypeDeclaration)
+				componentInstanceReferenced = getTypeInTypeDeclaration(); 
 			return componentInstanceReferenced;
 		} catch (JavaModelException e) {
 			e.printStackTrace();
@@ -52,6 +56,17 @@ public class ComponentInstanceReference {
 		SingleMemberAnnotation annotation = (SingleMemberAnnotation) this.getAstNode();
 		IAnnotationBinding annotationBinding = annotation.resolveAnnotationBinding();
 		findType = javaProject.findType(annotationBinding.getAnnotationType().getQualifiedName());
+		ComponentInstance componentInstanceReferenced = ComponentInstance.getComponentInstanceByITypeName(findType);
+		return componentInstanceReferenced;
+	}
+
+	
+	private ComponentInstance getTypeInTypeDeclaration() throws JavaModelException {
+		IType findType;
+		IJavaProject javaProject = componentInstanceOwner.getType().getJavaProject();
+		TypeDeclaration typeDeclaration = (TypeDeclaration) this.getAstNode();
+		ITypeBinding typeDeclarationBinding = typeDeclaration.resolveBinding();
+		findType = javaProject.findType(typeDeclarationBinding.getQualifiedName());
 		ComponentInstance componentInstanceReferenced = ComponentInstance.getComponentInstanceByITypeName(findType);
 		return componentInstanceReferenced;
 	}

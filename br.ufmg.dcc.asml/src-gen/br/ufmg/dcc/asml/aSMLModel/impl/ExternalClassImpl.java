@@ -218,8 +218,7 @@ public class ExternalClassImpl extends AbstractComponentImpl implements External
 	}
 
 	/**
-	 * Custom code
-	 * 
+	 * @generated NOT
 	 */
 	public String[] getAllTypesNames() {
 		String iTypesNames[] = null;
@@ -228,18 +227,27 @@ public class ExternalClassImpl extends AbstractComponentImpl implements External
 		return iTypesNames;
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	public String[] getAllSupertypesNames() {
 		String typeName = ((ExternalClass) this).getType();
 		String superTypesNamesB[] = new String[] { this.getName(), typeName };
 		return superTypesNamesB;
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	public String[] getAllSubtypesNames() {
 		String typeName = this.getType();
 		String superTypesNamesB[] = new String[] { this.getName(), typeName };
 		return superTypesNamesB;
 	}
 
+	/**
+	 * @generated NOT
+	 */
 	public boolean containsType(String fullName) {
 		if (getName().equals(fullName))
 			return true;
