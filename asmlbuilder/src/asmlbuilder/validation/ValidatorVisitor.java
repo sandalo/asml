@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import asmlbuilder.builder.ASMLContext;
@@ -32,12 +33,21 @@ public class ValidatorVisitor implements ComponentVisitor {
 	void validateComponentRestrictions(AbstractComponent abstractComponent) {
 		EList<Restriction> restrictions = ASMLContext.getRestrictions(abstractComponent);
 		for (Restriction restriction : restrictions) {
-			EList<AbstractComponent> componentsA = restriction.getComponentA();
+			EList<AbstractComponent> componentsA = new BasicEList<AbstractComponent>();
+			if(!restriction.getComponentA().isEmpty()){
+				componentsA = restriction.getComponentA();
+			}else{
+				componentsA.add(abstractComponent);
+			}
 			AbstractComponent componentB = restriction.getComponentB();
 			for (AbstractComponent componentA : componentsA) {
 				RestricionChecker restricionChecker = asmlContext.getAsmlBinder().getBindRestrictionChecker().get(restriction.getRelactionType());
 				if (restricionChecker != null) {
-					restricionChecker.checker(restriction, componentA, componentB);
+					try {
+						restricionChecker.checker(restriction, componentA, componentB);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				} else {
 					System.out.println("Restriction checker ainda não implementado.");
 				}

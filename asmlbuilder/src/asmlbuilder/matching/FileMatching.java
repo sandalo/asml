@@ -1,15 +1,10 @@
 package asmlbuilder.matching;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 
 import asmlbuilder.builder.ASMLContext;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
-import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause;
-import br.ufmg.dcc.asml.aSMLModel.File;
 
 public class FileMatching extends AbstraticMatching implements IMatching {
 
@@ -19,7 +14,7 @@ public class FileMatching extends AbstraticMatching implements IMatching {
 
 	@Override
 	public boolean matching(ComponentInstance resource, AbstractComponent component) {
-		String fileExtension = resource.getResource().getFileExtension()+"";
+/*		String fileExtension = resource.getResource().getFileExtension()+"";
 		if (component instanceof File && resource.getResource() instanceof IFile && (fileExtension.equals("xml") || fileExtension.equals("html") || !fileExtension.equals("java"))) {
 			br.ufmg.dcc.asml.aSMLModel.File file = (File) component;
 			AbstractNameConvetion abstractNameConvetion = file.getMatching();
@@ -41,7 +36,7 @@ public class FileMatching extends AbstraticMatching implements IMatching {
 				if (replaceAll.equals(component.getName()) || component.getName().equals(fileExtensioWithPoint))
 					return true;
 			}
-		}
+		}*/
 		return false;
 	}
 

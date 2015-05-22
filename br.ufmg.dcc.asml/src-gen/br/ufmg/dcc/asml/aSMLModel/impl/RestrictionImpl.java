@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getRelactionType <em>Relaction Type</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getGroupClauseB <em>Group Clause B</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getComponentB <em>Component B</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,7 +52,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @generated
    * @ordered
    */
-  protected static final GroupClause GROUP_CLAUSE_EDEFAULT = GroupClause.NULL;
+  protected static final GroupClause GROUP_CLAUSE_EDEFAULT = GroupClause.ANY;
 
   /**
    * The cached value of the '{@link #getGroupClause() <em>Group Clause</em>}' attribute.
@@ -122,7 +122,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @generated
    * @ordered
    */
-  protected static final GroupClause GROUP_CLAUSE_B_EDEFAULT = GroupClause.NULL;
+  protected static final GroupClause GROUP_CLAUSE_B_EDEFAULT = GroupClause.ANY;
 
   /**
    * The cached value of the '{@link #getGroupClauseB() <em>Group Clause B</em>}' attribute.
@@ -145,24 +145,24 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
   protected AbstractComponent componentB;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getMessage()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+  protected static final String MESSAGE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getMessage()
    * @generated
    * @ordered
    */
-  protected String description = DESCRIPTION_EDEFAULT;
+  protected String message = MESSAGE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -339,9 +339,9 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  public String getMessage()
   {
-    return description;
+    return message;
   }
 
   /**
@@ -349,12 +349,12 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  public void setMessage(String newMessage)
   {
-    String oldDescription = description;
-    description = newDescription;
+    String oldMessage = message;
+    message = newMessage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.RESTRICTION__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.RESTRICTION__MESSAGE, oldMessage, message));
   }
 
   /**
@@ -380,8 +380,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         if (resolve) return getComponentB();
         return basicGetComponentB();
-      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
-        return getDescription();
+      case ASMLModelPackage.RESTRICTION__MESSAGE:
+        return getMessage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -416,8 +416,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         setComponentB((AbstractComponent)newValue);
         return;
-      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
-        setDescription((String)newValue);
+      case ASMLModelPackage.RESTRICTION__MESSAGE:
+        setMessage((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -451,8 +451,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         setComponentB((AbstractComponent)null);
         return;
-      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case ASMLModelPackage.RESTRICTION__MESSAGE:
+        setMessage(MESSAGE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -480,8 +480,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
         return groupClauseB != GROUP_CLAUSE_B_EDEFAULT;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
         return componentB != null;
-      case ASMLModelPackage.RESTRICTION__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case ASMLModelPackage.RESTRICTION__MESSAGE:
+        return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
     }
     return super.eIsSet(featureID);
   }
@@ -505,8 +505,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
     result.append(relactionType);
     result.append(", groupClauseB: ");
     result.append(groupClauseB);
-    result.append(", description: ");
-    result.append(description);
+    result.append(", message: ");
+    result.append(message);
     result.append(')');
     return result.toString();
   }

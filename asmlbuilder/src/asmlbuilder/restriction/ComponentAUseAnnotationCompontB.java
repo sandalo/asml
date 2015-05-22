@@ -20,7 +20,7 @@ public class ComponentAUseAnnotationCompontB extends RestricionChecker {
 
 	@Override
 	public void checker(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		boolean any = restriction.getGroupClause().equals(GroupClause.ANY) || restriction.getGroupClause().equals(GroupClause.NULL);
+		boolean any = restriction.getGroupClause().equals(GroupClause.ANY);
 		boolean cannot = restriction.getPermissionClause().equals(PermissionClause.CANNOT);
 		if (any/** componentA */ && cannot/** use annotation */
 		) {
@@ -32,7 +32,7 @@ public class ComponentAUseAnnotationCompontB extends RestricionChecker {
 		Set<ComponentInstance> instancesOfA = componentA.getInstances();
 		int lineNumber = 1;
 		for (ComponentInstance instanceOfA : instancesOfA) {
-			Set<ComponentInstanceReference> references = instanceOfA.getReferencesByNodeType(SingleMemberAnnotation.class);
+			Set<ComponentInstanceReference> references = instanceOfA.getReferencesToOthersComponentInstances(SingleMemberAnnotation.class);
 			for (ComponentInstanceReference reference : references) {
 				ComponentInstance componentInstanceReferenced = reference.getComponentInstanceReferenced();
 				if (componentInstanceReferenced!=null) {

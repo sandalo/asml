@@ -20,14 +20,14 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum GroupClause implements Enumerator
 {
   /**
-   * The '<em><b>NULL</b></em>' literal object.
+   * The '<em><b>ANY</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NULL_VALUE
+   * @see #ANY_VALUE
    * @generated
    * @ordered
    */
-  NULL(0, "NULL", "null"),
+  ANY(0, "ANY", "any"),
 
   /**
    * The '<em><b>ONLY</b></em>' literal object.
@@ -40,14 +40,14 @@ public enum GroupClause implements Enumerator
   ONLY(1, "ONLY", "only"),
 
   /**
-   * The '<em><b>ANY</b></em>' literal object.
+   * The '<em><b>ONLY THIS</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #ANY_VALUE
+   * @see #ONLY_THIS_VALUE
    * @generated
    * @ordered
    */
-  ANY(2, "ANY", "any"),
+  ONLY_THIS(2, "ONLY_THIS", "only this"),
 
   /**
    * The '<em><b>NO ONE</b></em>' literal object.
@@ -60,19 +60,19 @@ public enum GroupClause implements Enumerator
   NO_ONE(3, "NO_ONE", "no one");
 
   /**
-   * The '<em><b>NULL</b></em>' literal value.
+   * The '<em><b>ANY</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>NULL</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>ANY</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NULL
-   * @model literal="null"
+   * @see #ANY
+   * @model literal="any"
    * @generated
    * @ordered
    */
-  public static final int NULL_VALUE = 0;
+  public static final int ANY_VALUE = 0;
 
   /**
    * The '<em><b>ONLY</b></em>' literal value.
@@ -90,19 +90,19 @@ public enum GroupClause implements Enumerator
   public static final int ONLY_VALUE = 1;
 
   /**
-   * The '<em><b>ANY</b></em>' literal value.
+   * The '<em><b>ONLY THIS</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>ANY</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>ONLY THIS</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #ANY
-   * @model literal="any"
+   * @see #ONLY_THIS
+   * @model literal="only this"
    * @generated
    * @ordered
    */
-  public static final int ANY_VALUE = 2;
+  public static final int ONLY_THIS_VALUE = 2;
 
   /**
    * The '<em><b>NO ONE</b></em>' literal value.
@@ -128,9 +128,9 @@ public enum GroupClause implements Enumerator
   private static final GroupClause[] VALUES_ARRAY =
     new GroupClause[]
     {
-      NULL,
-      ONLY,
       ANY,
+      ONLY,
+      ONLY_THIS,
       NO_ONE,
     };
 
@@ -190,9 +190,9 @@ public enum GroupClause implements Enumerator
   {
     switch (value)
     {
-      case NULL_VALUE: return NULL;
-      case ONLY_VALUE: return ONLY;
       case ANY_VALUE: return ANY;
+      case ONLY_VALUE: return ONLY;
+      case ONLY_THIS_VALUE: return ONLY_THIS;
       case NO_ONE_VALUE: return NO_ONE;
     }
     return null;

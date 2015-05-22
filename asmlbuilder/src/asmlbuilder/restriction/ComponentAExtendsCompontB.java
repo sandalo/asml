@@ -36,7 +36,7 @@ public class ComponentAExtendsCompontB extends RestricionChecker {
 			boolean extend = false;
 			String typeName2 = componentB.getName();
 			if (instancesOfA.getResource() instanceof IFile) {
-				Set<ComponentInstanceReference> referencesOfInstaceOfA = instancesOfA.getReferencesByNodeType(TypeDeclaration.class);
+				Set<ComponentInstanceReference> referencesOfInstaceOfA = instancesOfA.getReferencesToOthersComponentInstances(TypeDeclaration.class);
 				for (ComponentInstanceReference typeDeclarationInResourceA : referencesOfInstaceOfA) {
 					ComponentInstance resourceDeclaredInA = typeDeclarationInResourceA.getComponentInstanceOwner();
 					extend = resourceDeclaredInA.extendsAtLeastOneOf(componentB);
@@ -58,7 +58,7 @@ public class ComponentAExtendsCompontB extends RestricionChecker {
 		for (ComponentInstance instance : asmlContext.getComponentInstances()) {
 			boolean extend = false;
 			boolean isA = false;
-			Set<ComponentInstanceReference> references = instance.getReferencesByNodeType(TypeDeclaration.class);
+			Set<ComponentInstanceReference> references = instance.getReferencesToOthersComponentInstances(TypeDeclaration.class);
 			for (ComponentInstanceReference reference : references) {
 				ComponentInstance componentInstanceReferenced = reference.getComponentInstanceReferenced();
 				extend = componentInstanceReferenced.extendsAtLeastOneOf(componentB);

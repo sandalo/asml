@@ -4,7 +4,7 @@ package br.ufmg.dcc.asml.aSMLModel.impl;
 
 import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
-import br.ufmg.dcc.asml.aSMLModel.View;
+import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 
 import java.util.Collection;
 
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getImportURI <em>Import URI</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getViews <em>Views</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.ASMLModelImpl#getIgnore <em>Ignore</em>}</li>
  * </ul>
  * </p>
@@ -82,14 +82,14 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
   protected String importURI = IMPORT_URI_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
+   * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getViews()
+   * @see #getComponents()
    * @generated
    * @ordered
    */
-  protected EList<View> views;
+  protected EList<AbstractComponent> components;
 
   /**
    * The cached value of the '{@link #getIgnore() <em>Ignore</em>}' attribute list.
@@ -173,13 +173,13 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<View> getViews()
+  public EList<AbstractComponent> getComponents()
   {
-    if (views == null)
+    if (components == null)
     {
-      views = new EObjectContainmentEList<View>(View.class, this, ASMLModelPackage.ASML_MODEL__VIEWS);
+      components = new EObjectContainmentEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.ASML_MODEL__COMPONENTS);
     }
-    return views;
+    return components;
   }
 
   /**
@@ -206,8 +206,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
   {
     switch (featureID)
     {
-      case ASMLModelPackage.ASML_MODEL__VIEWS:
-        return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
+      case ASMLModelPackage.ASML_MODEL__COMPONENTS:
+        return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -226,8 +226,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
         return getName();
       case ASMLModelPackage.ASML_MODEL__IMPORT_URI:
         return getImportURI();
-      case ASMLModelPackage.ASML_MODEL__VIEWS:
-        return getViews();
+      case ASMLModelPackage.ASML_MODEL__COMPONENTS:
+        return getComponents();
       case ASMLModelPackage.ASML_MODEL__IGNORE:
         return getIgnore();
     }
@@ -251,9 +251,9 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
       case ASMLModelPackage.ASML_MODEL__IMPORT_URI:
         setImportURI((String)newValue);
         return;
-      case ASMLModelPackage.ASML_MODEL__VIEWS:
-        getViews().clear();
-        getViews().addAll((Collection<? extends View>)newValue);
+      case ASMLModelPackage.ASML_MODEL__COMPONENTS:
+        getComponents().clear();
+        getComponents().addAll((Collection<? extends AbstractComponent>)newValue);
         return;
       case ASMLModelPackage.ASML_MODEL__IGNORE:
         getIgnore().clear();
@@ -279,8 +279,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
       case ASMLModelPackage.ASML_MODEL__IMPORT_URI:
         setImportURI(IMPORT_URI_EDEFAULT);
         return;
-      case ASMLModelPackage.ASML_MODEL__VIEWS:
-        getViews().clear();
+      case ASMLModelPackage.ASML_MODEL__COMPONENTS:
+        getComponents().clear();
         return;
       case ASMLModelPackage.ASML_MODEL__IGNORE:
         getIgnore().clear();
@@ -303,8 +303,8 @@ public class ASMLModelImpl extends MinimalEObjectImpl.Container implements ASMLM
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ASMLModelPackage.ASML_MODEL__IMPORT_URI:
         return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
-      case ASMLModelPackage.ASML_MODEL__VIEWS:
-        return views != null && !views.isEmpty();
+      case ASMLModelPackage.ASML_MODEL__COMPONENTS:
+        return components != null && !components.isEmpty();
       case ASMLModelPackage.ASML_MODEL__IGNORE:
         return ignore != null && !ignore.isEmpty();
     }

@@ -1,15 +1,8 @@
 package asmlbuilder.matching;
 
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jdt.core.JavaModelException;
-
 import asmlbuilder.builder.ASMLContext;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
-import br.ufmg.dcc.asml.aSMLModel.Module;
 
 public class ExternalModuleMatching extends AbstraticMatching implements IMatching {
 
@@ -19,7 +12,7 @@ public class ExternalModuleMatching extends AbstraticMatching implements IMatchi
 
 	@Override
 	public boolean matching(ComponentInstance resource, AbstractComponent component) {//TODO: Rever implementação, tentar indentificar external modules através de jars
-		if ((component instanceof ExternalModule) && resource.getResource() instanceof IFolder) {
+/*		if ((component instanceof ExternalModule) && resource.getResource() instanceof IFolder) {
 			try {
 				boolean isNameSapce = ModuleMatching.isNameSpace(resource.getResource(), component);
 				if (isNameSapce) {
@@ -48,5 +41,8 @@ public class ExternalModuleMatching extends AbstraticMatching implements IMatchi
 			}
 		}
 		return false;
+	}
+*/
+	return false;	
 	}
 }

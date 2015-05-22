@@ -13,7 +13,6 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.IClasspathContainer;
@@ -24,10 +23,6 @@ import asmlbuilder.matching.AbstraticMatching;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.ExternalModule;
-import br.ufmg.dcc.asml.aSMLModel.MetaClass;
-import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.Module;
 import br.ufmg.dcc.asml.aSMLModel.Restriction;
 import br.ufmg.dcc.asml.aSMLModel.View;
 
@@ -44,12 +39,13 @@ public class ASMLContext {
 	private ASMLResourceVisitor resourceVisitor;
 	private ASMLResourceDeltaVisitor resourceDeltaVisitor;
 	private ASMLBinder asmlBinder = new ASMLBinder(this);
+	private Map<String, AbstractComponent> tokensNameConvention = new HashMap<String, AbstractComponent>();
 
 	private final Set<AbstractComponent> declaredComponents = new HashSet<AbstractComponent>(100);
-	
+
 	private List<Violation> violations = new ArrayList<Violation>();
-	
-	private Map<MetaClass, Set<MetaClass>> sublMetaClasses = new HashMap<MetaClass, Set<MetaClass>>(100);
+
+//	private Map<MetaClass, Set<MetaClass>> sublMetaClasses = new HashMap<MetaClass, Set<MetaClass>>(100);
 
 	class ResourceComparator implements Comparator<IResource> {
 		@Override
@@ -57,7 +53,6 @@ public class ASMLContext {
 			return o1.getFullPath().toString().compareTo(o2.getFullPath().toString());
 		}
 	}
-
 
 	public AbstractComponent getComponentByName(String name) {
 		for (AbstractComponent abstractComponent : declaredComponents) {
@@ -79,10 +74,10 @@ public class ASMLContext {
 	}
 
 	public ComponentInstance getInstanceByName(AbstractComponent abstractComponent, String name) {
-		if(abstractComponent==null)
+		if (abstractComponent == null)
 			return null;
 		Set<ComponentInstance> list = abstractComponent.getInstances();
-		if(list==null)
+		if (list == null)
 			return null;
 		for (ComponentInstance iResource : list) {
 			String nomeDoRecursoSemExtencao = deleteExtension(iResource.getResource());
@@ -120,7 +115,6 @@ public class ASMLContext {
 		componentInstances.clear();
 	}
 
-	
 	public List<Violation> getViolations() {
 		return violations;
 	}
@@ -195,7 +189,7 @@ public class ASMLContext {
 			if (parent instanceof View)
 				nameClass = ((View) parent).getName() + "." + nameClass;
 			if (parent instanceof ASMLModel)
-				nameClass = ((ASMLModel) parent).getName() + "." + nameClass;
+				nameClass = "undefined";
 			if (parent instanceof AbstractComponent)
 				nameClass = ((AbstractComponent) parent).getName() + "." + nameClass;
 			parent = parent.eContainer();
@@ -212,7 +206,7 @@ public class ASMLContext {
 				abstraticMatching = (AbstraticMatching) constructor.newInstance(this);
 			}
 		} catch (Exception e) {
-			//System.out.println("controlado...");
+			// System.out.println("controlado...");
 		}
 		return abstraticMatching;
 	}
@@ -230,9 +224,10 @@ public class ASMLContext {
 		violations.clear();
 	}
 
-	public Map<MetaClass, Set<MetaClass>> getSublMetaClasses() {
-		return sublMetaClasses;
-	}
+	/*
+	 * public Map<MetaClass, Set<MetaClass>> getSublMetaClasses() { return
+	 * sublMetaClasses; }
+	 */
 
 	public ASMLBinder getAsmlBinder() {
 		return asmlBinder;
@@ -243,25 +238,11 @@ public class ASMLContext {
 	}
 
 	public static EList<Restriction> getRestrictions(AbstractComponent abstractComponent) {
-		EList<Restriction> restrictions = new BasicEList<Restriction>();
-		if (abstractComponent instanceof Module)
-			restrictions = ((Module) abstractComponent).getRestrictions();
-		else if (abstractComponent instanceof MetaModule)
-			restrictions = ((MetaModule) abstractComponent).getRestrictions();
-		else if (abstractComponent instanceof ExternalModule)
-			restrictions = ((ExternalModule) abstractComponent).getRestrictions();
-		return restrictions;
+		return abstractComponent.getRestrictions();
 	}
 
 	public static EList<AbstractComponent> getComponentsChildren(AbstractComponent abstractComponent) {
-		EList<AbstractComponent> components = new BasicEList<AbstractComponent>();
-		if (abstractComponent instanceof Module)
-			components = ((Module) abstractComponent).getComponents();
-		else if (abstractComponent instanceof MetaModule)
-			components = ((MetaModule) abstractComponent).getComponents();
-		else if (abstractComponent instanceof ExternalModule)
-			components = ((ExternalModule) abstractComponent).getComponents();
-		return components;
+		return abstractComponent.getComponents();
 	}
 
 	public long getTimeStampResource() {
@@ -283,13 +264,23 @@ public class ASMLContext {
 	public Set<AbstractComponent> getDeclaredComponents() {
 		return Collections.unmodifiableSet(declaredComponents);
 	}
-	
-	public void  addDeclaredComponents(AbstractComponent abstractComponent) {
+
+	public void addDeclaredComponents(AbstractComponent abstractComponent) {
+		String token = abstractComponent.getMatching();
+		addTokensNameConvention(token, abstractComponent);
 		declaredComponents.add(abstractComponent);
 	}
 
-	public void  clearDeclaredComponents() {
+	public void clearDeclaredComponents() {
 		declaredComponents.clear();
+	}
+
+	public void addTokensNameConvention(String token, AbstractComponent abstractComponent) {
+		tokensNameConvention.put(token, abstractComponent);
+	}
+
+	public Set<String> getTokensNameConvention() {
+		return Collections.unmodifiableSet(tokensNameConvention.keySet());
 	}
 
 }

@@ -11,14 +11,17 @@ import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.ComponentVisitor;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Abstract Component</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Abstract Component</b></em>'.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getName <em>Name
- * </em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getComponents <em>Components</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getRestrictions <em>Restrictions</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,79 +29,104 @@ import br.ufmg.dcc.asml.ComponentVisitor;
  * @model
  * @generated
  */
-public interface AbstractComponent extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
-	 * should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getAbstractComponent_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
+public interface AbstractComponent extends EObject
+{
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getAbstractComponent_Name()
+   * @model
+   * @generated
+   */
+  String getName();
 
-	/**
-	 * Sets the value of the '
-	 * {@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getName
-	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+  /**
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
-	/**
-	 * @generated NOT
-	 */
-	public EList<AbstractComponent> getComponents();
+  /**
+   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.Attribute}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Attributes</em>' containment reference list.
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getAbstractComponent_Attributes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Attribute> getAttributes();
 
-	/**
-	 * @generated NOT
-	 */
-	public Set<ComponentInstance> getInstances();
+  /**
+   * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Components</em>' containment reference list.
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getAbstractComponent_Components()
+   * @model containment="true"
+   * @generated
+   */
+  EList<AbstractComponent> getComponents();
 
-	/**
-	 * @generated NOT
-	 */
-	public Set<ComponentInstance> getAllComponentInstances();
+  /**
+   * Returns the value of the '<em><b>Restrictions</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.Restriction}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Restrictions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Restrictions</em>' containment reference list.
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getAbstractComponent_Restrictions()
+   * @model containment="true"
+   * @generated
+   */
+  
+  public String getMatching();
+  
+  public EList<Restriction> getRestrictions();
 
-	/**
-	 * @generated NOT
-	 */
-	public void addComponentInstance(ComponentInstance resource);
+  public Set<ComponentInstance> getInstances();
+  
+  public Set<ComponentInstance> getAllComponentInstances();
 
-	/**
-	 * @generated NOT
-	 */
-	public void resourceClear();
+  public void addComponentInstance(ComponentInstance resource);
+  
+  public void resourceClear();
+  
+  public String[] getAllTypesNames();
+  
+  public String[] getAllSupertypesNames();
 
-	/**
-	 * @generated NOT
-	 */
-	public String[] getAllTypesNames();
+ public boolean containsType(String fullName);
+ 
+ public void accept(ComponentVisitor compVisitor);
 
-	/**
-	 * @generated NOT
-	 */
-	public String[] getAllSupertypesNames();
-
-	/**
-	 * @generated NOT
-	 */
-	public boolean containsType(String fullName);
-
-	/**
-	 * @generated NOT
-	 */
-	public void accept(ComponentVisitor compVisitor);
-
+ public View getView();
+ 
+ public String getFullName();
+ 
+ public boolean isChild(AbstractComponent component);
 } // AbstractComponent

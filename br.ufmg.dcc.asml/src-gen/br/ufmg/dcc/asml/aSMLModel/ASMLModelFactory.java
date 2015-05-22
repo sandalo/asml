@@ -32,15 +32,6 @@ public interface ASMLModelFactory extends EFactory
   ASMLModel createASMLModel();
 
   /**
-   * Returns a new object of class '<em>View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View</em>'.
-   * @generated
-   */
-  View createView();
-
-  /**
    * Returns a new object of class '<em>Abstract Component</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +39,15 @@ public interface ASMLModelFactory extends EFactory
    * @generated
    */
   AbstractComponent createAbstractComponent();
+
+  /**
+   * Returns a new object of class '<em>View</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>View</em>'.
+   * @generated
+   */
+  View createView();
 
   /**
    * Returns a new object of class '<em>Attribute</em>'.
@@ -95,87 +95,6 @@ public interface ASMLModelFactory extends EFactory
   ClassMatching createClassMatching();
 
   /**
-   * Returns a new object of class '<em>Configuration Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Configuration Element</em>'.
-   * @generated
-   */
-  ConfigurationElement createConfigurationElement();
-
-  /**
-   * Returns a new object of class '<em>File</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>File</em>'.
-   * @generated
-   */
-  File createFile();
-
-  /**
-   * Returns a new object of class '<em>Configuration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Configuration</em>'.
-   * @generated
-   */
-  Configuration createConfiguration();
-
-  /**
-   * Returns a new object of class '<em>Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method</em>'.
-   * @generated
-   */
-  Method createMethod();
-
-  /**
-   * Returns a new object of class '<em>Meta Class</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Meta Class</em>'.
-   * @generated
-   */
-  MetaClass createMetaClass();
-
-  /**
-   * Returns a new object of class '<em>External Class</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Class</em>'.
-   * @generated
-   */
-  ExternalClass createExternalClass();
-
-  /**
-   * Returns a new object of class '<em>Xml Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Xml Element</em>'.
-   * @generated
-   */
-  XmlElement createXmlElement();
-
-  /**
-   * Returns a new object of class '<em>Xml Document</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Xml Document</em>'.
-   * @generated
-   */
-  XmlDocument createXmlDocument();
-
-  /**
-   * Returns a new object of class '<em>Module</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Module</em>'.
-   * @generated
-   */
-  Module createModule();
-
-  /**
    * Returns a new object of class '<em>Meta Module</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -183,15 +102,6 @@ public interface ASMLModelFactory extends EFactory
    * @generated
    */
   MetaModule createMetaModule();
-
-  /**
-   * Returns a new object of class '<em>External Module</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Module</em>'.
-   * @generated
-   */
-  ExternalModule createExternalModule();
 
   /**
    * Returns a new object of class '<em>Restriction</em>'.

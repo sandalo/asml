@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getName <em>Name</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getImportURI <em>Import URI</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getViews <em>Views</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getComponents <em>Components</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.ASMLModel#getIgnore <em>Ignore</em>}</li>
  * </ul>
  * </p>
@@ -80,20 +80,20 @@ public interface ASMLModel extends EObject
   void setImportURI(String value);
 
   /**
-   * Returns the value of the '<em><b>Views</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.View}.
+   * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Views</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Views</em>' containment reference list.
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getASMLModel_Views()
+   * @return the value of the '<em>Components</em>' containment reference list.
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getASMLModel_Components()
    * @model containment="true"
    * @generated
    */
-  EList<View> getViews();
+  EList<AbstractComponent> getComponents();
 
   /**
    * Returns the value of the '<em><b>Ignore</b></em>' attribute list.

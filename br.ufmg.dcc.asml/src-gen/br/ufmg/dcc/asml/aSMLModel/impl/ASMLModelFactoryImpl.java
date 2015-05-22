@@ -66,24 +66,14 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
     switch (eClass.getClassifierID())
     {
       case ASMLModelPackage.ASML_MODEL: return createASMLModel();
-      case ASMLModelPackage.VIEW: return createView();
       case ASMLModelPackage.ABSTRACT_COMPONENT: return createAbstractComponent();
+      case ASMLModelPackage.VIEW: return createView();
       case ASMLModelPackage.ATTRIBUTE: return createAttribute();
       case ASMLModelPackage.ABSTRACT_NAME_CONVETION: return createAbstractNameConvetion();
       case ASMLModelPackage.EXPRESSION_MATCHING_OPERATOR: return createExpressionMatchingOperator();
       case ASMLModelPackage.MODULE_MATCHING: return createModuleMatching();
       case ASMLModelPackage.CLASS_MATCHING: return createClassMatching();
-      case ASMLModelPackage.CONFIGURATION_ELEMENT: return createConfigurationElement();
-      case ASMLModelPackage.FILE: return createFile();
-      case ASMLModelPackage.CONFIGURATION: return createConfiguration();
-      case ASMLModelPackage.METHOD: return createMethod();
-      case ASMLModelPackage.META_CLASS: return createMetaClass();
-      case ASMLModelPackage.EXTERNAL_CLASS: return createExternalClass();
-      case ASMLModelPackage.XML_ELEMENT: return createXmlElement();
-      case ASMLModelPackage.XML_DOCUMENT: return createXmlDocument();
-      case ASMLModelPackage.MODULE: return createModule();
       case ASMLModelPackage.META_MODULE: return createMetaModule();
-      case ASMLModelPackage.EXTERNAL_MODULE: return createExternalModule();
       case ASMLModelPackage.RESTRICTION: return createRestriction();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -160,10 +150,10 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public View createView()
+  public AbstractComponent createAbstractComponent()
   {
-    ViewImpl view = new ViewImpl();
-    return view;
+    AbstractComponentImpl abstractComponent = new AbstractComponentImpl();
+    return abstractComponent;
   }
 
   /**
@@ -171,10 +161,10 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractComponent createAbstractComponent()
+  public View createView()
   {
-    AbstractComponentImpl abstractComponent = new AbstractComponentImpl();
-    return abstractComponent;
+    ViewImpl view = new ViewImpl();
+    return view;
   }
 
   /**
@@ -237,120 +227,10 @@ public class ASMLModelFactoryImpl extends EFactoryImpl implements ASMLModelFacto
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConfigurationElement createConfigurationElement()
-  {
-    ConfigurationElementImpl configurationElement = new ConfigurationElementImpl();
-    return configurationElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public File createFile()
-  {
-    FileImpl file = new FileImpl();
-    return file;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Configuration createConfiguration()
-  {
-    ConfigurationImpl configuration = new ConfigurationImpl();
-    return configuration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Method createMethod()
-  {
-    MethodImpl method = new MethodImpl();
-    return method;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MetaClass createMetaClass()
-  {
-    MetaClassImpl metaClass = new MetaClassImpl();
-    return metaClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExternalClass createExternalClass()
-  {
-    ExternalClassImpl externalClass = new ExternalClassImpl();
-    return externalClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public XmlElement createXmlElement()
-  {
-    XmlElementImpl xmlElement = new XmlElementImpl();
-    return xmlElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public XmlDocument createXmlDocument()
-  {
-    XmlDocumentImpl xmlDocument = new XmlDocumentImpl();
-    return xmlDocument;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Module createModule()
-  {
-    ModuleImpl module = new ModuleImpl();
-    return module;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public MetaModule createMetaModule()
   {
     MetaModuleImpl metaModule = new MetaModuleImpl();
     return metaModule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExternalModule createExternalModule()
-  {
-    ExternalModuleImpl externalModule = new ExternalModuleImpl();
-    return externalModule;
   }
 
   /**

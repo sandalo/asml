@@ -25,7 +25,7 @@ public class ComponentAHandleCompontB extends RestricionChecker {
 
 	@Override
 	public void checker(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		boolean any = restriction.getGroupClause().equals(GroupClause.ONLY)||restriction.getGroupClause().equals(GroupClause.NULL);
+		boolean any = restriction.getGroupClause().equals(GroupClause.ONLY);
 		boolean can = restriction.getPermissionClause().equals(PermissionClause.CAN);
 		boolean onlyB = restriction.getGroupClauseB().equals(GroupClause.ONLY);
 		if (any && can && onlyB) {
@@ -48,8 +48,8 @@ public class ComponentAHandleCompontB extends RestricionChecker {
 				}
 				if (not_found) {
 					String message = "";
-					if (restriction.getDescription() != null)
-						message = restriction.getDescription();
+					if (restriction.getMessage() != null)
+						message = restriction.getMessage();
 					else
 						message = "Somente componente o " + componentA.getName() + " pode tratar, lidar ou conter componentes " + componentB.getName();
 					asmlContext.getViolations().add(new Violation(iResource.getResource(), message, 1, IMarker.SEVERITY_ERROR));

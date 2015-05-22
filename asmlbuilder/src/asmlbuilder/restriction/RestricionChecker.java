@@ -19,8 +19,8 @@ public abstract class RestricionChecker {
 
 
 	protected void addViolation(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB, int lineNumber, ComponentInstance componentInstance, String defaultMessage) {
-		if (restriction.getDescription() != null)
-			defaultMessage = restriction.getDescription();
+		if (restriction.getMessage() != null)
+			defaultMessage = restriction.getMessage();
 		asmlContext.getViolations().add(new Violation(componentInstance.getResource(), defaultMessage, lineNumber, IMarker.SEVERITY_ERROR));
 	}
 }

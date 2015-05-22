@@ -2,7 +2,6 @@
  */
 package br.ufmg.dcc.asml.aSMLModel;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,10 +11,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getMatching <em>Matching</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getComponents <em>Components</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getRestrictions <em>Restrictions</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,77 +23,55 @@ import org.eclipse.emf.common.util.EList;
 public interface MetaModule extends AbstractComponent
 {
   /**
-   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.Attribute}.
+   * Returns the value of the '<em><b>Matching</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Matching</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaModule_Attributes()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Attribute> getAttributes();
-
-  /**
-   * Returns the value of the '<em><b>Matching</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Matching</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Matching</em>' containment reference.
-   * @see #setMatching(ModuleMatching)
+   * @return the value of the '<em>Matching</em>' attribute.
+   * @see #setMatching(String)
    * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaModule_Matching()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  ModuleMatching getMatching();
+  String getMatching();
 
   /**
-   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getMatching <em>Matching</em>}' containment reference.
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getMatching <em>Matching</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Matching</em>' containment reference.
+   * @param value the new value of the '<em>Matching</em>' attribute.
    * @see #getMatching()
    * @generated
    */
-  void setMatching(ModuleMatching value);
+  void setMatching(String value);
 
   /**
-   * Returns the value of the '<em><b>Components</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent}.
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Components</em>' containment reference list.
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaModule_Components()
-   * @model containment="true"
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaModule_Description()
+   * @model
    * @generated
    */
-  EList<AbstractComponent> getComponents();
+  String getDescription();
 
   /**
-   * Returns the value of the '<em><b>Restrictions</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufmg.dcc.asml.aSMLModel.Restriction}.
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.MetaModule#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Restrictions</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Restrictions</em>' containment reference list.
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getMetaModule_Restrictions()
-   * @model containment="true"
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
    * @generated
    */
-  EList<Restriction> getRestrictions();
+  void setDescription(String value);
 
 } // MetaModule

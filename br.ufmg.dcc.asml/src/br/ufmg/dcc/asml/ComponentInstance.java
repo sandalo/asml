@@ -1,5 +1,6 @@
 package br.ufmg.dcc.asml;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,7 +9,6 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.ITypeHierarchy;
 import org.eclipse.jdt.core.JavaModelException;
@@ -16,15 +16,22 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
+import br.ufmg.dcc.asml.aSMLModel.View;
 
 public class ComponentInstance implements Comparable<ComponentInstance> {
 	private static final Map<String, ComponentInstance> componentInstanceIResourceName = new HashMap<String, ComponentInstance>();
 	private static final Map<String, ComponentInstance> componentInstanceITypeName = new HashMap<String, ComponentInstance>();
 	private IResource resource;
-	private final Set<AbstractComponent> components = new HashSet<AbstractComponent>();
+	// private final Map<View, AbstractComponent> components = new HashMap<View,
+	// AbstractComponent>();
+	private AbstractComponent component;
 	private Map<Class<? extends ASTNode>, Set<ComponentInstanceReference>> componentInstanceReferences = new HashMap<Class<? extends ASTNode>, Set<ComponentInstanceReference>>();
 	private CompilationUnit compilationUnitAST;
-	private IType iType;
+	private Object resourceType;
+
+	public ComponentInstance() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public CompilationUnit getCompilationUnitAST() {
 		return compilationUnitAST;
@@ -39,6 +46,8 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	}
 
 	public void setResource(IResource resource) {
+		if(resource==null)
+			return;
 		String key = resource.getFullPath().toString();
 		addCache(resource, key);
 		this.resource = resource;
@@ -54,22 +63,35 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		componentInstanceIResourceName.put(key, this);
 	}
 
-	public Set<AbstractComponent> getComponents() {
-		return Collections.unmodifiableSet(components);
+	/*
+	 * public Set<AbstractComponent> getComponents() {
+	 * Collection<AbstractComponent> values = components.values();
+	 * Collection<AbstractComponent> valuesSet = new
+	 * HashSet<AbstractComponent>(values); return
+	 * Collections.unmodifiableSet((Set<? extends AbstractComponent>)
+	 * valuesSet); }
+	 */
+	public AbstractComponent getComponent() {
+		return component;
 	}
 
-	public void addComponents(AbstractComponent component) {
-		this.components.add(component);
-	}
+	public void setComponent(AbstractComponent component) {
+		if (this.component != null) {
+			System.out.println("Componente já esta configurado para esta instancia.");
+			return;
+		}
+		this.component = component;
+		/*
+		 * this.components.put(view, component); if (this.components.size() > 1)
+		 * { System.out.println("Mais de um componente por ComponentIntance"); }
+		 */}
 
-	public void componentClear() {
-		components.clear();
-	}
-
-	public void componentRemove(AbstractComponent component) {
-		components.remove(component);
-	}
-
+	/*
+	 * public void componentClear() { components.clear(); }
+	 * 
+	 * public void componentRemove(AbstractComponent component) {
+	 * components.remove(component); }
+	 */
 	@Override
 	public int compareTo(ComponentInstance o) {
 		if (resource != null && o.getResource() != null)
@@ -96,24 +118,44 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		return add;
 	}
 
-	public Set<ComponentInstanceReference> getReferencesByNodeType(Class<? extends ASTNode> classOfNode) {
+	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances(Class<? extends ASTNode> classOfNode) {
 		Set<ComponentInstanceReference> astNodes = componentInstanceReferences.get(classOfNode);
 		if (astNodes != null)
 			return Collections.unmodifiableSet(astNodes);
 		return new HashSet<ComponentInstanceReference>();
 	}
 
-	public void setType(IType iType) {
-		this.iType = iType;
-		componentInstanceITypeName.put(getTypeFullQualifyName(), this);
+	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances() {
+		HashSet<ComponentInstanceReference> hashSet = new HashSet<ComponentInstanceReference>();
+		Collection<Set<ComponentInstanceReference>> values = componentInstanceReferences.values();
+		for (Set<ComponentInstanceReference> set : values) {
+			for (ComponentInstanceReference componentInstanceReference : set) {
+				ComponentInstance componentInstanceOwner = componentInstanceReference.getComponentInstanceOwner();
+				AbstractComponent component2 = componentInstanceOwner.getComponent();
+				if (componentInstanceOwner != null && component2 != null)
+					hashSet.add(componentInstanceReference);
+			}
+		}
+		return Collections.unmodifiableSet(hashSet);
+	}
+
+	public void setType(Object iType) {
+		this.resourceType = iType;
+		String typeFullQualifyName = getTypeFullQualifyName();
+		if (typeFullQualifyName != null)
+			componentInstanceITypeName.put(typeFullQualifyName, this);
 	}
 
 	public IType getType() {
-		return iType;
+		if (this.resourceType instanceof IType)
+			return (IType) this.resourceType;
+		return null;
 	}
 
 	protected String getTypeFullQualifyName() {
-		return iType.getFullyQualifiedName();
+		if (getType() != null)
+			return getType().getFullyQualifiedName();
+		return "";
 	}
 
 	public String[] getAllSupertypesNames() {
@@ -167,7 +209,7 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		return contains;
 	}
 
-	public boolean isResourceOf(AbstractComponent componentB) {
+	public boolean isInstanceOf(AbstractComponent componentB) {
 		boolean extend;
 		String[] typeNamesOfA = new String[] { this.getType().getFullyQualifiedName() };
 		String[] typeNamesOfB = componentB.getAllTypesNames();
@@ -203,11 +245,22 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	}
 
 	public boolean instanceOf(AbstractComponent abstractComponent) {
-		Set<AbstractComponent> components = getComponents();
-		for (AbstractComponent abstractComponent2 : components) {
-			if (abstractComponent2.getName().equals(abstractComponent.getName()))
-				return true;
+		boolean is = false;
+		if (component != null && component.getName().equals(abstractComponent.getName()))
+			is = true;
+		if (is)
+			return is;
+		return is;
+	}
+
+	public String getRawName() {
+		String matching = getComponent().getMatching();
+		String name = getResource().getName();
+		if (matching.contains("{name}")) {
+			String segments[] = matching.split("\\{name\\}");
+			String token = segments[1];
+			name = name.replace(token, "").replace("." + getResource().getFileExtension(), "");
 		}
-		return false;
+		return name;
 	}
 }

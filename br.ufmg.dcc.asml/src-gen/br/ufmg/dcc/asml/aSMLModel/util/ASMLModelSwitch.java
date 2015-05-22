@@ -79,17 +79,18 @@ public class ASMLModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ASMLModelPackage.VIEW:
-      {
-        View view = (View)theEObject;
-        T result = caseView(view);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ASMLModelPackage.ABSTRACT_COMPONENT:
       {
         AbstractComponent abstractComponent = (AbstractComponent)theEObject;
         T result = caseAbstractComponent(abstractComponent);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ASMLModelPackage.VIEW:
+      {
+        View view = (View)theEObject;
+        T result = caseView(view);
+        if (result == null) result = caseAbstractComponent(view);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -129,95 +130,11 @@ public class ASMLModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ASMLModelPackage.CONFIGURATION_ELEMENT:
-      {
-        ConfigurationElement configurationElement = (ConfigurationElement)theEObject;
-        T result = caseConfigurationElement(configurationElement);
-        if (result == null) result = caseAbstractComponent(configurationElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.FILE:
-      {
-        File file = (File)theEObject;
-        T result = caseFile(file);
-        if (result == null) result = caseConfigurationElement(file);
-        if (result == null) result = caseAbstractComponent(file);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.CONFIGURATION:
-      {
-        Configuration configuration = (Configuration)theEObject;
-        T result = caseConfiguration(configuration);
-        if (result == null) result = caseConfigurationElement(configuration);
-        if (result == null) result = caseAbstractComponent(configuration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.METHOD:
-      {
-        Method method = (Method)theEObject;
-        T result = caseMethod(method);
-        if (result == null) result = caseAbstractComponent(method);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.META_CLASS:
-      {
-        MetaClass metaClass = (MetaClass)theEObject;
-        T result = caseMetaClass(metaClass);
-        if (result == null) result = caseAbstractComponent(metaClass);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.EXTERNAL_CLASS:
-      {
-        ExternalClass externalClass = (ExternalClass)theEObject;
-        T result = caseExternalClass(externalClass);
-        if (result == null) result = caseAbstractComponent(externalClass);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.XML_ELEMENT:
-      {
-        XmlElement xmlElement = (XmlElement)theEObject;
-        T result = caseXmlElement(xmlElement);
-        if (result == null) result = caseConfigurationElement(xmlElement);
-        if (result == null) result = caseAbstractComponent(xmlElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.XML_DOCUMENT:
-      {
-        XmlDocument xmlDocument = (XmlDocument)theEObject;
-        T result = caseXmlDocument(xmlDocument);
-        if (result == null) result = caseConfigurationElement(xmlDocument);
-        if (result == null) result = caseAbstractComponent(xmlDocument);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.MODULE:
-      {
-        Module module = (Module)theEObject;
-        T result = caseModule(module);
-        if (result == null) result = caseAbstractComponent(module);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ASMLModelPackage.META_MODULE:
       {
         MetaModule metaModule = (MetaModule)theEObject;
         T result = caseMetaModule(metaModule);
         if (result == null) result = caseAbstractComponent(metaModule);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ASMLModelPackage.EXTERNAL_MODULE:
-      {
-        ExternalModule externalModule = (ExternalModule)theEObject;
-        T result = caseExternalModule(externalModule);
-        if (result == null) result = caseAbstractComponent(externalModule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -249,22 +166,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>View</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>View</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseView(View object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Abstract Component</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -276,6 +177,22 @@ public class ASMLModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAbstractComponent(AbstractComponent object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>View</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>View</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseView(View object)
   {
     return null;
   }
@@ -361,150 +278,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Configuration Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Configuration Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConfigurationElement(ConfigurationElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>File</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>File</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFile(File object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConfiguration(Configuration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Method</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMethod(Method object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Meta Class</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Meta Class</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMetaClass(MetaClass object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>External Class</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>External Class</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExternalClass(ExternalClass object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Xml Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Xml Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseXmlElement(XmlElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Xml Document</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Xml Document</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseXmlDocument(XmlDocument object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Module</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseModule(Module object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Meta Module</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -516,22 +289,6 @@ public class ASMLModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMetaModule(MetaModule object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>External Module</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>External Module</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExternalModule(ExternalModule object)
   {
     return null;
   }

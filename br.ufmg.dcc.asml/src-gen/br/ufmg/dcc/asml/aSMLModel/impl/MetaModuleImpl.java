@@ -3,26 +3,13 @@
 package br.ufmg.dcc.asml.aSMLModel.impl;
 
 import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
-import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.Attribute;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
-import br.ufmg.dcc.asml.aSMLModel.Restriction;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,10 +18,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaModuleImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaModuleImpl#getMatching <em>Matching</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaModuleImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaModuleImpl#getRestrictions <em>Restrictions</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.MetaModuleImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,44 +28,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
 {
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAttributes()
-   * @generated
-   * @ordered
-   */
-  protected EList<Attribute> attributes;
-
-  /**
-   * The cached value of the '{@link #getMatching() <em>Matching</em>}' containment reference.
+   * The default value of the '{@link #getMatching() <em>Matching</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMatching()
    * @generated
    * @ordered
    */
-  protected ModuleMatching matching;
+  protected static final String MATCHING_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
+   * The cached value of the '{@link #getMatching() <em>Matching</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComponents()
+   * @see #getMatching()
    * @generated
    * @ordered
    */
-  protected EList<AbstractComponent> components;
+  protected String matching = MATCHING_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRestrictions() <em>Restrictions</em>}' containment reference list.
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRestrictions()
+   * @see #getDescription()
    * @generated
    * @ordered
    */
-  protected EList<Restriction> restrictions;
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,21 +93,7 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getAttributes()
-  {
-    if (attributes == null)
-    {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ASMLModelPackage.META_MODULE__ATTRIBUTES);
-    }
-    return attributes;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ModuleMatching getMatching()
+  public String getMatching()
   {
     return matching;
   }
@@ -132,16 +103,12 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMatching(ModuleMatching newMatching, NotificationChain msgs)
+  public void setMatching(String newMatching)
   {
-    ModuleMatching oldMatching = matching;
+    String oldMatching = matching;
     matching = newMatching;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_MODULE__MATCHING, oldMatching, newMatching);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_MODULE__MATCHING, oldMatching, matching));
   }
 
   /**
@@ -149,20 +116,9 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMatching(ModuleMatching newMatching)
+  public String getDescription()
   {
-    if (newMatching != matching)
-    {
-      NotificationChain msgs = null;
-      if (matching != null)
-        msgs = ((InternalEObject)matching).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.META_MODULE__MATCHING, null, msgs);
-      if (newMatching != null)
-        msgs = ((InternalEObject)newMatching).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ASMLModelPackage.META_MODULE__MATCHING, null, msgs);
-      msgs = basicSetMatching(newMatching, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_MODULE__MATCHING, newMatching, newMatching));
+    return description;
   }
 
   /**
@@ -170,49 +126,12 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractComponent> getComponents()
+  public void setDescription(String newDescription)
   {
-    if (components == null)
-    {
-      components = new EObjectContainmentEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.META_MODULE__COMPONENTS);
-    }
-    return components;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Restriction> getRestrictions()
-  {
-    if (restrictions == null)
-    {
-      restrictions = new EObjectContainmentEList<Restriction>(Restriction.class, this, ASMLModelPackage.META_MODULE__RESTRICTIONS);
-    }
-    return restrictions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case ASMLModelPackage.META_MODULE__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-      case ASMLModelPackage.META_MODULE__MATCHING:
-        return basicSetMatching(null, msgs);
-      case ASMLModelPackage.META_MODULE__COMPONENTS:
-        return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
-      case ASMLModelPackage.META_MODULE__RESTRICTIONS:
-        return ((InternalEList<?>)getRestrictions()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.META_MODULE__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -225,14 +144,10 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
   {
     switch (featureID)
     {
-      case ASMLModelPackage.META_MODULE__ATTRIBUTES:
-        return getAttributes();
       case ASMLModelPackage.META_MODULE__MATCHING:
         return getMatching();
-      case ASMLModelPackage.META_MODULE__COMPONENTS:
-        return getComponents();
-      case ASMLModelPackage.META_MODULE__RESTRICTIONS:
-        return getRestrictions();
+      case ASMLModelPackage.META_MODULE__DESCRIPTION:
+        return getDescription();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,26 +157,16 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case ASMLModelPackage.META_MODULE__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
-        return;
       case ASMLModelPackage.META_MODULE__MATCHING:
-        setMatching((ModuleMatching)newValue);
+        setMatching((String)newValue);
         return;
-      case ASMLModelPackage.META_MODULE__COMPONENTS:
-        getComponents().clear();
-        getComponents().addAll((Collection<? extends AbstractComponent>)newValue);
-        return;
-      case ASMLModelPackage.META_MODULE__RESTRICTIONS:
-        getRestrictions().clear();
-        getRestrictions().addAll((Collection<? extends Restriction>)newValue);
+      case ASMLModelPackage.META_MODULE__DESCRIPTION:
+        setDescription((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -277,17 +182,11 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
   {
     switch (featureID)
     {
-      case ASMLModelPackage.META_MODULE__ATTRIBUTES:
-        getAttributes().clear();
-        return;
       case ASMLModelPackage.META_MODULE__MATCHING:
-        setMatching((ModuleMatching)null);
+        setMatching(MATCHING_EDEFAULT);
         return;
-      case ASMLModelPackage.META_MODULE__COMPONENTS:
-        getComponents().clear();
-        return;
-      case ASMLModelPackage.META_MODULE__RESTRICTIONS:
-        getRestrictions().clear();
+      case ASMLModelPackage.META_MODULE__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -303,16 +202,31 @@ public class MetaModuleImpl extends AbstractComponentImpl implements MetaModule
   {
     switch (featureID)
     {
-      case ASMLModelPackage.META_MODULE__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
       case ASMLModelPackage.META_MODULE__MATCHING:
-        return matching != null;
-      case ASMLModelPackage.META_MODULE__COMPONENTS:
-        return components != null && !components.isEmpty();
-      case ASMLModelPackage.META_MODULE__RESTRICTIONS:
-        return restrictions != null && !restrictions.isEmpty();
+        return MATCHING_EDEFAULT == null ? matching != null : !MATCHING_EDEFAULT.equals(matching);
+      case ASMLModelPackage.META_MODULE__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (matching: ");
+    result.append(matching);
+    result.append(", description: ");
+    result.append(description);
+    result.append(')');
+    return result.toString();
   }
 
 } //MetaModuleImpl

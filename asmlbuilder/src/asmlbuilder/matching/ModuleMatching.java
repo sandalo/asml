@@ -12,10 +12,10 @@ import org.eclipse.jdt.core.JavaModelException;
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.constants.ASMLConstant;
 import br.ufmg.dcc.asml.ComponentInstance;
+import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.Attribute;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.Module;
 import br.ufmg.dcc.asml.aSMLModel.View;
 
 public class ModuleMatching extends AbstraticMatching implements IMatching {
@@ -124,12 +124,8 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	public static boolean isNameSpace(IResource resource, AbstractComponent abstractComponent) {
-		if (!(abstractComponent instanceof Module)) {
-			return false;
-		}
-		Module module = (Module) abstractComponent;
 		boolean isNameSapce = false;
-		EList<Attribute> attributes = module.getAttributes();
+		EList<Attribute> attributes = abstractComponent.getAttributes();
 		if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
 			String resourceName = resource.getName();
 			Attribute attribute = attributes.get(0);
@@ -150,12 +146,12 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	public static int getPositionInNameSpace(IResource resource, AbstractComponent abstractComponent) {
-		if (!(abstractComponent instanceof Module)) {
-			return -1;
-		}
 		String value = getFullPathComponent(abstractComponent, true);
+		String nameSpace = getNameSpace(abstractComponent);
 		String[] names = value.split("\\.");
-		for (int i = names.length-1; i > 0; i--) {
+		int initial = names.length-1;
+		int final_ = initial-nameSpace.split("\\.").length;
+		for (int i = initial; i > final_; i--) {
 			if (resource.getName().equals(names[i])) {
 				return i;
 			}
@@ -164,11 +160,7 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	public static String getNameSpace(AbstractComponent abstractComponent) {
-		if (!(abstractComponent instanceof Module)) {
-			return "";
-		}
-		Module module = (Module) abstractComponent;
-		EList<Attribute> attributes = module.getAttributes();
+		EList<Attribute> attributes = abstractComponent.getAttributes();
 		if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
 			return attributes.get(0).getValue();
 		}
@@ -199,12 +191,9 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 		int level = 1;
 		EObject parent;
 		parent = module.eContainer();
-		while (parent != null && parent instanceof Module) {
+		while (parent != null && parent instanceof ASMLModel) {
 			EList<Attribute> attributes = null;
-			if (parent instanceof Module)
-				attributes = ((Module) (parent)).getAttributes();
-			else if (parent instanceof MetaModule)
-				attributes = ((MetaModule) (parent)).getAttributes();
+				attributes = ((AbstractComponent) (parent)).getAttributes();
 			if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
 				Attribute attribute = attributes.get(0);
 				String[] names = attribute.getValue().split("\\.");

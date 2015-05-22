@@ -97,7 +97,7 @@ public enum RelactionType implements Enumerator
    * @generated
    * @ordered
    */
-  USEANOTATION(7, "USEANOTATION", "use annotation"),
+  USEANOTATION(7, "USEANOTATION", "use-annotation"),
 
   /**
    * The '<em><b>DEPEND</b></em>' literal object.
@@ -233,7 +233,7 @@ public enum RelactionType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #USEANOTATION
-   * @model literal="use annotation"
+   * @model literal="use-annotation"
    * @generated
    * @ordered
    */

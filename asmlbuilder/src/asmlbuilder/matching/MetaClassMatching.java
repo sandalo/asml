@@ -1,27 +1,21 @@
 package asmlbuilder.matching;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.eclipse.core.resources.IFile;
-
-import asmlbuilder.builder.ASMLContext;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.AbstractNameConvetion;
-import br.ufmg.dcc.asml.aSMLModel.ClassMatching;
-import br.ufmg.dcc.asml.aSMLModel.ExpressionMatchingClause;
-import br.ufmg.dcc.asml.aSMLModel.MetaClass;
+import asmlbuilder.builder.ASMLContext;
+
 
 public class MetaClassMatching extends AbstraticMatching implements IMatching {
-
 	public MetaClassMatching(ASMLContext asmlContext) {
 		super(asmlContext);
 	}
+/*
+	private HashSet<MetaClass> metaClassesFounded = new HashSet<MetaClass>();
+
 
 	@Override
 	public boolean matching(ComponentInstance resource, AbstractComponent component) {
-		String fileExtension = resource.getResource().getFileExtension()+"";
+		String fileExtension = resource.getResource().getFileExtension() + "";
 		if (component instanceof MetaClass && resource.getResource() instanceof IFile && fileExtension.equals("java")) {
 			MetaClass class1 = (MetaClass) component;
 			AbstractNameConvetion abstractNameConvetion = class1.getMatching();
@@ -31,7 +25,14 @@ public class MetaClassMatching extends AbstraticMatching implements IMatching {
 				if (clause.equals(ExpressionMatchingClause.NAME_ENDS_WITH)) {
 					String parameter = expressionMatching.getParameter() + "";
 					String resourceName = FileMatching.extractResourceNameIndexed(resource.getResource());
+					Set<String> tokens = asmlContext.getTokensNameConvention();
 					if (resourceName.endsWith(parameter)) {
+						for (String token : tokens) {
+							if (resourceName.endsWith(parameter) && resourceName.endsWith(token)) {
+								if (parameter.length() < token.length())
+									return false;
+							}
+						}
 						registerInSuperClass(class1);
 						return true;
 					}
@@ -42,14 +43,19 @@ public class MetaClassMatching extends AbstraticMatching implements IMatching {
 	}
 
 	private void registerInSuperClass(MetaClass class1) {
-		MetaClass key = class1.getExtends();
-		if(key!=null){
-			Set<MetaClass>  sublMetaClasses = asmlContext.getSublMetaClasses().get(key);
-			if(sublMetaClasses==null){
-				sublMetaClasses = new HashSet<MetaClass>();
-				asmlContext.getSublMetaClasses().put(key, sublMetaClasses);
-			}
-			asmlContext.getSublMetaClasses().get(key).add(class1);
-		}
+		metaClassesFounded.add(class1);
+		
+		 * MetaClass key = class1.getExtends(); if(key!=null){ Set<MetaClass>
+		 * sublMetaClasses = asmlContext.getSublMetaClasses().get(key);
+		 * if(sublMetaClasses==null){ sublMetaClasses = new
+		 * HashSet<MetaClass>(); asmlContext.getSublMetaClasses().put(key,
+		 * sublMetaClasses); }
+		 * asmlContext.getSublMetaClasses().get(key).add(class1); }
+		 }*/
+
+	@Override
+	public boolean matching(ComponentInstance resource, AbstractComponent component) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

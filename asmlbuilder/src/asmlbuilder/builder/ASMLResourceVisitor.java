@@ -41,7 +41,6 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 		this.asmlContext.addComponentInstance(componentInstance);
 		if (resource instanceof IFile && resource.getFileExtension().equals("java"))
 			parse(componentInstance);
-
 		return true;
 	}
 

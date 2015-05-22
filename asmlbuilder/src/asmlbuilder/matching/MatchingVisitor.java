@@ -35,7 +35,7 @@ public class MatchingVisitor implements ComponentVisitor {
 			matching = iMatching.matching(componentInstance, component);
 			if (matching) {
 				component.addComponentInstance(componentInstance);
-				componentInstance.addComponents(component);
+				componentInstance.setComponent(component);
 			}
 		}
 	}

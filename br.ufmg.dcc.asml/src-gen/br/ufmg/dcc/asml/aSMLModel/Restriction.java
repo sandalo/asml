@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getRelactionType <em>Relaction Type</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getGroupClauseB <em>Group Clause B</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentB <em>Component B</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription <em>Description</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
  *
@@ -189,29 +189,29 @@ public interface Restriction extends EObject
   void setComponentB(AbstractComponent value);
 
   /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * Returns the value of the '<em><b>Message</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * If the meaning of the '<em>Message</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getRestriction_Description()
+   * @return the value of the '<em>Message</em>' attribute.
+   * @see #setMessage(String)
+   * @see br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage#getRestriction_Message()
    * @model
    * @generated
    */
-  String getDescription();
+  String getMessage();
 
   /**
-   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getMessage <em>Message</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
+   * @param value the new value of the '<em>Message</em>' attribute.
+   * @see #getMessage()
    * @generated
    */
-  void setDescription(String value);
+  void setMessage(String value);
 
 } // Restriction

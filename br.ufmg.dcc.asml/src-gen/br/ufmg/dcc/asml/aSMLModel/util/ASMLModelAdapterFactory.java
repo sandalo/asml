@@ -80,14 +80,14 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
         return createASMLModelAdapter();
       }
       @Override
-      public Adapter caseView(View object)
-      {
-        return createViewAdapter();
-      }
-      @Override
       public Adapter caseAbstractComponent(AbstractComponent object)
       {
         return createAbstractComponentAdapter();
+      }
+      @Override
+      public Adapter caseView(View object)
+      {
+        return createViewAdapter();
       }
       @Override
       public Adapter caseAttribute(Attribute object)
@@ -115,59 +115,9 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
         return createClassMatchingAdapter();
       }
       @Override
-      public Adapter caseConfigurationElement(ConfigurationElement object)
-      {
-        return createConfigurationElementAdapter();
-      }
-      @Override
-      public Adapter caseFile(File object)
-      {
-        return createFileAdapter();
-      }
-      @Override
-      public Adapter caseConfiguration(Configuration object)
-      {
-        return createConfigurationAdapter();
-      }
-      @Override
-      public Adapter caseMethod(Method object)
-      {
-        return createMethodAdapter();
-      }
-      @Override
-      public Adapter caseMetaClass(MetaClass object)
-      {
-        return createMetaClassAdapter();
-      }
-      @Override
-      public Adapter caseExternalClass(ExternalClass object)
-      {
-        return createExternalClassAdapter();
-      }
-      @Override
-      public Adapter caseXmlElement(XmlElement object)
-      {
-        return createXmlElementAdapter();
-      }
-      @Override
-      public Adapter caseXmlDocument(XmlDocument object)
-      {
-        return createXmlDocumentAdapter();
-      }
-      @Override
-      public Adapter caseModule(Module object)
-      {
-        return createModuleAdapter();
-      }
-      @Override
       public Adapter caseMetaModule(MetaModule object)
       {
         return createMetaModuleAdapter();
-      }
-      @Override
-      public Adapter caseExternalModule(ExternalModule object)
-      {
-        return createExternalModuleAdapter();
       }
       @Override
       public Adapter caseRestriction(Restriction object)
@@ -212,21 +162,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.View <em>View</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.View
-   * @generated
-   */
-  public Adapter createViewAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.AbstractComponent <em>Abstract Component</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -237,6 +172,21 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAbstractComponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.View <em>View</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufmg.dcc.asml.aSMLModel.View
+   * @generated
+   */
+  public Adapter createViewAdapter()
   {
     return null;
   }
@@ -317,141 +267,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.ConfigurationElement <em>Configuration Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.ConfigurationElement
-   * @generated
-   */
-  public Adapter createConfigurationElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.File <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.File
-   * @generated
-   */
-  public Adapter createFileAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Configuration <em>Configuration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.Configuration
-   * @generated
-   */
-  public Adapter createConfigurationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Method <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.Method
-   * @generated
-   */
-  public Adapter createMethodAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.MetaClass <em>Meta Class</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.MetaClass
-   * @generated
-   */
-  public Adapter createMetaClassAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.ExternalClass <em>External Class</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.ExternalClass
-   * @generated
-   */
-  public Adapter createExternalClassAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.XmlElement <em>Xml Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.XmlElement
-   * @generated
-   */
-  public Adapter createXmlElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.XmlDocument <em>Xml Document</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.XmlDocument
-   * @generated
-   */
-  public Adapter createXmlDocumentAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.Module <em>Module</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.Module
-   * @generated
-   */
-  public Adapter createModuleAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.MetaModule <em>Meta Module</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -462,21 +277,6 @@ public class ASMLModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMetaModuleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufmg.dcc.asml.aSMLModel.ExternalModule <em>External Module</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufmg.dcc.asml.aSMLModel.ExternalModule
-   * @generated
-   */
-  public Adapter createExternalModuleAdapter()
   {
     return null;
   }

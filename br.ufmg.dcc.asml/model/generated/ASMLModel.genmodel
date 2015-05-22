@@ -25,9 +25,9 @@
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//ModuleMatchingParamenter/EXTERNAL_DEFINITION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ASMLModel.ecore#//GroupClause">
-      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/NULL"/>
-      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ONLY"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ANY"/>
+      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ONLY"/>
+      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ONLY_THIS"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/NO_ONE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ASMLModel.ecore#//PermissionClause">
@@ -51,18 +51,16 @@
     <genClasses ecoreClass="ASMLModel.ecore#//ASMLModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ASMLModel/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ASMLModel/importURI"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//ASMLModel/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//ASMLModel/components"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ASMLModel/ignore"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//View">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//View/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/components"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//View/restrictions"/>
     </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//AbstractComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//AbstractComponent/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//AbstractComponent/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//AbstractComponent/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//AbstractComponent/restrictions"/>
     </genClasses>
+    <genClasses ecoreClass="ASMLModel.ecore#//View"/>
     <genClasses ecoreClass="ASMLModel.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Attribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Attribute/value"/>
@@ -79,54 +77,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ClassMatching/expressionMatching"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ClassMatching/parameter"/>
     </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//ConfigurationElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ConfigurationElement/cardinality"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//File">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//File/matching"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//Configuration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Configuration/matching"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Configuration/configurationElement"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//Method">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Method/matching"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Method/cardinality"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//MetaClass">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaClass/extends"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//MetaClass/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaClass/matching"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//MetaClass/cardinality"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaClass/methods"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//ExternalClass">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ExternalClass/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//ExternalClass/type"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//XmlElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//XmlElement/matching"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//XmlDocument">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//XmlDocument/matching"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//Module">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Module/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Module/matching"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Module/components"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Module/restrictions"/>
-    </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//MetaModule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaModule/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaModule/matching"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaModule/components"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//MetaModule/restrictions"/>
-    </genClasses>
-    <genClasses ecoreClass="ASMLModel.ecore#//ExternalModule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//ExternalModule/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//ExternalModule/matching"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//ExternalModule/components"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//ExternalModule/restrictions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//MetaModule/matching"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//MetaModule/description"/>
     </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//Restriction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/groupClause"/>
@@ -135,7 +88,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/relactionType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/groupClauseB"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Restriction/componentB"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/message"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

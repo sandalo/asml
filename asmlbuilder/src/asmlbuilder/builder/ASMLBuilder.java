@@ -18,17 +18,14 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IClasspathEntry;
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.internal.core.BinaryType;
-import org.eclipse.jdt.internal.core.ClassFile;
-import org.eclipse.jdt.internal.core.JarPackageFragmentRoot;
-import org.eclipse.jdt.internal.core.PackageFragment;
-import org.eclipse.jdt.internal.core.ResolvedSourceType;
 
 import asmlbuilder.classloader.ASMLClassLoader;
 import asmlbuilder.classpath_util.ClassPathUtil;
@@ -39,8 +36,6 @@ import br.ufmg.dcc.asml.ASMLModelStandaloneSetup;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.ExternalClass;
-import br.ufmg.dcc.asml.aSMLModel.View;
 
 public class ASMLBuilder extends IncrementalProjectBuilder {
 	private static final Logger log = Logger.getLogger(ASMLBuilder.class.getName());
@@ -60,7 +55,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	private void print_violations() {
 		for (ComponentInstance rerource : asmlContext.getComponentInstances()) {
 			System.out.println(rerource);
-			if (rerource.getComponents().isEmpty())
+			if (rerource.getComponent() == null)
 				MarkerUtils.addMarker(rerource.getResource(), "Componente não identificado pela arquitura!", 0, IMarker.SEVERITY_ERROR, ASMLConstant.MARKER_TYPE);
 		}
 
@@ -77,31 +72,53 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 
 	private void externalComponentsRecovery() {
 		Set<AbstractComponent> components = asmlContext.getDeclaredComponents();
+		Object resourceType = null;
+		IJavaProject javaProject = asmlContext.getJavaProject();
 		for (AbstractComponent abstractComponent : components) {
-			if (abstractComponent instanceof ExternalClass) {
-				ExternalClass externalClass = (ExternalClass) abstractComponent;
-				String typeName = externalClass.getType();
-				IType iType = null;
-				IJavaProject javaProject = asmlContext.getJavaProject();
-				try {
-					iType = javaProject.findType(typeName);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-				if(iType==null){
-					String name = externalClass.getName();
-					try {
-						iType = javaProject.findType(name);
-					} catch (Exception e) {
-						
+			try {
+				String matching = abstractComponent.getMatching();
+				if(matching==null)
+					continue;
+				if (matching.contains("*")) {
+					String typeName = matching.replace(".*", "");
+					IPackageFragmentRoot[] packageFragmentRoots = javaProject.getAllPackageFragmentRoots();
+					for (IPackageFragmentRoot iPackageFragmentRoot : packageFragmentRoots) {
+						IPackageFragment iPackageFragment = iPackageFragmentRoot.getPackageFragment(typeName);
+						if (iPackageFragment.exists()) {
+							resourceType = iPackageFragment;
+							ComponentInstance componentInstance = new ComponentInstance();
+							componentInstance.setType(resourceType);
+							abstractComponent.addComponentInstance(componentInstance);
+							componentInstance.setComponent(abstractComponent);
+							IResource correspondingResource = iPackageFragment.getCorrespondingResource();
+							componentInstance.setResource(correspondingResource);
+							IClassFile[] classFiles = iPackageFragment.getClassFiles();
+							for (IClassFile iClassFile : classFiles) {
+								IType iType = iClassFile.getType();
+								ComponentInstance componentInstance2 = new ComponentInstance();
+								componentInstance2.setComponent(abstractComponent);
+								componentInstance2.setType(iType);
+								abstractComponent.addComponentInstance(componentInstance2);
+							}
+						}
 					}
-					if(iType==null)
-						continue;
+					javaProject.getPackageFragmentRoot("");
+				} else {
+					try {
+						resourceType = javaProject.findType(matching);
+					} catch (Exception e2) {
+
+					}
+					if (resourceType != null) {
+						IType iType = (IType) resourceType;
+						ComponentInstance componentInstance = new ComponentInstance();
+						componentInstance.setType(iType);
+						abstractComponent.addComponentInstance(componentInstance);
+						componentInstance.setComponent(abstractComponent);
+					}
 				}
-				ComponentInstance componentInstance = new ComponentInstance();
-				componentInstance.setType(iType);
-				externalClass.addComponentInstance(componentInstance);
-				componentInstance.addComponents(externalClass);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
@@ -123,16 +140,13 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	}
 
 	private void componentsRecovery() throws CoreException {
-		EList<View> views = asmlContext.getAsmlModel().getViews();
-		ComponentRecoveryVisitor componentRecoveryVisitor = new ComponentRecoveryVisitor(asmlContext); 
-		for (View view : views) {
-			for (AbstractComponent component : view.getComponents()) {
-				component.accept(componentRecoveryVisitor);
-			}
+		EList<AbstractComponent> components = asmlContext.getAsmlModel().getComponents();
+		ComponentRecoveryVisitor componentRecoveryVisitor = new ComponentRecoveryVisitor(asmlContext);
+		for (AbstractComponent component : components) {
+			component.accept(componentRecoveryVisitor);
 		}
 	}
 
-	
 	private IProject inicialize() throws CoreException {
 		IProject project = getProject();
 		inicializaASML(project);
@@ -159,8 +173,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 					asmlContext.setReosurceJavaVisitor(new ASMLReosurceJavaVisitor(asmlContext));
 					asmlContext.setResourceVisitor(new ASMLResourceVisitor(asmlContext));
 					asmlContext.setResourceDeltaVisitor(new ASMLResourceDeltaVisitor(asmlContext));
-					String workspacePath = project.getPathVariableManager().getValue("WORKSPACE_LOC").toString();// TODO:
-																													// Melhor
+					String workspacePath = project.getPathVariableManager().getValue("WORKSPACE_LOC").toString();// TODO:Melhor
 																													// as
 																													// duas
 																													// linhas
@@ -211,25 +224,21 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 
 	void matching() {
 		ident = new StringBuilder();
-		EList<View> views = asmlContext.getAsmlModel().getViews();
+		EList<AbstractComponent> components = asmlContext.getAsmlModel().getComponents();
 		MatchingVisitor matchingVisitor = new MatchingVisitor(asmlContext);
-		for (View view : views) {
-			for (AbstractComponent component : view.getComponents()) {
-				String string = "/" + component.getName();
-				System.out.println(ident.append(string));
-				component.accept(matchingVisitor);
-				System.out.println(ident.replace(ident.length() - string.length(), ident.length(), ""));
-			}
+		for (AbstractComponent component : components) {
+			String string = "/" + component.getName();
+			System.out.println(ident.append(string));
+			component.accept(matchingVisitor);
+			System.out.println(ident.replace(ident.length() - string.length(), ident.length(), ""));
 		}
 	}
 
 	void validate() {
-		EList<View> views = asmlContext.getAsmlModel().getViews();
+		EList<AbstractComponent> components = asmlContext.getAsmlModel().getComponents();
 		ValidatorVisitor validatorVisitor = new ValidatorVisitor(asmlContext);
-		for (View view : views) {
-			for (AbstractComponent component : view.getComponents()) {
-				component.accept(validatorVisitor);
-			}
+		for (AbstractComponent component : components) {
+			component.accept(validatorVisitor);
 		}
 	}
 }

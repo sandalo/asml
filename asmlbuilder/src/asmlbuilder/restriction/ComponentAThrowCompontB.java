@@ -8,10 +8,9 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.ThrowStatement;
 
 import asmlbuilder.builder.ASMLContext;
-import br.ufmg.dcc.asml.ComponentInstanceReference;
 import br.ufmg.dcc.asml.ComponentInstance;
+import br.ufmg.dcc.asml.ComponentInstanceReference;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.MetaClass;
 import br.ufmg.dcc.asml.aSMLModel.PermissionClause;
 import br.ufmg.dcc.asml.aSMLModel.Restriction;
 
@@ -35,7 +34,7 @@ public class ComponentAThrowCompontB extends RestricionChecker {
 		for (ComponentInstance componentInstance : allInstances) {
 			IResource resource = componentInstance.getResource();
 			if (resource instanceof IFile) {
-				Set<ComponentInstanceReference> throwStatementFromResource = componentInstance.getReferencesByNodeType(ThrowStatement.class);
+				Set<ComponentInstanceReference> throwStatementFromResource = componentInstance.getReferencesToOthersComponentInstances(ThrowStatement.class);
 				for (ComponentInstanceReference throwStatementResource : throwStatementFromResource) {
 					String nameOfClassAccessed = getNameOfClasseThrow((ThrowStatement) throwStatementResource.getAstNode());
 					if (nameOfClassAccessed.equals(""))
