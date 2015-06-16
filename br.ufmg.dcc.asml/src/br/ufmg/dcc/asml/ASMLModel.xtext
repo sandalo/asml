@@ -65,10 +65,10 @@ QualifiedName:
 	ID_ASML ('.' ID_ASML)*;
 
 enum GroupClause:
-	ANY='any' | ONLY='only' | ONLY_THIS='only-this' | NO_ONE='no one';
+	NULL='$null' | ONLY='only' | ONLY_THIS='only-this';
 
 enum PermissionClause:
-	NULL='null' | MUST='must' | CAN='can' | CANNOT='cannot';
+	MUST='must' | CAN='can' | CANNOT='cannot';
 
 enum RelactionType:
 	ACCESS='access' | DECLARE='declare' | HANDLE='handle' | EXTEND='extend' | IMPLEMENT='implement' | CREATE='create' |
@@ -76,6 +76,5 @@ enum RelactionType:
 	| DEPEND='depend' | REQUIRES='requires';
 
 Restriction:
-	(groupClause=GroupClause)? (componentA+=([AbstractComponent|QualifiedName])*)? (permissionClause=PermissionClause)?
-	relactionType=RelactionType (groupClauseB=GroupClause)? componentB=[AbstractComponent|QualifiedName] ('message'message=STRING)? ';';
-// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
+	(groupClause=GroupClause)? (permissionClause=PermissionClause)? relactionType=RelactionType (groupClauseB=GroupClause)? (componentB+=([AbstractComponent|QualifiedName])(',')?)* ('message'message=STRING)? ';';
+// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente. (componentA+=([AbstractComponent|QualifiedName])*)?

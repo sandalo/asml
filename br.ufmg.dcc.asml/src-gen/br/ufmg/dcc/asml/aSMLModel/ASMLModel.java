@@ -2,8 +2,9 @@
  */
 package br.ufmg.dcc.asml.aSMLModel;
 
-import org.eclipse.emf.common.util.EList;
+import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -110,5 +111,8 @@ public interface ASMLModel extends EObject
    * @generated
    */
   EList<String> getIgnore();
+
+
+  List<AbstractComponent> getAllComponents();
 
 } // ASMLModel

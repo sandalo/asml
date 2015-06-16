@@ -64,7 +64,8 @@ public class ASMLModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getRestrictionAccess().getGroup(), "rule__Restriction__Group__0");
-					put(grammarAccess.getRestrictionAccess().getGroup_6(), "rule__Restriction__Group_6__0");
+					put(grammarAccess.getRestrictionAccess().getGroup_4(), "rule__Restriction__Group_4__0");
+					put(grammarAccess.getRestrictionAccess().getGroup_5(), "rule__Restriction__Group_5__0");
 					put(grammarAccess.getASMLModelAccess().getNameAssignment_1(), "rule__ASMLModel__NameAssignment_1");
 					put(grammarAccess.getASMLModelAccess().getImportURIAssignment_3_1(), "rule__ASMLModel__ImportURIAssignment_3_1");
 					put(grammarAccess.getASMLModelAccess().getComponentsAssignment_4(), "rule__ASMLModel__ComponentsAssignment_4");
@@ -87,12 +88,11 @@ public class ASMLModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMetaModuleAccess().getComponentsAssignment_5(), "rule__MetaModule__ComponentsAssignment_5");
 					put(grammarAccess.getMetaModuleAccess().getRestrictionsAssignment_6_2(), "rule__MetaModule__RestrictionsAssignment_6_2");
 					put(grammarAccess.getRestrictionAccess().getGroupClauseAssignment_0(), "rule__Restriction__GroupClauseAssignment_0");
-					put(grammarAccess.getRestrictionAccess().getComponentAAssignment_1(), "rule__Restriction__ComponentAAssignment_1");
-					put(grammarAccess.getRestrictionAccess().getPermissionClauseAssignment_2(), "rule__Restriction__PermissionClauseAssignment_2");
-					put(grammarAccess.getRestrictionAccess().getRelactionTypeAssignment_3(), "rule__Restriction__RelactionTypeAssignment_3");
-					put(grammarAccess.getRestrictionAccess().getGroupClauseBAssignment_4(), "rule__Restriction__GroupClauseBAssignment_4");
-					put(grammarAccess.getRestrictionAccess().getComponentBAssignment_5(), "rule__Restriction__ComponentBAssignment_5");
-					put(grammarAccess.getRestrictionAccess().getMessageAssignment_6_1(), "rule__Restriction__MessageAssignment_6_1");
+					put(grammarAccess.getRestrictionAccess().getPermissionClauseAssignment_1(), "rule__Restriction__PermissionClauseAssignment_1");
+					put(grammarAccess.getRestrictionAccess().getRelactionTypeAssignment_2(), "rule__Restriction__RelactionTypeAssignment_2");
+					put(grammarAccess.getRestrictionAccess().getGroupClauseBAssignment_3(), "rule__Restriction__GroupClauseBAssignment_3");
+					put(grammarAccess.getRestrictionAccess().getComponentBAssignment_4_0(), "rule__Restriction__ComponentBAssignment_4_0");
+					put(grammarAccess.getRestrictionAccess().getMessageAssignment_5_1(), "rule__Restriction__MessageAssignment_5_1");
 				}
 			};
 		}

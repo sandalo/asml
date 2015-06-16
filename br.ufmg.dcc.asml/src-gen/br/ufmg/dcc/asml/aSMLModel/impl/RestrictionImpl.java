@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -31,7 +30,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getGroupClause <em>Group Clause</em>}</li>
- *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getComponentA <em>Component A</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getPermissionClause <em>Permission Clause</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getRelactionType <em>Relaction Type</em>}</li>
  *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.RestrictionImpl#getGroupClauseB <em>Group Clause B</em>}</li>
@@ -52,7 +50,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @generated
    * @ordered
    */
-  protected static final GroupClause GROUP_CLAUSE_EDEFAULT = GroupClause.ANY;
+  protected static final GroupClause GROUP_CLAUSE_EDEFAULT = GroupClause.NULL;
 
   /**
    * The cached value of the '{@link #getGroupClause() <em>Group Clause</em>}' attribute.
@@ -65,16 +63,6 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
   protected GroupClause groupClause = GROUP_CLAUSE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getComponentA() <em>Component A</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getComponentA()
-   * @generated
-   * @ordered
-   */
-  protected EList<AbstractComponent> componentA;
-
-  /**
    * The default value of the '{@link #getPermissionClause() <em>Permission Clause</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -82,7 +70,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @generated
    * @ordered
    */
-  protected static final PermissionClause PERMISSION_CLAUSE_EDEFAULT = PermissionClause.NULL;
+  protected static final PermissionClause PERMISSION_CLAUSE_EDEFAULT = PermissionClause.MUST;
 
   /**
    * The cached value of the '{@link #getPermissionClause() <em>Permission Clause</em>}' attribute.
@@ -122,7 +110,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * @generated
    * @ordered
    */
-  protected static final GroupClause GROUP_CLAUSE_B_EDEFAULT = GroupClause.ANY;
+  protected static final GroupClause GROUP_CLAUSE_B_EDEFAULT = GroupClause.NULL;
 
   /**
    * The cached value of the '{@link #getGroupClauseB() <em>Group Clause B</em>}' attribute.
@@ -135,14 +123,14 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
   protected GroupClause groupClauseB = GROUP_CLAUSE_B_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getComponentB() <em>Component B</em>}' reference.
+   * The cached value of the '{@link #getComponentB() <em>Component B</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getComponentB()
    * @generated
    * @ordered
    */
-  protected AbstractComponent componentB;
+  protected EList<AbstractComponent> componentB;
 
   /**
    * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
@@ -206,20 +194,6 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
     groupClause = newGroupClause == null ? GROUP_CLAUSE_EDEFAULT : newGroupClause;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.RESTRICTION__GROUP_CLAUSE, oldGroupClause, groupClause));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<AbstractComponent> getComponentA()
-  {
-    if (componentA == null)
-    {
-      componentA = new EObjectResolvingEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.RESTRICTION__COMPONENT_A);
-    }
-    return componentA;
   }
 
   /**
@@ -296,42 +270,13 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractComponent getComponentB()
+  public EList<AbstractComponent> getComponentB()
   {
-    if (componentB != null && componentB.eIsProxy())
+    if (componentB == null)
     {
-      InternalEObject oldComponentB = (InternalEObject)componentB;
-      componentB = (AbstractComponent)eResolveProxy(oldComponentB);
-      if (componentB != oldComponentB)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ASMLModelPackage.RESTRICTION__COMPONENT_B, oldComponentB, componentB));
-      }
+      componentB = new EObjectResolvingEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.RESTRICTION__COMPONENT_B);
     }
     return componentB;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractComponent basicGetComponentB()
-  {
-    return componentB;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setComponentB(AbstractComponent newComponentB)
-  {
-    AbstractComponent oldComponentB = componentB;
-    componentB = newComponentB;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.RESTRICTION__COMPONENT_B, oldComponentB, componentB));
   }
 
   /**
@@ -369,8 +314,6 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
     {
       case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE:
         return getGroupClause();
-      case ASMLModelPackage.RESTRICTION__COMPONENT_A:
-        return getComponentA();
       case ASMLModelPackage.RESTRICTION__PERMISSION_CLAUSE:
         return getPermissionClause();
       case ASMLModelPackage.RESTRICTION__RELACTION_TYPE:
@@ -378,8 +321,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B:
         return getGroupClauseB();
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
-        if (resolve) return getComponentB();
-        return basicGetComponentB();
+        return getComponentB();
       case ASMLModelPackage.RESTRICTION__MESSAGE:
         return getMessage();
     }
@@ -400,10 +342,6 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE:
         setGroupClause((GroupClause)newValue);
         return;
-      case ASMLModelPackage.RESTRICTION__COMPONENT_A:
-        getComponentA().clear();
-        getComponentA().addAll((Collection<? extends AbstractComponent>)newValue);
-        return;
       case ASMLModelPackage.RESTRICTION__PERMISSION_CLAUSE:
         setPermissionClause((PermissionClause)newValue);
         return;
@@ -414,7 +352,8 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
         setGroupClauseB((GroupClause)newValue);
         return;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
-        setComponentB((AbstractComponent)newValue);
+        getComponentB().clear();
+        getComponentB().addAll((Collection<? extends AbstractComponent>)newValue);
         return;
       case ASMLModelPackage.RESTRICTION__MESSAGE:
         setMessage((String)newValue);
@@ -436,9 +375,6 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE:
         setGroupClause(GROUP_CLAUSE_EDEFAULT);
         return;
-      case ASMLModelPackage.RESTRICTION__COMPONENT_A:
-        getComponentA().clear();
-        return;
       case ASMLModelPackage.RESTRICTION__PERMISSION_CLAUSE:
         setPermissionClause(PERMISSION_CLAUSE_EDEFAULT);
         return;
@@ -449,7 +385,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
         setGroupClauseB(GROUP_CLAUSE_B_EDEFAULT);
         return;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
-        setComponentB((AbstractComponent)null);
+        getComponentB().clear();
         return;
       case ASMLModelPackage.RESTRICTION__MESSAGE:
         setMessage(MESSAGE_EDEFAULT);
@@ -470,8 +406,6 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
     {
       case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE:
         return groupClause != GROUP_CLAUSE_EDEFAULT;
-      case ASMLModelPackage.RESTRICTION__COMPONENT_A:
-        return componentA != null && !componentA.isEmpty();
       case ASMLModelPackage.RESTRICTION__PERMISSION_CLAUSE:
         return permissionClause != PERMISSION_CLAUSE_EDEFAULT;
       case ASMLModelPackage.RESTRICTION__RELACTION_TYPE:
@@ -479,7 +413,7 @@ public class RestrictionImpl extends MinimalEObjectImpl.Container implements Res
       case ASMLModelPackage.RESTRICTION__GROUP_CLAUSE_B:
         return groupClauseB != GROUP_CLAUSE_B_EDEFAULT;
       case ASMLModelPackage.RESTRICTION__COMPONENT_B:
-        return componentB != null;
+        return componentB != null && !componentB.isEmpty();
       case ASMLModelPackage.RESTRICTION__MESSAGE:
         return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
     }

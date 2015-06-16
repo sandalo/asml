@@ -722,32 +722,17 @@ ruleRestriction returns [EObject current=null]
 )
 )?(
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRestrictionRule());
-	        }
-        }
 		{ 
-	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentCrossReference_1_0()); 
+	        newCompositeNode(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_1_0()); 
 	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_2_0()); 
-	    }
-		lv_permissionClause_2_0=rulePermissionClause		{
+		lv_permissionClause_1_0=rulePermissionClause		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRestrictionRule());
 	        }
        		set(
        			$current, 
        			"permissionClause",
-        		lv_permissionClause_2_0, 
+        		lv_permissionClause_1_0, 
         		"PermissionClause");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -756,16 +741,16 @@ ruleRestriction returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_2_0()); 
 	    }
-		lv_relactionType_3_0=ruleRelactionType		{
+		lv_relactionType_2_0=ruleRelactionType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRestrictionRule());
 	        }
        		set(
        			$current, 
        			"relactionType",
-        		lv_relactionType_3_0, 
+        		lv_relactionType_2_0, 
         		"RelactionType");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -774,22 +759,22 @@ ruleRestriction returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_3_0()); 
 	    }
-		lv_groupClauseB_4_0=ruleGroupClause		{
+		lv_groupClauseB_3_0=ruleGroupClause		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRestrictionRule());
 	        }
        		set(
        			$current, 
        			"groupClauseB",
-        		lv_groupClauseB_4_0, 
+        		lv_groupClauseB_3_0, 
         		"GroupClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?(
+)?((
 (
 		{
 			if ($current==null) {
@@ -797,22 +782,26 @@ ruleRestriction returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_5_0()); 
+	        newCompositeNode(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_4_0_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_6='message' 
+)(	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getRestrictionAccess().getMessageKeyword_6_0());
+    	newLeafNode(otherlv_5, grammarAccess.getRestrictionAccess().getCommaKeyword_4_1());
+    }
+)?)*(	otherlv_6='message' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getRestrictionAccess().getMessageKeyword_5_0());
     }
 (
 (
 		lv_message_7_0=RULE_STRING
 		{
-			newLeafNode(lv_message_7_0, grammarAccess.getRestrictionAccess().getMessageSTRINGTerminalRuleCall_6_1_0()); 
+			newLeafNode(lv_message_7_0, grammarAccess.getRestrictionAccess().getMessageSTRINGTerminalRuleCall_5_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -828,7 +817,7 @@ ruleRestriction returns [EObject current=null]
 )
 ))?	otherlv_8=';' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getRestrictionAccess().getSemicolonKeyword_7());
+    	newLeafNode(otherlv_8, grammarAccess.getRestrictionAccess().getSemicolonKeyword_6());
     }
 )
 ;
@@ -899,10 +888,10 @@ ruleModuleMatchingParamenter returns [Enumerator current=null]
 ruleGroupClause returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='any' 
+((	enumLiteral_0='$null' 
 	{
-        $current = grammarAccess.getGroupClauseAccess().getANYEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getGroupClauseAccess().getANYEnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getGroupClauseAccess().getNULLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getGroupClauseAccess().getNULLEnumLiteralDeclaration_0()); 
     }
 )
     |(	enumLiteral_1='only' 
@@ -911,16 +900,10 @@ ruleGroupClause returns [Enumerator current=null]
         newLeafNode(enumLiteral_1, grammarAccess.getGroupClauseAccess().getONLYEnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='only this' 
+    |(	enumLiteral_2='only-this' 
 	{
         $current = grammarAccess.getGroupClauseAccess().getONLY_THISEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getGroupClauseAccess().getONLY_THISEnumLiteralDeclaration_2()); 
-    }
-)
-    |(	enumLiteral_3='no one' 
-	{
-        $current = grammarAccess.getGroupClauseAccess().getNO_ONEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getGroupClauseAccess().getNO_ONEEnumLiteralDeclaration_3()); 
     }
 ));
 
@@ -930,28 +913,22 @@ ruleGroupClause returns [Enumerator current=null]
 rulePermissionClause returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='null' 
+((	enumLiteral_0='must' 
 	{
-        $current = grammarAccess.getPermissionClauseAccess().getNULLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getPermissionClauseAccess().getNULLEnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='must' 
+    |(	enumLiteral_1='can' 
 	{
-        $current = grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='can' 
+    |(	enumLiteral_2='cannot' 
 	{
-        $current = grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_2()); 
-    }
-)
-    |(	enumLiteral_3='cannot' 
-	{
-        $current = grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_2()); 
     }
 ));
 

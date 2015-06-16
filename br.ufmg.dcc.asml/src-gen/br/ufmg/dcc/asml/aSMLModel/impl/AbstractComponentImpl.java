@@ -2,9 +2,11 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -32,220 +34,299 @@ import br.ufmg.dcc.asml.aSMLModel.Restriction;
 import br.ufmg.dcc.asml.aSMLModel.View;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Abstract Component</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Abstract Component</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getName <em>
- * Name</em>}</li>
- * <li>
- * {@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getAttributes
- * <em>Attributes</em>}</li>
- * <li>
- * {@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getComponents
- * <em>Components</em>}</li>
- * <li>
- * {@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getRestrictions
- * <em>Restrictions</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link br.ufmg.dcc.asml.aSMLModel.impl.AbstractComponentImpl#getRestrictions <em>Restrictions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AbstractComponentImpl extends MinimalEObjectImpl.Container implements AbstractComponent {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
+public class AbstractComponentImpl extends MinimalEObjectImpl.Container implements AbstractComponent
+{
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
 
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
-	/**
-	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getAttributes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attribute> attributes;
+  /**
+   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttributes()
+   * @generated
+   * @ordered
+   */
+  protected EList<Attribute> attributes;
 
-	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<AbstractComponent> components;
+  /**
+   * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComponents()
+   * @generated
+   * @ordered
+   */
+  protected EList<AbstractComponent> components;
 
-	/**
-	 * The cached value of the '{@link #getRestrictions() <em>Restrictions</em>}
-	 * ' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getRestrictions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Restriction> restrictions;
+  /**
+   * The cached value of the '{@link #getRestrictions() <em>Restrictions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRestrictions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Restriction> restrictions;
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected AbstractComponentImpl() {
-		super();
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected AbstractComponentImpl()
+  {
+    super();
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ASMLModelPackage.Literals.ABSTRACT_COMPONENT;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EClass eStaticClass()
+  {
+    return ASMLModelPackage.Literals.ABSTRACT_COMPONENT;
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.ABSTRACT_COMPONENT__NAME, oldName, name));
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ASMLModelPackage.ABSTRACT_COMPONENT__NAME, oldName, name));
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<Attribute> getAttributes() {
-		if (attributes == null) {
-			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES);
-		}
-		return attributes;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Attribute> getAttributes()
+  {
+    if (attributes == null)
+    {
+      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES);
+    }
+    return attributes;
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<AbstractComponent> getComponents() {
-		if (components == null) {
-			components = new EObjectContainmentEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS);
-		}
-		return components;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<AbstractComponent> getComponents()
+  {
+    if (components == null)
+    {
+      components = new EObjectContainmentEList<AbstractComponent>(AbstractComponent.class, this, ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS);
+    }
+    return components;
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<Restriction> getRestrictions() {
-		if (restrictions == null) {
-			restrictions = new EObjectContainmentEList<Restriction>(Restriction.class, this, ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS);
-		}
-		return restrictions;
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Restriction> getRestrictions()
+  {
+    if (restrictions == null)
+    {
+      restrictions = new EObjectContainmentEList<Restriction>(Restriction.class, this, ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS);
+    }
+    return restrictions;
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
-			return ((InternalEList<?>) getAttributes()).basicRemove(otherEnd, msgs);
-		case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
-			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
-		case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
-			return ((InternalEList<?>) getRestrictions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
+        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
+        return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
+      case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
+        return ((InternalEList<?>)getRestrictions()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-			return getName();
-		case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
-			return getAttributes();
-		case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
-			return getComponents();
-		case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
-			return getRestrictions();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+        return getName();
+      case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
+        return getAttributes();
+      case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
+        return getComponents();
+      case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
+        return getRestrictions();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-			setName((String) newValue);
-			return;
-		case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
-			getAttributes().clear();
-			getAttributes().addAll((Collection<? extends Attribute>) newValue);
-			return;
-		case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
-			getComponents().clear();
-			getComponents().addAll((Collection<? extends AbstractComponent>) newValue);
-			return;
-		case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
-			getRestrictions().clear();
-			getRestrictions().addAll((Collection<? extends Restriction>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+        setName((String)newValue);
+        return;
+      case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
+        getAttributes().clear();
+        getAttributes().addAll((Collection<? extends Attribute>)newValue);
+        return;
+      case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
+        getComponents().clear();
+        getComponents().addAll((Collection<? extends AbstractComponent>)newValue);
+        return;
+      case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
+        getRestrictions().clear();
+        getRestrictions().addAll((Collection<? extends Restriction>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
+        getAttributes().clear();
+        return;
+      case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
+        getComponents().clear();
+        return;
+      case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
+        getRestrictions().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
+        return attributes != null && !attributes.isEmpty();
+      case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
+        return components != null && !components.isEmpty();
+      case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
+        return restrictions != null && !restrictions.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+/*    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+*/  
+	return getName();  
+  }
+
+  
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -255,66 +336,11 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 	
 	private static View uniqueView = new ViewImpl();
 	
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
-			getAttributes().clear();
-			return;
-		case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
-			getComponents().clear();
-			return;
-		case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
-			getRestrictions().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case ASMLModelPackage.ABSTRACT_COMPONENT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case ASMLModelPackage.ABSTRACT_COMPONENT__ATTRIBUTES:
-			return attributes != null && !attributes.isEmpty();
-		case ASMLModelPackage.ABSTRACT_COMPONENT__COMPONENTS:
-			return components != null && !components.isEmpty();
-		case ASMLModelPackage.ABSTRACT_COMPONENT__RESTRICTIONS:
-			return restrictions != null && !restrictions.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
 
 	/**
 	 * <!-- custom code -->
 	 * 
-	 * 
+	 *  
 	 */
 	private final Set<ComponentInstance> componentInstances = new HashSet<ComponentInstance>();
 
@@ -340,7 +366,7 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	@Override
-	public void resourceClear() {
+	public void componentInstancesClear() {
 		componentInstances.clear();
 	}
 
@@ -352,6 +378,8 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		int i = 0;
 		for (ComponentInstance componentInstance : componentInstances) {
 			IType iType = componentInstance.getType();
+			if(iType == null)
+				continue;
 			iTypesNames[i] = iType.getFullyQualifiedName();
 		}
 		return iTypesNames;
@@ -359,8 +387,10 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 
 	@Override
 	public boolean containsType(String fullName) {
-		for (ComponentInstance componentInstances : this.componentInstances) {
-			IType iType = componentInstances.getType();
+		for (ComponentInstance componentInstance : getAllComponentInstances()) {
+			IType iType = componentInstance.getType();
+			if(iType == null)
+				continue;
 			String fullyQualifiedName = iType.getFullyQualifiedName();
 			if (fullyQualifiedName.equals(fullName))
 				return true;
@@ -448,5 +478,18 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 			container = container.eContainer();
 		}
 		return false;
+	}  
+	
+	
+	@Override
+	public List<AbstractComponent> getAllComponents() {
+		List<AbstractComponent> listAux = new ArrayList<AbstractComponent>();
+		EList<AbstractComponent> components = getComponents();
+		for (AbstractComponent child : components) {
+			List<AbstractComponent> comps = child.getComponents();
+			listAux.addAll(comps);
+		}
+		listAux.addAll(getComponents());
+		return Collections.unmodifiableList(listAux);
 	}
-} // AbstractComponentImpl
+} //AbstractComponentImpl

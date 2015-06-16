@@ -473,22 +473,13 @@ public interface ASMLModelPackage extends EPackage
   int RESTRICTION__GROUP_CLAUSE = 0;
 
   /**
-   * The feature id for the '<em><b>Component A</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RESTRICTION__COMPONENT_A = 1;
-
-  /**
    * The feature id for the '<em><b>Permission Clause</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RESTRICTION__PERMISSION_CLAUSE = 2;
+  int RESTRICTION__PERMISSION_CLAUSE = 1;
 
   /**
    * The feature id for the '<em><b>Relaction Type</b></em>' attribute.
@@ -497,7 +488,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESTRICTION__RELACTION_TYPE = 3;
+  int RESTRICTION__RELACTION_TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Group Clause B</b></em>' attribute.
@@ -506,16 +497,16 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESTRICTION__GROUP_CLAUSE_B = 4;
+  int RESTRICTION__GROUP_CLAUSE_B = 3;
 
   /**
-   * The feature id for the '<em><b>Component B</b></em>' reference.
+   * The feature id for the '<em><b>Component B</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RESTRICTION__COMPONENT_B = 5;
+  int RESTRICTION__COMPONENT_B = 4;
 
   /**
    * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -524,7 +515,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESTRICTION__MESSAGE = 6;
+  int RESTRICTION__MESSAGE = 5;
 
   /**
    * The number of structural features of the '<em>Restriction</em>' class.
@@ -533,7 +524,7 @@ public interface ASMLModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESTRICTION_FEATURE_COUNT = 7;
+  int RESTRICTION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link br.ufmg.dcc.asml.aSMLModel.Cardinality <em>Cardinality</em>}' enum.
@@ -895,17 +886,6 @@ public interface ASMLModelPackage extends EPackage
   EAttribute getRestriction_GroupClause();
 
   /**
-   * Returns the meta object for the reference list '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentA <em>Component A</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Component A</em>'.
-   * @see br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentA()
-   * @see #getRestriction()
-   * @generated
-   */
-  EReference getRestriction_ComponentA();
-
-  /**
    * Returns the meta object for the attribute '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getPermissionClause <em>Permission Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -939,10 +919,10 @@ public interface ASMLModelPackage extends EPackage
   EAttribute getRestriction_GroupClauseB();
 
   /**
-   * Returns the meta object for the reference '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentB <em>Component B</em>}'.
+   * Returns the meta object for the reference list '{@link br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentB <em>Component B</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Component B</em>'.
+   * @return the meta object for the reference list '<em>Component B</em>'.
    * @see br.ufmg.dcc.asml.aSMLModel.Restriction#getComponentB()
    * @see #getRestriction()
    * @generated
@@ -1288,14 +1268,6 @@ public interface ASMLModelPackage extends EPackage
     EAttribute RESTRICTION__GROUP_CLAUSE = eINSTANCE.getRestriction_GroupClause();
 
     /**
-     * The meta object literal for the '<em><b>Component A</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RESTRICTION__COMPONENT_A = eINSTANCE.getRestriction_ComponentA();
-
-    /**
      * The meta object literal for the '<em><b>Permission Clause</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1320,7 +1292,7 @@ public interface ASMLModelPackage extends EPackage
     EAttribute RESTRICTION__GROUP_CLAUSE_B = eINSTANCE.getRestriction_GroupClauseB();
 
     /**
-     * The meta object literal for the '<em><b>Component B</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Component B</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

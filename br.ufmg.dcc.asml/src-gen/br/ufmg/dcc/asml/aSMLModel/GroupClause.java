@@ -20,14 +20,14 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum GroupClause implements Enumerator
 {
   /**
-   * The '<em><b>ANY</b></em>' literal object.
+   * The '<em><b>NULL</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #ANY_VALUE
+   * @see #NULL_VALUE
    * @generated
    * @ordered
    */
-  ANY(0, "ANY", "any"),
+  NULL(0, "NULL", "$null"),
 
   /**
    * The '<em><b>ONLY</b></em>' literal object.
@@ -47,32 +47,22 @@ public enum GroupClause implements Enumerator
    * @generated
    * @ordered
    */
-  ONLY_THIS(2, "ONLY_THIS", "only this"),
+  ONLY_THIS(2, "ONLY_THIS", "only-this");
 
   /**
-   * The '<em><b>NO ONE</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #NO_ONE_VALUE
-   * @generated
-   * @ordered
-   */
-  NO_ONE(3, "NO_ONE", "no one");
-
-  /**
-   * The '<em><b>ANY</b></em>' literal value.
+   * The '<em><b>NULL</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>ANY</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>NULL</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #ANY
-   * @model literal="any"
+   * @see #NULL
+   * @model literal="$null"
    * @generated
    * @ordered
    */
-  public static final int ANY_VALUE = 0;
+  public static final int NULL_VALUE = 0;
 
   /**
    * The '<em><b>ONLY</b></em>' literal value.
@@ -98,26 +88,11 @@ public enum GroupClause implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #ONLY_THIS
-   * @model literal="only this"
+   * @model literal="only-this"
    * @generated
    * @ordered
    */
   public static final int ONLY_THIS_VALUE = 2;
-
-  /**
-   * The '<em><b>NO ONE</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>NO ONE</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #NO_ONE
-   * @model literal="no one"
-   * @generated
-   * @ordered
-   */
-  public static final int NO_ONE_VALUE = 3;
 
   /**
    * An array of all the '<em><b>Group Clause</b></em>' enumerators.
@@ -128,10 +103,9 @@ public enum GroupClause implements Enumerator
   private static final GroupClause[] VALUES_ARRAY =
     new GroupClause[]
     {
-      ANY,
+      NULL,
       ONLY,
       ONLY_THIS,
-      NO_ONE,
     };
 
   /**
@@ -190,10 +164,9 @@ public enum GroupClause implements Enumerator
   {
     switch (value)
     {
-      case ANY_VALUE: return ANY;
+      case NULL_VALUE: return NULL;
       case ONLY_VALUE: return ONLY;
       case ONLY_THIS_VALUE: return ONLY_THIS;
-      case NO_ONE_VALUE: return NO_ONE;
     }
     return null;
   }

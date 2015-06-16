@@ -4,8 +4,10 @@
 package br.ufmg.dcc.asml;
 
 import org.eclipse.xtext.formatting.IFormatter;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 
 import br.ufmg.dcc.asml.formatting.ASMLModelFormatter;
+import br.ufmg.dcc.asml.scoping.ASMLImportUriGlobalScopeProvider;
 
 
 /**
@@ -24,6 +26,10 @@ public class ASMLModelRuntimeModule extends br.ufmg.dcc.asml.AbstractASMLModelRu
 		  annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(ASMLImportUriGlobalScopeProvider.class);	
 	}
 	*/
+	
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return ASMLImportUriGlobalScopeProvider.class;
+	}
 	
 	@Override
 	public Class<? extends IFormatter> bindIFormatter() {

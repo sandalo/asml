@@ -20,16 +20,6 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum PermissionClause implements Enumerator
 {
   /**
-   * The '<em><b>NULL</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #NULL_VALUE
-   * @generated
-   * @ordered
-   */
-  NULL(0, "NULL", "null"),
-
-  /**
    * The '<em><b>MUST</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -37,7 +27,7 @@ public enum PermissionClause implements Enumerator
    * @generated
    * @ordered
    */
-  MUST(1, "MUST", "must"),
+  MUST(0, "MUST", "must"),
 
   /**
    * The '<em><b>CAN</b></em>' literal object.
@@ -47,7 +37,7 @@ public enum PermissionClause implements Enumerator
    * @generated
    * @ordered
    */
-  CAN(2, "CAN", "can"),
+  CAN(1, "CAN", "can"),
 
   /**
    * The '<em><b>CANNOT</b></em>' literal object.
@@ -57,22 +47,7 @@ public enum PermissionClause implements Enumerator
    * @generated
    * @ordered
    */
-  CANNOT(3, "CANNOT", "cannot");
-
-  /**
-   * The '<em><b>NULL</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>NULL</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #NULL
-   * @model literal="null"
-   * @generated
-   * @ordered
-   */
-  public static final int NULL_VALUE = 0;
+  CANNOT(2, "CANNOT", "cannot");
 
   /**
    * The '<em><b>MUST</b></em>' literal value.
@@ -87,7 +62,7 @@ public enum PermissionClause implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int MUST_VALUE = 1;
+  public static final int MUST_VALUE = 0;
 
   /**
    * The '<em><b>CAN</b></em>' literal value.
@@ -102,7 +77,7 @@ public enum PermissionClause implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int CAN_VALUE = 2;
+  public static final int CAN_VALUE = 1;
 
   /**
    * The '<em><b>CANNOT</b></em>' literal value.
@@ -117,7 +92,7 @@ public enum PermissionClause implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int CANNOT_VALUE = 3;
+  public static final int CANNOT_VALUE = 2;
 
   /**
    * An array of all the '<em><b>Permission Clause</b></em>' enumerators.
@@ -128,7 +103,6 @@ public enum PermissionClause implements Enumerator
   private static final PermissionClause[] VALUES_ARRAY =
     new PermissionClause[]
     {
-      NULL,
       MUST,
       CAN,
       CANNOT,
@@ -190,7 +164,6 @@ public enum PermissionClause implements Enumerator
   {
     switch (value)
     {
-      case NULL_VALUE: return NULL;
       case MUST_VALUE: return MUST;
       case CAN_VALUE: return CAN;
       case CANNOT_VALUE: return CANNOT;

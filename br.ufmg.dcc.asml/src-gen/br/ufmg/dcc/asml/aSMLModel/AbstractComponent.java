@@ -2,6 +2,7 @@
  */
 package br.ufmg.dcc.asml.aSMLModel;
 
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
@@ -103,22 +104,22 @@ public interface AbstractComponent extends EObject
    * @model containment="true"
    * @generated
    */
+  EList<Restriction> getRestrictions();
+
   
   public String getMatching();
   
-  public EList<Restriction> getRestrictions();
-
   public Set<ComponentInstance> getInstances();
   
   public Set<ComponentInstance> getAllComponentInstances();
 
   public void addComponentInstance(ComponentInstance resource);
   
-  public void resourceClear();
+ public void componentInstancesClear();
+ 
+ public String[] getAllTypesNames();
   
-  public String[] getAllTypesNames();
-  
-  public String[] getAllSupertypesNames();
+ public String[] getAllSupertypesNames();
 
  public boolean containsType(String fullName);
  
@@ -129,4 +130,7 @@ public interface AbstractComponent extends EObject
  public String getFullName();
  
  public boolean isChild(AbstractComponent component);
+
+List<AbstractComponent> getAllComponents();
+  
 } // AbstractComponent

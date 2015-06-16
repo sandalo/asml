@@ -497,19 +497,9 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRestriction_ComponentA()
-  {
-    return (EReference)restrictionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getRestriction_PermissionClause()
   {
-    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -519,7 +509,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EAttribute getRestriction_RelactionType()
   {
-    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -529,7 +519,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EAttribute getRestriction_GroupClauseB()
   {
-    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -539,7 +529,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EReference getRestriction_ComponentB()
   {
-    return (EReference)restrictionEClass.getEStructuralFeatures().get(5);
+    return (EReference)restrictionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -549,7 +539,7 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
    */
   public EAttribute getRestriction_Message()
   {
-    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)restrictionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -679,7 +669,6 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
 
     restrictionEClass = createEClass(RESTRICTION);
     createEAttribute(restrictionEClass, RESTRICTION__GROUP_CLAUSE);
-    createEReference(restrictionEClass, RESTRICTION__COMPONENT_A);
     createEAttribute(restrictionEClass, RESTRICTION__PERMISSION_CLAUSE);
     createEAttribute(restrictionEClass, RESTRICTION__RELACTION_TYPE);
     createEAttribute(restrictionEClass, RESTRICTION__GROUP_CLAUSE_B);
@@ -766,11 +755,10 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
 
     initEClass(restrictionEClass, Restriction.class, "Restriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRestriction_GroupClause(), this.getGroupClause(), "groupClause", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRestriction_ComponentA(), this.getAbstractComponent(), null, "componentA", null, 0, -1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_PermissionClause(), this.getPermissionClause(), "permissionClause", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_RelactionType(), this.getRelactionType(), "relactionType", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_GroupClauseB(), this.getGroupClause(), "groupClauseB", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRestriction_ComponentB(), this.getAbstractComponent(), null, "componentB", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRestriction_ComponentB(), this.getAbstractComponent(), null, "componentB", null, 0, -1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRestriction_Message(), ecorePackage.getEString(), "message", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
@@ -792,13 +780,11 @@ public class ASMLModelPackageImpl extends EPackageImpl implements ASMLModelPacka
     addEEnumLiteral(moduleMatchingParamenterEEnum, ModuleMatchingParamenter.EXTERNAL_DEFINITION);
 
     initEEnum(groupClauseEEnum, GroupClause.class, "GroupClause");
-    addEEnumLiteral(groupClauseEEnum, GroupClause.ANY);
+    addEEnumLiteral(groupClauseEEnum, GroupClause.NULL);
     addEEnumLiteral(groupClauseEEnum, GroupClause.ONLY);
     addEEnumLiteral(groupClauseEEnum, GroupClause.ONLY_THIS);
-    addEEnumLiteral(groupClauseEEnum, GroupClause.NO_ONE);
 
     initEEnum(permissionClauseEEnum, PermissionClause.class, "PermissionClause");
-    addEEnumLiteral(permissionClauseEEnum, PermissionClause.NULL);
     addEEnumLiteral(permissionClauseEEnum, PermissionClause.MUST);
     addEEnumLiteral(permissionClauseEEnum, PermissionClause.CAN);
     addEEnumLiteral(permissionClauseEEnum, PermissionClause.CANNOT);

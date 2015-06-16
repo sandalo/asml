@@ -23,6 +23,7 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_MetaModule_CommaKeyword_2_0_2_q;
 	protected AbstractElementAlias match_MetaModule_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_MetaModule___RestrictionsKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q;
+	protected AbstractElementAlias match_Restriction_CommaKeyword_4_1_q;
 	protected AbstractElementAlias match_View_CommaKeyword_3_0_2_q;
 	protected AbstractElementAlias match_View_SemicolonKeyword_3_1_q;
 	
@@ -34,6 +35,7 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_MetaModule_CommaKeyword_2_0_2_q = new TokenAlias(false, true, grammarAccess.getMetaModuleAccess().getCommaKeyword_2_0_2());
 		match_MetaModule_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getMetaModuleAccess().getSemicolonKeyword_2_1());
 		match_MetaModule___RestrictionsKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMetaModuleAccess().getRestrictionsKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_6_3()));
+		match_Restriction_CommaKeyword_4_1_q = new TokenAlias(false, true, grammarAccess.getRestrictionAccess().getCommaKeyword_4_1());
 		match_View_CommaKeyword_3_0_2_q = new TokenAlias(false, true, grammarAccess.getViewAccess().getCommaKeyword_3_0_2());
 		match_View_SemicolonKeyword_3_1_q = new TokenAlias(false, true, grammarAccess.getViewAccess().getSemicolonKeyword_3_1());
 	}
@@ -73,6 +75,8 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_MetaModule_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_MetaModule___RestrictionsKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q.equals(syntax))
 				emit_MetaModule___RestrictionsKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Restriction_CommaKeyword_4_1_q.equals(syntax))
+				emit_Restriction_CommaKeyword_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_View_CommaKeyword_3_0_2_q.equals(syntax))
 				emit_View_CommaKeyword_3_0_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_View_SemicolonKeyword_3_1_q.equals(syntax))
@@ -118,6 +122,14 @@ public class ASMLModelSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('restrictions' '{' '}')?
 	 */
 	protected void emit_MetaModule___RestrictionsKeyword_6_0_LeftCurlyBracketKeyword_6_1_RightCurlyBracketKeyword_6_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ','?
+	 */
+	protected void emit_Restriction_CommaKeyword_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

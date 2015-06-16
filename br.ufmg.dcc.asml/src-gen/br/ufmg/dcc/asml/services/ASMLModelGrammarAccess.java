@@ -496,35 +496,32 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cGroupClauseAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cGroupClauseGroupClauseEnumRuleCall_0_0 = (RuleCall)cGroupClauseAssignment_0.eContents().get(0);
-		private final Assignment cComponentAAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cComponentAAbstractComponentCrossReference_1_0 = (CrossReference)cComponentAAssignment_1.eContents().get(0);
-		private final RuleCall cComponentAAbstractComponentQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cComponentAAbstractComponentCrossReference_1_0.eContents().get(1);
-		private final Assignment cPermissionClauseAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cPermissionClausePermissionClauseEnumRuleCall_2_0 = (RuleCall)cPermissionClauseAssignment_2.eContents().get(0);
-		private final Assignment cRelactionTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRelactionTypeRelactionTypeEnumRuleCall_3_0 = (RuleCall)cRelactionTypeAssignment_3.eContents().get(0);
-		private final Assignment cGroupClauseBAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cGroupClauseBGroupClauseEnumRuleCall_4_0 = (RuleCall)cGroupClauseBAssignment_4.eContents().get(0);
-		private final Assignment cComponentBAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cComponentBAbstractComponentCrossReference_5_0 = (CrossReference)cComponentBAssignment_5.eContents().get(0);
-		private final RuleCall cComponentBAbstractComponentQualifiedNameParserRuleCall_5_0_1 = (RuleCall)cComponentBAbstractComponentCrossReference_5_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cMessageKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cMessageAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cMessageSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cMessageAssignment_6_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cPermissionClauseAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPermissionClausePermissionClauseEnumRuleCall_1_0 = (RuleCall)cPermissionClauseAssignment_1.eContents().get(0);
+		private final Assignment cRelactionTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRelactionTypeRelactionTypeEnumRuleCall_2_0 = (RuleCall)cRelactionTypeAssignment_2.eContents().get(0);
+		private final Assignment cGroupClauseBAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGroupClauseBGroupClauseEnumRuleCall_3_0 = (RuleCall)cGroupClauseBAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cComponentBAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final CrossReference cComponentBAbstractComponentCrossReference_4_0_0 = (CrossReference)cComponentBAssignment_4_0.eContents().get(0);
+		private final RuleCall cComponentBAbstractComponentQualifiedNameParserRuleCall_4_0_0_1 = (RuleCall)cComponentBAbstractComponentCrossReference_4_0_0.eContents().get(1);
+		private final Keyword cCommaKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cMessageKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cMessageAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMessageSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cMessageAssignment_5_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
+		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente. (componentA+=([AbstractComponent|QualifiedName])*)?
 		//Restriction:
-		//	groupClause=GroupClause? componentA+=[AbstractComponent|QualifiedName]? permissionClause=PermissionClause?
-		//	relactionType=RelactionType groupClauseB=GroupClause? componentB=[AbstractComponent|QualifiedName] ("message"
-		//	message=STRING)? ";";
+		//	groupClause=GroupClause? permissionClause=PermissionClause? relactionType=RelactionType groupClauseB=GroupClause?
+		//	(componentB+=[AbstractComponent|QualifiedName] ","?)* ("message" message=STRING)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//groupClause=GroupClause? componentA+=[AbstractComponent|QualifiedName]? permissionClause=PermissionClause?
-		//relactionType=RelactionType groupClauseB=GroupClause? componentB=[AbstractComponent|QualifiedName] ("message"
-		//message=STRING)? ";"
-		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
+		//groupClause=GroupClause? permissionClause=PermissionClause? relactionType=RelactionType groupClauseB=GroupClause?
+		//(componentB+=[AbstractComponent|QualifiedName] ","?)* ("message" message=STRING)? ";"
+		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente. (componentA+=([AbstractComponent|QualifiedName])*)?
 		public Group getGroup() { return cGroup; }
 
 		//groupClause=GroupClause?
@@ -533,57 +530,54 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		//GroupClause
 		public RuleCall getGroupClauseGroupClauseEnumRuleCall_0_0() { return cGroupClauseGroupClauseEnumRuleCall_0_0; }
 
-		//componentA+=[AbstractComponent|QualifiedName]?
-		public Assignment getComponentAAssignment_1() { return cComponentAAssignment_1; }
-
-		//[AbstractComponent|QualifiedName]
-		public CrossReference getComponentAAbstractComponentCrossReference_1_0() { return cComponentAAbstractComponentCrossReference_1_0; }
-
-		//QualifiedName
-		public RuleCall getComponentAAbstractComponentQualifiedNameParserRuleCall_1_0_1() { return cComponentAAbstractComponentQualifiedNameParserRuleCall_1_0_1; }
-
 		//permissionClause=PermissionClause?
-		public Assignment getPermissionClauseAssignment_2() { return cPermissionClauseAssignment_2; }
+		public Assignment getPermissionClauseAssignment_1() { return cPermissionClauseAssignment_1; }
 
 		//PermissionClause
-		public RuleCall getPermissionClausePermissionClauseEnumRuleCall_2_0() { return cPermissionClausePermissionClauseEnumRuleCall_2_0; }
+		public RuleCall getPermissionClausePermissionClauseEnumRuleCall_1_0() { return cPermissionClausePermissionClauseEnumRuleCall_1_0; }
 
 		//relactionType=RelactionType
-		public Assignment getRelactionTypeAssignment_3() { return cRelactionTypeAssignment_3; }
+		public Assignment getRelactionTypeAssignment_2() { return cRelactionTypeAssignment_2; }
 
 		//RelactionType
-		public RuleCall getRelactionTypeRelactionTypeEnumRuleCall_3_0() { return cRelactionTypeRelactionTypeEnumRuleCall_3_0; }
+		public RuleCall getRelactionTypeRelactionTypeEnumRuleCall_2_0() { return cRelactionTypeRelactionTypeEnumRuleCall_2_0; }
 
 		//groupClauseB=GroupClause?
-		public Assignment getGroupClauseBAssignment_4() { return cGroupClauseBAssignment_4; }
+		public Assignment getGroupClauseBAssignment_3() { return cGroupClauseBAssignment_3; }
 
 		//GroupClause
-		public RuleCall getGroupClauseBGroupClauseEnumRuleCall_4_0() { return cGroupClauseBGroupClauseEnumRuleCall_4_0; }
+		public RuleCall getGroupClauseBGroupClauseEnumRuleCall_3_0() { return cGroupClauseBGroupClauseEnumRuleCall_3_0; }
 
-		//componentB=[AbstractComponent|QualifiedName]
-		public Assignment getComponentBAssignment_5() { return cComponentBAssignment_5; }
+		//(componentB+=[AbstractComponent|QualifiedName] ","?)*
+		public Group getGroup_4() { return cGroup_4; }
+
+		//componentB+=[AbstractComponent|QualifiedName]
+		public Assignment getComponentBAssignment_4_0() { return cComponentBAssignment_4_0; }
 
 		//[AbstractComponent|QualifiedName]
-		public CrossReference getComponentBAbstractComponentCrossReference_5_0() { return cComponentBAbstractComponentCrossReference_5_0; }
+		public CrossReference getComponentBAbstractComponentCrossReference_4_0_0() { return cComponentBAbstractComponentCrossReference_4_0_0; }
 
 		//QualifiedName
-		public RuleCall getComponentBAbstractComponentQualifiedNameParserRuleCall_5_0_1() { return cComponentBAbstractComponentQualifiedNameParserRuleCall_5_0_1; }
+		public RuleCall getComponentBAbstractComponentQualifiedNameParserRuleCall_4_0_0_1() { return cComponentBAbstractComponentQualifiedNameParserRuleCall_4_0_0_1; }
+
+		//","?
+		public Keyword getCommaKeyword_4_1() { return cCommaKeyword_4_1; }
 
 		//("message" message=STRING)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"message"
-		public Keyword getMessageKeyword_6_0() { return cMessageKeyword_6_0; }
+		public Keyword getMessageKeyword_5_0() { return cMessageKeyword_5_0; }
 
 		//message=STRING
-		public Assignment getMessageAssignment_6_1() { return cMessageAssignment_6_1; }
+		public Assignment getMessageAssignment_5_1() { return cMessageAssignment_5_1; }
 
 		//STRING
-		public RuleCall getMessageSTRINGTerminalRuleCall_6_1_0() { return cMessageSTRINGTerminalRuleCall_6_1_0; }
+		public RuleCall getMessageSTRINGTerminalRuleCall_5_1_0() { return cMessageSTRINGTerminalRuleCall_5_1_0; }
 
-		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
+		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente. (componentA+=([AbstractComponent|QualifiedName])*)?
 		//";"
-		public Keyword getSemicolonKeyword_7() { return cSemicolonKeyword_7; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 	
 	
@@ -716,27 +710,25 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	public class GroupClauseElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "GroupClause");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cANYEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cANYAnyKeyword_0_0 = (Keyword)cANYEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNULLEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cNULLNullKeyword_0_0 = (Keyword)cNULLEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cONLYEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cONLYOnlyKeyword_1_0 = (Keyword)cONLYEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cONLY_THISEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cONLY_THISOnlyThisKeyword_2_0 = (Keyword)cONLY_THISEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cNO_ONEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cNO_ONENoOneKeyword_3_0 = (Keyword)cNO_ONEEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum GroupClause:
-		//	ANY="any" | ONLY="only" | ONLY_THIS="only this" | NO_ONE="no one";
+		//	NULL="$null" | ONLY="only" | ONLY_THIS="only-this";
 		public EnumRule getRule() { return rule; }
 
-		//ANY="any" | ONLY="only" | ONLY_THIS="only this" | NO_ONE="no one"
+		//NULL="$null" | ONLY="only" | ONLY_THIS="only-this"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//ANY="any"
-		public EnumLiteralDeclaration getANYEnumLiteralDeclaration_0() { return cANYEnumLiteralDeclaration_0; }
+		//NULL="$null"
+		public EnumLiteralDeclaration getNULLEnumLiteralDeclaration_0() { return cNULLEnumLiteralDeclaration_0; }
 
-		//"any"
-		public Keyword getANYAnyKeyword_0_0() { return cANYAnyKeyword_0_0; }
+		//"$null"
+		public Keyword getNULLNullKeyword_0_0() { return cNULLNullKeyword_0_0; }
 
 		//ONLY="only"
 		public EnumLiteralDeclaration getONLYEnumLiteralDeclaration_1() { return cONLYEnumLiteralDeclaration_1; }
@@ -744,61 +736,47 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		//"only"
 		public Keyword getONLYOnlyKeyword_1_0() { return cONLYOnlyKeyword_1_0; }
 
-		//ONLY_THIS="only this"
+		//ONLY_THIS="only-this"
 		public EnumLiteralDeclaration getONLY_THISEnumLiteralDeclaration_2() { return cONLY_THISEnumLiteralDeclaration_2; }
 
-		//"only this"
+		//"only-this"
 		public Keyword getONLY_THISOnlyThisKeyword_2_0() { return cONLY_THISOnlyThisKeyword_2_0; }
-
-		//NO_ONE="no one"
-		public EnumLiteralDeclaration getNO_ONEEnumLiteralDeclaration_3() { return cNO_ONEEnumLiteralDeclaration_3; }
-
-		//"no one"
-		public Keyword getNO_ONENoOneKeyword_3_0() { return cNO_ONENoOneKeyword_3_0; }
 	}
 
 	public class PermissionClauseElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "PermissionClause");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cNULLEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cNULLNullKeyword_0_0 = (Keyword)cNULLEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cMUSTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cMUSTMustKeyword_1_0 = (Keyword)cMUSTEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cCANEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cCANCanKeyword_2_0 = (Keyword)cCANEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cCANNOTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cCANNOTCannotKeyword_3_0 = (Keyword)cCANNOTEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cMUSTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cMUSTMustKeyword_0_0 = (Keyword)cMUSTEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cCANEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cCANCanKeyword_1_0 = (Keyword)cCANEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cCANNOTEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCANNOTCannotKeyword_2_0 = (Keyword)cCANNOTEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum PermissionClause:
-		//	NULL="null" | MUST="must" | CAN="can" | CANNOT="cannot";
+		//	MUST="must" | CAN="can" | CANNOT="cannot";
 		public EnumRule getRule() { return rule; }
 
-		//NULL="null" | MUST="must" | CAN="can" | CANNOT="cannot"
+		//MUST="must" | CAN="can" | CANNOT="cannot"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//NULL="null"
-		public EnumLiteralDeclaration getNULLEnumLiteralDeclaration_0() { return cNULLEnumLiteralDeclaration_0; }
-
-		//"null"
-		public Keyword getNULLNullKeyword_0_0() { return cNULLNullKeyword_0_0; }
-
 		//MUST="must"
-		public EnumLiteralDeclaration getMUSTEnumLiteralDeclaration_1() { return cMUSTEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getMUSTEnumLiteralDeclaration_0() { return cMUSTEnumLiteralDeclaration_0; }
 
 		//"must"
-		public Keyword getMUSTMustKeyword_1_0() { return cMUSTMustKeyword_1_0; }
+		public Keyword getMUSTMustKeyword_0_0() { return cMUSTMustKeyword_0_0; }
 
 		//CAN="can"
-		public EnumLiteralDeclaration getCANEnumLiteralDeclaration_2() { return cCANEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getCANEnumLiteralDeclaration_1() { return cCANEnumLiteralDeclaration_1; }
 
 		//"can"
-		public Keyword getCANCanKeyword_2_0() { return cCANCanKeyword_2_0; }
+		public Keyword getCANCanKeyword_1_0() { return cCANCanKeyword_1_0; }
 
 		//CANNOT="cannot"
-		public EnumLiteralDeclaration getCANNOTEnumLiteralDeclaration_3() { return cCANNOTEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getCANNOTEnumLiteralDeclaration_2() { return cCANNOTEnumLiteralDeclaration_2; }
 
 		//"cannot"
-		public Keyword getCANNOTCannotKeyword_3_0() { return cCANNOTCannotKeyword_3_0; }
+		public Keyword getCANNOTCannotKeyword_2_0() { return cCANNOTCannotKeyword_2_0; }
 	}
 
 	public class RelactionTypeElements extends AbstractEnumRuleElementFinder {
@@ -1114,7 +1092,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum GroupClause:
-	//	ANY="any" | ONLY="only" | ONLY_THIS="only this" | NO_ONE="no one";
+	//	NULL="$null" | ONLY="only" | ONLY_THIS="only-this";
 	public GroupClauseElements getGroupClauseAccess() {
 		return unknownRuleGroupClause;
 	}
@@ -1124,7 +1102,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum PermissionClause:
-	//	NULL="null" | MUST="must" | CAN="can" | CANNOT="cannot";
+	//	MUST="must" | CAN="can" | CANNOT="cannot";
 	public PermissionClauseElements getPermissionClauseAccess() {
 		return unknownRulePermissionClause;
 	}
@@ -1144,11 +1122,10 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 		return getRelactionTypeAccess().getRule();
 	}
 
-	//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente.
+	//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente. (componentA+=([AbstractComponent|QualifiedName])*)?
 	//Restriction:
-	//	groupClause=GroupClause? componentA+=[AbstractComponent|QualifiedName]? permissionClause=PermissionClause?
-	//	relactionType=RelactionType groupClauseB=GroupClause? componentB=[AbstractComponent|QualifiedName] ("message"
-	//	message=STRING)? ";";
+	//	groupClause=GroupClause? permissionClause=PermissionClause? relactionType=RelactionType groupClauseB=GroupClause?
+	//	(componentB+=[AbstractComponent|QualifiedName] ","?)* ("message" message=STRING)? ";";
 	public RestrictionElements getRestrictionAccess() {
 		return pRestriction;
 	}

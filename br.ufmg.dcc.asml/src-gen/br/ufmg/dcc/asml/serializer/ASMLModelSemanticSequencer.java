@@ -179,11 +179,10 @@ public class ASMLModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 * Constraint:
 	 *     (
 	 *         groupClause=GroupClause? 
-	 *         componentA+=[AbstractComponent|QualifiedName]? 
 	 *         permissionClause=PermissionClause? 
 	 *         relactionType=RelactionType 
 	 *         groupClauseB=GroupClause? 
-	 *         componentB=[AbstractComponent|QualifiedName] 
+	 *         componentB+=[AbstractComponent|QualifiedName]* 
 	 *         message=STRING?
 	 *     )
 	 */

@@ -16,16 +16,17 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.View;
+import br.ufmg.dcc.asml.aSMLModel.RelactionType;
 
 public class ComponentInstance implements Comparable<ComponentInstance> {
 	private static final Map<String, ComponentInstance> componentInstanceIResourceName = new HashMap<String, ComponentInstance>();
 	private static final Map<String, ComponentInstance> componentInstanceITypeName = new HashMap<String, ComponentInstance>();
 	private IResource resource;
+	private boolean external = true;
 	// private final Map<View, AbstractComponent> components = new HashMap<View,
 	// AbstractComponent>();
 	private AbstractComponent component;
-	private Map<Class<? extends ASTNode>, Set<ComponentInstanceReference>> componentInstanceReferences = new HashMap<Class<? extends ASTNode>, Set<ComponentInstanceReference>>();
+	private Map<RelactionType, Set<ComponentInstanceReference>> componentInstanceReferences = new HashMap<RelactionType, Set<ComponentInstanceReference>>();
 	private CompilationUnit compilationUnitAST;
 	private Object resourceType;
 
@@ -46,7 +47,7 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	}
 
 	public void setResource(IResource resource) {
-		if(resource==null)
+		if (resource == null)
 			return;
 		String key = resource.getFullPath().toString();
 		addCache(resource, key);
@@ -77,7 +78,8 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 
 	public void setComponent(AbstractComponent component) {
 		if (this.component != null) {
-			System.out.println("Componente já esta configurado para esta instancia.");
+			System.out.println("Tentando configurar " + this.getRawName() + " para o componente " + component.getName());
+			System.out.println("Componente " + this.component.getName() + " já esta configurado para esta instancia.");
 			return;
 		}
 		this.component = component;
@@ -103,26 +105,28 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	public String toString() {
 		if (resource != null)
 			return resource.toString();
+		if (getType() != null)
+			return getType().getFullyQualifiedName();
 		return "undefined";
 	}
 
 	public boolean addReference(ComponentInstanceReference componentInstanceReference) {
-		Class<? extends ASTNode> classOfNode = componentInstanceReference.getAstNode().getClass();
+		RelactionType relactionType = componentInstanceReference.getRelactionType();
 		boolean add = false;
-		Set<ComponentInstanceReference> astNodes = (Set<ComponentInstanceReference>) componentInstanceReferences.get(classOfNode);
+		Set<ComponentInstanceReference> astNodes = (Set<ComponentInstanceReference>) componentInstanceReferences.get(relactionType);
 		if (astNodes == null) {
 			astNodes = new HashSet<ComponentInstanceReference>();
-			componentInstanceReferences.put(classOfNode, astNodes);
+			componentInstanceReferences.put(relactionType, astNodes);
 		}
 		add = astNodes.add(componentInstanceReference);
 		return add;
 	}
 
-	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances(Class<? extends ASTNode> classOfNode) {
-		Set<ComponentInstanceReference> astNodes = componentInstanceReferences.get(classOfNode);
-		if (astNodes != null)
-			return Collections.unmodifiableSet(astNodes);
-		return new HashSet<ComponentInstanceReference>();
+	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances(RelactionType relactionType) {
+			Set<ComponentInstanceReference> set = componentInstanceReferences.get(relactionType);
+			if(set==null)
+				return new HashSet<ComponentInstanceReference>();
+			return set;
 	}
 
 	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances() {
@@ -226,6 +230,10 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		return componentInstanceITypeName.get(fullyQualifiedName);
 	}
 
+	public static ComponentInstance getComponentInstanceByITypeName(String fullyQualifiedName) {
+		return componentInstanceITypeName.get(fullyQualifiedName);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof ComponentInstance) {
@@ -254,13 +262,34 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	}
 
 	public String getRawName() {
+		if (getComponent() == null)
+			return getResource().getName();
 		String matching = getComponent().getMatching();
+
 		String name = getResource().getName();
-		if (matching.contains("{name}")) {
-			String segments[] = matching.split("\\{name\\}");
-			String token = segments[1];
-			name = name.replace(token, "").replace("." + getResource().getFileExtension(), "");
+		if (matching != null && matching.equals("{?}")) {
+			return getResource().getName();
+		}
+
+		if (matching != null && matching.contains("{?}")) {
+			try {
+				String segments[] = matching.split("\\{\\?\\}");
+				for (int i = 0; i < segments.length; i++) {
+					String token = segments[i];
+					name = name.replace(token, "").replace("." + getResource().getFileExtension(), "");
+				}
+			} catch (Exception e) {
+				return getResource().getName();
+			}
 		}
 		return name;
+	}
+
+	public boolean isExternal() {
+		return external;
+	}
+
+	public void setExternal(boolean external) {
+		this.external = external;
 	}
 }

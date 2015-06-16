@@ -25,13 +25,11 @@
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//ModuleMatchingParamenter/EXTERNAL_DEFINITION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ASMLModel.ecore#//GroupClause">
-      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ANY"/>
+      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/NULL"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ONLY"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/ONLY_THIS"/>
-      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//GroupClause/NO_ONE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ASMLModel.ecore#//PermissionClause">
-      <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//PermissionClause/NULL"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//PermissionClause/MUST"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//PermissionClause/CAN"/>
       <genEnumLiterals ecoreEnumLiteral="ASMLModel.ecore#//PermissionClause/CANNOT"/>
@@ -83,7 +81,6 @@
     </genClasses>
     <genClasses ecoreClass="ASMLModel.ecore#//Restriction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/groupClause"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ASMLModel.ecore#//Restriction/componentA"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/permissionClause"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/relactionType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ASMLModel.ecore#//Restriction/groupClauseB"/>

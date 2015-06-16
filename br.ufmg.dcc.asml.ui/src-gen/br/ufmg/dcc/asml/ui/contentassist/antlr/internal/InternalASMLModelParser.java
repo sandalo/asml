@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalASMLModelParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID_ASML", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'name start with'", "'name ends with'", "'annotated with'", "'by package name'", "'by folder name'", "'by package and folder name'", "'by external implementation'", "'any'", "'only'", "'only this'", "'no one'", "'null'", "'must'", "'can'", "'cannot'", "'access'", "'declare'", "'handle'", "'extend'", "'implement'", "'create'", "'throw'", "'use-annotation'", "'depend'", "'requires'", "'architecture'", "'{'", "'}'", "'import'", "';'", "'ignore'", "','", "'view'", "'attributes'", "':'", "'attributes:'", "'matching:'", "'description:'", "'restrictions'", "'.'", "'message'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID_ASML", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'name start with'", "'name ends with'", "'annotated with'", "'by package name'", "'by folder name'", "'by package and folder name'", "'by external implementation'", "'$null'", "'only'", "'only-this'", "'must'", "'can'", "'cannot'", "'access'", "'declare'", "'handle'", "'extend'", "'implement'", "'create'", "'throw'", "'use-annotation'", "'depend'", "'requires'", "'architecture'", "'{'", "'}'", "'import'", "';'", "'ignore'", "','", "'view'", "'attributes'", "':'", "'attributes:'", "'matching:'", "'description:'", "'restrictions'", "'.'", "'message'"
     };
     public static final int RULE_ID_ASML=4;
     public static final int RULE_ID=6;
@@ -40,8 +40,6 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
     public static final int EOF=-1;
     public static final int T__19=19;
     public static final int T__16=16;
-    public static final int T__51=51;
-    public static final int T__52=52;
     public static final int T__15=15;
     public static final int T__18=18;
     public static final int T__17=17;
@@ -977,7 +975,7 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
             if ( (LA1_0==RULE_ID_ASML) ) {
                 alt1=1;
             }
-            else if ( (LA1_0==44) ) {
+            else if ( (LA1_0==42) ) {
                 alt1=2;
             }
             else {
@@ -1295,14 +1293,14 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__GroupClause__Alternatives"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:481:1: rule__GroupClause__Alternatives : ( ( ( 'any' ) ) | ( ( 'only' ) ) | ( ( 'only this' ) ) | ( ( 'no one' ) ) );
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:481:1: rule__GroupClause__Alternatives : ( ( ( '$null' ) ) | ( ( 'only' ) ) | ( ( 'only-this' ) ) );
     public final void rule__GroupClause__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:485:1: ( ( ( 'any' ) ) | ( ( 'only' ) ) | ( ( 'only this' ) ) | ( ( 'no one' ) ) )
-            int alt4=4;
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:485:1: ( ( ( '$null' ) ) | ( ( 'only' ) ) | ( ( 'only-this' ) ) )
+            int alt4=3;
             switch ( input.LA(1) ) {
             case 19:
                 {
@@ -1319,11 +1317,6 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                 alt4=3;
                 }
                 break;
-            case 22:
-                {
-                alt4=4;
-                }
-                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 4, 0, input);
@@ -1333,20 +1326,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
             switch (alt4) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:486:1: ( ( 'any' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:486:1: ( ( '$null' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:486:1: ( ( 'any' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:487:1: ( 'any' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:486:1: ( ( '$null' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:487:1: ( '$null' )
                     {
-                     before(grammarAccess.getGroupClauseAccess().getANYEnumLiteralDeclaration_0()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:488:1: ( 'any' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:488:3: 'any'
+                     before(grammarAccess.getGroupClauseAccess().getNULLEnumLiteralDeclaration_0()); 
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:488:1: ( '$null' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:488:3: '$null'
                     {
                     match(input,19,FOLLOW_19_in_rule__GroupClause__Alternatives968); 
 
                     }
 
-                     after(grammarAccess.getGroupClauseAccess().getANYEnumLiteralDeclaration_0()); 
+                     after(grammarAccess.getGroupClauseAccess().getNULLEnumLiteralDeclaration_0()); 
 
                     }
 
@@ -1375,41 +1368,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:500:6: ( ( 'only this' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:500:6: ( ( 'only-this' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:500:6: ( ( 'only this' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:501:1: ( 'only this' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:500:6: ( ( 'only-this' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:501:1: ( 'only-this' )
                     {
                      before(grammarAccess.getGroupClauseAccess().getONLY_THISEnumLiteralDeclaration_2()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:502:1: ( 'only this' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:502:3: 'only this'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:502:1: ( 'only-this' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:502:3: 'only-this'
                     {
                     match(input,21,FOLLOW_21_in_rule__GroupClause__Alternatives1010); 
 
                     }
 
                      after(grammarAccess.getGroupClauseAccess().getONLY_THISEnumLiteralDeclaration_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:507:6: ( ( 'no one' ) )
-                    {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:507:6: ( ( 'no one' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:508:1: ( 'no one' )
-                    {
-                     before(grammarAccess.getGroupClauseAccess().getNO_ONEEnumLiteralDeclaration_3()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:509:1: ( 'no one' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:509:3: 'no one'
-                    {
-                    match(input,22,FOLLOW_22_in_rule__GroupClause__Alternatives1031); 
-
-                    }
-
-                     after(grammarAccess.getGroupClauseAccess().getNO_ONEEnumLiteralDeclaration_3()); 
 
                     }
 
@@ -1434,33 +1406,28 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PermissionClause__Alternatives"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:519:1: rule__PermissionClause__Alternatives : ( ( ( 'null' ) ) | ( ( 'must' ) ) | ( ( 'can' ) ) | ( ( 'cannot' ) ) );
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:512:1: rule__PermissionClause__Alternatives : ( ( ( 'must' ) ) | ( ( 'can' ) ) | ( ( 'cannot' ) ) );
     public final void rule__PermissionClause__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:523:1: ( ( ( 'null' ) ) | ( ( 'must' ) ) | ( ( 'can' ) ) | ( ( 'cannot' ) ) )
-            int alt5=4;
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:516:1: ( ( ( 'must' ) ) | ( ( 'can' ) ) | ( ( 'cannot' ) ) )
+            int alt5=3;
             switch ( input.LA(1) ) {
-            case 23:
+            case 22:
                 {
                 alt5=1;
                 }
                 break;
-            case 24:
+            case 23:
                 {
                 alt5=2;
                 }
                 break;
-            case 25:
+            case 24:
                 {
                 alt5=3;
-                }
-                break;
-            case 26:
-                {
-                alt5=4;
                 }
                 break;
             default:
@@ -1472,20 +1439,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
             switch (alt5) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:524:1: ( ( 'null' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:517:1: ( ( 'must' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:524:1: ( ( 'null' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:525:1: ( 'null' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:517:1: ( ( 'must' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:518:1: ( 'must' )
                     {
-                     before(grammarAccess.getPermissionClauseAccess().getNULLEnumLiteralDeclaration_0()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:526:1: ( 'null' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:526:3: 'null'
+                     before(grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_0()); 
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:519:1: ( 'must' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:519:3: 'must'
                     {
-                    match(input,23,FOLLOW_23_in_rule__PermissionClause__Alternatives1067); 
+                    match(input,22,FOLLOW_22_in_rule__PermissionClause__Alternatives1046); 
 
                     }
 
-                     after(grammarAccess.getPermissionClauseAccess().getNULLEnumLiteralDeclaration_0()); 
+                     after(grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_0()); 
 
                     }
 
@@ -1493,20 +1460,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:531:6: ( ( 'must' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:524:6: ( ( 'can' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:531:6: ( ( 'must' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:532:1: ( 'must' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:524:6: ( ( 'can' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:525:1: ( 'can' )
                     {
-                     before(grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_1()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:533:1: ( 'must' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:533:3: 'must'
+                     before(grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_1()); 
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:526:1: ( 'can' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:526:3: 'can'
                     {
-                    match(input,24,FOLLOW_24_in_rule__PermissionClause__Alternatives1088); 
+                    match(input,23,FOLLOW_23_in_rule__PermissionClause__Alternatives1067); 
 
                     }
 
-                     after(grammarAccess.getPermissionClauseAccess().getMUSTEnumLiteralDeclaration_1()); 
+                     after(grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_1()); 
 
                     }
 
@@ -1514,41 +1481,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:538:6: ( ( 'can' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:531:6: ( ( 'cannot' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:538:6: ( ( 'can' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:539:1: ( 'can' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:531:6: ( ( 'cannot' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:532:1: ( 'cannot' )
                     {
-                     before(grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_2()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:540:1: ( 'can' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:540:3: 'can'
+                     before(grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_2()); 
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:533:1: ( 'cannot' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:533:3: 'cannot'
                     {
-                    match(input,25,FOLLOW_25_in_rule__PermissionClause__Alternatives1109); 
+                    match(input,24,FOLLOW_24_in_rule__PermissionClause__Alternatives1088); 
 
                     }
 
-                     after(grammarAccess.getPermissionClauseAccess().getCANEnumLiteralDeclaration_2()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:545:6: ( ( 'cannot' ) )
-                    {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:545:6: ( ( 'cannot' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:546:1: ( 'cannot' )
-                    {
-                     before(grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_3()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:547:1: ( 'cannot' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:547:3: 'cannot'
-                    {
-                    match(input,26,FOLLOW_26_in_rule__PermissionClause__Alternatives1130); 
-
-                    }
-
-                     after(grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getPermissionClauseAccess().getCANNOTEnumLiteralDeclaration_2()); 
 
                     }
 
@@ -1573,61 +1519,61 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__RelactionType__Alternatives"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:557:1: rule__RelactionType__Alternatives : ( ( ( 'access' ) ) | ( ( 'declare' ) ) | ( ( 'handle' ) ) | ( ( 'extend' ) ) | ( ( 'implement' ) ) | ( ( 'create' ) ) | ( ( 'throw' ) ) | ( ( 'use-annotation' ) ) | ( ( 'depend' ) ) | ( ( 'requires' ) ) );
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:543:1: rule__RelactionType__Alternatives : ( ( ( 'access' ) ) | ( ( 'declare' ) ) | ( ( 'handle' ) ) | ( ( 'extend' ) ) | ( ( 'implement' ) ) | ( ( 'create' ) ) | ( ( 'throw' ) ) | ( ( 'use-annotation' ) ) | ( ( 'depend' ) ) | ( ( 'requires' ) ) );
     public final void rule__RelactionType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:561:1: ( ( ( 'access' ) ) | ( ( 'declare' ) ) | ( ( 'handle' ) ) | ( ( 'extend' ) ) | ( ( 'implement' ) ) | ( ( 'create' ) ) | ( ( 'throw' ) ) | ( ( 'use-annotation' ) ) | ( ( 'depend' ) ) | ( ( 'requires' ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:547:1: ( ( ( 'access' ) ) | ( ( 'declare' ) ) | ( ( 'handle' ) ) | ( ( 'extend' ) ) | ( ( 'implement' ) ) | ( ( 'create' ) ) | ( ( 'throw' ) ) | ( ( 'use-annotation' ) ) | ( ( 'depend' ) ) | ( ( 'requires' ) ) )
             int alt6=10;
             switch ( input.LA(1) ) {
-            case 27:
+            case 25:
                 {
                 alt6=1;
                 }
                 break;
-            case 28:
+            case 26:
                 {
                 alt6=2;
                 }
                 break;
-            case 29:
+            case 27:
                 {
                 alt6=3;
                 }
                 break;
-            case 30:
+            case 28:
                 {
                 alt6=4;
                 }
                 break;
-            case 31:
+            case 29:
                 {
                 alt6=5;
                 }
                 break;
-            case 32:
+            case 30:
                 {
                 alt6=6;
                 }
                 break;
-            case 33:
+            case 31:
                 {
                 alt6=7;
                 }
                 break;
-            case 34:
+            case 32:
                 {
                 alt6=8;
                 }
                 break;
-            case 35:
+            case 33:
                 {
                 alt6=9;
                 }
                 break;
-            case 36:
+            case 34:
                 {
                 alt6=10;
                 }
@@ -1641,16 +1587,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
             switch (alt6) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:562:1: ( ( 'access' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:548:1: ( ( 'access' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:562:1: ( ( 'access' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:563:1: ( 'access' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:548:1: ( ( 'access' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:549:1: ( 'access' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getACCESSEnumLiteralDeclaration_0()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:564:1: ( 'access' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:564:3: 'access'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:550:1: ( 'access' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:550:3: 'access'
                     {
-                    match(input,27,FOLLOW_27_in_rule__RelactionType__Alternatives1166); 
+                    match(input,25,FOLLOW_25_in_rule__RelactionType__Alternatives1124); 
 
                     }
 
@@ -1662,16 +1608,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:569:6: ( ( 'declare' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:555:6: ( ( 'declare' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:569:6: ( ( 'declare' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:570:1: ( 'declare' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:555:6: ( ( 'declare' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:556:1: ( 'declare' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getDECLAREEnumLiteralDeclaration_1()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:571:1: ( 'declare' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:571:3: 'declare'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:557:1: ( 'declare' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:557:3: 'declare'
                     {
-                    match(input,28,FOLLOW_28_in_rule__RelactionType__Alternatives1187); 
+                    match(input,26,FOLLOW_26_in_rule__RelactionType__Alternatives1145); 
 
                     }
 
@@ -1683,16 +1629,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:576:6: ( ( 'handle' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:562:6: ( ( 'handle' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:576:6: ( ( 'handle' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:577:1: ( 'handle' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:562:6: ( ( 'handle' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:563:1: ( 'handle' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getHANDLEEnumLiteralDeclaration_2()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:578:1: ( 'handle' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:578:3: 'handle'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:564:1: ( 'handle' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:564:3: 'handle'
                     {
-                    match(input,29,FOLLOW_29_in_rule__RelactionType__Alternatives1208); 
+                    match(input,27,FOLLOW_27_in_rule__RelactionType__Alternatives1166); 
 
                     }
 
@@ -1704,16 +1650,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 4 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:583:6: ( ( 'extend' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:569:6: ( ( 'extend' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:583:6: ( ( 'extend' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:584:1: ( 'extend' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:569:6: ( ( 'extend' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:570:1: ( 'extend' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getEXTENDEnumLiteralDeclaration_3()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:585:1: ( 'extend' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:585:3: 'extend'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:571:1: ( 'extend' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:571:3: 'extend'
                     {
-                    match(input,30,FOLLOW_30_in_rule__RelactionType__Alternatives1229); 
+                    match(input,28,FOLLOW_28_in_rule__RelactionType__Alternatives1187); 
 
                     }
 
@@ -1725,16 +1671,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 5 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:590:6: ( ( 'implement' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:576:6: ( ( 'implement' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:590:6: ( ( 'implement' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:591:1: ( 'implement' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:576:6: ( ( 'implement' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:577:1: ( 'implement' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getIMPLEMENTEnumLiteralDeclaration_4()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:592:1: ( 'implement' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:592:3: 'implement'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:578:1: ( 'implement' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:578:3: 'implement'
                     {
-                    match(input,31,FOLLOW_31_in_rule__RelactionType__Alternatives1250); 
+                    match(input,29,FOLLOW_29_in_rule__RelactionType__Alternatives1208); 
 
                     }
 
@@ -1746,16 +1692,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 6 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:597:6: ( ( 'create' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:583:6: ( ( 'create' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:597:6: ( ( 'create' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:598:1: ( 'create' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:583:6: ( ( 'create' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:584:1: ( 'create' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getCREATEEnumLiteralDeclaration_5()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:599:1: ( 'create' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:599:3: 'create'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:585:1: ( 'create' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:585:3: 'create'
                     {
-                    match(input,32,FOLLOW_32_in_rule__RelactionType__Alternatives1271); 
+                    match(input,30,FOLLOW_30_in_rule__RelactionType__Alternatives1229); 
 
                     }
 
@@ -1767,16 +1713,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 7 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:604:6: ( ( 'throw' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:590:6: ( ( 'throw' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:604:6: ( ( 'throw' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:605:1: ( 'throw' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:590:6: ( ( 'throw' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:591:1: ( 'throw' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getTHROWEnumLiteralDeclaration_6()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:606:1: ( 'throw' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:606:3: 'throw'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:592:1: ( 'throw' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:592:3: 'throw'
                     {
-                    match(input,33,FOLLOW_33_in_rule__RelactionType__Alternatives1292); 
+                    match(input,31,FOLLOW_31_in_rule__RelactionType__Alternatives1250); 
 
                     }
 
@@ -1788,16 +1734,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 8 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:611:6: ( ( 'use-annotation' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:597:6: ( ( 'use-annotation' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:611:6: ( ( 'use-annotation' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:612:1: ( 'use-annotation' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:597:6: ( ( 'use-annotation' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:598:1: ( 'use-annotation' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getUSEANOTATIONEnumLiteralDeclaration_7()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:613:1: ( 'use-annotation' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:613:3: 'use-annotation'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:599:1: ( 'use-annotation' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:599:3: 'use-annotation'
                     {
-                    match(input,34,FOLLOW_34_in_rule__RelactionType__Alternatives1313); 
+                    match(input,32,FOLLOW_32_in_rule__RelactionType__Alternatives1271); 
 
                     }
 
@@ -1809,16 +1755,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 9 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:618:6: ( ( 'depend' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:604:6: ( ( 'depend' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:618:6: ( ( 'depend' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:619:1: ( 'depend' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:604:6: ( ( 'depend' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:605:1: ( 'depend' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getDEPENDEnumLiteralDeclaration_8()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:620:1: ( 'depend' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:620:3: 'depend'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:606:1: ( 'depend' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:606:3: 'depend'
                     {
-                    match(input,35,FOLLOW_35_in_rule__RelactionType__Alternatives1334); 
+                    match(input,33,FOLLOW_33_in_rule__RelactionType__Alternatives1292); 
 
                     }
 
@@ -1830,16 +1776,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 10 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:625:6: ( ( 'requires' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:611:6: ( ( 'requires' ) )
                     {
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:625:6: ( ( 'requires' ) )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:626:1: ( 'requires' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:611:6: ( ( 'requires' ) )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:612:1: ( 'requires' )
                     {
                      before(grammarAccess.getRelactionTypeAccess().getREQUIRESEnumLiteralDeclaration_9()); 
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:627:1: ( 'requires' )
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:627:3: 'requires'
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:613:1: ( 'requires' )
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:613:3: 'requires'
                     {
-                    match(input,36,FOLLOW_36_in_rule__RelactionType__Alternatives1355); 
+                    match(input,34,FOLLOW_34_in_rule__RelactionType__Alternatives1313); 
 
                     }
 
@@ -1868,21 +1814,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:639:1: rule__ASMLModel__Group__0 : rule__ASMLModel__Group__0__Impl rule__ASMLModel__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:625:1: rule__ASMLModel__Group__0 : rule__ASMLModel__Group__0__Impl rule__ASMLModel__Group__1 ;
     public final void rule__ASMLModel__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:643:1: ( rule__ASMLModel__Group__0__Impl rule__ASMLModel__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:644:2: rule__ASMLModel__Group__0__Impl rule__ASMLModel__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:629:1: ( rule__ASMLModel__Group__0__Impl rule__ASMLModel__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:630:2: rule__ASMLModel__Group__0__Impl rule__ASMLModel__Group__1
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__0__Impl_in_rule__ASMLModel__Group__01388);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__0__Impl_in_rule__ASMLModel__Group__01346);
             rule__ASMLModel__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group__1_in_rule__ASMLModel__Group__01391);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__1_in_rule__ASMLModel__Group__01349);
             rule__ASMLModel__Group__1();
 
             state._fsp--;
@@ -1906,20 +1852,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:651:1: rule__ASMLModel__Group__0__Impl : ( 'architecture' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:637:1: rule__ASMLModel__Group__0__Impl : ( 'architecture' ) ;
     public final void rule__ASMLModel__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:655:1: ( ( 'architecture' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:656:1: ( 'architecture' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:641:1: ( ( 'architecture' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:642:1: ( 'architecture' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:656:1: ( 'architecture' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:657:1: 'architecture'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:642:1: ( 'architecture' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:643:1: 'architecture'
             {
              before(grammarAccess.getASMLModelAccess().getArchitectureKeyword_0()); 
-            match(input,37,FOLLOW_37_in_rule__ASMLModel__Group__0__Impl1419); 
+            match(input,35,FOLLOW_35_in_rule__ASMLModel__Group__0__Impl1377); 
              after(grammarAccess.getASMLModelAccess().getArchitectureKeyword_0()); 
 
             }
@@ -1943,21 +1889,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:670:1: rule__ASMLModel__Group__1 : rule__ASMLModel__Group__1__Impl rule__ASMLModel__Group__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:656:1: rule__ASMLModel__Group__1 : rule__ASMLModel__Group__1__Impl rule__ASMLModel__Group__2 ;
     public final void rule__ASMLModel__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:674:1: ( rule__ASMLModel__Group__1__Impl rule__ASMLModel__Group__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:675:2: rule__ASMLModel__Group__1__Impl rule__ASMLModel__Group__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:660:1: ( rule__ASMLModel__Group__1__Impl rule__ASMLModel__Group__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:661:2: rule__ASMLModel__Group__1__Impl rule__ASMLModel__Group__2
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__1__Impl_in_rule__ASMLModel__Group__11450);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__1__Impl_in_rule__ASMLModel__Group__11408);
             rule__ASMLModel__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group__2_in_rule__ASMLModel__Group__11453);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__2_in_rule__ASMLModel__Group__11411);
             rule__ASMLModel__Group__2();
 
             state._fsp--;
@@ -1981,23 +1927,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:682:1: rule__ASMLModel__Group__1__Impl : ( ( rule__ASMLModel__NameAssignment_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:668:1: rule__ASMLModel__Group__1__Impl : ( ( rule__ASMLModel__NameAssignment_1 ) ) ;
     public final void rule__ASMLModel__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:686:1: ( ( ( rule__ASMLModel__NameAssignment_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:687:1: ( ( rule__ASMLModel__NameAssignment_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:672:1: ( ( ( rule__ASMLModel__NameAssignment_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:673:1: ( ( rule__ASMLModel__NameAssignment_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:687:1: ( ( rule__ASMLModel__NameAssignment_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:688:1: ( rule__ASMLModel__NameAssignment_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:673:1: ( ( rule__ASMLModel__NameAssignment_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:674:1: ( rule__ASMLModel__NameAssignment_1 )
             {
              before(grammarAccess.getASMLModelAccess().getNameAssignment_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:689:1: ( rule__ASMLModel__NameAssignment_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:689:2: rule__ASMLModel__NameAssignment_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:675:1: ( rule__ASMLModel__NameAssignment_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:675:2: rule__ASMLModel__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__ASMLModel__NameAssignment_1_in_rule__ASMLModel__Group__1__Impl1480);
+            pushFollow(FOLLOW_rule__ASMLModel__NameAssignment_1_in_rule__ASMLModel__Group__1__Impl1438);
             rule__ASMLModel__NameAssignment_1();
 
             state._fsp--;
@@ -2028,21 +1974,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:699:1: rule__ASMLModel__Group__2 : rule__ASMLModel__Group__2__Impl rule__ASMLModel__Group__3 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:685:1: rule__ASMLModel__Group__2 : rule__ASMLModel__Group__2__Impl rule__ASMLModel__Group__3 ;
     public final void rule__ASMLModel__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:703:1: ( rule__ASMLModel__Group__2__Impl rule__ASMLModel__Group__3 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:704:2: rule__ASMLModel__Group__2__Impl rule__ASMLModel__Group__3
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:689:1: ( rule__ASMLModel__Group__2__Impl rule__ASMLModel__Group__3 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:690:2: rule__ASMLModel__Group__2__Impl rule__ASMLModel__Group__3
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__2__Impl_in_rule__ASMLModel__Group__21510);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__2__Impl_in_rule__ASMLModel__Group__21468);
             rule__ASMLModel__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group__3_in_rule__ASMLModel__Group__21513);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__3_in_rule__ASMLModel__Group__21471);
             rule__ASMLModel__Group__3();
 
             state._fsp--;
@@ -2066,20 +2012,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:711:1: rule__ASMLModel__Group__2__Impl : ( '{' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:697:1: rule__ASMLModel__Group__2__Impl : ( '{' ) ;
     public final void rule__ASMLModel__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:715:1: ( ( '{' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:716:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:701:1: ( ( '{' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:702:1: ( '{' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:716:1: ( '{' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:717:1: '{'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:702:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:703:1: '{'
             {
              before(grammarAccess.getASMLModelAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,38,FOLLOW_38_in_rule__ASMLModel__Group__2__Impl1541); 
+            match(input,36,FOLLOW_36_in_rule__ASMLModel__Group__2__Impl1499); 
              after(grammarAccess.getASMLModelAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -2103,21 +2049,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__3"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:730:1: rule__ASMLModel__Group__3 : rule__ASMLModel__Group__3__Impl rule__ASMLModel__Group__4 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:716:1: rule__ASMLModel__Group__3 : rule__ASMLModel__Group__3__Impl rule__ASMLModel__Group__4 ;
     public final void rule__ASMLModel__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:734:1: ( rule__ASMLModel__Group__3__Impl rule__ASMLModel__Group__4 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:735:2: rule__ASMLModel__Group__3__Impl rule__ASMLModel__Group__4
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:720:1: ( rule__ASMLModel__Group__3__Impl rule__ASMLModel__Group__4 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:721:2: rule__ASMLModel__Group__3__Impl rule__ASMLModel__Group__4
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__3__Impl_in_rule__ASMLModel__Group__31572);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__3__Impl_in_rule__ASMLModel__Group__31530);
             rule__ASMLModel__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group__4_in_rule__ASMLModel__Group__31575);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__4_in_rule__ASMLModel__Group__31533);
             rule__ASMLModel__Group__4();
 
             state._fsp--;
@@ -2141,31 +2087,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__3__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:742:1: rule__ASMLModel__Group__3__Impl : ( ( rule__ASMLModel__Group_3__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:728:1: rule__ASMLModel__Group__3__Impl : ( ( rule__ASMLModel__Group_3__0 )? ) ;
     public final void rule__ASMLModel__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:746:1: ( ( ( rule__ASMLModel__Group_3__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:747:1: ( ( rule__ASMLModel__Group_3__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:732:1: ( ( ( rule__ASMLModel__Group_3__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:733:1: ( ( rule__ASMLModel__Group_3__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:747:1: ( ( rule__ASMLModel__Group_3__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:748:1: ( rule__ASMLModel__Group_3__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:733:1: ( ( rule__ASMLModel__Group_3__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:734:1: ( rule__ASMLModel__Group_3__0 )?
             {
              before(grammarAccess.getASMLModelAccess().getGroup_3()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:749:1: ( rule__ASMLModel__Group_3__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:735:1: ( rule__ASMLModel__Group_3__0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==40) ) {
+            if ( (LA7_0==38) ) {
                 alt7=1;
             }
             switch (alt7) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:749:2: rule__ASMLModel__Group_3__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:735:2: rule__ASMLModel__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__ASMLModel__Group_3__0_in_rule__ASMLModel__Group__3__Impl1602);
+                    pushFollow(FOLLOW_rule__ASMLModel__Group_3__0_in_rule__ASMLModel__Group__3__Impl1560);
                     rule__ASMLModel__Group_3__0();
 
                     state._fsp--;
@@ -2199,21 +2145,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:759:1: rule__ASMLModel__Group__4 : rule__ASMLModel__Group__4__Impl rule__ASMLModel__Group__5 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:745:1: rule__ASMLModel__Group__4 : rule__ASMLModel__Group__4__Impl rule__ASMLModel__Group__5 ;
     public final void rule__ASMLModel__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:763:1: ( rule__ASMLModel__Group__4__Impl rule__ASMLModel__Group__5 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:764:2: rule__ASMLModel__Group__4__Impl rule__ASMLModel__Group__5
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:749:1: ( rule__ASMLModel__Group__4__Impl rule__ASMLModel__Group__5 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:750:2: rule__ASMLModel__Group__4__Impl rule__ASMLModel__Group__5
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__4__Impl_in_rule__ASMLModel__Group__41633);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__4__Impl_in_rule__ASMLModel__Group__41591);
             rule__ASMLModel__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group__5_in_rule__ASMLModel__Group__41636);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__5_in_rule__ASMLModel__Group__41594);
             rule__ASMLModel__Group__5();
 
             state._fsp--;
@@ -2237,35 +2183,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__4__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:771:1: rule__ASMLModel__Group__4__Impl : ( ( rule__ASMLModel__ComponentsAssignment_4 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:757:1: rule__ASMLModel__Group__4__Impl : ( ( rule__ASMLModel__ComponentsAssignment_4 )* ) ;
     public final void rule__ASMLModel__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:775:1: ( ( ( rule__ASMLModel__ComponentsAssignment_4 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:776:1: ( ( rule__ASMLModel__ComponentsAssignment_4 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:761:1: ( ( ( rule__ASMLModel__ComponentsAssignment_4 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:762:1: ( ( rule__ASMLModel__ComponentsAssignment_4 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:776:1: ( ( rule__ASMLModel__ComponentsAssignment_4 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:777:1: ( rule__ASMLModel__ComponentsAssignment_4 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:762:1: ( ( rule__ASMLModel__ComponentsAssignment_4 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:763:1: ( rule__ASMLModel__ComponentsAssignment_4 )*
             {
              before(grammarAccess.getASMLModelAccess().getComponentsAssignment_4()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:778:1: ( rule__ASMLModel__ComponentsAssignment_4 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:764:1: ( rule__ASMLModel__ComponentsAssignment_4 )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==RULE_ID_ASML||LA8_0==44) ) {
+                if ( (LA8_0==RULE_ID_ASML||LA8_0==42) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:778:2: rule__ASMLModel__ComponentsAssignment_4
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:764:2: rule__ASMLModel__ComponentsAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__ASMLModel__ComponentsAssignment_4_in_rule__ASMLModel__Group__4__Impl1663);
+            	    pushFollow(FOLLOW_rule__ASMLModel__ComponentsAssignment_4_in_rule__ASMLModel__Group__4__Impl1621);
             	    rule__ASMLModel__ComponentsAssignment_4();
 
             	    state._fsp--;
@@ -2302,21 +2248,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:788:1: rule__ASMLModel__Group__5 : rule__ASMLModel__Group__5__Impl rule__ASMLModel__Group__6 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:774:1: rule__ASMLModel__Group__5 : rule__ASMLModel__Group__5__Impl rule__ASMLModel__Group__6 ;
     public final void rule__ASMLModel__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:792:1: ( rule__ASMLModel__Group__5__Impl rule__ASMLModel__Group__6 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:793:2: rule__ASMLModel__Group__5__Impl rule__ASMLModel__Group__6
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:778:1: ( rule__ASMLModel__Group__5__Impl rule__ASMLModel__Group__6 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:779:2: rule__ASMLModel__Group__5__Impl rule__ASMLModel__Group__6
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__5__Impl_in_rule__ASMLModel__Group__51694);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__5__Impl_in_rule__ASMLModel__Group__51652);
             rule__ASMLModel__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group__6_in_rule__ASMLModel__Group__51697);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__6_in_rule__ASMLModel__Group__51655);
             rule__ASMLModel__Group__6();
 
             state._fsp--;
@@ -2340,31 +2286,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__5__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:800:1: rule__ASMLModel__Group__5__Impl : ( ( rule__ASMLModel__Group_5__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:786:1: rule__ASMLModel__Group__5__Impl : ( ( rule__ASMLModel__Group_5__0 )? ) ;
     public final void rule__ASMLModel__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:804:1: ( ( ( rule__ASMLModel__Group_5__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:805:1: ( ( rule__ASMLModel__Group_5__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:790:1: ( ( ( rule__ASMLModel__Group_5__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:791:1: ( ( rule__ASMLModel__Group_5__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:805:1: ( ( rule__ASMLModel__Group_5__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:806:1: ( rule__ASMLModel__Group_5__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:791:1: ( ( rule__ASMLModel__Group_5__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:792:1: ( rule__ASMLModel__Group_5__0 )?
             {
              before(grammarAccess.getASMLModelAccess().getGroup_5()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:807:1: ( rule__ASMLModel__Group_5__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:793:1: ( rule__ASMLModel__Group_5__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==42) ) {
+            if ( (LA9_0==40) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:807:2: rule__ASMLModel__Group_5__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:793:2: rule__ASMLModel__Group_5__0
                     {
-                    pushFollow(FOLLOW_rule__ASMLModel__Group_5__0_in_rule__ASMLModel__Group__5__Impl1724);
+                    pushFollow(FOLLOW_rule__ASMLModel__Group_5__0_in_rule__ASMLModel__Group__5__Impl1682);
                     rule__ASMLModel__Group_5__0();
 
                     state._fsp--;
@@ -2398,16 +2344,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__6"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:817:1: rule__ASMLModel__Group__6 : rule__ASMLModel__Group__6__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:803:1: rule__ASMLModel__Group__6 : rule__ASMLModel__Group__6__Impl ;
     public final void rule__ASMLModel__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:821:1: ( rule__ASMLModel__Group__6__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:822:2: rule__ASMLModel__Group__6__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:807:1: ( rule__ASMLModel__Group__6__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:808:2: rule__ASMLModel__Group__6__Impl
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group__6__Impl_in_rule__ASMLModel__Group__61755);
+            pushFollow(FOLLOW_rule__ASMLModel__Group__6__Impl_in_rule__ASMLModel__Group__61713);
             rule__ASMLModel__Group__6__Impl();
 
             state._fsp--;
@@ -2431,20 +2377,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group__6__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:828:1: rule__ASMLModel__Group__6__Impl : ( '}' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:814:1: rule__ASMLModel__Group__6__Impl : ( '}' ) ;
     public final void rule__ASMLModel__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:832:1: ( ( '}' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:833:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:818:1: ( ( '}' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:819:1: ( '}' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:833:1: ( '}' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:834:1: '}'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:819:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:820:1: '}'
             {
              before(grammarAccess.getASMLModelAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,39,FOLLOW_39_in_rule__ASMLModel__Group__6__Impl1783); 
+            match(input,37,FOLLOW_37_in_rule__ASMLModel__Group__6__Impl1741); 
              after(grammarAccess.getASMLModelAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -2468,21 +2414,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_3__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:861:1: rule__ASMLModel__Group_3__0 : rule__ASMLModel__Group_3__0__Impl rule__ASMLModel__Group_3__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:847:1: rule__ASMLModel__Group_3__0 : rule__ASMLModel__Group_3__0__Impl rule__ASMLModel__Group_3__1 ;
     public final void rule__ASMLModel__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:865:1: ( rule__ASMLModel__Group_3__0__Impl rule__ASMLModel__Group_3__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:866:2: rule__ASMLModel__Group_3__0__Impl rule__ASMLModel__Group_3__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:851:1: ( rule__ASMLModel__Group_3__0__Impl rule__ASMLModel__Group_3__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:852:2: rule__ASMLModel__Group_3__0__Impl rule__ASMLModel__Group_3__1
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_3__0__Impl_in_rule__ASMLModel__Group_3__01828);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_3__0__Impl_in_rule__ASMLModel__Group_3__01786);
             rule__ASMLModel__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group_3__1_in_rule__ASMLModel__Group_3__01831);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_3__1_in_rule__ASMLModel__Group_3__01789);
             rule__ASMLModel__Group_3__1();
 
             state._fsp--;
@@ -2506,20 +2452,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_3__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:873:1: rule__ASMLModel__Group_3__0__Impl : ( 'import' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:859:1: rule__ASMLModel__Group_3__0__Impl : ( 'import' ) ;
     public final void rule__ASMLModel__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:877:1: ( ( 'import' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:878:1: ( 'import' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:863:1: ( ( 'import' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:864:1: ( 'import' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:878:1: ( 'import' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:879:1: 'import'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:864:1: ( 'import' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:865:1: 'import'
             {
              before(grammarAccess.getASMLModelAccess().getImportKeyword_3_0()); 
-            match(input,40,FOLLOW_40_in_rule__ASMLModel__Group_3__0__Impl1859); 
+            match(input,38,FOLLOW_38_in_rule__ASMLModel__Group_3__0__Impl1817); 
              after(grammarAccess.getASMLModelAccess().getImportKeyword_3_0()); 
 
             }
@@ -2543,21 +2489,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_3__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:892:1: rule__ASMLModel__Group_3__1 : rule__ASMLModel__Group_3__1__Impl rule__ASMLModel__Group_3__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:878:1: rule__ASMLModel__Group_3__1 : rule__ASMLModel__Group_3__1__Impl rule__ASMLModel__Group_3__2 ;
     public final void rule__ASMLModel__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:896:1: ( rule__ASMLModel__Group_3__1__Impl rule__ASMLModel__Group_3__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:897:2: rule__ASMLModel__Group_3__1__Impl rule__ASMLModel__Group_3__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:882:1: ( rule__ASMLModel__Group_3__1__Impl rule__ASMLModel__Group_3__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:883:2: rule__ASMLModel__Group_3__1__Impl rule__ASMLModel__Group_3__2
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_3__1__Impl_in_rule__ASMLModel__Group_3__11890);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_3__1__Impl_in_rule__ASMLModel__Group_3__11848);
             rule__ASMLModel__Group_3__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group_3__2_in_rule__ASMLModel__Group_3__11893);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_3__2_in_rule__ASMLModel__Group_3__11851);
             rule__ASMLModel__Group_3__2();
 
             state._fsp--;
@@ -2581,23 +2527,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_3__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:904:1: rule__ASMLModel__Group_3__1__Impl : ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:890:1: rule__ASMLModel__Group_3__1__Impl : ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) ) ;
     public final void rule__ASMLModel__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:908:1: ( ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:909:1: ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:894:1: ( ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:895:1: ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:909:1: ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:910:1: ( rule__ASMLModel__ImportURIAssignment_3_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:895:1: ( ( rule__ASMLModel__ImportURIAssignment_3_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:896:1: ( rule__ASMLModel__ImportURIAssignment_3_1 )
             {
              before(grammarAccess.getASMLModelAccess().getImportURIAssignment_3_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:911:1: ( rule__ASMLModel__ImportURIAssignment_3_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:911:2: rule__ASMLModel__ImportURIAssignment_3_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:897:1: ( rule__ASMLModel__ImportURIAssignment_3_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:897:2: rule__ASMLModel__ImportURIAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__ASMLModel__ImportURIAssignment_3_1_in_rule__ASMLModel__Group_3__1__Impl1920);
+            pushFollow(FOLLOW_rule__ASMLModel__ImportURIAssignment_3_1_in_rule__ASMLModel__Group_3__1__Impl1878);
             rule__ASMLModel__ImportURIAssignment_3_1();
 
             state._fsp--;
@@ -2628,16 +2574,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_3__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:921:1: rule__ASMLModel__Group_3__2 : rule__ASMLModel__Group_3__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:907:1: rule__ASMLModel__Group_3__2 : rule__ASMLModel__Group_3__2__Impl ;
     public final void rule__ASMLModel__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:925:1: ( rule__ASMLModel__Group_3__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:926:2: rule__ASMLModel__Group_3__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:911:1: ( rule__ASMLModel__Group_3__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:912:2: rule__ASMLModel__Group_3__2__Impl
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_3__2__Impl_in_rule__ASMLModel__Group_3__21950);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_3__2__Impl_in_rule__ASMLModel__Group_3__21908);
             rule__ASMLModel__Group_3__2__Impl();
 
             state._fsp--;
@@ -2661,20 +2607,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_3__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:932:1: rule__ASMLModel__Group_3__2__Impl : ( ';' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:918:1: rule__ASMLModel__Group_3__2__Impl : ( ';' ) ;
     public final void rule__ASMLModel__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:936:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:937:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:922:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:923:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:937:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:938:1: ';'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:923:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:924:1: ';'
             {
              before(grammarAccess.getASMLModelAccess().getSemicolonKeyword_3_2()); 
-            match(input,41,FOLLOW_41_in_rule__ASMLModel__Group_3__2__Impl1978); 
+            match(input,39,FOLLOW_39_in_rule__ASMLModel__Group_3__2__Impl1936); 
              after(grammarAccess.getASMLModelAccess().getSemicolonKeyword_3_2()); 
 
             }
@@ -2698,21 +2644,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:957:1: rule__ASMLModel__Group_5__0 : rule__ASMLModel__Group_5__0__Impl rule__ASMLModel__Group_5__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:943:1: rule__ASMLModel__Group_5__0 : rule__ASMLModel__Group_5__0__Impl rule__ASMLModel__Group_5__1 ;
     public final void rule__ASMLModel__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:961:1: ( rule__ASMLModel__Group_5__0__Impl rule__ASMLModel__Group_5__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:962:2: rule__ASMLModel__Group_5__0__Impl rule__ASMLModel__Group_5__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:947:1: ( rule__ASMLModel__Group_5__0__Impl rule__ASMLModel__Group_5__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:948:2: rule__ASMLModel__Group_5__0__Impl rule__ASMLModel__Group_5__1
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5__0__Impl_in_rule__ASMLModel__Group_5__02015);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5__0__Impl_in_rule__ASMLModel__Group_5__01973);
             rule__ASMLModel__Group_5__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5__1_in_rule__ASMLModel__Group_5__02018);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5__1_in_rule__ASMLModel__Group_5__01976);
             rule__ASMLModel__Group_5__1();
 
             state._fsp--;
@@ -2736,20 +2682,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:969:1: rule__ASMLModel__Group_5__0__Impl : ( 'ignore' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:955:1: rule__ASMLModel__Group_5__0__Impl : ( 'ignore' ) ;
     public final void rule__ASMLModel__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:973:1: ( ( 'ignore' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:974:1: ( 'ignore' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:959:1: ( ( 'ignore' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:960:1: ( 'ignore' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:974:1: ( 'ignore' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:975:1: 'ignore'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:960:1: ( 'ignore' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:961:1: 'ignore'
             {
              before(grammarAccess.getASMLModelAccess().getIgnoreKeyword_5_0()); 
-            match(input,42,FOLLOW_42_in_rule__ASMLModel__Group_5__0__Impl2046); 
+            match(input,40,FOLLOW_40_in_rule__ASMLModel__Group_5__0__Impl2004); 
              after(grammarAccess.getASMLModelAccess().getIgnoreKeyword_5_0()); 
 
             }
@@ -2773,21 +2719,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:988:1: rule__ASMLModel__Group_5__1 : rule__ASMLModel__Group_5__1__Impl rule__ASMLModel__Group_5__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:974:1: rule__ASMLModel__Group_5__1 : rule__ASMLModel__Group_5__1__Impl rule__ASMLModel__Group_5__2 ;
     public final void rule__ASMLModel__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:992:1: ( rule__ASMLModel__Group_5__1__Impl rule__ASMLModel__Group_5__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:993:2: rule__ASMLModel__Group_5__1__Impl rule__ASMLModel__Group_5__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:978:1: ( rule__ASMLModel__Group_5__1__Impl rule__ASMLModel__Group_5__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:979:2: rule__ASMLModel__Group_5__1__Impl rule__ASMLModel__Group_5__2
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5__1__Impl_in_rule__ASMLModel__Group_5__12077);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5__1__Impl_in_rule__ASMLModel__Group_5__12035);
             rule__ASMLModel__Group_5__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5__2_in_rule__ASMLModel__Group_5__12080);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5__2_in_rule__ASMLModel__Group_5__12038);
             rule__ASMLModel__Group_5__2();
 
             state._fsp--;
@@ -2811,20 +2757,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1000:1: rule__ASMLModel__Group_5__1__Impl : ( ( rule__ASMLModel__Group_5_1__0 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:986:1: rule__ASMLModel__Group_5__1__Impl : ( ( rule__ASMLModel__Group_5_1__0 )* ) ;
     public final void rule__ASMLModel__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1004:1: ( ( ( rule__ASMLModel__Group_5_1__0 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1005:1: ( ( rule__ASMLModel__Group_5_1__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:990:1: ( ( ( rule__ASMLModel__Group_5_1__0 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:991:1: ( ( rule__ASMLModel__Group_5_1__0 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1005:1: ( ( rule__ASMLModel__Group_5_1__0 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1006:1: ( rule__ASMLModel__Group_5_1__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:991:1: ( ( rule__ASMLModel__Group_5_1__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:992:1: ( rule__ASMLModel__Group_5_1__0 )*
             {
              before(grammarAccess.getASMLModelAccess().getGroup_5_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1007:1: ( rule__ASMLModel__Group_5_1__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:993:1: ( rule__ASMLModel__Group_5_1__0 )*
             loop10:
             do {
                 int alt10=2;
@@ -2837,9 +2783,9 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
                 switch (alt10) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1007:2: rule__ASMLModel__Group_5_1__0
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:993:2: rule__ASMLModel__Group_5_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__0_in_rule__ASMLModel__Group_5__1__Impl2107);
+            	    pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__0_in_rule__ASMLModel__Group_5__1__Impl2065);
             	    rule__ASMLModel__Group_5_1__0();
 
             	    state._fsp--;
@@ -2876,16 +2822,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1017:1: rule__ASMLModel__Group_5__2 : rule__ASMLModel__Group_5__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1003:1: rule__ASMLModel__Group_5__2 : rule__ASMLModel__Group_5__2__Impl ;
     public final void rule__ASMLModel__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1021:1: ( rule__ASMLModel__Group_5__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1022:2: rule__ASMLModel__Group_5__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1007:1: ( rule__ASMLModel__Group_5__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1008:2: rule__ASMLModel__Group_5__2__Impl
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5__2__Impl_in_rule__ASMLModel__Group_5__22138);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5__2__Impl_in_rule__ASMLModel__Group_5__22096);
             rule__ASMLModel__Group_5__2__Impl();
 
             state._fsp--;
@@ -2909,20 +2855,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1028:1: rule__ASMLModel__Group_5__2__Impl : ( ';' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1014:1: rule__ASMLModel__Group_5__2__Impl : ( ';' ) ;
     public final void rule__ASMLModel__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1032:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1033:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1018:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1019:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1033:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1034:1: ';'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1019:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1020:1: ';'
             {
              before(grammarAccess.getASMLModelAccess().getSemicolonKeyword_5_2()); 
-            match(input,41,FOLLOW_41_in_rule__ASMLModel__Group_5__2__Impl2166); 
+            match(input,39,FOLLOW_39_in_rule__ASMLModel__Group_5__2__Impl2124); 
              after(grammarAccess.getASMLModelAccess().getSemicolonKeyword_5_2()); 
 
             }
@@ -2946,21 +2892,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5_1__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1053:1: rule__ASMLModel__Group_5_1__0 : rule__ASMLModel__Group_5_1__0__Impl rule__ASMLModel__Group_5_1__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1039:1: rule__ASMLModel__Group_5_1__0 : rule__ASMLModel__Group_5_1__0__Impl rule__ASMLModel__Group_5_1__1 ;
     public final void rule__ASMLModel__Group_5_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1057:1: ( rule__ASMLModel__Group_5_1__0__Impl rule__ASMLModel__Group_5_1__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1058:2: rule__ASMLModel__Group_5_1__0__Impl rule__ASMLModel__Group_5_1__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1043:1: ( rule__ASMLModel__Group_5_1__0__Impl rule__ASMLModel__Group_5_1__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1044:2: rule__ASMLModel__Group_5_1__0__Impl rule__ASMLModel__Group_5_1__1
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__0__Impl_in_rule__ASMLModel__Group_5_1__02203);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__0__Impl_in_rule__ASMLModel__Group_5_1__02161);
             rule__ASMLModel__Group_5_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__1_in_rule__ASMLModel__Group_5_1__02206);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__1_in_rule__ASMLModel__Group_5_1__02164);
             rule__ASMLModel__Group_5_1__1();
 
             state._fsp--;
@@ -2984,23 +2930,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5_1__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1065:1: rule__ASMLModel__Group_5_1__0__Impl : ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1051:1: rule__ASMLModel__Group_5_1__0__Impl : ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) ) ;
     public final void rule__ASMLModel__Group_5_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1069:1: ( ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1070:1: ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1055:1: ( ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1056:1: ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1070:1: ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1071:1: ( rule__ASMLModel__IgnoreAssignment_5_1_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1056:1: ( ( rule__ASMLModel__IgnoreAssignment_5_1_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1057:1: ( rule__ASMLModel__IgnoreAssignment_5_1_0 )
             {
              before(grammarAccess.getASMLModelAccess().getIgnoreAssignment_5_1_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1072:1: ( rule__ASMLModel__IgnoreAssignment_5_1_0 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1072:2: rule__ASMLModel__IgnoreAssignment_5_1_0
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1058:1: ( rule__ASMLModel__IgnoreAssignment_5_1_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1058:2: rule__ASMLModel__IgnoreAssignment_5_1_0
             {
-            pushFollow(FOLLOW_rule__ASMLModel__IgnoreAssignment_5_1_0_in_rule__ASMLModel__Group_5_1__0__Impl2233);
+            pushFollow(FOLLOW_rule__ASMLModel__IgnoreAssignment_5_1_0_in_rule__ASMLModel__Group_5_1__0__Impl2191);
             rule__ASMLModel__IgnoreAssignment_5_1_0();
 
             state._fsp--;
@@ -3031,16 +2977,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5_1__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1082:1: rule__ASMLModel__Group_5_1__1 : rule__ASMLModel__Group_5_1__1__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1068:1: rule__ASMLModel__Group_5_1__1 : rule__ASMLModel__Group_5_1__1__Impl ;
     public final void rule__ASMLModel__Group_5_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1086:1: ( rule__ASMLModel__Group_5_1__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1087:2: rule__ASMLModel__Group_5_1__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1072:1: ( rule__ASMLModel__Group_5_1__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1073:2: rule__ASMLModel__Group_5_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__1__Impl_in_rule__ASMLModel__Group_5_1__12263);
+            pushFollow(FOLLOW_rule__ASMLModel__Group_5_1__1__Impl_in_rule__ASMLModel__Group_5_1__12221);
             rule__ASMLModel__Group_5_1__1__Impl();
 
             state._fsp--;
@@ -3064,31 +3010,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__Group_5_1__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1093:1: rule__ASMLModel__Group_5_1__1__Impl : ( ( ',' )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1079:1: rule__ASMLModel__Group_5_1__1__Impl : ( ( ',' )? ) ;
     public final void rule__ASMLModel__Group_5_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1097:1: ( ( ( ',' )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1098:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1083:1: ( ( ( ',' )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1084:1: ( ( ',' )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1098:1: ( ( ',' )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1099:1: ( ',' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1084:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1085:1: ( ',' )?
             {
              before(grammarAccess.getASMLModelAccess().getCommaKeyword_5_1_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1100:1: ( ',' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1086:1: ( ',' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==43) ) {
+            if ( (LA11_0==41) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1101:2: ','
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1087:2: ','
                     {
-                    match(input,43,FOLLOW_43_in_rule__ASMLModel__Group_5_1__1__Impl2292); 
+                    match(input,41,FOLLOW_41_in_rule__ASMLModel__Group_5_1__1__Impl2250); 
 
                     }
                     break;
@@ -3118,21 +3064,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1116:1: rule__View__Group__0 : rule__View__Group__0__Impl rule__View__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1102:1: rule__View__Group__0 : rule__View__Group__0__Impl rule__View__Group__1 ;
     public final void rule__View__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1120:1: ( rule__View__Group__0__Impl rule__View__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1121:2: rule__View__Group__0__Impl rule__View__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1106:1: ( rule__View__Group__0__Impl rule__View__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1107:2: rule__View__Group__0__Impl rule__View__Group__1
             {
-            pushFollow(FOLLOW_rule__View__Group__0__Impl_in_rule__View__Group__02329);
+            pushFollow(FOLLOW_rule__View__Group__0__Impl_in_rule__View__Group__02287);
             rule__View__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group__1_in_rule__View__Group__02332);
+            pushFollow(FOLLOW_rule__View__Group__1_in_rule__View__Group__02290);
             rule__View__Group__1();
 
             state._fsp--;
@@ -3156,20 +3102,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1128:1: rule__View__Group__0__Impl : ( 'view' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1114:1: rule__View__Group__0__Impl : ( 'view' ) ;
     public final void rule__View__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1132:1: ( ( 'view' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1133:1: ( 'view' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1118:1: ( ( 'view' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1119:1: ( 'view' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1133:1: ( 'view' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1134:1: 'view'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1119:1: ( 'view' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1120:1: 'view'
             {
              before(grammarAccess.getViewAccess().getViewKeyword_0()); 
-            match(input,44,FOLLOW_44_in_rule__View__Group__0__Impl2360); 
+            match(input,42,FOLLOW_42_in_rule__View__Group__0__Impl2318); 
              after(grammarAccess.getViewAccess().getViewKeyword_0()); 
 
             }
@@ -3193,21 +3139,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1147:1: rule__View__Group__1 : rule__View__Group__1__Impl rule__View__Group__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1133:1: rule__View__Group__1 : rule__View__Group__1__Impl rule__View__Group__2 ;
     public final void rule__View__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1151:1: ( rule__View__Group__1__Impl rule__View__Group__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1152:2: rule__View__Group__1__Impl rule__View__Group__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1137:1: ( rule__View__Group__1__Impl rule__View__Group__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1138:2: rule__View__Group__1__Impl rule__View__Group__2
             {
-            pushFollow(FOLLOW_rule__View__Group__1__Impl_in_rule__View__Group__12391);
+            pushFollow(FOLLOW_rule__View__Group__1__Impl_in_rule__View__Group__12349);
             rule__View__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group__2_in_rule__View__Group__12394);
+            pushFollow(FOLLOW_rule__View__Group__2_in_rule__View__Group__12352);
             rule__View__Group__2();
 
             state._fsp--;
@@ -3231,23 +3177,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1159:1: rule__View__Group__1__Impl : ( ( rule__View__NameAssignment_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1145:1: rule__View__Group__1__Impl : ( ( rule__View__NameAssignment_1 ) ) ;
     public final void rule__View__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1163:1: ( ( ( rule__View__NameAssignment_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1164:1: ( ( rule__View__NameAssignment_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1149:1: ( ( ( rule__View__NameAssignment_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1150:1: ( ( rule__View__NameAssignment_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1164:1: ( ( rule__View__NameAssignment_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1165:1: ( rule__View__NameAssignment_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1150:1: ( ( rule__View__NameAssignment_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1151:1: ( rule__View__NameAssignment_1 )
             {
              before(grammarAccess.getViewAccess().getNameAssignment_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1166:1: ( rule__View__NameAssignment_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1166:2: rule__View__NameAssignment_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1152:1: ( rule__View__NameAssignment_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1152:2: rule__View__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__View__NameAssignment_1_in_rule__View__Group__1__Impl2421);
+            pushFollow(FOLLOW_rule__View__NameAssignment_1_in_rule__View__Group__1__Impl2379);
             rule__View__NameAssignment_1();
 
             state._fsp--;
@@ -3278,21 +3224,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1176:1: rule__View__Group__2 : rule__View__Group__2__Impl rule__View__Group__3 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1162:1: rule__View__Group__2 : rule__View__Group__2__Impl rule__View__Group__3 ;
     public final void rule__View__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1180:1: ( rule__View__Group__2__Impl rule__View__Group__3 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1181:2: rule__View__Group__2__Impl rule__View__Group__3
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1166:1: ( rule__View__Group__2__Impl rule__View__Group__3 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1167:2: rule__View__Group__2__Impl rule__View__Group__3
             {
-            pushFollow(FOLLOW_rule__View__Group__2__Impl_in_rule__View__Group__22451);
+            pushFollow(FOLLOW_rule__View__Group__2__Impl_in_rule__View__Group__22409);
             rule__View__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group__3_in_rule__View__Group__22454);
+            pushFollow(FOLLOW_rule__View__Group__3_in_rule__View__Group__22412);
             rule__View__Group__3();
 
             state._fsp--;
@@ -3316,20 +3262,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1188:1: rule__View__Group__2__Impl : ( '{' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1174:1: rule__View__Group__2__Impl : ( '{' ) ;
     public final void rule__View__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1192:1: ( ( '{' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1193:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1178:1: ( ( '{' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1179:1: ( '{' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1193:1: ( '{' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1194:1: '{'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1179:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1180:1: '{'
             {
              before(grammarAccess.getViewAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,38,FOLLOW_38_in_rule__View__Group__2__Impl2482); 
+            match(input,36,FOLLOW_36_in_rule__View__Group__2__Impl2440); 
              after(grammarAccess.getViewAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -3353,21 +3299,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__3"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1207:1: rule__View__Group__3 : rule__View__Group__3__Impl rule__View__Group__4 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1193:1: rule__View__Group__3 : rule__View__Group__3__Impl rule__View__Group__4 ;
     public final void rule__View__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1211:1: ( rule__View__Group__3__Impl rule__View__Group__4 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1212:2: rule__View__Group__3__Impl rule__View__Group__4
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1197:1: ( rule__View__Group__3__Impl rule__View__Group__4 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1198:2: rule__View__Group__3__Impl rule__View__Group__4
             {
-            pushFollow(FOLLOW_rule__View__Group__3__Impl_in_rule__View__Group__32513);
+            pushFollow(FOLLOW_rule__View__Group__3__Impl_in_rule__View__Group__32471);
             rule__View__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group__4_in_rule__View__Group__32516);
+            pushFollow(FOLLOW_rule__View__Group__4_in_rule__View__Group__32474);
             rule__View__Group__4();
 
             state._fsp--;
@@ -3391,31 +3337,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__3__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1219:1: rule__View__Group__3__Impl : ( ( rule__View__Group_3__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1205:1: rule__View__Group__3__Impl : ( ( rule__View__Group_3__0 )? ) ;
     public final void rule__View__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1223:1: ( ( ( rule__View__Group_3__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1224:1: ( ( rule__View__Group_3__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1209:1: ( ( ( rule__View__Group_3__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1210:1: ( ( rule__View__Group_3__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1224:1: ( ( rule__View__Group_3__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1225:1: ( rule__View__Group_3__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1210:1: ( ( rule__View__Group_3__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1211:1: ( rule__View__Group_3__0 )?
             {
              before(grammarAccess.getViewAccess().getGroup_3()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1226:1: ( rule__View__Group_3__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1212:1: ( rule__View__Group_3__0 )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==41||LA12_0==45) ) {
+            if ( (LA12_0==39||LA12_0==43) ) {
                 alt12=1;
             }
             switch (alt12) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1226:2: rule__View__Group_3__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1212:2: rule__View__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__View__Group_3__0_in_rule__View__Group__3__Impl2543);
+                    pushFollow(FOLLOW_rule__View__Group_3__0_in_rule__View__Group__3__Impl2501);
                     rule__View__Group_3__0();
 
                     state._fsp--;
@@ -3449,21 +3395,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1236:1: rule__View__Group__4 : rule__View__Group__4__Impl rule__View__Group__5 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1222:1: rule__View__Group__4 : rule__View__Group__4__Impl rule__View__Group__5 ;
     public final void rule__View__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1240:1: ( rule__View__Group__4__Impl rule__View__Group__5 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1241:2: rule__View__Group__4__Impl rule__View__Group__5
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1226:1: ( rule__View__Group__4__Impl rule__View__Group__5 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1227:2: rule__View__Group__4__Impl rule__View__Group__5
             {
-            pushFollow(FOLLOW_rule__View__Group__4__Impl_in_rule__View__Group__42574);
+            pushFollow(FOLLOW_rule__View__Group__4__Impl_in_rule__View__Group__42532);
             rule__View__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group__5_in_rule__View__Group__42577);
+            pushFollow(FOLLOW_rule__View__Group__5_in_rule__View__Group__42535);
             rule__View__Group__5();
 
             state._fsp--;
@@ -3487,44 +3433,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__4__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1248:1: rule__View__Group__4__Impl : ( ( rule__View__ComponentsAssignment_4 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1234:1: rule__View__Group__4__Impl : ( ( rule__View__ComponentsAssignment_4 )* ) ;
     public final void rule__View__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1252:1: ( ( ( rule__View__ComponentsAssignment_4 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1253:1: ( ( rule__View__ComponentsAssignment_4 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1238:1: ( ( ( rule__View__ComponentsAssignment_4 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1239:1: ( ( rule__View__ComponentsAssignment_4 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1253:1: ( ( rule__View__ComponentsAssignment_4 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1254:1: ( rule__View__ComponentsAssignment_4 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1239:1: ( ( rule__View__ComponentsAssignment_4 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1240:1: ( rule__View__ComponentsAssignment_4 )*
             {
              before(grammarAccess.getViewAccess().getComponentsAssignment_4()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1255:1: ( rule__View__ComponentsAssignment_4 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1241:1: ( rule__View__ComponentsAssignment_4 )*
             loop13:
             do {
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
-                if ( (LA13_0==RULE_ID_ASML) ) {
-                    int LA13_2 = input.LA(2);
-
-                    if ( (LA13_2==38) ) {
-                        alt13=1;
-                    }
-
-
-                }
-                else if ( (LA13_0==44) ) {
+                if ( (LA13_0==RULE_ID_ASML||LA13_0==42) ) {
                     alt13=1;
                 }
 
 
                 switch (alt13) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1255:2: rule__View__ComponentsAssignment_4
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1241:2: rule__View__ComponentsAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__View__ComponentsAssignment_4_in_rule__View__Group__4__Impl2604);
+            	    pushFollow(FOLLOW_rule__View__ComponentsAssignment_4_in_rule__View__Group__4__Impl2562);
             	    rule__View__ComponentsAssignment_4();
 
             	    state._fsp--;
@@ -3561,21 +3498,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1265:1: rule__View__Group__5 : rule__View__Group__5__Impl rule__View__Group__6 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1251:1: rule__View__Group__5 : rule__View__Group__5__Impl rule__View__Group__6 ;
     public final void rule__View__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1269:1: ( rule__View__Group__5__Impl rule__View__Group__6 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1270:2: rule__View__Group__5__Impl rule__View__Group__6
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1255:1: ( rule__View__Group__5__Impl rule__View__Group__6 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1256:2: rule__View__Group__5__Impl rule__View__Group__6
             {
-            pushFollow(FOLLOW_rule__View__Group__5__Impl_in_rule__View__Group__52635);
+            pushFollow(FOLLOW_rule__View__Group__5__Impl_in_rule__View__Group__52593);
             rule__View__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group__6_in_rule__View__Group__52638);
+            pushFollow(FOLLOW_rule__View__Group__6_in_rule__View__Group__52596);
             rule__View__Group__6();
 
             state._fsp--;
@@ -3599,35 +3536,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__5__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1277:1: rule__View__Group__5__Impl : ( ( rule__View__RestrictionsAssignment_5 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1263:1: rule__View__Group__5__Impl : ( ( rule__View__RestrictionsAssignment_5 )* ) ;
     public final void rule__View__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1281:1: ( ( ( rule__View__RestrictionsAssignment_5 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1282:1: ( ( rule__View__RestrictionsAssignment_5 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1267:1: ( ( ( rule__View__RestrictionsAssignment_5 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1268:1: ( ( rule__View__RestrictionsAssignment_5 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1282:1: ( ( rule__View__RestrictionsAssignment_5 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1283:1: ( rule__View__RestrictionsAssignment_5 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1268:1: ( ( rule__View__RestrictionsAssignment_5 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1269:1: ( rule__View__RestrictionsAssignment_5 )*
             {
              before(grammarAccess.getViewAccess().getRestrictionsAssignment_5()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1284:1: ( rule__View__RestrictionsAssignment_5 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1270:1: ( rule__View__RestrictionsAssignment_5 )*
             loop14:
             do {
                 int alt14=2;
                 int LA14_0 = input.LA(1);
 
-                if ( (LA14_0==RULE_ID_ASML||(LA14_0>=19 && LA14_0<=36)) ) {
+                if ( ((LA14_0>=19 && LA14_0<=34)) ) {
                     alt14=1;
                 }
 
 
                 switch (alt14) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1284:2: rule__View__RestrictionsAssignment_5
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1270:2: rule__View__RestrictionsAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__View__RestrictionsAssignment_5_in_rule__View__Group__5__Impl2665);
+            	    pushFollow(FOLLOW_rule__View__RestrictionsAssignment_5_in_rule__View__Group__5__Impl2623);
             	    rule__View__RestrictionsAssignment_5();
 
             	    state._fsp--;
@@ -3664,16 +3601,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__6"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1294:1: rule__View__Group__6 : rule__View__Group__6__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1280:1: rule__View__Group__6 : rule__View__Group__6__Impl ;
     public final void rule__View__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1298:1: ( rule__View__Group__6__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1299:2: rule__View__Group__6__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1284:1: ( rule__View__Group__6__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1285:2: rule__View__Group__6__Impl
             {
-            pushFollow(FOLLOW_rule__View__Group__6__Impl_in_rule__View__Group__62696);
+            pushFollow(FOLLOW_rule__View__Group__6__Impl_in_rule__View__Group__62654);
             rule__View__Group__6__Impl();
 
             state._fsp--;
@@ -3697,20 +3634,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group__6__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1305:1: rule__View__Group__6__Impl : ( '}' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1291:1: rule__View__Group__6__Impl : ( '}' ) ;
     public final void rule__View__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1309:1: ( ( '}' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1310:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1295:1: ( ( '}' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1296:1: ( '}' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1310:1: ( '}' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1311:1: '}'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1296:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1297:1: '}'
             {
              before(grammarAccess.getViewAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,39,FOLLOW_39_in_rule__View__Group__6__Impl2724); 
+            match(input,37,FOLLOW_37_in_rule__View__Group__6__Impl2682); 
              after(grammarAccess.getViewAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -3734,21 +3671,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1338:1: rule__View__Group_3__0 : rule__View__Group_3__0__Impl rule__View__Group_3__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1324:1: rule__View__Group_3__0 : rule__View__Group_3__0__Impl rule__View__Group_3__1 ;
     public final void rule__View__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1342:1: ( rule__View__Group_3__0__Impl rule__View__Group_3__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1343:2: rule__View__Group_3__0__Impl rule__View__Group_3__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1328:1: ( rule__View__Group_3__0__Impl rule__View__Group_3__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1329:2: rule__View__Group_3__0__Impl rule__View__Group_3__1
             {
-            pushFollow(FOLLOW_rule__View__Group_3__0__Impl_in_rule__View__Group_3__02769);
+            pushFollow(FOLLOW_rule__View__Group_3__0__Impl_in_rule__View__Group_3__02727);
             rule__View__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group_3__1_in_rule__View__Group_3__02772);
+            pushFollow(FOLLOW_rule__View__Group_3__1_in_rule__View__Group_3__02730);
             rule__View__Group_3__1();
 
             state._fsp--;
@@ -3772,35 +3709,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1350:1: rule__View__Group_3__0__Impl : ( ( rule__View__Group_3_0__0 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1336:1: rule__View__Group_3__0__Impl : ( ( rule__View__Group_3_0__0 )* ) ;
     public final void rule__View__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1354:1: ( ( ( rule__View__Group_3_0__0 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1355:1: ( ( rule__View__Group_3_0__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1340:1: ( ( ( rule__View__Group_3_0__0 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1341:1: ( ( rule__View__Group_3_0__0 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1355:1: ( ( rule__View__Group_3_0__0 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1356:1: ( rule__View__Group_3_0__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1341:1: ( ( rule__View__Group_3_0__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1342:1: ( rule__View__Group_3_0__0 )*
             {
              before(grammarAccess.getViewAccess().getGroup_3_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1357:1: ( rule__View__Group_3_0__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1343:1: ( rule__View__Group_3_0__0 )*
             loop15:
             do {
                 int alt15=2;
                 int LA15_0 = input.LA(1);
 
-                if ( (LA15_0==45) ) {
+                if ( (LA15_0==43) ) {
                     alt15=1;
                 }
 
 
                 switch (alt15) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1357:2: rule__View__Group_3_0__0
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1343:2: rule__View__Group_3_0__0
             	    {
-            	    pushFollow(FOLLOW_rule__View__Group_3_0__0_in_rule__View__Group_3__0__Impl2799);
+            	    pushFollow(FOLLOW_rule__View__Group_3_0__0_in_rule__View__Group_3__0__Impl2757);
             	    rule__View__Group_3_0__0();
 
             	    state._fsp--;
@@ -3837,16 +3774,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1367:1: rule__View__Group_3__1 : rule__View__Group_3__1__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1353:1: rule__View__Group_3__1 : rule__View__Group_3__1__Impl ;
     public final void rule__View__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1371:1: ( rule__View__Group_3__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1372:2: rule__View__Group_3__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1357:1: ( rule__View__Group_3__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1358:2: rule__View__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__View__Group_3__1__Impl_in_rule__View__Group_3__12830);
+            pushFollow(FOLLOW_rule__View__Group_3__1__Impl_in_rule__View__Group_3__12788);
             rule__View__Group_3__1__Impl();
 
             state._fsp--;
@@ -3870,20 +3807,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1378:1: rule__View__Group_3__1__Impl : ( ';' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1364:1: rule__View__Group_3__1__Impl : ( ';' ) ;
     public final void rule__View__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1382:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1383:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1368:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1369:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1383:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1384:1: ';'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1369:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1370:1: ';'
             {
              before(grammarAccess.getViewAccess().getSemicolonKeyword_3_1()); 
-            match(input,41,FOLLOW_41_in_rule__View__Group_3__1__Impl2858); 
+            match(input,39,FOLLOW_39_in_rule__View__Group_3__1__Impl2816); 
              after(grammarAccess.getViewAccess().getSemicolonKeyword_3_1()); 
 
             }
@@ -3907,21 +3844,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3_0__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1401:1: rule__View__Group_3_0__0 : rule__View__Group_3_0__0__Impl rule__View__Group_3_0__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1387:1: rule__View__Group_3_0__0 : rule__View__Group_3_0__0__Impl rule__View__Group_3_0__1 ;
     public final void rule__View__Group_3_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1405:1: ( rule__View__Group_3_0__0__Impl rule__View__Group_3_0__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1406:2: rule__View__Group_3_0__0__Impl rule__View__Group_3_0__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1391:1: ( rule__View__Group_3_0__0__Impl rule__View__Group_3_0__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1392:2: rule__View__Group_3_0__0__Impl rule__View__Group_3_0__1
             {
-            pushFollow(FOLLOW_rule__View__Group_3_0__0__Impl_in_rule__View__Group_3_0__02893);
+            pushFollow(FOLLOW_rule__View__Group_3_0__0__Impl_in_rule__View__Group_3_0__02851);
             rule__View__Group_3_0__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group_3_0__1_in_rule__View__Group_3_0__02896);
+            pushFollow(FOLLOW_rule__View__Group_3_0__1_in_rule__View__Group_3_0__02854);
             rule__View__Group_3_0__1();
 
             state._fsp--;
@@ -3945,20 +3882,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3_0__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1413:1: rule__View__Group_3_0__0__Impl : ( 'attributes' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1399:1: rule__View__Group_3_0__0__Impl : ( 'attributes' ) ;
     public final void rule__View__Group_3_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1417:1: ( ( 'attributes' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1418:1: ( 'attributes' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1403:1: ( ( 'attributes' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1404:1: ( 'attributes' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1418:1: ( 'attributes' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1419:1: 'attributes'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1404:1: ( 'attributes' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1405:1: 'attributes'
             {
              before(grammarAccess.getViewAccess().getAttributesKeyword_3_0_0()); 
-            match(input,45,FOLLOW_45_in_rule__View__Group_3_0__0__Impl2924); 
+            match(input,43,FOLLOW_43_in_rule__View__Group_3_0__0__Impl2882); 
              after(grammarAccess.getViewAccess().getAttributesKeyword_3_0_0()); 
 
             }
@@ -3982,21 +3919,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3_0__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1432:1: rule__View__Group_3_0__1 : rule__View__Group_3_0__1__Impl rule__View__Group_3_0__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1418:1: rule__View__Group_3_0__1 : rule__View__Group_3_0__1__Impl rule__View__Group_3_0__2 ;
     public final void rule__View__Group_3_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1436:1: ( rule__View__Group_3_0__1__Impl rule__View__Group_3_0__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1437:2: rule__View__Group_3_0__1__Impl rule__View__Group_3_0__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1422:1: ( rule__View__Group_3_0__1__Impl rule__View__Group_3_0__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1423:2: rule__View__Group_3_0__1__Impl rule__View__Group_3_0__2
             {
-            pushFollow(FOLLOW_rule__View__Group_3_0__1__Impl_in_rule__View__Group_3_0__12955);
+            pushFollow(FOLLOW_rule__View__Group_3_0__1__Impl_in_rule__View__Group_3_0__12913);
             rule__View__Group_3_0__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__View__Group_3_0__2_in_rule__View__Group_3_0__12958);
+            pushFollow(FOLLOW_rule__View__Group_3_0__2_in_rule__View__Group_3_0__12916);
             rule__View__Group_3_0__2();
 
             state._fsp--;
@@ -4020,23 +3957,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3_0__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1444:1: rule__View__Group_3_0__1__Impl : ( ( rule__View__AttributesAssignment_3_0_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1430:1: rule__View__Group_3_0__1__Impl : ( ( rule__View__AttributesAssignment_3_0_1 ) ) ;
     public final void rule__View__Group_3_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1448:1: ( ( ( rule__View__AttributesAssignment_3_0_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1449:1: ( ( rule__View__AttributesAssignment_3_0_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1434:1: ( ( ( rule__View__AttributesAssignment_3_0_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1435:1: ( ( rule__View__AttributesAssignment_3_0_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1449:1: ( ( rule__View__AttributesAssignment_3_0_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1450:1: ( rule__View__AttributesAssignment_3_0_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1435:1: ( ( rule__View__AttributesAssignment_3_0_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1436:1: ( rule__View__AttributesAssignment_3_0_1 )
             {
              before(grammarAccess.getViewAccess().getAttributesAssignment_3_0_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1451:1: ( rule__View__AttributesAssignment_3_0_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1451:2: rule__View__AttributesAssignment_3_0_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1437:1: ( rule__View__AttributesAssignment_3_0_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1437:2: rule__View__AttributesAssignment_3_0_1
             {
-            pushFollow(FOLLOW_rule__View__AttributesAssignment_3_0_1_in_rule__View__Group_3_0__1__Impl2985);
+            pushFollow(FOLLOW_rule__View__AttributesAssignment_3_0_1_in_rule__View__Group_3_0__1__Impl2943);
             rule__View__AttributesAssignment_3_0_1();
 
             state._fsp--;
@@ -4067,16 +4004,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3_0__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1461:1: rule__View__Group_3_0__2 : rule__View__Group_3_0__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1447:1: rule__View__Group_3_0__2 : rule__View__Group_3_0__2__Impl ;
     public final void rule__View__Group_3_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1465:1: ( rule__View__Group_3_0__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1466:2: rule__View__Group_3_0__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1451:1: ( rule__View__Group_3_0__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1452:2: rule__View__Group_3_0__2__Impl
             {
-            pushFollow(FOLLOW_rule__View__Group_3_0__2__Impl_in_rule__View__Group_3_0__23015);
+            pushFollow(FOLLOW_rule__View__Group_3_0__2__Impl_in_rule__View__Group_3_0__22973);
             rule__View__Group_3_0__2__Impl();
 
             state._fsp--;
@@ -4100,31 +4037,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__Group_3_0__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1472:1: rule__View__Group_3_0__2__Impl : ( ( ',' )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1458:1: rule__View__Group_3_0__2__Impl : ( ( ',' )? ) ;
     public final void rule__View__Group_3_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1476:1: ( ( ( ',' )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1477:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1462:1: ( ( ( ',' )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1463:1: ( ( ',' )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1477:1: ( ( ',' )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1478:1: ( ',' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1463:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1464:1: ( ',' )?
             {
              before(grammarAccess.getViewAccess().getCommaKeyword_3_0_2()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1479:1: ( ',' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1465:1: ( ',' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==43) ) {
+            if ( (LA16_0==41) ) {
                 alt16=1;
             }
             switch (alt16) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1480:2: ','
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1466:2: ','
                     {
-                    match(input,43,FOLLOW_43_in_rule__View__Group_3_0__2__Impl3044); 
+                    match(input,41,FOLLOW_41_in_rule__View__Group_3_0__2__Impl3002); 
 
                     }
                     break;
@@ -4154,21 +4091,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1497:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1483:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
     public final void rule__Attribute__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1501:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1502:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1487:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1488:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
             {
-            pushFollow(FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__03083);
+            pushFollow(FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__03041);
             rule__Attribute__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__03086);
+            pushFollow(FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__03044);
             rule__Attribute__Group__1();
 
             state._fsp--;
@@ -4192,23 +4129,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1509:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__NameAssignment_0 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1495:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__NameAssignment_0 ) ) ;
     public final void rule__Attribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1513:1: ( ( ( rule__Attribute__NameAssignment_0 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1514:1: ( ( rule__Attribute__NameAssignment_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1499:1: ( ( ( rule__Attribute__NameAssignment_0 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1500:1: ( ( rule__Attribute__NameAssignment_0 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1514:1: ( ( rule__Attribute__NameAssignment_0 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1515:1: ( rule__Attribute__NameAssignment_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1500:1: ( ( rule__Attribute__NameAssignment_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1501:1: ( rule__Attribute__NameAssignment_0 )
             {
              before(grammarAccess.getAttributeAccess().getNameAssignment_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1516:1: ( rule__Attribute__NameAssignment_0 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1516:2: rule__Attribute__NameAssignment_0
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1502:1: ( rule__Attribute__NameAssignment_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1502:2: rule__Attribute__NameAssignment_0
             {
-            pushFollow(FOLLOW_rule__Attribute__NameAssignment_0_in_rule__Attribute__Group__0__Impl3113);
+            pushFollow(FOLLOW_rule__Attribute__NameAssignment_0_in_rule__Attribute__Group__0__Impl3071);
             rule__Attribute__NameAssignment_0();
 
             state._fsp--;
@@ -4239,21 +4176,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1526:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1512:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
     public final void rule__Attribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1530:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1531:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1516:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1517:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
             {
-            pushFollow(FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__13143);
+            pushFollow(FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__13101);
             rule__Attribute__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__13146);
+            pushFollow(FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__13104);
             rule__Attribute__Group__2();
 
             state._fsp--;
@@ -4277,20 +4214,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1538:1: rule__Attribute__Group__1__Impl : ( ':' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1524:1: rule__Attribute__Group__1__Impl : ( ':' ) ;
     public final void rule__Attribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1542:1: ( ( ':' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1543:1: ( ':' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1528:1: ( ( ':' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1529:1: ( ':' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1543:1: ( ':' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1544:1: ':'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1529:1: ( ':' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1530:1: ':'
             {
              before(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
-            match(input,46,FOLLOW_46_in_rule__Attribute__Group__1__Impl3174); 
+            match(input,44,FOLLOW_44_in_rule__Attribute__Group__1__Impl3132); 
              after(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
 
             }
@@ -4314,16 +4251,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__Group__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1557:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1543:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
     public final void rule__Attribute__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1561:1: ( rule__Attribute__Group__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1562:2: rule__Attribute__Group__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1547:1: ( rule__Attribute__Group__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1548:2: rule__Attribute__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__23205);
+            pushFollow(FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__23163);
             rule__Attribute__Group__2__Impl();
 
             state._fsp--;
@@ -4347,23 +4284,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__Group__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1568:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__ValueAssignment_2 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1554:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__ValueAssignment_2 ) ) ;
     public final void rule__Attribute__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1572:1: ( ( ( rule__Attribute__ValueAssignment_2 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1573:1: ( ( rule__Attribute__ValueAssignment_2 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1558:1: ( ( ( rule__Attribute__ValueAssignment_2 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1559:1: ( ( rule__Attribute__ValueAssignment_2 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1573:1: ( ( rule__Attribute__ValueAssignment_2 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1574:1: ( rule__Attribute__ValueAssignment_2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1559:1: ( ( rule__Attribute__ValueAssignment_2 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1560:1: ( rule__Attribute__ValueAssignment_2 )
             {
              before(grammarAccess.getAttributeAccess().getValueAssignment_2()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1575:1: ( rule__Attribute__ValueAssignment_2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1575:2: rule__Attribute__ValueAssignment_2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1561:1: ( rule__Attribute__ValueAssignment_2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1561:2: rule__Attribute__ValueAssignment_2
             {
-            pushFollow(FOLLOW_rule__Attribute__ValueAssignment_2_in_rule__Attribute__Group__2__Impl3232);
+            pushFollow(FOLLOW_rule__Attribute__ValueAssignment_2_in_rule__Attribute__Group__2__Impl3190);
             rule__Attribute__ValueAssignment_2();
 
             state._fsp--;
@@ -4394,21 +4331,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ClassMatching__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1591:1: rule__ClassMatching__Group__0 : rule__ClassMatching__Group__0__Impl rule__ClassMatching__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1577:1: rule__ClassMatching__Group__0 : rule__ClassMatching__Group__0__Impl rule__ClassMatching__Group__1 ;
     public final void rule__ClassMatching__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1595:1: ( rule__ClassMatching__Group__0__Impl rule__ClassMatching__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1596:2: rule__ClassMatching__Group__0__Impl rule__ClassMatching__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1581:1: ( rule__ClassMatching__Group__0__Impl rule__ClassMatching__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1582:2: rule__ClassMatching__Group__0__Impl rule__ClassMatching__Group__1
             {
-            pushFollow(FOLLOW_rule__ClassMatching__Group__0__Impl_in_rule__ClassMatching__Group__03268);
+            pushFollow(FOLLOW_rule__ClassMatching__Group__0__Impl_in_rule__ClassMatching__Group__03226);
             rule__ClassMatching__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ClassMatching__Group__1_in_rule__ClassMatching__Group__03271);
+            pushFollow(FOLLOW_rule__ClassMatching__Group__1_in_rule__ClassMatching__Group__03229);
             rule__ClassMatching__Group__1();
 
             state._fsp--;
@@ -4432,23 +4369,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ClassMatching__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1603:1: rule__ClassMatching__Group__0__Impl : ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1589:1: rule__ClassMatching__Group__0__Impl : ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) ) ;
     public final void rule__ClassMatching__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1607:1: ( ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1608:1: ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1593:1: ( ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1594:1: ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1608:1: ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1609:1: ( rule__ClassMatching__ExpressionMatchingAssignment_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1594:1: ( ( rule__ClassMatching__ExpressionMatchingAssignment_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1595:1: ( rule__ClassMatching__ExpressionMatchingAssignment_0 )
             {
              before(grammarAccess.getClassMatchingAccess().getExpressionMatchingAssignment_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1610:1: ( rule__ClassMatching__ExpressionMatchingAssignment_0 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1610:2: rule__ClassMatching__ExpressionMatchingAssignment_0
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1596:1: ( rule__ClassMatching__ExpressionMatchingAssignment_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1596:2: rule__ClassMatching__ExpressionMatchingAssignment_0
             {
-            pushFollow(FOLLOW_rule__ClassMatching__ExpressionMatchingAssignment_0_in_rule__ClassMatching__Group__0__Impl3298);
+            pushFollow(FOLLOW_rule__ClassMatching__ExpressionMatchingAssignment_0_in_rule__ClassMatching__Group__0__Impl3256);
             rule__ClassMatching__ExpressionMatchingAssignment_0();
 
             state._fsp--;
@@ -4479,16 +4416,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ClassMatching__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1620:1: rule__ClassMatching__Group__1 : rule__ClassMatching__Group__1__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1606:1: rule__ClassMatching__Group__1 : rule__ClassMatching__Group__1__Impl ;
     public final void rule__ClassMatching__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1624:1: ( rule__ClassMatching__Group__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1625:2: rule__ClassMatching__Group__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1610:1: ( rule__ClassMatching__Group__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1611:2: rule__ClassMatching__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__ClassMatching__Group__1__Impl_in_rule__ClassMatching__Group__13328);
+            pushFollow(FOLLOW_rule__ClassMatching__Group__1__Impl_in_rule__ClassMatching__Group__13286);
             rule__ClassMatching__Group__1__Impl();
 
             state._fsp--;
@@ -4512,23 +4449,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ClassMatching__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1631:1: rule__ClassMatching__Group__1__Impl : ( ( rule__ClassMatching__ParameterAssignment_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1617:1: rule__ClassMatching__Group__1__Impl : ( ( rule__ClassMatching__ParameterAssignment_1 ) ) ;
     public final void rule__ClassMatching__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1635:1: ( ( ( rule__ClassMatching__ParameterAssignment_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1636:1: ( ( rule__ClassMatching__ParameterAssignment_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1621:1: ( ( ( rule__ClassMatching__ParameterAssignment_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1622:1: ( ( rule__ClassMatching__ParameterAssignment_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1636:1: ( ( rule__ClassMatching__ParameterAssignment_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1637:1: ( rule__ClassMatching__ParameterAssignment_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1622:1: ( ( rule__ClassMatching__ParameterAssignment_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1623:1: ( rule__ClassMatching__ParameterAssignment_1 )
             {
              before(grammarAccess.getClassMatchingAccess().getParameterAssignment_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1638:1: ( rule__ClassMatching__ParameterAssignment_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1638:2: rule__ClassMatching__ParameterAssignment_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1624:1: ( rule__ClassMatching__ParameterAssignment_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1624:2: rule__ClassMatching__ParameterAssignment_1
             {
-            pushFollow(FOLLOW_rule__ClassMatching__ParameterAssignment_1_in_rule__ClassMatching__Group__1__Impl3355);
+            pushFollow(FOLLOW_rule__ClassMatching__ParameterAssignment_1_in_rule__ClassMatching__Group__1__Impl3313);
             rule__ClassMatching__ParameterAssignment_1();
 
             state._fsp--;
@@ -4559,21 +4496,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1652:1: rule__MetaModule__Group__0 : rule__MetaModule__Group__0__Impl rule__MetaModule__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1638:1: rule__MetaModule__Group__0 : rule__MetaModule__Group__0__Impl rule__MetaModule__Group__1 ;
     public final void rule__MetaModule__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1656:1: ( rule__MetaModule__Group__0__Impl rule__MetaModule__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1657:2: rule__MetaModule__Group__0__Impl rule__MetaModule__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1642:1: ( rule__MetaModule__Group__0__Impl rule__MetaModule__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1643:2: rule__MetaModule__Group__0__Impl rule__MetaModule__Group__1
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__0__Impl_in_rule__MetaModule__Group__03389);
+            pushFollow(FOLLOW_rule__MetaModule__Group__0__Impl_in_rule__MetaModule__Group__03347);
             rule__MetaModule__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__1_in_rule__MetaModule__Group__03392);
+            pushFollow(FOLLOW_rule__MetaModule__Group__1_in_rule__MetaModule__Group__03350);
             rule__MetaModule__Group__1();
 
             state._fsp--;
@@ -4597,23 +4534,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1664:1: rule__MetaModule__Group__0__Impl : ( ( rule__MetaModule__NameAssignment_0 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1650:1: rule__MetaModule__Group__0__Impl : ( ( rule__MetaModule__NameAssignment_0 ) ) ;
     public final void rule__MetaModule__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1668:1: ( ( ( rule__MetaModule__NameAssignment_0 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1669:1: ( ( rule__MetaModule__NameAssignment_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1654:1: ( ( ( rule__MetaModule__NameAssignment_0 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1655:1: ( ( rule__MetaModule__NameAssignment_0 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1669:1: ( ( rule__MetaModule__NameAssignment_0 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1670:1: ( rule__MetaModule__NameAssignment_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1655:1: ( ( rule__MetaModule__NameAssignment_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1656:1: ( rule__MetaModule__NameAssignment_0 )
             {
              before(grammarAccess.getMetaModuleAccess().getNameAssignment_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1671:1: ( rule__MetaModule__NameAssignment_0 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1671:2: rule__MetaModule__NameAssignment_0
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1657:1: ( rule__MetaModule__NameAssignment_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1657:2: rule__MetaModule__NameAssignment_0
             {
-            pushFollow(FOLLOW_rule__MetaModule__NameAssignment_0_in_rule__MetaModule__Group__0__Impl3419);
+            pushFollow(FOLLOW_rule__MetaModule__NameAssignment_0_in_rule__MetaModule__Group__0__Impl3377);
             rule__MetaModule__NameAssignment_0();
 
             state._fsp--;
@@ -4644,21 +4581,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1681:1: rule__MetaModule__Group__1 : rule__MetaModule__Group__1__Impl rule__MetaModule__Group__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1667:1: rule__MetaModule__Group__1 : rule__MetaModule__Group__1__Impl rule__MetaModule__Group__2 ;
     public final void rule__MetaModule__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1685:1: ( rule__MetaModule__Group__1__Impl rule__MetaModule__Group__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1686:2: rule__MetaModule__Group__1__Impl rule__MetaModule__Group__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1671:1: ( rule__MetaModule__Group__1__Impl rule__MetaModule__Group__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1672:2: rule__MetaModule__Group__1__Impl rule__MetaModule__Group__2
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__1__Impl_in_rule__MetaModule__Group__13449);
+            pushFollow(FOLLOW_rule__MetaModule__Group__1__Impl_in_rule__MetaModule__Group__13407);
             rule__MetaModule__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__2_in_rule__MetaModule__Group__13452);
+            pushFollow(FOLLOW_rule__MetaModule__Group__2_in_rule__MetaModule__Group__13410);
             rule__MetaModule__Group__2();
 
             state._fsp--;
@@ -4682,20 +4619,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1693:1: rule__MetaModule__Group__1__Impl : ( '{' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1679:1: rule__MetaModule__Group__1__Impl : ( '{' ) ;
     public final void rule__MetaModule__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1697:1: ( ( '{' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1698:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1683:1: ( ( '{' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1684:1: ( '{' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1698:1: ( '{' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1699:1: '{'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1684:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1685:1: '{'
             {
              before(grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,38,FOLLOW_38_in_rule__MetaModule__Group__1__Impl3480); 
+            match(input,36,FOLLOW_36_in_rule__MetaModule__Group__1__Impl3438); 
              after(grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -4719,21 +4656,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1712:1: rule__MetaModule__Group__2 : rule__MetaModule__Group__2__Impl rule__MetaModule__Group__3 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1698:1: rule__MetaModule__Group__2 : rule__MetaModule__Group__2__Impl rule__MetaModule__Group__3 ;
     public final void rule__MetaModule__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1716:1: ( rule__MetaModule__Group__2__Impl rule__MetaModule__Group__3 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1717:2: rule__MetaModule__Group__2__Impl rule__MetaModule__Group__3
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1702:1: ( rule__MetaModule__Group__2__Impl rule__MetaModule__Group__3 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1703:2: rule__MetaModule__Group__2__Impl rule__MetaModule__Group__3
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__2__Impl_in_rule__MetaModule__Group__23511);
+            pushFollow(FOLLOW_rule__MetaModule__Group__2__Impl_in_rule__MetaModule__Group__23469);
             rule__MetaModule__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__3_in_rule__MetaModule__Group__23514);
+            pushFollow(FOLLOW_rule__MetaModule__Group__3_in_rule__MetaModule__Group__23472);
             rule__MetaModule__Group__3();
 
             state._fsp--;
@@ -4757,31 +4694,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1724:1: rule__MetaModule__Group__2__Impl : ( ( rule__MetaModule__Group_2__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1710:1: rule__MetaModule__Group__2__Impl : ( ( rule__MetaModule__Group_2__0 )? ) ;
     public final void rule__MetaModule__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1728:1: ( ( ( rule__MetaModule__Group_2__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1729:1: ( ( rule__MetaModule__Group_2__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1714:1: ( ( ( rule__MetaModule__Group_2__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1715:1: ( ( rule__MetaModule__Group_2__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1729:1: ( ( rule__MetaModule__Group_2__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1730:1: ( rule__MetaModule__Group_2__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1715:1: ( ( rule__MetaModule__Group_2__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1716:1: ( rule__MetaModule__Group_2__0 )?
             {
              before(grammarAccess.getMetaModuleAccess().getGroup_2()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1731:1: ( rule__MetaModule__Group_2__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1717:1: ( rule__MetaModule__Group_2__0 )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==41||LA17_0==47) ) {
+            if ( (LA17_0==39||LA17_0==45) ) {
                 alt17=1;
             }
             switch (alt17) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1731:2: rule__MetaModule__Group_2__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1717:2: rule__MetaModule__Group_2__0
                     {
-                    pushFollow(FOLLOW_rule__MetaModule__Group_2__0_in_rule__MetaModule__Group__2__Impl3541);
+                    pushFollow(FOLLOW_rule__MetaModule__Group_2__0_in_rule__MetaModule__Group__2__Impl3499);
                     rule__MetaModule__Group_2__0();
 
                     state._fsp--;
@@ -4815,21 +4752,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__3"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1741:1: rule__MetaModule__Group__3 : rule__MetaModule__Group__3__Impl rule__MetaModule__Group__4 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1727:1: rule__MetaModule__Group__3 : rule__MetaModule__Group__3__Impl rule__MetaModule__Group__4 ;
     public final void rule__MetaModule__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1745:1: ( rule__MetaModule__Group__3__Impl rule__MetaModule__Group__4 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1746:2: rule__MetaModule__Group__3__Impl rule__MetaModule__Group__4
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1731:1: ( rule__MetaModule__Group__3__Impl rule__MetaModule__Group__4 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1732:2: rule__MetaModule__Group__3__Impl rule__MetaModule__Group__4
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__3__Impl_in_rule__MetaModule__Group__33572);
+            pushFollow(FOLLOW_rule__MetaModule__Group__3__Impl_in_rule__MetaModule__Group__33530);
             rule__MetaModule__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__4_in_rule__MetaModule__Group__33575);
+            pushFollow(FOLLOW_rule__MetaModule__Group__4_in_rule__MetaModule__Group__33533);
             rule__MetaModule__Group__4();
 
             state._fsp--;
@@ -4853,31 +4790,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__3__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1753:1: rule__MetaModule__Group__3__Impl : ( ( rule__MetaModule__Group_3__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1739:1: rule__MetaModule__Group__3__Impl : ( ( rule__MetaModule__Group_3__0 )? ) ;
     public final void rule__MetaModule__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1757:1: ( ( ( rule__MetaModule__Group_3__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1758:1: ( ( rule__MetaModule__Group_3__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1743:1: ( ( ( rule__MetaModule__Group_3__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1744:1: ( ( rule__MetaModule__Group_3__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1758:1: ( ( rule__MetaModule__Group_3__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1759:1: ( rule__MetaModule__Group_3__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1744:1: ( ( rule__MetaModule__Group_3__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1745:1: ( rule__MetaModule__Group_3__0 )?
             {
              before(grammarAccess.getMetaModuleAccess().getGroup_3()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1760:1: ( rule__MetaModule__Group_3__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1746:1: ( rule__MetaModule__Group_3__0 )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( (LA18_0==48) ) {
+            if ( (LA18_0==46) ) {
                 alt18=1;
             }
             switch (alt18) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1760:2: rule__MetaModule__Group_3__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1746:2: rule__MetaModule__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__MetaModule__Group_3__0_in_rule__MetaModule__Group__3__Impl3602);
+                    pushFollow(FOLLOW_rule__MetaModule__Group_3__0_in_rule__MetaModule__Group__3__Impl3560);
                     rule__MetaModule__Group_3__0();
 
                     state._fsp--;
@@ -4911,21 +4848,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1770:1: rule__MetaModule__Group__4 : rule__MetaModule__Group__4__Impl rule__MetaModule__Group__5 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1756:1: rule__MetaModule__Group__4 : rule__MetaModule__Group__4__Impl rule__MetaModule__Group__5 ;
     public final void rule__MetaModule__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1774:1: ( rule__MetaModule__Group__4__Impl rule__MetaModule__Group__5 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1775:2: rule__MetaModule__Group__4__Impl rule__MetaModule__Group__5
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1760:1: ( rule__MetaModule__Group__4__Impl rule__MetaModule__Group__5 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1761:2: rule__MetaModule__Group__4__Impl rule__MetaModule__Group__5
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__4__Impl_in_rule__MetaModule__Group__43633);
+            pushFollow(FOLLOW_rule__MetaModule__Group__4__Impl_in_rule__MetaModule__Group__43591);
             rule__MetaModule__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__5_in_rule__MetaModule__Group__43636);
+            pushFollow(FOLLOW_rule__MetaModule__Group__5_in_rule__MetaModule__Group__43594);
             rule__MetaModule__Group__5();
 
             state._fsp--;
@@ -4949,31 +4886,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__4__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1782:1: rule__MetaModule__Group__4__Impl : ( ( rule__MetaModule__Group_4__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1768:1: rule__MetaModule__Group__4__Impl : ( ( rule__MetaModule__Group_4__0 )? ) ;
     public final void rule__MetaModule__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1786:1: ( ( ( rule__MetaModule__Group_4__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1787:1: ( ( rule__MetaModule__Group_4__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1772:1: ( ( ( rule__MetaModule__Group_4__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1773:1: ( ( rule__MetaModule__Group_4__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1787:1: ( ( rule__MetaModule__Group_4__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1788:1: ( rule__MetaModule__Group_4__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1773:1: ( ( rule__MetaModule__Group_4__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1774:1: ( rule__MetaModule__Group_4__0 )?
             {
              before(grammarAccess.getMetaModuleAccess().getGroup_4()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1789:1: ( rule__MetaModule__Group_4__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1775:1: ( rule__MetaModule__Group_4__0 )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==49) ) {
+            if ( (LA19_0==47) ) {
                 alt19=1;
             }
             switch (alt19) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1789:2: rule__MetaModule__Group_4__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1775:2: rule__MetaModule__Group_4__0
                     {
-                    pushFollow(FOLLOW_rule__MetaModule__Group_4__0_in_rule__MetaModule__Group__4__Impl3663);
+                    pushFollow(FOLLOW_rule__MetaModule__Group_4__0_in_rule__MetaModule__Group__4__Impl3621);
                     rule__MetaModule__Group_4__0();
 
                     state._fsp--;
@@ -5007,21 +4944,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1799:1: rule__MetaModule__Group__5 : rule__MetaModule__Group__5__Impl rule__MetaModule__Group__6 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1785:1: rule__MetaModule__Group__5 : rule__MetaModule__Group__5__Impl rule__MetaModule__Group__6 ;
     public final void rule__MetaModule__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1803:1: ( rule__MetaModule__Group__5__Impl rule__MetaModule__Group__6 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1804:2: rule__MetaModule__Group__5__Impl rule__MetaModule__Group__6
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1789:1: ( rule__MetaModule__Group__5__Impl rule__MetaModule__Group__6 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1790:2: rule__MetaModule__Group__5__Impl rule__MetaModule__Group__6
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__5__Impl_in_rule__MetaModule__Group__53694);
+            pushFollow(FOLLOW_rule__MetaModule__Group__5__Impl_in_rule__MetaModule__Group__53652);
             rule__MetaModule__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__6_in_rule__MetaModule__Group__53697);
+            pushFollow(FOLLOW_rule__MetaModule__Group__6_in_rule__MetaModule__Group__53655);
             rule__MetaModule__Group__6();
 
             state._fsp--;
@@ -5045,35 +4982,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__5__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1811:1: rule__MetaModule__Group__5__Impl : ( ( rule__MetaModule__ComponentsAssignment_5 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1797:1: rule__MetaModule__Group__5__Impl : ( ( rule__MetaModule__ComponentsAssignment_5 )* ) ;
     public final void rule__MetaModule__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1815:1: ( ( ( rule__MetaModule__ComponentsAssignment_5 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1816:1: ( ( rule__MetaModule__ComponentsAssignment_5 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1801:1: ( ( ( rule__MetaModule__ComponentsAssignment_5 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1802:1: ( ( rule__MetaModule__ComponentsAssignment_5 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1816:1: ( ( rule__MetaModule__ComponentsAssignment_5 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1817:1: ( rule__MetaModule__ComponentsAssignment_5 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1802:1: ( ( rule__MetaModule__ComponentsAssignment_5 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1803:1: ( rule__MetaModule__ComponentsAssignment_5 )*
             {
              before(grammarAccess.getMetaModuleAccess().getComponentsAssignment_5()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1818:1: ( rule__MetaModule__ComponentsAssignment_5 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1804:1: ( rule__MetaModule__ComponentsAssignment_5 )*
             loop20:
             do {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==RULE_ID_ASML||LA20_0==44) ) {
+                if ( (LA20_0==RULE_ID_ASML||LA20_0==42) ) {
                     alt20=1;
                 }
 
 
                 switch (alt20) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1818:2: rule__MetaModule__ComponentsAssignment_5
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1804:2: rule__MetaModule__ComponentsAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__MetaModule__ComponentsAssignment_5_in_rule__MetaModule__Group__5__Impl3724);
+            	    pushFollow(FOLLOW_rule__MetaModule__ComponentsAssignment_5_in_rule__MetaModule__Group__5__Impl3682);
             	    rule__MetaModule__ComponentsAssignment_5();
 
             	    state._fsp--;
@@ -5110,21 +5047,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__6"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1828:1: rule__MetaModule__Group__6 : rule__MetaModule__Group__6__Impl rule__MetaModule__Group__7 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1814:1: rule__MetaModule__Group__6 : rule__MetaModule__Group__6__Impl rule__MetaModule__Group__7 ;
     public final void rule__MetaModule__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1832:1: ( rule__MetaModule__Group__6__Impl rule__MetaModule__Group__7 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1833:2: rule__MetaModule__Group__6__Impl rule__MetaModule__Group__7
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1818:1: ( rule__MetaModule__Group__6__Impl rule__MetaModule__Group__7 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1819:2: rule__MetaModule__Group__6__Impl rule__MetaModule__Group__7
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__6__Impl_in_rule__MetaModule__Group__63755);
+            pushFollow(FOLLOW_rule__MetaModule__Group__6__Impl_in_rule__MetaModule__Group__63713);
             rule__MetaModule__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group__7_in_rule__MetaModule__Group__63758);
+            pushFollow(FOLLOW_rule__MetaModule__Group__7_in_rule__MetaModule__Group__63716);
             rule__MetaModule__Group__7();
 
             state._fsp--;
@@ -5148,31 +5085,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__6__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1840:1: rule__MetaModule__Group__6__Impl : ( ( rule__MetaModule__Group_6__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1826:1: rule__MetaModule__Group__6__Impl : ( ( rule__MetaModule__Group_6__0 )? ) ;
     public final void rule__MetaModule__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1844:1: ( ( ( rule__MetaModule__Group_6__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1845:1: ( ( rule__MetaModule__Group_6__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1830:1: ( ( ( rule__MetaModule__Group_6__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1831:1: ( ( rule__MetaModule__Group_6__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1845:1: ( ( rule__MetaModule__Group_6__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1846:1: ( rule__MetaModule__Group_6__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1831:1: ( ( rule__MetaModule__Group_6__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1832:1: ( rule__MetaModule__Group_6__0 )?
             {
              before(grammarAccess.getMetaModuleAccess().getGroup_6()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1847:1: ( rule__MetaModule__Group_6__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1833:1: ( rule__MetaModule__Group_6__0 )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( (LA21_0==50) ) {
+            if ( (LA21_0==48) ) {
                 alt21=1;
             }
             switch (alt21) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1847:2: rule__MetaModule__Group_6__0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1833:2: rule__MetaModule__Group_6__0
                     {
-                    pushFollow(FOLLOW_rule__MetaModule__Group_6__0_in_rule__MetaModule__Group__6__Impl3785);
+                    pushFollow(FOLLOW_rule__MetaModule__Group_6__0_in_rule__MetaModule__Group__6__Impl3743);
                     rule__MetaModule__Group_6__0();
 
                     state._fsp--;
@@ -5206,16 +5143,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__7"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1857:1: rule__MetaModule__Group__7 : rule__MetaModule__Group__7__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1843:1: rule__MetaModule__Group__7 : rule__MetaModule__Group__7__Impl ;
     public final void rule__MetaModule__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1861:1: ( rule__MetaModule__Group__7__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1862:2: rule__MetaModule__Group__7__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1847:1: ( rule__MetaModule__Group__7__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1848:2: rule__MetaModule__Group__7__Impl
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group__7__Impl_in_rule__MetaModule__Group__73816);
+            pushFollow(FOLLOW_rule__MetaModule__Group__7__Impl_in_rule__MetaModule__Group__73774);
             rule__MetaModule__Group__7__Impl();
 
             state._fsp--;
@@ -5239,20 +5176,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group__7__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1868:1: rule__MetaModule__Group__7__Impl : ( '}' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1854:1: rule__MetaModule__Group__7__Impl : ( '}' ) ;
     public final void rule__MetaModule__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1872:1: ( ( '}' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1873:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1858:1: ( ( '}' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1859:1: ( '}' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1873:1: ( '}' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1874:1: '}'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1859:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1860:1: '}'
             {
              before(grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,39,FOLLOW_39_in_rule__MetaModule__Group__7__Impl3844); 
+            match(input,37,FOLLOW_37_in_rule__MetaModule__Group__7__Impl3802); 
              after(grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -5276,21 +5213,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1903:1: rule__MetaModule__Group_2__0 : rule__MetaModule__Group_2__0__Impl rule__MetaModule__Group_2__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1889:1: rule__MetaModule__Group_2__0 : rule__MetaModule__Group_2__0__Impl rule__MetaModule__Group_2__1 ;
     public final void rule__MetaModule__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1907:1: ( rule__MetaModule__Group_2__0__Impl rule__MetaModule__Group_2__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1908:2: rule__MetaModule__Group_2__0__Impl rule__MetaModule__Group_2__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1893:1: ( rule__MetaModule__Group_2__0__Impl rule__MetaModule__Group_2__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1894:2: rule__MetaModule__Group_2__0__Impl rule__MetaModule__Group_2__1
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_2__0__Impl_in_rule__MetaModule__Group_2__03891);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2__0__Impl_in_rule__MetaModule__Group_2__03849);
             rule__MetaModule__Group_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_2__1_in_rule__MetaModule__Group_2__03894);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2__1_in_rule__MetaModule__Group_2__03852);
             rule__MetaModule__Group_2__1();
 
             state._fsp--;
@@ -5314,35 +5251,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1915:1: rule__MetaModule__Group_2__0__Impl : ( ( rule__MetaModule__Group_2_0__0 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1901:1: rule__MetaModule__Group_2__0__Impl : ( ( rule__MetaModule__Group_2_0__0 )* ) ;
     public final void rule__MetaModule__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1919:1: ( ( ( rule__MetaModule__Group_2_0__0 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1920:1: ( ( rule__MetaModule__Group_2_0__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1905:1: ( ( ( rule__MetaModule__Group_2_0__0 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1906:1: ( ( rule__MetaModule__Group_2_0__0 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1920:1: ( ( rule__MetaModule__Group_2_0__0 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1921:1: ( rule__MetaModule__Group_2_0__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1906:1: ( ( rule__MetaModule__Group_2_0__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1907:1: ( rule__MetaModule__Group_2_0__0 )*
             {
              before(grammarAccess.getMetaModuleAccess().getGroup_2_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1922:1: ( rule__MetaModule__Group_2_0__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1908:1: ( rule__MetaModule__Group_2_0__0 )*
             loop22:
             do {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==47) ) {
+                if ( (LA22_0==45) ) {
                     alt22=1;
                 }
 
 
                 switch (alt22) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1922:2: rule__MetaModule__Group_2_0__0
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1908:2: rule__MetaModule__Group_2_0__0
             	    {
-            	    pushFollow(FOLLOW_rule__MetaModule__Group_2_0__0_in_rule__MetaModule__Group_2__0__Impl3921);
+            	    pushFollow(FOLLOW_rule__MetaModule__Group_2_0__0_in_rule__MetaModule__Group_2__0__Impl3879);
             	    rule__MetaModule__Group_2_0__0();
 
             	    state._fsp--;
@@ -5379,16 +5316,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1932:1: rule__MetaModule__Group_2__1 : rule__MetaModule__Group_2__1__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1918:1: rule__MetaModule__Group_2__1 : rule__MetaModule__Group_2__1__Impl ;
     public final void rule__MetaModule__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1936:1: ( rule__MetaModule__Group_2__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1937:2: rule__MetaModule__Group_2__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1922:1: ( rule__MetaModule__Group_2__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1923:2: rule__MetaModule__Group_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_2__1__Impl_in_rule__MetaModule__Group_2__13952);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2__1__Impl_in_rule__MetaModule__Group_2__13910);
             rule__MetaModule__Group_2__1__Impl();
 
             state._fsp--;
@@ -5412,20 +5349,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1943:1: rule__MetaModule__Group_2__1__Impl : ( ';' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1929:1: rule__MetaModule__Group_2__1__Impl : ( ';' ) ;
     public final void rule__MetaModule__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1947:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1948:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1933:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1934:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1948:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1949:1: ';'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1934:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1935:1: ';'
             {
              before(grammarAccess.getMetaModuleAccess().getSemicolonKeyword_2_1()); 
-            match(input,41,FOLLOW_41_in_rule__MetaModule__Group_2__1__Impl3980); 
+            match(input,39,FOLLOW_39_in_rule__MetaModule__Group_2__1__Impl3938); 
              after(grammarAccess.getMetaModuleAccess().getSemicolonKeyword_2_1()); 
 
             }
@@ -5449,21 +5386,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2_0__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1966:1: rule__MetaModule__Group_2_0__0 : rule__MetaModule__Group_2_0__0__Impl rule__MetaModule__Group_2_0__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1952:1: rule__MetaModule__Group_2_0__0 : rule__MetaModule__Group_2_0__0__Impl rule__MetaModule__Group_2_0__1 ;
     public final void rule__MetaModule__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1970:1: ( rule__MetaModule__Group_2_0__0__Impl rule__MetaModule__Group_2_0__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1971:2: rule__MetaModule__Group_2_0__0__Impl rule__MetaModule__Group_2_0__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1956:1: ( rule__MetaModule__Group_2_0__0__Impl rule__MetaModule__Group_2_0__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1957:2: rule__MetaModule__Group_2_0__0__Impl rule__MetaModule__Group_2_0__1
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__0__Impl_in_rule__MetaModule__Group_2_0__04015);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__0__Impl_in_rule__MetaModule__Group_2_0__03973);
             rule__MetaModule__Group_2_0__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__1_in_rule__MetaModule__Group_2_0__04018);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__1_in_rule__MetaModule__Group_2_0__03976);
             rule__MetaModule__Group_2_0__1();
 
             state._fsp--;
@@ -5487,20 +5424,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2_0__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1978:1: rule__MetaModule__Group_2_0__0__Impl : ( 'attributes:' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1964:1: rule__MetaModule__Group_2_0__0__Impl : ( 'attributes:' ) ;
     public final void rule__MetaModule__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1982:1: ( ( 'attributes:' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1983:1: ( 'attributes:' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1968:1: ( ( 'attributes:' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1969:1: ( 'attributes:' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1983:1: ( 'attributes:' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1984:1: 'attributes:'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1969:1: ( 'attributes:' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1970:1: 'attributes:'
             {
              before(grammarAccess.getMetaModuleAccess().getAttributesKeyword_2_0_0()); 
-            match(input,47,FOLLOW_47_in_rule__MetaModule__Group_2_0__0__Impl4046); 
+            match(input,45,FOLLOW_45_in_rule__MetaModule__Group_2_0__0__Impl4004); 
              after(grammarAccess.getMetaModuleAccess().getAttributesKeyword_2_0_0()); 
 
             }
@@ -5524,21 +5461,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2_0__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1997:1: rule__MetaModule__Group_2_0__1 : rule__MetaModule__Group_2_0__1__Impl rule__MetaModule__Group_2_0__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1983:1: rule__MetaModule__Group_2_0__1 : rule__MetaModule__Group_2_0__1__Impl rule__MetaModule__Group_2_0__2 ;
     public final void rule__MetaModule__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2001:1: ( rule__MetaModule__Group_2_0__1__Impl rule__MetaModule__Group_2_0__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2002:2: rule__MetaModule__Group_2_0__1__Impl rule__MetaModule__Group_2_0__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1987:1: ( rule__MetaModule__Group_2_0__1__Impl rule__MetaModule__Group_2_0__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1988:2: rule__MetaModule__Group_2_0__1__Impl rule__MetaModule__Group_2_0__2
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__1__Impl_in_rule__MetaModule__Group_2_0__14077);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__1__Impl_in_rule__MetaModule__Group_2_0__14035);
             rule__MetaModule__Group_2_0__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__2_in_rule__MetaModule__Group_2_0__14080);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__2_in_rule__MetaModule__Group_2_0__14038);
             rule__MetaModule__Group_2_0__2();
 
             state._fsp--;
@@ -5562,23 +5499,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2_0__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2009:1: rule__MetaModule__Group_2_0__1__Impl : ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1995:1: rule__MetaModule__Group_2_0__1__Impl : ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) ) ;
     public final void rule__MetaModule__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2013:1: ( ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2014:1: ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:1999:1: ( ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2000:1: ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2014:1: ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2015:1: ( rule__MetaModule__AttributesAssignment_2_0_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2000:1: ( ( rule__MetaModule__AttributesAssignment_2_0_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2001:1: ( rule__MetaModule__AttributesAssignment_2_0_1 )
             {
              before(grammarAccess.getMetaModuleAccess().getAttributesAssignment_2_0_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2016:1: ( rule__MetaModule__AttributesAssignment_2_0_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2016:2: rule__MetaModule__AttributesAssignment_2_0_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2002:1: ( rule__MetaModule__AttributesAssignment_2_0_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2002:2: rule__MetaModule__AttributesAssignment_2_0_1
             {
-            pushFollow(FOLLOW_rule__MetaModule__AttributesAssignment_2_0_1_in_rule__MetaModule__Group_2_0__1__Impl4107);
+            pushFollow(FOLLOW_rule__MetaModule__AttributesAssignment_2_0_1_in_rule__MetaModule__Group_2_0__1__Impl4065);
             rule__MetaModule__AttributesAssignment_2_0_1();
 
             state._fsp--;
@@ -5609,16 +5546,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2_0__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2026:1: rule__MetaModule__Group_2_0__2 : rule__MetaModule__Group_2_0__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2012:1: rule__MetaModule__Group_2_0__2 : rule__MetaModule__Group_2_0__2__Impl ;
     public final void rule__MetaModule__Group_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2030:1: ( rule__MetaModule__Group_2_0__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2031:2: rule__MetaModule__Group_2_0__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2016:1: ( rule__MetaModule__Group_2_0__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2017:2: rule__MetaModule__Group_2_0__2__Impl
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__2__Impl_in_rule__MetaModule__Group_2_0__24137);
+            pushFollow(FOLLOW_rule__MetaModule__Group_2_0__2__Impl_in_rule__MetaModule__Group_2_0__24095);
             rule__MetaModule__Group_2_0__2__Impl();
 
             state._fsp--;
@@ -5642,31 +5579,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_2_0__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2037:1: rule__MetaModule__Group_2_0__2__Impl : ( ( ',' )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2023:1: rule__MetaModule__Group_2_0__2__Impl : ( ( ',' )? ) ;
     public final void rule__MetaModule__Group_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2041:1: ( ( ( ',' )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2042:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2027:1: ( ( ( ',' )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2028:1: ( ( ',' )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2042:1: ( ( ',' )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2043:1: ( ',' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2028:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2029:1: ( ',' )?
             {
              before(grammarAccess.getMetaModuleAccess().getCommaKeyword_2_0_2()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2044:1: ( ',' )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2030:1: ( ',' )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==43) ) {
+            if ( (LA23_0==41) ) {
                 alt23=1;
             }
             switch (alt23) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2045:2: ','
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2031:2: ','
                     {
-                    match(input,43,FOLLOW_43_in_rule__MetaModule__Group_2_0__2__Impl4166); 
+                    match(input,41,FOLLOW_41_in_rule__MetaModule__Group_2_0__2__Impl4124); 
 
                     }
                     break;
@@ -5696,21 +5633,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_3__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2062:1: rule__MetaModule__Group_3__0 : rule__MetaModule__Group_3__0__Impl rule__MetaModule__Group_3__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2048:1: rule__MetaModule__Group_3__0 : rule__MetaModule__Group_3__0__Impl rule__MetaModule__Group_3__1 ;
     public final void rule__MetaModule__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2066:1: ( rule__MetaModule__Group_3__0__Impl rule__MetaModule__Group_3__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2067:2: rule__MetaModule__Group_3__0__Impl rule__MetaModule__Group_3__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2052:1: ( rule__MetaModule__Group_3__0__Impl rule__MetaModule__Group_3__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2053:2: rule__MetaModule__Group_3__0__Impl rule__MetaModule__Group_3__1
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_3__0__Impl_in_rule__MetaModule__Group_3__04205);
+            pushFollow(FOLLOW_rule__MetaModule__Group_3__0__Impl_in_rule__MetaModule__Group_3__04163);
             rule__MetaModule__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_3__1_in_rule__MetaModule__Group_3__04208);
+            pushFollow(FOLLOW_rule__MetaModule__Group_3__1_in_rule__MetaModule__Group_3__04166);
             rule__MetaModule__Group_3__1();
 
             state._fsp--;
@@ -5734,20 +5671,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_3__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2074:1: rule__MetaModule__Group_3__0__Impl : ( 'matching:' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2060:1: rule__MetaModule__Group_3__0__Impl : ( 'matching:' ) ;
     public final void rule__MetaModule__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2078:1: ( ( 'matching:' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2079:1: ( 'matching:' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2064:1: ( ( 'matching:' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2065:1: ( 'matching:' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2079:1: ( 'matching:' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2080:1: 'matching:'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2065:1: ( 'matching:' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2066:1: 'matching:'
             {
              before(grammarAccess.getMetaModuleAccess().getMatchingKeyword_3_0()); 
-            match(input,48,FOLLOW_48_in_rule__MetaModule__Group_3__0__Impl4236); 
+            match(input,46,FOLLOW_46_in_rule__MetaModule__Group_3__0__Impl4194); 
              after(grammarAccess.getMetaModuleAccess().getMatchingKeyword_3_0()); 
 
             }
@@ -5771,21 +5708,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_3__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2093:1: rule__MetaModule__Group_3__1 : rule__MetaModule__Group_3__1__Impl rule__MetaModule__Group_3__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2079:1: rule__MetaModule__Group_3__1 : rule__MetaModule__Group_3__1__Impl rule__MetaModule__Group_3__2 ;
     public final void rule__MetaModule__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2097:1: ( rule__MetaModule__Group_3__1__Impl rule__MetaModule__Group_3__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2098:2: rule__MetaModule__Group_3__1__Impl rule__MetaModule__Group_3__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2083:1: ( rule__MetaModule__Group_3__1__Impl rule__MetaModule__Group_3__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2084:2: rule__MetaModule__Group_3__1__Impl rule__MetaModule__Group_3__2
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_3__1__Impl_in_rule__MetaModule__Group_3__14267);
+            pushFollow(FOLLOW_rule__MetaModule__Group_3__1__Impl_in_rule__MetaModule__Group_3__14225);
             rule__MetaModule__Group_3__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_3__2_in_rule__MetaModule__Group_3__14270);
+            pushFollow(FOLLOW_rule__MetaModule__Group_3__2_in_rule__MetaModule__Group_3__14228);
             rule__MetaModule__Group_3__2();
 
             state._fsp--;
@@ -5809,23 +5746,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_3__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2105:1: rule__MetaModule__Group_3__1__Impl : ( ( rule__MetaModule__MatchingAssignment_3_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2091:1: rule__MetaModule__Group_3__1__Impl : ( ( rule__MetaModule__MatchingAssignment_3_1 ) ) ;
     public final void rule__MetaModule__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2109:1: ( ( ( rule__MetaModule__MatchingAssignment_3_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2110:1: ( ( rule__MetaModule__MatchingAssignment_3_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2095:1: ( ( ( rule__MetaModule__MatchingAssignment_3_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2096:1: ( ( rule__MetaModule__MatchingAssignment_3_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2110:1: ( ( rule__MetaModule__MatchingAssignment_3_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2111:1: ( rule__MetaModule__MatchingAssignment_3_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2096:1: ( ( rule__MetaModule__MatchingAssignment_3_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2097:1: ( rule__MetaModule__MatchingAssignment_3_1 )
             {
              before(grammarAccess.getMetaModuleAccess().getMatchingAssignment_3_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2112:1: ( rule__MetaModule__MatchingAssignment_3_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2112:2: rule__MetaModule__MatchingAssignment_3_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2098:1: ( rule__MetaModule__MatchingAssignment_3_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2098:2: rule__MetaModule__MatchingAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__MetaModule__MatchingAssignment_3_1_in_rule__MetaModule__Group_3__1__Impl4297);
+            pushFollow(FOLLOW_rule__MetaModule__MatchingAssignment_3_1_in_rule__MetaModule__Group_3__1__Impl4255);
             rule__MetaModule__MatchingAssignment_3_1();
 
             state._fsp--;
@@ -5856,16 +5793,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_3__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2122:1: rule__MetaModule__Group_3__2 : rule__MetaModule__Group_3__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2108:1: rule__MetaModule__Group_3__2 : rule__MetaModule__Group_3__2__Impl ;
     public final void rule__MetaModule__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2126:1: ( rule__MetaModule__Group_3__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2127:2: rule__MetaModule__Group_3__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2112:1: ( rule__MetaModule__Group_3__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2113:2: rule__MetaModule__Group_3__2__Impl
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_3__2__Impl_in_rule__MetaModule__Group_3__24327);
+            pushFollow(FOLLOW_rule__MetaModule__Group_3__2__Impl_in_rule__MetaModule__Group_3__24285);
             rule__MetaModule__Group_3__2__Impl();
 
             state._fsp--;
@@ -5889,20 +5826,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_3__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2133:1: rule__MetaModule__Group_3__2__Impl : ( ';' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2119:1: rule__MetaModule__Group_3__2__Impl : ( ';' ) ;
     public final void rule__MetaModule__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2137:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2138:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2123:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2124:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2138:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2139:1: ';'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2124:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2125:1: ';'
             {
              before(grammarAccess.getMetaModuleAccess().getSemicolonKeyword_3_2()); 
-            match(input,41,FOLLOW_41_in_rule__MetaModule__Group_3__2__Impl4355); 
+            match(input,39,FOLLOW_39_in_rule__MetaModule__Group_3__2__Impl4313); 
              after(grammarAccess.getMetaModuleAccess().getSemicolonKeyword_3_2()); 
 
             }
@@ -5926,21 +5863,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_4__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2158:1: rule__MetaModule__Group_4__0 : rule__MetaModule__Group_4__0__Impl rule__MetaModule__Group_4__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2144:1: rule__MetaModule__Group_4__0 : rule__MetaModule__Group_4__0__Impl rule__MetaModule__Group_4__1 ;
     public final void rule__MetaModule__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2162:1: ( rule__MetaModule__Group_4__0__Impl rule__MetaModule__Group_4__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2163:2: rule__MetaModule__Group_4__0__Impl rule__MetaModule__Group_4__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2148:1: ( rule__MetaModule__Group_4__0__Impl rule__MetaModule__Group_4__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2149:2: rule__MetaModule__Group_4__0__Impl rule__MetaModule__Group_4__1
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_4__0__Impl_in_rule__MetaModule__Group_4__04392);
+            pushFollow(FOLLOW_rule__MetaModule__Group_4__0__Impl_in_rule__MetaModule__Group_4__04350);
             rule__MetaModule__Group_4__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_4__1_in_rule__MetaModule__Group_4__04395);
+            pushFollow(FOLLOW_rule__MetaModule__Group_4__1_in_rule__MetaModule__Group_4__04353);
             rule__MetaModule__Group_4__1();
 
             state._fsp--;
@@ -5964,20 +5901,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_4__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2170:1: rule__MetaModule__Group_4__0__Impl : ( 'description:' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2156:1: rule__MetaModule__Group_4__0__Impl : ( 'description:' ) ;
     public final void rule__MetaModule__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2174:1: ( ( 'description:' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2175:1: ( 'description:' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2160:1: ( ( 'description:' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2161:1: ( 'description:' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2175:1: ( 'description:' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2176:1: 'description:'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2161:1: ( 'description:' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2162:1: 'description:'
             {
              before(grammarAccess.getMetaModuleAccess().getDescriptionKeyword_4_0()); 
-            match(input,49,FOLLOW_49_in_rule__MetaModule__Group_4__0__Impl4423); 
+            match(input,47,FOLLOW_47_in_rule__MetaModule__Group_4__0__Impl4381); 
              after(grammarAccess.getMetaModuleAccess().getDescriptionKeyword_4_0()); 
 
             }
@@ -6001,21 +5938,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_4__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2189:1: rule__MetaModule__Group_4__1 : rule__MetaModule__Group_4__1__Impl rule__MetaModule__Group_4__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2175:1: rule__MetaModule__Group_4__1 : rule__MetaModule__Group_4__1__Impl rule__MetaModule__Group_4__2 ;
     public final void rule__MetaModule__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2193:1: ( rule__MetaModule__Group_4__1__Impl rule__MetaModule__Group_4__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2194:2: rule__MetaModule__Group_4__1__Impl rule__MetaModule__Group_4__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2179:1: ( rule__MetaModule__Group_4__1__Impl rule__MetaModule__Group_4__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2180:2: rule__MetaModule__Group_4__1__Impl rule__MetaModule__Group_4__2
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_4__1__Impl_in_rule__MetaModule__Group_4__14454);
+            pushFollow(FOLLOW_rule__MetaModule__Group_4__1__Impl_in_rule__MetaModule__Group_4__14412);
             rule__MetaModule__Group_4__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_4__2_in_rule__MetaModule__Group_4__14457);
+            pushFollow(FOLLOW_rule__MetaModule__Group_4__2_in_rule__MetaModule__Group_4__14415);
             rule__MetaModule__Group_4__2();
 
             state._fsp--;
@@ -6039,23 +5976,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_4__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2201:1: rule__MetaModule__Group_4__1__Impl : ( ( rule__MetaModule__DescriptionAssignment_4_1 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2187:1: rule__MetaModule__Group_4__1__Impl : ( ( rule__MetaModule__DescriptionAssignment_4_1 ) ) ;
     public final void rule__MetaModule__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2205:1: ( ( ( rule__MetaModule__DescriptionAssignment_4_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2206:1: ( ( rule__MetaModule__DescriptionAssignment_4_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2191:1: ( ( ( rule__MetaModule__DescriptionAssignment_4_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2192:1: ( ( rule__MetaModule__DescriptionAssignment_4_1 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2206:1: ( ( rule__MetaModule__DescriptionAssignment_4_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2207:1: ( rule__MetaModule__DescriptionAssignment_4_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2192:1: ( ( rule__MetaModule__DescriptionAssignment_4_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2193:1: ( rule__MetaModule__DescriptionAssignment_4_1 )
             {
              before(grammarAccess.getMetaModuleAccess().getDescriptionAssignment_4_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2208:1: ( rule__MetaModule__DescriptionAssignment_4_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2208:2: rule__MetaModule__DescriptionAssignment_4_1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2194:1: ( rule__MetaModule__DescriptionAssignment_4_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2194:2: rule__MetaModule__DescriptionAssignment_4_1
             {
-            pushFollow(FOLLOW_rule__MetaModule__DescriptionAssignment_4_1_in_rule__MetaModule__Group_4__1__Impl4484);
+            pushFollow(FOLLOW_rule__MetaModule__DescriptionAssignment_4_1_in_rule__MetaModule__Group_4__1__Impl4442);
             rule__MetaModule__DescriptionAssignment_4_1();
 
             state._fsp--;
@@ -6086,16 +6023,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_4__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2218:1: rule__MetaModule__Group_4__2 : rule__MetaModule__Group_4__2__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2204:1: rule__MetaModule__Group_4__2 : rule__MetaModule__Group_4__2__Impl ;
     public final void rule__MetaModule__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2222:1: ( rule__MetaModule__Group_4__2__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2223:2: rule__MetaModule__Group_4__2__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2208:1: ( rule__MetaModule__Group_4__2__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2209:2: rule__MetaModule__Group_4__2__Impl
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_4__2__Impl_in_rule__MetaModule__Group_4__24514);
+            pushFollow(FOLLOW_rule__MetaModule__Group_4__2__Impl_in_rule__MetaModule__Group_4__24472);
             rule__MetaModule__Group_4__2__Impl();
 
             state._fsp--;
@@ -6119,20 +6056,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_4__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2229:1: rule__MetaModule__Group_4__2__Impl : ( ';' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2215:1: rule__MetaModule__Group_4__2__Impl : ( ';' ) ;
     public final void rule__MetaModule__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2233:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2234:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2219:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2220:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2234:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2235:1: ';'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2220:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2221:1: ';'
             {
              before(grammarAccess.getMetaModuleAccess().getSemicolonKeyword_4_2()); 
-            match(input,41,FOLLOW_41_in_rule__MetaModule__Group_4__2__Impl4542); 
+            match(input,39,FOLLOW_39_in_rule__MetaModule__Group_4__2__Impl4500); 
              after(grammarAccess.getMetaModuleAccess().getSemicolonKeyword_4_2()); 
 
             }
@@ -6156,21 +6093,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2254:1: rule__MetaModule__Group_6__0 : rule__MetaModule__Group_6__0__Impl rule__MetaModule__Group_6__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2240:1: rule__MetaModule__Group_6__0 : rule__MetaModule__Group_6__0__Impl rule__MetaModule__Group_6__1 ;
     public final void rule__MetaModule__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2258:1: ( rule__MetaModule__Group_6__0__Impl rule__MetaModule__Group_6__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2259:2: rule__MetaModule__Group_6__0__Impl rule__MetaModule__Group_6__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2244:1: ( rule__MetaModule__Group_6__0__Impl rule__MetaModule__Group_6__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2245:2: rule__MetaModule__Group_6__0__Impl rule__MetaModule__Group_6__1
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__0__Impl_in_rule__MetaModule__Group_6__04579);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__0__Impl_in_rule__MetaModule__Group_6__04537);
             rule__MetaModule__Group_6__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__1_in_rule__MetaModule__Group_6__04582);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__1_in_rule__MetaModule__Group_6__04540);
             rule__MetaModule__Group_6__1();
 
             state._fsp--;
@@ -6194,20 +6131,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2266:1: rule__MetaModule__Group_6__0__Impl : ( 'restrictions' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2252:1: rule__MetaModule__Group_6__0__Impl : ( 'restrictions' ) ;
     public final void rule__MetaModule__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2270:1: ( ( 'restrictions' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2271:1: ( 'restrictions' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2256:1: ( ( 'restrictions' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2257:1: ( 'restrictions' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2271:1: ( 'restrictions' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2272:1: 'restrictions'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2257:1: ( 'restrictions' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2258:1: 'restrictions'
             {
              before(grammarAccess.getMetaModuleAccess().getRestrictionsKeyword_6_0()); 
-            match(input,50,FOLLOW_50_in_rule__MetaModule__Group_6__0__Impl4610); 
+            match(input,48,FOLLOW_48_in_rule__MetaModule__Group_6__0__Impl4568); 
              after(grammarAccess.getMetaModuleAccess().getRestrictionsKeyword_6_0()); 
 
             }
@@ -6231,21 +6168,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2285:1: rule__MetaModule__Group_6__1 : rule__MetaModule__Group_6__1__Impl rule__MetaModule__Group_6__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2271:1: rule__MetaModule__Group_6__1 : rule__MetaModule__Group_6__1__Impl rule__MetaModule__Group_6__2 ;
     public final void rule__MetaModule__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2289:1: ( rule__MetaModule__Group_6__1__Impl rule__MetaModule__Group_6__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2290:2: rule__MetaModule__Group_6__1__Impl rule__MetaModule__Group_6__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2275:1: ( rule__MetaModule__Group_6__1__Impl rule__MetaModule__Group_6__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2276:2: rule__MetaModule__Group_6__1__Impl rule__MetaModule__Group_6__2
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__1__Impl_in_rule__MetaModule__Group_6__14641);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__1__Impl_in_rule__MetaModule__Group_6__14599);
             rule__MetaModule__Group_6__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__2_in_rule__MetaModule__Group_6__14644);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__2_in_rule__MetaModule__Group_6__14602);
             rule__MetaModule__Group_6__2();
 
             state._fsp--;
@@ -6269,20 +6206,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2297:1: rule__MetaModule__Group_6__1__Impl : ( '{' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2283:1: rule__MetaModule__Group_6__1__Impl : ( '{' ) ;
     public final void rule__MetaModule__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2301:1: ( ( '{' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2302:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2287:1: ( ( '{' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2288:1: ( '{' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2302:1: ( '{' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2303:1: '{'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2288:1: ( '{' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2289:1: '{'
             {
              before(grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_6_1()); 
-            match(input,38,FOLLOW_38_in_rule__MetaModule__Group_6__1__Impl4672); 
+            match(input,36,FOLLOW_36_in_rule__MetaModule__Group_6__1__Impl4630); 
              after(grammarAccess.getMetaModuleAccess().getLeftCurlyBracketKeyword_6_1()); 
 
             }
@@ -6306,21 +6243,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2316:1: rule__MetaModule__Group_6__2 : rule__MetaModule__Group_6__2__Impl rule__MetaModule__Group_6__3 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2302:1: rule__MetaModule__Group_6__2 : rule__MetaModule__Group_6__2__Impl rule__MetaModule__Group_6__3 ;
     public final void rule__MetaModule__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2320:1: ( rule__MetaModule__Group_6__2__Impl rule__MetaModule__Group_6__3 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2321:2: rule__MetaModule__Group_6__2__Impl rule__MetaModule__Group_6__3
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2306:1: ( rule__MetaModule__Group_6__2__Impl rule__MetaModule__Group_6__3 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2307:2: rule__MetaModule__Group_6__2__Impl rule__MetaModule__Group_6__3
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__2__Impl_in_rule__MetaModule__Group_6__24703);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__2__Impl_in_rule__MetaModule__Group_6__24661);
             rule__MetaModule__Group_6__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__3_in_rule__MetaModule__Group_6__24706);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__3_in_rule__MetaModule__Group_6__24664);
             rule__MetaModule__Group_6__3();
 
             state._fsp--;
@@ -6344,35 +6281,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2328:1: rule__MetaModule__Group_6__2__Impl : ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2314:1: rule__MetaModule__Group_6__2__Impl : ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* ) ;
     public final void rule__MetaModule__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2332:1: ( ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2333:1: ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2318:1: ( ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2319:1: ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2333:1: ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2334:1: ( rule__MetaModule__RestrictionsAssignment_6_2 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2319:1: ( ( rule__MetaModule__RestrictionsAssignment_6_2 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2320:1: ( rule__MetaModule__RestrictionsAssignment_6_2 )*
             {
              before(grammarAccess.getMetaModuleAccess().getRestrictionsAssignment_6_2()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2335:1: ( rule__MetaModule__RestrictionsAssignment_6_2 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2321:1: ( rule__MetaModule__RestrictionsAssignment_6_2 )*
             loop24:
             do {
                 int alt24=2;
                 int LA24_0 = input.LA(1);
 
-                if ( (LA24_0==RULE_ID_ASML||(LA24_0>=19 && LA24_0<=36)) ) {
+                if ( ((LA24_0>=19 && LA24_0<=34)) ) {
                     alt24=1;
                 }
 
 
                 switch (alt24) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2335:2: rule__MetaModule__RestrictionsAssignment_6_2
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2321:2: rule__MetaModule__RestrictionsAssignment_6_2
             	    {
-            	    pushFollow(FOLLOW_rule__MetaModule__RestrictionsAssignment_6_2_in_rule__MetaModule__Group_6__2__Impl4733);
+            	    pushFollow(FOLLOW_rule__MetaModule__RestrictionsAssignment_6_2_in_rule__MetaModule__Group_6__2__Impl4691);
             	    rule__MetaModule__RestrictionsAssignment_6_2();
 
             	    state._fsp--;
@@ -6409,16 +6346,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__3"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2345:1: rule__MetaModule__Group_6__3 : rule__MetaModule__Group_6__3__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2331:1: rule__MetaModule__Group_6__3 : rule__MetaModule__Group_6__3__Impl ;
     public final void rule__MetaModule__Group_6__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2349:1: ( rule__MetaModule__Group_6__3__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2350:2: rule__MetaModule__Group_6__3__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2335:1: ( rule__MetaModule__Group_6__3__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2336:2: rule__MetaModule__Group_6__3__Impl
             {
-            pushFollow(FOLLOW_rule__MetaModule__Group_6__3__Impl_in_rule__MetaModule__Group_6__34764);
+            pushFollow(FOLLOW_rule__MetaModule__Group_6__3__Impl_in_rule__MetaModule__Group_6__34722);
             rule__MetaModule__Group_6__3__Impl();
 
             state._fsp--;
@@ -6442,20 +6379,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__Group_6__3__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2356:1: rule__MetaModule__Group_6__3__Impl : ( '}' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2342:1: rule__MetaModule__Group_6__3__Impl : ( '}' ) ;
     public final void rule__MetaModule__Group_6__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2360:1: ( ( '}' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2361:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2346:1: ( ( '}' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2347:1: ( '}' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2361:1: ( '}' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2362:1: '}'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2347:1: ( '}' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2348:1: '}'
             {
              before(grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_6_3()); 
-            match(input,39,FOLLOW_39_in_rule__MetaModule__Group_6__3__Impl4792); 
+            match(input,37,FOLLOW_37_in_rule__MetaModule__Group_6__3__Impl4750); 
              after(grammarAccess.getMetaModuleAccess().getRightCurlyBracketKeyword_6_3()); 
 
             }
@@ -6479,21 +6416,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2383:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2369:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
     public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2387:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2388:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2373:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2374:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__04831);
+            pushFollow(FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__04789);
             rule__QualifiedName__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__04834);
+            pushFollow(FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__04792);
             rule__QualifiedName__Group__1();
 
             state._fsp--;
@@ -6517,20 +6454,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2395:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID_ASML ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2381:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID_ASML ) ;
     public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2399:1: ( ( RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2400:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2385:1: ( ( RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2386:1: ( RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2400:1: ( RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2401:1: RULE_ID_ASML
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2386:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2387:1: RULE_ID_ASML
             {
              before(grammarAccess.getQualifiedNameAccess().getID_ASMLTerminalRuleCall_0()); 
-            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group__0__Impl4861); 
+            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group__0__Impl4819); 
              after(grammarAccess.getQualifiedNameAccess().getID_ASMLTerminalRuleCall_0()); 
 
             }
@@ -6554,16 +6491,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2412:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2398:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
     public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2416:1: ( rule__QualifiedName__Group__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2417:2: rule__QualifiedName__Group__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2402:1: ( rule__QualifiedName__Group__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2403:2: rule__QualifiedName__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__14890);
+            pushFollow(FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__14848);
             rule__QualifiedName__Group__1__Impl();
 
             state._fsp--;
@@ -6587,35 +6524,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2423:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2409:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
     public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2427:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2428:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2413:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2414:1: ( ( rule__QualifiedName__Group_1__0 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2428:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2429:1: ( rule__QualifiedName__Group_1__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2414:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2415:1: ( rule__QualifiedName__Group_1__0 )*
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2430:1: ( rule__QualifiedName__Group_1__0 )*
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2416:1: ( rule__QualifiedName__Group_1__0 )*
             loop25:
             do {
                 int alt25=2;
                 int LA25_0 = input.LA(1);
 
-                if ( (LA25_0==51) ) {
+                if ( (LA25_0==49) ) {
                     alt25=1;
                 }
 
 
                 switch (alt25) {
             	case 1 :
-            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2430:2: rule__QualifiedName__Group_1__0
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2416:2: rule__QualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl4917);
+            	    pushFollow(FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl4875);
             	    rule__QualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -6652,21 +6589,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2444:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2430:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
     public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2448:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2449:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2434:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2435:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__04952);
+            pushFollow(FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__04910);
             rule__QualifiedName__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__04955);
+            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__04913);
             rule__QualifiedName__Group_1__1();
 
             state._fsp--;
@@ -6690,20 +6627,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2456:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2442:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2460:1: ( ( '.' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2461:1: ( '.' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2446:1: ( ( '.' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2447:1: ( '.' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2461:1: ( '.' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2462:1: '.'
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2447:1: ( '.' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2448:1: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-            match(input,51,FOLLOW_51_in_rule__QualifiedName__Group_1__0__Impl4983); 
+            match(input,49,FOLLOW_49_in_rule__QualifiedName__Group_1__0__Impl4941); 
              after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -6727,16 +6664,16 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2475:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2461:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
     public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2479:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2480:2: rule__QualifiedName__Group_1__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2465:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2466:2: rule__QualifiedName__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__15014);
+            pushFollow(FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__14972);
             rule__QualifiedName__Group_1__1__Impl();
 
             state._fsp--;
@@ -6760,20 +6697,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2486:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID_ASML ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2472:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID_ASML ) ;
     public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2490:1: ( ( RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2491:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2476:1: ( ( RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2477:1: ( RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2491:1: ( RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2492:1: RULE_ID_ASML
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2477:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2478:1: RULE_ID_ASML
             {
              before(grammarAccess.getQualifiedNameAccess().getID_ASMLTerminalRuleCall_1_1()); 
-            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group_1__1__Impl5041); 
+            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group_1__1__Impl4999); 
              after(grammarAccess.getQualifiedNameAccess().getID_ASMLTerminalRuleCall_1_1()); 
 
             }
@@ -6797,21 +6734,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2507:1: rule__Restriction__Group__0 : rule__Restriction__Group__0__Impl rule__Restriction__Group__1 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2493:1: rule__Restriction__Group__0 : rule__Restriction__Group__0__Impl rule__Restriction__Group__1 ;
     public final void rule__Restriction__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2511:1: ( rule__Restriction__Group__0__Impl rule__Restriction__Group__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2512:2: rule__Restriction__Group__0__Impl rule__Restriction__Group__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2497:1: ( rule__Restriction__Group__0__Impl rule__Restriction__Group__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2498:2: rule__Restriction__Group__0__Impl rule__Restriction__Group__1
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__0__Impl_in_rule__Restriction__Group__05074);
+            pushFollow(FOLLOW_rule__Restriction__Group__0__Impl_in_rule__Restriction__Group__05032);
             rule__Restriction__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Restriction__Group__1_in_rule__Restriction__Group__05077);
+            pushFollow(FOLLOW_rule__Restriction__Group__1_in_rule__Restriction__Group__05035);
             rule__Restriction__Group__1();
 
             state._fsp--;
@@ -6835,31 +6772,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2519:1: rule__Restriction__Group__0__Impl : ( ( rule__Restriction__GroupClauseAssignment_0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2505:1: rule__Restriction__Group__0__Impl : ( ( rule__Restriction__GroupClauseAssignment_0 )? ) ;
     public final void rule__Restriction__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2523:1: ( ( ( rule__Restriction__GroupClauseAssignment_0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2524:1: ( ( rule__Restriction__GroupClauseAssignment_0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2509:1: ( ( ( rule__Restriction__GroupClauseAssignment_0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2510:1: ( ( rule__Restriction__GroupClauseAssignment_0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2524:1: ( ( rule__Restriction__GroupClauseAssignment_0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2525:1: ( rule__Restriction__GroupClauseAssignment_0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2510:1: ( ( rule__Restriction__GroupClauseAssignment_0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2511:1: ( rule__Restriction__GroupClauseAssignment_0 )?
             {
              before(grammarAccess.getRestrictionAccess().getGroupClauseAssignment_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2526:1: ( rule__Restriction__GroupClauseAssignment_0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2512:1: ( rule__Restriction__GroupClauseAssignment_0 )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( ((LA26_0>=19 && LA26_0<=22)) ) {
+            if ( ((LA26_0>=19 && LA26_0<=21)) ) {
                 alt26=1;
             }
             switch (alt26) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2526:2: rule__Restriction__GroupClauseAssignment_0
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2512:2: rule__Restriction__GroupClauseAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Restriction__GroupClauseAssignment_0_in_rule__Restriction__Group__0__Impl5104);
+                    pushFollow(FOLLOW_rule__Restriction__GroupClauseAssignment_0_in_rule__Restriction__Group__0__Impl5062);
                     rule__Restriction__GroupClauseAssignment_0();
 
                     state._fsp--;
@@ -6893,21 +6830,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2536:1: rule__Restriction__Group__1 : rule__Restriction__Group__1__Impl rule__Restriction__Group__2 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2522:1: rule__Restriction__Group__1 : rule__Restriction__Group__1__Impl rule__Restriction__Group__2 ;
     public final void rule__Restriction__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2540:1: ( rule__Restriction__Group__1__Impl rule__Restriction__Group__2 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2541:2: rule__Restriction__Group__1__Impl rule__Restriction__Group__2
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2526:1: ( rule__Restriction__Group__1__Impl rule__Restriction__Group__2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2527:2: rule__Restriction__Group__1__Impl rule__Restriction__Group__2
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__1__Impl_in_rule__Restriction__Group__15135);
+            pushFollow(FOLLOW_rule__Restriction__Group__1__Impl_in_rule__Restriction__Group__15093);
             rule__Restriction__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Restriction__Group__2_in_rule__Restriction__Group__15138);
+            pushFollow(FOLLOW_rule__Restriction__Group__2_in_rule__Restriction__Group__15096);
             rule__Restriction__Group__2();
 
             state._fsp--;
@@ -6931,32 +6868,32 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2548:1: rule__Restriction__Group__1__Impl : ( ( rule__Restriction__ComponentAAssignment_1 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2534:1: rule__Restriction__Group__1__Impl : ( ( rule__Restriction__PermissionClauseAssignment_1 )? ) ;
     public final void rule__Restriction__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2552:1: ( ( ( rule__Restriction__ComponentAAssignment_1 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2553:1: ( ( rule__Restriction__ComponentAAssignment_1 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2538:1: ( ( ( rule__Restriction__PermissionClauseAssignment_1 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2539:1: ( ( rule__Restriction__PermissionClauseAssignment_1 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2553:1: ( ( rule__Restriction__ComponentAAssignment_1 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2554:1: ( rule__Restriction__ComponentAAssignment_1 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2539:1: ( ( rule__Restriction__PermissionClauseAssignment_1 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2540:1: ( rule__Restriction__PermissionClauseAssignment_1 )?
             {
-             before(grammarAccess.getRestrictionAccess().getComponentAAssignment_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2555:1: ( rule__Restriction__ComponentAAssignment_1 )?
+             before(grammarAccess.getRestrictionAccess().getPermissionClauseAssignment_1()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2541:1: ( rule__Restriction__PermissionClauseAssignment_1 )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( (LA27_0==RULE_ID_ASML) ) {
+            if ( ((LA27_0>=22 && LA27_0<=24)) ) {
                 alt27=1;
             }
             switch (alt27) {
                 case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2555:2: rule__Restriction__ComponentAAssignment_1
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2541:2: rule__Restriction__PermissionClauseAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__Restriction__ComponentAAssignment_1_in_rule__Restriction__Group__1__Impl5165);
-                    rule__Restriction__ComponentAAssignment_1();
+                    pushFollow(FOLLOW_rule__Restriction__PermissionClauseAssignment_1_in_rule__Restriction__Group__1__Impl5123);
+                    rule__Restriction__PermissionClauseAssignment_1();
 
                     state._fsp--;
 
@@ -6966,7 +6903,7 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
             }
 
-             after(grammarAccess.getRestrictionAccess().getComponentAAssignment_1()); 
+             after(grammarAccess.getRestrictionAccess().getPermissionClauseAssignment_1()); 
 
             }
 
@@ -6989,21 +6926,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2565:1: rule__Restriction__Group__2 : rule__Restriction__Group__2__Impl rule__Restriction__Group__3 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2551:1: rule__Restriction__Group__2 : rule__Restriction__Group__2__Impl rule__Restriction__Group__3 ;
     public final void rule__Restriction__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2569:1: ( rule__Restriction__Group__2__Impl rule__Restriction__Group__3 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2570:2: rule__Restriction__Group__2__Impl rule__Restriction__Group__3
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2555:1: ( rule__Restriction__Group__2__Impl rule__Restriction__Group__3 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2556:2: rule__Restriction__Group__2__Impl rule__Restriction__Group__3
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__2__Impl_in_rule__Restriction__Group__25196);
+            pushFollow(FOLLOW_rule__Restriction__Group__2__Impl_in_rule__Restriction__Group__25154);
             rule__Restriction__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Restriction__Group__3_in_rule__Restriction__Group__25199);
+            pushFollow(FOLLOW_rule__Restriction__Group__3_in_rule__Restriction__Group__25157);
             rule__Restriction__Group__3();
 
             state._fsp--;
@@ -7027,42 +6964,31 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__2__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2577:1: rule__Restriction__Group__2__Impl : ( ( rule__Restriction__PermissionClauseAssignment_2 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2563:1: rule__Restriction__Group__2__Impl : ( ( rule__Restriction__RelactionTypeAssignment_2 ) ) ;
     public final void rule__Restriction__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2581:1: ( ( ( rule__Restriction__PermissionClauseAssignment_2 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2582:1: ( ( rule__Restriction__PermissionClauseAssignment_2 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2567:1: ( ( ( rule__Restriction__RelactionTypeAssignment_2 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2568:1: ( ( rule__Restriction__RelactionTypeAssignment_2 ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2582:1: ( ( rule__Restriction__PermissionClauseAssignment_2 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2583:1: ( rule__Restriction__PermissionClauseAssignment_2 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2568:1: ( ( rule__Restriction__RelactionTypeAssignment_2 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2569:1: ( rule__Restriction__RelactionTypeAssignment_2 )
             {
-             before(grammarAccess.getRestrictionAccess().getPermissionClauseAssignment_2()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2584:1: ( rule__Restriction__PermissionClauseAssignment_2 )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+             before(grammarAccess.getRestrictionAccess().getRelactionTypeAssignment_2()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2570:1: ( rule__Restriction__RelactionTypeAssignment_2 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2570:2: rule__Restriction__RelactionTypeAssignment_2
+            {
+            pushFollow(FOLLOW_rule__Restriction__RelactionTypeAssignment_2_in_rule__Restriction__Group__2__Impl5184);
+            rule__Restriction__RelactionTypeAssignment_2();
 
-            if ( ((LA28_0>=23 && LA28_0<=26)) ) {
-                alt28=1;
-            }
-            switch (alt28) {
-                case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2584:2: rule__Restriction__PermissionClauseAssignment_2
-                    {
-                    pushFollow(FOLLOW_rule__Restriction__PermissionClauseAssignment_2_in_rule__Restriction__Group__2__Impl5226);
-                    rule__Restriction__PermissionClauseAssignment_2();
+            state._fsp--;
 
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
-             after(grammarAccess.getRestrictionAccess().getPermissionClauseAssignment_2()); 
+             after(grammarAccess.getRestrictionAccess().getRelactionTypeAssignment_2()); 
 
             }
 
@@ -7085,21 +7011,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__3"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2594:1: rule__Restriction__Group__3 : rule__Restriction__Group__3__Impl rule__Restriction__Group__4 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2580:1: rule__Restriction__Group__3 : rule__Restriction__Group__3__Impl rule__Restriction__Group__4 ;
     public final void rule__Restriction__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2598:1: ( rule__Restriction__Group__3__Impl rule__Restriction__Group__4 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2599:2: rule__Restriction__Group__3__Impl rule__Restriction__Group__4
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2584:1: ( rule__Restriction__Group__3__Impl rule__Restriction__Group__4 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2585:2: rule__Restriction__Group__3__Impl rule__Restriction__Group__4
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__3__Impl_in_rule__Restriction__Group__35257);
+            pushFollow(FOLLOW_rule__Restriction__Group__3__Impl_in_rule__Restriction__Group__35214);
             rule__Restriction__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Restriction__Group__4_in_rule__Restriction__Group__35260);
+            pushFollow(FOLLOW_rule__Restriction__Group__4_in_rule__Restriction__Group__35217);
             rule__Restriction__Group__4();
 
             state._fsp--;
@@ -7123,31 +7049,42 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__3__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2606:1: rule__Restriction__Group__3__Impl : ( ( rule__Restriction__RelactionTypeAssignment_3 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2592:1: rule__Restriction__Group__3__Impl : ( ( rule__Restriction__GroupClauseBAssignment_3 )? ) ;
     public final void rule__Restriction__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2610:1: ( ( ( rule__Restriction__RelactionTypeAssignment_3 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2611:1: ( ( rule__Restriction__RelactionTypeAssignment_3 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2596:1: ( ( ( rule__Restriction__GroupClauseBAssignment_3 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2597:1: ( ( rule__Restriction__GroupClauseBAssignment_3 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2611:1: ( ( rule__Restriction__RelactionTypeAssignment_3 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2612:1: ( rule__Restriction__RelactionTypeAssignment_3 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2597:1: ( ( rule__Restriction__GroupClauseBAssignment_3 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2598:1: ( rule__Restriction__GroupClauseBAssignment_3 )?
             {
-             before(grammarAccess.getRestrictionAccess().getRelactionTypeAssignment_3()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2613:1: ( rule__Restriction__RelactionTypeAssignment_3 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2613:2: rule__Restriction__RelactionTypeAssignment_3
-            {
-            pushFollow(FOLLOW_rule__Restriction__RelactionTypeAssignment_3_in_rule__Restriction__Group__3__Impl5287);
-            rule__Restriction__RelactionTypeAssignment_3();
+             before(grammarAccess.getRestrictionAccess().getGroupClauseBAssignment_3()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2599:1: ( rule__Restriction__GroupClauseBAssignment_3 )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            state._fsp--;
+            if ( ((LA28_0>=19 && LA28_0<=21)) ) {
+                alt28=1;
+            }
+            switch (alt28) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2599:2: rule__Restriction__GroupClauseBAssignment_3
+                    {
+                    pushFollow(FOLLOW_rule__Restriction__GroupClauseBAssignment_3_in_rule__Restriction__Group__3__Impl5244);
+                    rule__Restriction__GroupClauseBAssignment_3();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getRestrictionAccess().getRelactionTypeAssignment_3()); 
+             after(grammarAccess.getRestrictionAccess().getGroupClauseBAssignment_3()); 
 
             }
 
@@ -7170,21 +7107,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2623:1: rule__Restriction__Group__4 : rule__Restriction__Group__4__Impl rule__Restriction__Group__5 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2609:1: rule__Restriction__Group__4 : rule__Restriction__Group__4__Impl rule__Restriction__Group__5 ;
     public final void rule__Restriction__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2627:1: ( rule__Restriction__Group__4__Impl rule__Restriction__Group__5 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2628:2: rule__Restriction__Group__4__Impl rule__Restriction__Group__5
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2613:1: ( rule__Restriction__Group__4__Impl rule__Restriction__Group__5 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2614:2: rule__Restriction__Group__4__Impl rule__Restriction__Group__5
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__4__Impl_in_rule__Restriction__Group__45317);
+            pushFollow(FOLLOW_rule__Restriction__Group__4__Impl_in_rule__Restriction__Group__45275);
             rule__Restriction__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Restriction__Group__5_in_rule__Restriction__Group__45320);
+            pushFollow(FOLLOW_rule__Restriction__Group__5_in_rule__Restriction__Group__45278);
             rule__Restriction__Group__5();
 
             state._fsp--;
@@ -7208,42 +7145,49 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__4__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2635:1: rule__Restriction__Group__4__Impl : ( ( rule__Restriction__GroupClauseBAssignment_4 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2621:1: rule__Restriction__Group__4__Impl : ( ( rule__Restriction__Group_4__0 )* ) ;
     public final void rule__Restriction__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2639:1: ( ( ( rule__Restriction__GroupClauseBAssignment_4 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2640:1: ( ( rule__Restriction__GroupClauseBAssignment_4 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2625:1: ( ( ( rule__Restriction__Group_4__0 )* ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2626:1: ( ( rule__Restriction__Group_4__0 )* )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2640:1: ( ( rule__Restriction__GroupClauseBAssignment_4 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2641:1: ( rule__Restriction__GroupClauseBAssignment_4 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2626:1: ( ( rule__Restriction__Group_4__0 )* )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2627:1: ( rule__Restriction__Group_4__0 )*
             {
-             before(grammarAccess.getRestrictionAccess().getGroupClauseBAssignment_4()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2642:1: ( rule__Restriction__GroupClauseBAssignment_4 )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+             before(grammarAccess.getRestrictionAccess().getGroup_4()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2628:1: ( rule__Restriction__Group_4__0 )*
+            loop29:
+            do {
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-            if ( ((LA29_0>=19 && LA29_0<=22)) ) {
-                alt29=1;
-            }
-            switch (alt29) {
-                case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2642:2: rule__Restriction__GroupClauseBAssignment_4
-                    {
-                    pushFollow(FOLLOW_rule__Restriction__GroupClauseBAssignment_4_in_rule__Restriction__Group__4__Impl5347);
-                    rule__Restriction__GroupClauseBAssignment_4();
-
-                    state._fsp--;
+                if ( (LA29_0==RULE_ID_ASML) ) {
+                    alt29=1;
+                }
 
 
-                    }
-                    break;
+                switch (alt29) {
+            	case 1 :
+            	    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2628:2: rule__Restriction__Group_4__0
+            	    {
+            	    pushFollow(FOLLOW_rule__Restriction__Group_4__0_in_rule__Restriction__Group__4__Impl5305);
+            	    rule__Restriction__Group_4__0();
 
-            }
+            	    state._fsp--;
 
-             after(grammarAccess.getRestrictionAccess().getGroupClauseBAssignment_4()); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop29;
+                }
+            } while (true);
+
+             after(grammarAccess.getRestrictionAccess().getGroup_4()); 
 
             }
 
@@ -7266,21 +7210,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2652:1: rule__Restriction__Group__5 : rule__Restriction__Group__5__Impl rule__Restriction__Group__6 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2638:1: rule__Restriction__Group__5 : rule__Restriction__Group__5__Impl rule__Restriction__Group__6 ;
     public final void rule__Restriction__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2656:1: ( rule__Restriction__Group__5__Impl rule__Restriction__Group__6 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2657:2: rule__Restriction__Group__5__Impl rule__Restriction__Group__6
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2642:1: ( rule__Restriction__Group__5__Impl rule__Restriction__Group__6 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2643:2: rule__Restriction__Group__5__Impl rule__Restriction__Group__6
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__5__Impl_in_rule__Restriction__Group__55378);
+            pushFollow(FOLLOW_rule__Restriction__Group__5__Impl_in_rule__Restriction__Group__55336);
             rule__Restriction__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Restriction__Group__6_in_rule__Restriction__Group__55381);
+            pushFollow(FOLLOW_rule__Restriction__Group__6_in_rule__Restriction__Group__55339);
             rule__Restriction__Group__6();
 
             state._fsp--;
@@ -7304,31 +7248,42 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__5__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2664:1: rule__Restriction__Group__5__Impl : ( ( rule__Restriction__ComponentBAssignment_5 ) ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2650:1: rule__Restriction__Group__5__Impl : ( ( rule__Restriction__Group_5__0 )? ) ;
     public final void rule__Restriction__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2668:1: ( ( ( rule__Restriction__ComponentBAssignment_5 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2669:1: ( ( rule__Restriction__ComponentBAssignment_5 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2654:1: ( ( ( rule__Restriction__Group_5__0 )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2655:1: ( ( rule__Restriction__Group_5__0 )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2669:1: ( ( rule__Restriction__ComponentBAssignment_5 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2670:1: ( rule__Restriction__ComponentBAssignment_5 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2655:1: ( ( rule__Restriction__Group_5__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2656:1: ( rule__Restriction__Group_5__0 )?
             {
-             before(grammarAccess.getRestrictionAccess().getComponentBAssignment_5()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2671:1: ( rule__Restriction__ComponentBAssignment_5 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2671:2: rule__Restriction__ComponentBAssignment_5
-            {
-            pushFollow(FOLLOW_rule__Restriction__ComponentBAssignment_5_in_rule__Restriction__Group__5__Impl5408);
-            rule__Restriction__ComponentBAssignment_5();
+             before(grammarAccess.getRestrictionAccess().getGroup_5()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2657:1: ( rule__Restriction__Group_5__0 )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA30_0==50) ) {
+                alt30=1;
+            }
+            switch (alt30) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2657:2: rule__Restriction__Group_5__0
+                    {
+                    pushFollow(FOLLOW_rule__Restriction__Group_5__0_in_rule__Restriction__Group__5__Impl5366);
+                    rule__Restriction__Group_5__0();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getRestrictionAccess().getComponentBAssignment_5()); 
+             after(grammarAccess.getRestrictionAccess().getGroup_5()); 
 
             }
 
@@ -7351,22 +7306,17 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__6"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2681:1: rule__Restriction__Group__6 : rule__Restriction__Group__6__Impl rule__Restriction__Group__7 ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2667:1: rule__Restriction__Group__6 : rule__Restriction__Group__6__Impl ;
     public final void rule__Restriction__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2685:1: ( rule__Restriction__Group__6__Impl rule__Restriction__Group__7 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2686:2: rule__Restriction__Group__6__Impl rule__Restriction__Group__7
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2671:1: ( rule__Restriction__Group__6__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2672:2: rule__Restriction__Group__6__Impl
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__6__Impl_in_rule__Restriction__Group__65438);
+            pushFollow(FOLLOW_rule__Restriction__Group__6__Impl_in_rule__Restriction__Group__65397);
             rule__Restriction__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Restriction__Group__7_in_rule__Restriction__Group__65441);
-            rule__Restriction__Group__7();
 
             state._fsp--;
 
@@ -7389,42 +7339,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__Group__6__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2693:1: rule__Restriction__Group__6__Impl : ( ( rule__Restriction__Group_6__0 )? ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2678:1: rule__Restriction__Group__6__Impl : ( ';' ) ;
     public final void rule__Restriction__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2697:1: ( ( ( rule__Restriction__Group_6__0 )? ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2698:1: ( ( rule__Restriction__Group_6__0 )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2682:1: ( ( ';' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2683:1: ( ';' )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2698:1: ( ( rule__Restriction__Group_6__0 )? )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2699:1: ( rule__Restriction__Group_6__0 )?
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2683:1: ( ';' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2684:1: ';'
             {
-             before(grammarAccess.getRestrictionAccess().getGroup_6()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2700:1: ( rule__Restriction__Group_6__0 )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
-
-            if ( (LA30_0==52) ) {
-                alt30=1;
-            }
-            switch (alt30) {
-                case 1 :
-                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2700:2: rule__Restriction__Group_6__0
-                    {
-                    pushFollow(FOLLOW_rule__Restriction__Group_6__0_in_rule__Restriction__Group__6__Impl5468);
-                    rule__Restriction__Group_6__0();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
-
-            }
-
-             after(grammarAccess.getRestrictionAccess().getGroup_6()); 
+             before(grammarAccess.getRestrictionAccess().getSemicolonKeyword_6()); 
+            match(input,39,FOLLOW_39_in_rule__Restriction__Group__6__Impl5425); 
+             after(grammarAccess.getRestrictionAccess().getSemicolonKeyword_6()); 
 
             }
 
@@ -7446,18 +7375,23 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Restriction__Group__6__Impl"
 
 
-    // $ANTLR start "rule__Restriction__Group__7"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2710:1: rule__Restriction__Group__7 : rule__Restriction__Group__7__Impl ;
-    public final void rule__Restriction__Group__7() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__Group_4__0"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2711:1: rule__Restriction__Group_4__0 : rule__Restriction__Group_4__0__Impl rule__Restriction__Group_4__1 ;
+    public final void rule__Restriction__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2714:1: ( rule__Restriction__Group__7__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2715:2: rule__Restriction__Group__7__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2715:1: ( rule__Restriction__Group_4__0__Impl rule__Restriction__Group_4__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2716:2: rule__Restriction__Group_4__0__Impl rule__Restriction__Group_4__1
             {
-            pushFollow(FOLLOW_rule__Restriction__Group__7__Impl_in_rule__Restriction__Group__75499);
-            rule__Restriction__Group__7__Impl();
+            pushFollow(FOLLOW_rule__Restriction__Group_4__0__Impl_in_rule__Restriction__Group_4__05470);
+            rule__Restriction__Group_4__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Restriction__Group_4__1_in_rule__Restriction__Group_4__05473);
+            rule__Restriction__Group_4__1();
 
             state._fsp--;
 
@@ -7476,100 +7410,35 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__Group__7"
+    // $ANTLR end "rule__Restriction__Group_4__0"
 
 
-    // $ANTLR start "rule__Restriction__Group__7__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2721:1: rule__Restriction__Group__7__Impl : ( ';' ) ;
-    public final void rule__Restriction__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2725:1: ( ( ';' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2726:1: ( ';' )
-            {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2726:1: ( ';' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2727:1: ';'
-            {
-             before(grammarAccess.getRestrictionAccess().getSemicolonKeyword_7()); 
-            match(input,41,FOLLOW_41_in_rule__Restriction__Group__7__Impl5527); 
-             after(grammarAccess.getRestrictionAccess().getSemicolonKeyword_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Restriction__Group__7__Impl"
-
-
-    // $ANTLR start "rule__Restriction__Group_6__0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2756:1: rule__Restriction__Group_6__0 : rule__Restriction__Group_6__0__Impl rule__Restriction__Group_6__1 ;
-    public final void rule__Restriction__Group_6__0() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__Group_4__0__Impl"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2723:1: rule__Restriction__Group_4__0__Impl : ( ( rule__Restriction__ComponentBAssignment_4_0 ) ) ;
+    public final void rule__Restriction__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2760:1: ( rule__Restriction__Group_6__0__Impl rule__Restriction__Group_6__1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2761:2: rule__Restriction__Group_6__0__Impl rule__Restriction__Group_6__1
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2727:1: ( ( ( rule__Restriction__ComponentBAssignment_4_0 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2728:1: ( ( rule__Restriction__ComponentBAssignment_4_0 ) )
             {
-            pushFollow(FOLLOW_rule__Restriction__Group_6__0__Impl_in_rule__Restriction__Group_6__05574);
-            rule__Restriction__Group_6__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_rule__Restriction__Group_6__1_in_rule__Restriction__Group_6__05577);
-            rule__Restriction__Group_6__1();
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2728:1: ( ( rule__Restriction__ComponentBAssignment_4_0 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2729:1: ( rule__Restriction__ComponentBAssignment_4_0 )
+            {
+             before(grammarAccess.getRestrictionAccess().getComponentBAssignment_4_0()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2730:1: ( rule__Restriction__ComponentBAssignment_4_0 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2730:2: rule__Restriction__ComponentBAssignment_4_0
+            {
+            pushFollow(FOLLOW_rule__Restriction__ComponentBAssignment_4_0_in_rule__Restriction__Group_4__0__Impl5500);
+            rule__Restriction__ComponentBAssignment_4_0();
 
             state._fsp--;
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Restriction__Group_6__0"
-
-
-    // $ANTLR start "rule__Restriction__Group_6__0__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2768:1: rule__Restriction__Group_6__0__Impl : ( 'message' ) ;
-    public final void rule__Restriction__Group_6__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2772:1: ( ( 'message' ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2773:1: ( 'message' )
-            {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2773:1: ( 'message' )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2774:1: 'message'
-            {
-             before(grammarAccess.getRestrictionAccess().getMessageKeyword_6_0()); 
-            match(input,52,FOLLOW_52_in_rule__Restriction__Group_6__0__Impl5605); 
-             after(grammarAccess.getRestrictionAccess().getMessageKeyword_6_0()); 
+             after(grammarAccess.getRestrictionAccess().getComponentBAssignment_4_0()); 
 
             }
 
@@ -7588,21 +7457,21 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__Group_6__0__Impl"
+    // $ANTLR end "rule__Restriction__Group_4__0__Impl"
 
 
-    // $ANTLR start "rule__Restriction__Group_6__1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2787:1: rule__Restriction__Group_6__1 : rule__Restriction__Group_6__1__Impl ;
-    public final void rule__Restriction__Group_6__1() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__Group_4__1"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2740:1: rule__Restriction__Group_4__1 : rule__Restriction__Group_4__1__Impl ;
+    public final void rule__Restriction__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2791:1: ( rule__Restriction__Group_6__1__Impl )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2792:2: rule__Restriction__Group_6__1__Impl
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2744:1: ( rule__Restriction__Group_4__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2745:2: rule__Restriction__Group_4__1__Impl
             {
-            pushFollow(FOLLOW_rule__Restriction__Group_6__1__Impl_in_rule__Restriction__Group_6__15636);
-            rule__Restriction__Group_6__1__Impl();
+            pushFollow(FOLLOW_rule__Restriction__Group_4__1__Impl_in_rule__Restriction__Group_4__15530);
+            rule__Restriction__Group_4__1__Impl();
 
             state._fsp--;
 
@@ -7621,35 +7490,42 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__Group_6__1"
+    // $ANTLR end "rule__Restriction__Group_4__1"
 
 
-    // $ANTLR start "rule__Restriction__Group_6__1__Impl"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2798:1: rule__Restriction__Group_6__1__Impl : ( ( rule__Restriction__MessageAssignment_6_1 ) ) ;
-    public final void rule__Restriction__Group_6__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__Group_4__1__Impl"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2751:1: rule__Restriction__Group_4__1__Impl : ( ( ',' )? ) ;
+    public final void rule__Restriction__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2802:1: ( ( ( rule__Restriction__MessageAssignment_6_1 ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2803:1: ( ( rule__Restriction__MessageAssignment_6_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2755:1: ( ( ( ',' )? ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2756:1: ( ( ',' )? )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2803:1: ( ( rule__Restriction__MessageAssignment_6_1 ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2804:1: ( rule__Restriction__MessageAssignment_6_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2756:1: ( ( ',' )? )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2757:1: ( ',' )?
             {
-             before(grammarAccess.getRestrictionAccess().getMessageAssignment_6_1()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2805:1: ( rule__Restriction__MessageAssignment_6_1 )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2805:2: rule__Restriction__MessageAssignment_6_1
-            {
-            pushFollow(FOLLOW_rule__Restriction__MessageAssignment_6_1_in_rule__Restriction__Group_6__1__Impl5663);
-            rule__Restriction__MessageAssignment_6_1();
+             before(grammarAccess.getRestrictionAccess().getCommaKeyword_4_1()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2758:1: ( ',' )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            state._fsp--;
+            if ( (LA31_0==41) ) {
+                alt31=1;
+            }
+            switch (alt31) {
+                case 1 :
+                    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2759:2: ','
+                    {
+                    match(input,41,FOLLOW_41_in_rule__Restriction__Group_4__1__Impl5559); 
 
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getRestrictionAccess().getMessageAssignment_6_1()); 
+             after(grammarAccess.getRestrictionAccess().getCommaKeyword_4_1()); 
 
             }
 
@@ -7668,24 +7544,179 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__Group_6__1__Impl"
+    // $ANTLR end "rule__Restriction__Group_4__1__Impl"
+
+
+    // $ANTLR start "rule__Restriction__Group_5__0"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2774:1: rule__Restriction__Group_5__0 : rule__Restriction__Group_5__0__Impl rule__Restriction__Group_5__1 ;
+    public final void rule__Restriction__Group_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2778:1: ( rule__Restriction__Group_5__0__Impl rule__Restriction__Group_5__1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2779:2: rule__Restriction__Group_5__0__Impl rule__Restriction__Group_5__1
+            {
+            pushFollow(FOLLOW_rule__Restriction__Group_5__0__Impl_in_rule__Restriction__Group_5__05596);
+            rule__Restriction__Group_5__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Restriction__Group_5__1_in_rule__Restriction__Group_5__05599);
+            rule__Restriction__Group_5__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Restriction__Group_5__0"
+
+
+    // $ANTLR start "rule__Restriction__Group_5__0__Impl"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2786:1: rule__Restriction__Group_5__0__Impl : ( 'message' ) ;
+    public final void rule__Restriction__Group_5__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2790:1: ( ( 'message' ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2791:1: ( 'message' )
+            {
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2791:1: ( 'message' )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2792:1: 'message'
+            {
+             before(grammarAccess.getRestrictionAccess().getMessageKeyword_5_0()); 
+            match(input,50,FOLLOW_50_in_rule__Restriction__Group_5__0__Impl5627); 
+             after(grammarAccess.getRestrictionAccess().getMessageKeyword_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Restriction__Group_5__0__Impl"
+
+
+    // $ANTLR start "rule__Restriction__Group_5__1"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2805:1: rule__Restriction__Group_5__1 : rule__Restriction__Group_5__1__Impl ;
+    public final void rule__Restriction__Group_5__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2809:1: ( rule__Restriction__Group_5__1__Impl )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2810:2: rule__Restriction__Group_5__1__Impl
+            {
+            pushFollow(FOLLOW_rule__Restriction__Group_5__1__Impl_in_rule__Restriction__Group_5__15658);
+            rule__Restriction__Group_5__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Restriction__Group_5__1"
+
+
+    // $ANTLR start "rule__Restriction__Group_5__1__Impl"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2816:1: rule__Restriction__Group_5__1__Impl : ( ( rule__Restriction__MessageAssignment_5_1 ) ) ;
+    public final void rule__Restriction__Group_5__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2820:1: ( ( ( rule__Restriction__MessageAssignment_5_1 ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2821:1: ( ( rule__Restriction__MessageAssignment_5_1 ) )
+            {
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2821:1: ( ( rule__Restriction__MessageAssignment_5_1 ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2822:1: ( rule__Restriction__MessageAssignment_5_1 )
+            {
+             before(grammarAccess.getRestrictionAccess().getMessageAssignment_5_1()); 
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2823:1: ( rule__Restriction__MessageAssignment_5_1 )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2823:2: rule__Restriction__MessageAssignment_5_1
+            {
+            pushFollow(FOLLOW_rule__Restriction__MessageAssignment_5_1_in_rule__Restriction__Group_5__1__Impl5685);
+            rule__Restriction__MessageAssignment_5_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRestrictionAccess().getMessageAssignment_5_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Restriction__Group_5__1__Impl"
 
 
     // $ANTLR start "rule__ASMLModel__NameAssignment_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2820:1: rule__ASMLModel__NameAssignment_1 : ( RULE_ID_ASML ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2838:1: rule__ASMLModel__NameAssignment_1 : ( RULE_ID_ASML ) ;
     public final void rule__ASMLModel__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2824:1: ( ( RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2825:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2842:1: ( ( RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2843:1: ( RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2825:1: ( RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2826:1: RULE_ID_ASML
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2843:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2844:1: RULE_ID_ASML
             {
              before(grammarAccess.getASMLModelAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
-            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__ASMLModel__NameAssignment_15702); 
+            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__ASMLModel__NameAssignment_15724); 
              after(grammarAccess.getASMLModelAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
 
             }
@@ -7709,20 +7740,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__ImportURIAssignment_3_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2835:1: rule__ASMLModel__ImportURIAssignment_3_1 : ( RULE_STRING ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2853:1: rule__ASMLModel__ImportURIAssignment_3_1 : ( RULE_STRING ) ;
     public final void rule__ASMLModel__ImportURIAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2839:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2840:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2857:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2858:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2840:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2841:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2858:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2859:1: RULE_STRING
             {
              before(grammarAccess.getASMLModelAccess().getImportURISTRINGTerminalRuleCall_3_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ASMLModel__ImportURIAssignment_3_15733); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ASMLModel__ImportURIAssignment_3_15755); 
              after(grammarAccess.getASMLModelAccess().getImportURISTRINGTerminalRuleCall_3_1_0()); 
 
             }
@@ -7746,20 +7777,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__ComponentsAssignment_4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2850:1: rule__ASMLModel__ComponentsAssignment_4 : ( ruleAbstractComponent ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2868:1: rule__ASMLModel__ComponentsAssignment_4 : ( ruleAbstractComponent ) ;
     public final void rule__ASMLModel__ComponentsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2854:1: ( ( ruleAbstractComponent ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2855:1: ( ruleAbstractComponent )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2872:1: ( ( ruleAbstractComponent ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2873:1: ( ruleAbstractComponent )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2855:1: ( ruleAbstractComponent )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2856:1: ruleAbstractComponent
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2873:1: ( ruleAbstractComponent )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2874:1: ruleAbstractComponent
             {
              before(grammarAccess.getASMLModelAccess().getComponentsAbstractComponentParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleAbstractComponent_in_rule__ASMLModel__ComponentsAssignment_45764);
+            pushFollow(FOLLOW_ruleAbstractComponent_in_rule__ASMLModel__ComponentsAssignment_45786);
             ruleAbstractComponent();
 
             state._fsp--;
@@ -7787,20 +7818,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ASMLModel__IgnoreAssignment_5_1_0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2865:1: rule__ASMLModel__IgnoreAssignment_5_1_0 : ( RULE_STRING ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2883:1: rule__ASMLModel__IgnoreAssignment_5_1_0 : ( RULE_STRING ) ;
     public final void rule__ASMLModel__IgnoreAssignment_5_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2869:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2870:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2887:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2888:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2870:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2871:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2888:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2889:1: RULE_STRING
             {
              before(grammarAccess.getASMLModelAccess().getIgnoreSTRINGTerminalRuleCall_5_1_0_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ASMLModel__IgnoreAssignment_5_1_05795); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ASMLModel__IgnoreAssignment_5_1_05817); 
              after(grammarAccess.getASMLModelAccess().getIgnoreSTRINGTerminalRuleCall_5_1_0_0()); 
 
             }
@@ -7824,20 +7855,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__NameAssignment_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2880:1: rule__View__NameAssignment_1 : ( RULE_ID_ASML ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2898:1: rule__View__NameAssignment_1 : ( RULE_ID_ASML ) ;
     public final void rule__View__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2884:1: ( ( RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2885:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2902:1: ( ( RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2903:1: ( RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2885:1: ( RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2886:1: RULE_ID_ASML
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2903:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2904:1: RULE_ID_ASML
             {
              before(grammarAccess.getViewAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
-            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__View__NameAssignment_15826); 
+            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__View__NameAssignment_15848); 
              after(grammarAccess.getViewAccess().getNameID_ASMLTerminalRuleCall_1_0()); 
 
             }
@@ -7861,20 +7892,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__AttributesAssignment_3_0_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2895:1: rule__View__AttributesAssignment_3_0_1 : ( ruleAttribute ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2913:1: rule__View__AttributesAssignment_3_0_1 : ( ruleAttribute ) ;
     public final void rule__View__AttributesAssignment_3_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2899:1: ( ( ruleAttribute ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2900:1: ( ruleAttribute )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2917:1: ( ( ruleAttribute ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2918:1: ( ruleAttribute )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2900:1: ( ruleAttribute )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2901:1: ruleAttribute
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2918:1: ( ruleAttribute )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2919:1: ruleAttribute
             {
              before(grammarAccess.getViewAccess().getAttributesAttributeParserRuleCall_3_0_1_0()); 
-            pushFollow(FOLLOW_ruleAttribute_in_rule__View__AttributesAssignment_3_0_15857);
+            pushFollow(FOLLOW_ruleAttribute_in_rule__View__AttributesAssignment_3_0_15879);
             ruleAttribute();
 
             state._fsp--;
@@ -7902,20 +7933,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__ComponentsAssignment_4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2910:1: rule__View__ComponentsAssignment_4 : ( ruleAbstractComponent ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2928:1: rule__View__ComponentsAssignment_4 : ( ruleAbstractComponent ) ;
     public final void rule__View__ComponentsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2914:1: ( ( ruleAbstractComponent ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2915:1: ( ruleAbstractComponent )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2932:1: ( ( ruleAbstractComponent ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2933:1: ( ruleAbstractComponent )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2915:1: ( ruleAbstractComponent )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2916:1: ruleAbstractComponent
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2933:1: ( ruleAbstractComponent )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2934:1: ruleAbstractComponent
             {
              before(grammarAccess.getViewAccess().getComponentsAbstractComponentParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleAbstractComponent_in_rule__View__ComponentsAssignment_45888);
+            pushFollow(FOLLOW_ruleAbstractComponent_in_rule__View__ComponentsAssignment_45910);
             ruleAbstractComponent();
 
             state._fsp--;
@@ -7943,20 +7974,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__View__RestrictionsAssignment_5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2925:1: rule__View__RestrictionsAssignment_5 : ( ruleRestriction ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2943:1: rule__View__RestrictionsAssignment_5 : ( ruleRestriction ) ;
     public final void rule__View__RestrictionsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2929:1: ( ( ruleRestriction ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2930:1: ( ruleRestriction )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2947:1: ( ( ruleRestriction ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2948:1: ( ruleRestriction )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2930:1: ( ruleRestriction )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2931:1: ruleRestriction
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2948:1: ( ruleRestriction )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2949:1: ruleRestriction
             {
              before(grammarAccess.getViewAccess().getRestrictionsRestrictionParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleRestriction_in_rule__View__RestrictionsAssignment_55919);
+            pushFollow(FOLLOW_ruleRestriction_in_rule__View__RestrictionsAssignment_55941);
             ruleRestriction();
 
             state._fsp--;
@@ -7984,20 +8015,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2940:1: rule__Attribute__NameAssignment_0 : ( RULE_ID_ASML ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2958:1: rule__Attribute__NameAssignment_0 : ( RULE_ID_ASML ) ;
     public final void rule__Attribute__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2944:1: ( ( RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2945:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2962:1: ( ( RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2963:1: ( RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2945:1: ( RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2946:1: RULE_ID_ASML
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2963:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2964:1: RULE_ID_ASML
             {
              before(grammarAccess.getAttributeAccess().getNameID_ASMLTerminalRuleCall_0_0()); 
-            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__Attribute__NameAssignment_05950); 
+            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__Attribute__NameAssignment_05972); 
              after(grammarAccess.getAttributeAccess().getNameID_ASMLTerminalRuleCall_0_0()); 
 
             }
@@ -8021,20 +8052,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Attribute__ValueAssignment_2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2955:1: rule__Attribute__ValueAssignment_2 : ( RULE_STRING ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2973:1: rule__Attribute__ValueAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Attribute__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2959:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2960:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2977:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2978:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2960:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2961:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2978:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2979:1: RULE_STRING
             {
              before(grammarAccess.getAttributeAccess().getValueSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Attribute__ValueAssignment_25981); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Attribute__ValueAssignment_26003); 
              after(grammarAccess.getAttributeAccess().getValueSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -8058,20 +8089,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ClassMatching__ExpressionMatchingAssignment_0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2973:1: rule__ClassMatching__ExpressionMatchingAssignment_0 : ( ruleExpressionMatchingClause ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2991:1: rule__ClassMatching__ExpressionMatchingAssignment_0 : ( ruleExpressionMatchingClause ) ;
     public final void rule__ClassMatching__ExpressionMatchingAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2977:1: ( ( ruleExpressionMatchingClause ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2978:1: ( ruleExpressionMatchingClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2995:1: ( ( ruleExpressionMatchingClause ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2996:1: ( ruleExpressionMatchingClause )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2978:1: ( ruleExpressionMatchingClause )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2979:1: ruleExpressionMatchingClause
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2996:1: ( ruleExpressionMatchingClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2997:1: ruleExpressionMatchingClause
             {
              before(grammarAccess.getClassMatchingAccess().getExpressionMatchingExpressionMatchingClauseEnumRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleExpressionMatchingClause_in_rule__ClassMatching__ExpressionMatchingAssignment_06015);
+            pushFollow(FOLLOW_ruleExpressionMatchingClause_in_rule__ClassMatching__ExpressionMatchingAssignment_06037);
             ruleExpressionMatchingClause();
 
             state._fsp--;
@@ -8099,20 +8130,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ClassMatching__ParameterAssignment_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2988:1: rule__ClassMatching__ParameterAssignment_1 : ( RULE_STRING ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3006:1: rule__ClassMatching__ParameterAssignment_1 : ( RULE_STRING ) ;
     public final void rule__ClassMatching__ParameterAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2992:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2993:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3010:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3011:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2993:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:2994:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3011:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3012:1: RULE_STRING
             {
              before(grammarAccess.getClassMatchingAccess().getParameterSTRINGTerminalRuleCall_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ClassMatching__ParameterAssignment_16046); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ClassMatching__ParameterAssignment_16068); 
              after(grammarAccess.getClassMatchingAccess().getParameterSTRINGTerminalRuleCall_1_0()); 
 
             }
@@ -8136,20 +8167,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__NameAssignment_0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3003:1: rule__MetaModule__NameAssignment_0 : ( RULE_ID_ASML ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3021:1: rule__MetaModule__NameAssignment_0 : ( RULE_ID_ASML ) ;
     public final void rule__MetaModule__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3007:1: ( ( RULE_ID_ASML ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3008:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3025:1: ( ( RULE_ID_ASML ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3026:1: ( RULE_ID_ASML )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3008:1: ( RULE_ID_ASML )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3009:1: RULE_ID_ASML
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3026:1: ( RULE_ID_ASML )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3027:1: RULE_ID_ASML
             {
              before(grammarAccess.getMetaModuleAccess().getNameID_ASMLTerminalRuleCall_0_0()); 
-            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__MetaModule__NameAssignment_06077); 
+            match(input,RULE_ID_ASML,FOLLOW_RULE_ID_ASML_in_rule__MetaModule__NameAssignment_06099); 
              after(grammarAccess.getMetaModuleAccess().getNameID_ASMLTerminalRuleCall_0_0()); 
 
             }
@@ -8173,20 +8204,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__AttributesAssignment_2_0_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3018:1: rule__MetaModule__AttributesAssignment_2_0_1 : ( ruleAttribute ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3036:1: rule__MetaModule__AttributesAssignment_2_0_1 : ( ruleAttribute ) ;
     public final void rule__MetaModule__AttributesAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3022:1: ( ( ruleAttribute ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3023:1: ( ruleAttribute )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3040:1: ( ( ruleAttribute ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3041:1: ( ruleAttribute )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3023:1: ( ruleAttribute )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3024:1: ruleAttribute
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3041:1: ( ruleAttribute )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3042:1: ruleAttribute
             {
              before(grammarAccess.getMetaModuleAccess().getAttributesAttributeParserRuleCall_2_0_1_0()); 
-            pushFollow(FOLLOW_ruleAttribute_in_rule__MetaModule__AttributesAssignment_2_0_16108);
+            pushFollow(FOLLOW_ruleAttribute_in_rule__MetaModule__AttributesAssignment_2_0_16130);
             ruleAttribute();
 
             state._fsp--;
@@ -8214,20 +8245,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__MatchingAssignment_3_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3033:1: rule__MetaModule__MatchingAssignment_3_1 : ( RULE_STRING ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3051:1: rule__MetaModule__MatchingAssignment_3_1 : ( RULE_STRING ) ;
     public final void rule__MetaModule__MatchingAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3037:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3038:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3055:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3056:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3038:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3039:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3056:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3057:1: RULE_STRING
             {
              before(grammarAccess.getMetaModuleAccess().getMatchingSTRINGTerminalRuleCall_3_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__MetaModule__MatchingAssignment_3_16139); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__MetaModule__MatchingAssignment_3_16161); 
              after(grammarAccess.getMetaModuleAccess().getMatchingSTRINGTerminalRuleCall_3_1_0()); 
 
             }
@@ -8251,20 +8282,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__DescriptionAssignment_4_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3048:1: rule__MetaModule__DescriptionAssignment_4_1 : ( RULE_STRING ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3066:1: rule__MetaModule__DescriptionAssignment_4_1 : ( RULE_STRING ) ;
     public final void rule__MetaModule__DescriptionAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3052:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3053:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3070:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3071:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3053:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3054:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3071:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3072:1: RULE_STRING
             {
              before(grammarAccess.getMetaModuleAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__MetaModule__DescriptionAssignment_4_16170); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__MetaModule__DescriptionAssignment_4_16192); 
              after(grammarAccess.getMetaModuleAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
 
             }
@@ -8288,20 +8319,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__ComponentsAssignment_5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3063:1: rule__MetaModule__ComponentsAssignment_5 : ( ruleAbstractComponent ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3081:1: rule__MetaModule__ComponentsAssignment_5 : ( ruleAbstractComponent ) ;
     public final void rule__MetaModule__ComponentsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3067:1: ( ( ruleAbstractComponent ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3068:1: ( ruleAbstractComponent )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3085:1: ( ( ruleAbstractComponent ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3086:1: ( ruleAbstractComponent )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3068:1: ( ruleAbstractComponent )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3069:1: ruleAbstractComponent
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3086:1: ( ruleAbstractComponent )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3087:1: ruleAbstractComponent
             {
              before(grammarAccess.getMetaModuleAccess().getComponentsAbstractComponentParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleAbstractComponent_in_rule__MetaModule__ComponentsAssignment_56201);
+            pushFollow(FOLLOW_ruleAbstractComponent_in_rule__MetaModule__ComponentsAssignment_56223);
             ruleAbstractComponent();
 
             state._fsp--;
@@ -8329,20 +8360,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MetaModule__RestrictionsAssignment_6_2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3078:1: rule__MetaModule__RestrictionsAssignment_6_2 : ( ruleRestriction ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3096:1: rule__MetaModule__RestrictionsAssignment_6_2 : ( ruleRestriction ) ;
     public final void rule__MetaModule__RestrictionsAssignment_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3082:1: ( ( ruleRestriction ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3083:1: ( ruleRestriction )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3100:1: ( ( ruleRestriction ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3101:1: ( ruleRestriction )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3083:1: ( ruleRestriction )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3084:1: ruleRestriction
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3101:1: ( ruleRestriction )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3102:1: ruleRestriction
             {
              before(grammarAccess.getMetaModuleAccess().getRestrictionsRestrictionParserRuleCall_6_2_0()); 
-            pushFollow(FOLLOW_ruleRestriction_in_rule__MetaModule__RestrictionsAssignment_6_26232);
+            pushFollow(FOLLOW_ruleRestriction_in_rule__MetaModule__RestrictionsAssignment_6_26254);
             ruleRestriction();
 
             state._fsp--;
@@ -8370,20 +8401,20 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Restriction__GroupClauseAssignment_0"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3093:1: rule__Restriction__GroupClauseAssignment_0 : ( ruleGroupClause ) ;
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3111:1: rule__Restriction__GroupClauseAssignment_0 : ( ruleGroupClause ) ;
     public final void rule__Restriction__GroupClauseAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3097:1: ( ( ruleGroupClause ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3098:1: ( ruleGroupClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3115:1: ( ( ruleGroupClause ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3116:1: ( ruleGroupClause )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3098:1: ( ruleGroupClause )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3099:1: ruleGroupClause
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3116:1: ( ruleGroupClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3117:1: ruleGroupClause
             {
              before(grammarAccess.getRestrictionAccess().getGroupClauseGroupClauseEnumRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseAssignment_06263);
+            pushFollow(FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseAssignment_06285);
             ruleGroupClause();
 
             state._fsp--;
@@ -8410,75 +8441,26 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Restriction__GroupClauseAssignment_0"
 
 
-    // $ANTLR start "rule__Restriction__ComponentAAssignment_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3108:1: rule__Restriction__ComponentAAssignment_1 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__Restriction__ComponentAAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__PermissionClauseAssignment_1"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3126:1: rule__Restriction__PermissionClauseAssignment_1 : ( rulePermissionClause ) ;
+    public final void rule__Restriction__PermissionClauseAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3112:1: ( ( ( ruleQualifiedName ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3113:1: ( ( ruleQualifiedName ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3130:1: ( ( rulePermissionClause ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3131:1: ( rulePermissionClause )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3113:1: ( ( ruleQualifiedName ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3114:1: ( ruleQualifiedName )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3131:1: ( rulePermissionClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3132:1: rulePermissionClause
             {
-             before(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentCrossReference_1_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3115:1: ( ruleQualifiedName )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3116:1: ruleQualifiedName
-            {
-             before(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentQualifiedNameParserRuleCall_1_0_1()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Restriction__ComponentAAssignment_16298);
-            ruleQualifiedName();
-
-            state._fsp--;
-
-             after(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentQualifiedNameParserRuleCall_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getRestrictionAccess().getComponentAAbstractComponentCrossReference_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Restriction__ComponentAAssignment_1"
-
-
-    // $ANTLR start "rule__Restriction__PermissionClauseAssignment_2"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3127:1: rule__Restriction__PermissionClauseAssignment_2 : ( rulePermissionClause ) ;
-    public final void rule__Restriction__PermissionClauseAssignment_2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3131:1: ( ( rulePermissionClause ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3132:1: ( rulePermissionClause )
-            {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3132:1: ( rulePermissionClause )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3133:1: rulePermissionClause
-            {
-             before(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_2_0()); 
-            pushFollow(FOLLOW_rulePermissionClause_in_rule__Restriction__PermissionClauseAssignment_26333);
+             before(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_1_0()); 
+            pushFollow(FOLLOW_rulePermissionClause_in_rule__Restriction__PermissionClauseAssignment_16316);
             rulePermissionClause();
 
             state._fsp--;
 
-             after(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_2_0()); 
+             after(grammarAccess.getRestrictionAccess().getPermissionClausePermissionClauseEnumRuleCall_1_0()); 
 
             }
 
@@ -8497,29 +8479,29 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__PermissionClauseAssignment_2"
+    // $ANTLR end "rule__Restriction__PermissionClauseAssignment_1"
 
 
-    // $ANTLR start "rule__Restriction__RelactionTypeAssignment_3"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3142:1: rule__Restriction__RelactionTypeAssignment_3 : ( ruleRelactionType ) ;
-    public final void rule__Restriction__RelactionTypeAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__RelactionTypeAssignment_2"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3141:1: rule__Restriction__RelactionTypeAssignment_2 : ( ruleRelactionType ) ;
+    public final void rule__Restriction__RelactionTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3146:1: ( ( ruleRelactionType ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3147:1: ( ruleRelactionType )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3145:1: ( ( ruleRelactionType ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3146:1: ( ruleRelactionType )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3147:1: ( ruleRelactionType )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3148:1: ruleRelactionType
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3146:1: ( ruleRelactionType )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3147:1: ruleRelactionType
             {
-             before(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleRelactionType_in_rule__Restriction__RelactionTypeAssignment_36364);
+             before(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_2_0()); 
+            pushFollow(FOLLOW_ruleRelactionType_in_rule__Restriction__RelactionTypeAssignment_26347);
             ruleRelactionType();
 
             state._fsp--;
 
-             after(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_3_0()); 
+             after(grammarAccess.getRestrictionAccess().getRelactionTypeRelactionTypeEnumRuleCall_2_0()); 
 
             }
 
@@ -8538,29 +8520,29 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__RelactionTypeAssignment_3"
+    // $ANTLR end "rule__Restriction__RelactionTypeAssignment_2"
 
 
-    // $ANTLR start "rule__Restriction__GroupClauseBAssignment_4"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3157:1: rule__Restriction__GroupClauseBAssignment_4 : ( ruleGroupClause ) ;
-    public final void rule__Restriction__GroupClauseBAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__GroupClauseBAssignment_3"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3156:1: rule__Restriction__GroupClauseBAssignment_3 : ( ruleGroupClause ) ;
+    public final void rule__Restriction__GroupClauseBAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3161:1: ( ( ruleGroupClause ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3162:1: ( ruleGroupClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3160:1: ( ( ruleGroupClause ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3161:1: ( ruleGroupClause )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3162:1: ( ruleGroupClause )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3163:1: ruleGroupClause
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3161:1: ( ruleGroupClause )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3162:1: ruleGroupClause
             {
-             before(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseBAssignment_46395);
+             before(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_3_0()); 
+            pushFollow(FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseBAssignment_36378);
             ruleGroupClause();
 
             state._fsp--;
 
-             after(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_4_0()); 
+             after(grammarAccess.getRestrictionAccess().getGroupClauseBGroupClauseEnumRuleCall_3_0()); 
 
             }
 
@@ -8579,37 +8561,37 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__GroupClauseBAssignment_4"
+    // $ANTLR end "rule__Restriction__GroupClauseBAssignment_3"
 
 
-    // $ANTLR start "rule__Restriction__ComponentBAssignment_5"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3172:1: rule__Restriction__ComponentBAssignment_5 : ( ( ruleQualifiedName ) ) ;
-    public final void rule__Restriction__ComponentBAssignment_5() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__ComponentBAssignment_4_0"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3171:1: rule__Restriction__ComponentBAssignment_4_0 : ( ( ruleQualifiedName ) ) ;
+    public final void rule__Restriction__ComponentBAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3176:1: ( ( ( ruleQualifiedName ) ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3177:1: ( ( ruleQualifiedName ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3175:1: ( ( ( ruleQualifiedName ) ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3176:1: ( ( ruleQualifiedName ) )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3177:1: ( ( ruleQualifiedName ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3176:1: ( ( ruleQualifiedName ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3177:1: ( ruleQualifiedName )
+            {
+             before(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_4_0_0()); 
             // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3178:1: ( ruleQualifiedName )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3179:1: ruleQualifiedName
             {
-             before(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_5_0()); 
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3179:1: ( ruleQualifiedName )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3180:1: ruleQualifiedName
-            {
-             before(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentQualifiedNameParserRuleCall_5_0_1()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Restriction__ComponentBAssignment_56430);
+             before(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentQualifiedNameParserRuleCall_4_0_0_1()); 
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Restriction__ComponentBAssignment_4_06413);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentQualifiedNameParserRuleCall_5_0_1()); 
+             after(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentQualifiedNameParserRuleCall_4_0_0_1()); 
 
             }
 
-             after(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_5_0()); 
+             after(grammarAccess.getRestrictionAccess().getComponentBAbstractComponentCrossReference_4_0_0()); 
 
             }
 
@@ -8628,25 +8610,25 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__ComponentBAssignment_5"
+    // $ANTLR end "rule__Restriction__ComponentBAssignment_4_0"
 
 
-    // $ANTLR start "rule__Restriction__MessageAssignment_6_1"
-    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3191:1: rule__Restriction__MessageAssignment_6_1 : ( RULE_STRING ) ;
-    public final void rule__Restriction__MessageAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__Restriction__MessageAssignment_5_1"
+    // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3190:1: rule__Restriction__MessageAssignment_5_1 : ( RULE_STRING ) ;
+    public final void rule__Restriction__MessageAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3195:1: ( ( RULE_STRING ) )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3196:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3194:1: ( ( RULE_STRING ) )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3195:1: ( RULE_STRING )
             {
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3196:1: ( RULE_STRING )
-            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3197:1: RULE_STRING
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3195:1: ( RULE_STRING )
+            // ../br.ufmg.dcc.asml.ui/src-gen/br/ufmg/dcc/asml/ui/contentassist/antlr/internal/InternalASMLModel.g:3196:1: RULE_STRING
             {
-             before(grammarAccess.getRestrictionAccess().getMessageSTRINGTerminalRuleCall_6_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Restriction__MessageAssignment_6_16465); 
-             after(grammarAccess.getRestrictionAccess().getMessageSTRINGTerminalRuleCall_6_1_0()); 
+             before(grammarAccess.getRestrictionAccess().getMessageSTRINGTerminalRuleCall_5_1_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Restriction__MessageAssignment_5_16448); 
+             after(grammarAccess.getRestrictionAccess().getMessageSTRINGTerminalRuleCall_5_1_0()); 
 
             }
 
@@ -8665,7 +8647,7 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Restriction__MessageAssignment_6_1"
+    // $ANTLR end "rule__Restriction__MessageAssignment_5_1"
 
     // Delegated rules
 
@@ -8713,11 +8695,11 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_19_in_rule__GroupClause__Alternatives968 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_20_in_rule__GroupClause__Alternatives989 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_21_in_rule__GroupClause__Alternatives1010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__GroupClause__Alternatives1031 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__PermissionClause__Alternatives1046 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_23_in_rule__PermissionClause__Alternatives1067 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_24_in_rule__PermissionClause__Alternatives1088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__PermissionClause__Alternatives1109 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__PermissionClause__Alternatives1130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__RelactionType__Alternatives1124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_rule__RelactionType__Alternatives1145 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_rule__RelactionType__Alternatives1166 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_rule__RelactionType__Alternatives1187 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_29_in_rule__RelactionType__Alternatives1208 = new BitSet(new long[]{0x0000000000000002L});
@@ -8726,220 +8708,219 @@ public class InternalASMLModelParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_32_in_rule__RelactionType__Alternatives1271 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_33_in_rule__RelactionType__Alternatives1292 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_34_in_rule__RelactionType__Alternatives1313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_rule__RelactionType__Alternatives1334 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_rule__RelactionType__Alternatives1355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__0__Impl_in_rule__ASMLModel__Group__01388 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__1_in_rule__ASMLModel__Group__01391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_rule__ASMLModel__Group__0__Impl1419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__1__Impl_in_rule__ASMLModel__Group__11450 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__2_in_rule__ASMLModel__Group__11453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__NameAssignment_1_in_rule__ASMLModel__Group__1__Impl1480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__2__Impl_in_rule__ASMLModel__Group__21510 = new BitSet(new long[]{0x0000158000000010L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__3_in_rule__ASMLModel__Group__21513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_rule__ASMLModel__Group__2__Impl1541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__3__Impl_in_rule__ASMLModel__Group__31572 = new BitSet(new long[]{0x0000158000000010L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__4_in_rule__ASMLModel__Group__31575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__0_in_rule__ASMLModel__Group__3__Impl1602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__4__Impl_in_rule__ASMLModel__Group__41633 = new BitSet(new long[]{0x0000158000000010L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__5_in_rule__ASMLModel__Group__41636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__ComponentsAssignment_4_in_rule__ASMLModel__Group__4__Impl1663 = new BitSet(new long[]{0x0000100000000012L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__5__Impl_in_rule__ASMLModel__Group__51694 = new BitSet(new long[]{0x0000158000000010L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__6_in_rule__ASMLModel__Group__51697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__0_in_rule__ASMLModel__Group__5__Impl1724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group__6__Impl_in_rule__ASMLModel__Group__61755 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ASMLModel__Group__6__Impl1783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__0__Impl_in_rule__ASMLModel__Group_3__01828 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__1_in_rule__ASMLModel__Group_3__01831 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ASMLModel__Group_3__0__Impl1859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__1__Impl_in_rule__ASMLModel__Group_3__11890 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__2_in_rule__ASMLModel__Group_3__11893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__ImportURIAssignment_3_1_in_rule__ASMLModel__Group_3__1__Impl1920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__2__Impl_in_rule__ASMLModel__Group_3__21950 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ASMLModel__Group_3__2__Impl1978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__0__Impl_in_rule__ASMLModel__Group_5__02015 = new BitSet(new long[]{0x0000020000000020L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__1_in_rule__ASMLModel__Group_5__02018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_rule__ASMLModel__Group_5__0__Impl2046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__1__Impl_in_rule__ASMLModel__Group_5__12077 = new BitSet(new long[]{0x0000020000000020L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__2_in_rule__ASMLModel__Group_5__12080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__0_in_rule__ASMLModel__Group_5__1__Impl2107 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__2__Impl_in_rule__ASMLModel__Group_5__22138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ASMLModel__Group_5__2__Impl2166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__0__Impl_in_rule__ASMLModel__Group_5_1__02203 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__1_in_rule__ASMLModel__Group_5_1__02206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__IgnoreAssignment_5_1_0_in_rule__ASMLModel__Group_5_1__0__Impl2233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__1__Impl_in_rule__ASMLModel__Group_5_1__12263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__ASMLModel__Group_5_1__1__Impl2292 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group__0__Impl_in_rule__View__Group__02329 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__View__Group__1_in_rule__View__Group__02332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__View__Group__0__Impl2360 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group__1__Impl_in_rule__View__Group__12391 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_rule__View__Group__2_in_rule__View__Group__12394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__NameAssignment_1_in_rule__View__Group__1__Impl2421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group__2__Impl_in_rule__View__Group__22451 = new BitSet(new long[]{0x0000329FFFF80010L});
-    public static final BitSet FOLLOW_rule__View__Group__3_in_rule__View__Group__22454 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_rule__View__Group__2__Impl2482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group__3__Impl_in_rule__View__Group__32513 = new BitSet(new long[]{0x0000329FFFF80010L});
-    public static final BitSet FOLLOW_rule__View__Group__4_in_rule__View__Group__32516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3__0_in_rule__View__Group__3__Impl2543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group__4__Impl_in_rule__View__Group__42574 = new BitSet(new long[]{0x0000329FFFF80010L});
-    public static final BitSet FOLLOW_rule__View__Group__5_in_rule__View__Group__42577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__ComponentsAssignment_4_in_rule__View__Group__4__Impl2604 = new BitSet(new long[]{0x0000100000000012L});
-    public static final BitSet FOLLOW_rule__View__Group__5__Impl_in_rule__View__Group__52635 = new BitSet(new long[]{0x0000329FFFF80010L});
-    public static final BitSet FOLLOW_rule__View__Group__6_in_rule__View__Group__52638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__RestrictionsAssignment_5_in_rule__View__Group__5__Impl2665 = new BitSet(new long[]{0x0000001FFFF80012L});
-    public static final BitSet FOLLOW_rule__View__Group__6__Impl_in_rule__View__Group__62696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__View__Group__6__Impl2724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3__0__Impl_in_rule__View__Group_3__02769 = new BitSet(new long[]{0x0000220000000000L});
-    public static final BitSet FOLLOW_rule__View__Group_3__1_in_rule__View__Group_3__02772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3_0__0_in_rule__View__Group_3__0__Impl2799 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3__1__Impl_in_rule__View__Group_3__12830 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__View__Group_3__1__Impl2858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3_0__0__Impl_in_rule__View__Group_3_0__02893 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__View__Group_3_0__1_in_rule__View__Group_3_0__02896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_rule__View__Group_3_0__0__Impl2924 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3_0__1__Impl_in_rule__View__Group_3_0__12955 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_rule__View__Group_3_0__2_in_rule__View__Group_3_0__12958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__AttributesAssignment_3_0_1_in_rule__View__Group_3_0__1__Impl2985 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__View__Group_3_0__2__Impl_in_rule__View__Group_3_0__23015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__View__Group_3_0__2__Impl3044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__03083 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__03086 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__NameAssignment_0_in_rule__Attribute__Group__0__Impl3113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__13143 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__13146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_rule__Attribute__Group__1__Impl3174 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__23205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__ValueAssignment_2_in_rule__Attribute__Group__2__Impl3232 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClassMatching__Group__0__Impl_in_rule__ClassMatching__Group__03268 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ClassMatching__Group__1_in_rule__ClassMatching__Group__03271 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClassMatching__ExpressionMatchingAssignment_0_in_rule__ClassMatching__Group__0__Impl3298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClassMatching__Group__1__Impl_in_rule__ClassMatching__Group__13328 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClassMatching__ParameterAssignment_1_in_rule__ClassMatching__Group__1__Impl3355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__0__Impl_in_rule__MetaModule__Group__03389 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__1_in_rule__MetaModule__Group__03392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__NameAssignment_0_in_rule__MetaModule__Group__0__Impl3419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__1__Impl_in_rule__MetaModule__Group__13449 = new BitSet(new long[]{0x0007928000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__2_in_rule__MetaModule__Group__13452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_rule__MetaModule__Group__1__Impl3480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__2__Impl_in_rule__MetaModule__Group__23511 = new BitSet(new long[]{0x0007928000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__3_in_rule__MetaModule__Group__23514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2__0_in_rule__MetaModule__Group__2__Impl3541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__3__Impl_in_rule__MetaModule__Group__33572 = new BitSet(new long[]{0x0007928000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__4_in_rule__MetaModule__Group__33575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_3__0_in_rule__MetaModule__Group__3__Impl3602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__4__Impl_in_rule__MetaModule__Group__43633 = new BitSet(new long[]{0x0007928000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__5_in_rule__MetaModule__Group__43636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_4__0_in_rule__MetaModule__Group__4__Impl3663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__5__Impl_in_rule__MetaModule__Group__53694 = new BitSet(new long[]{0x0007928000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__6_in_rule__MetaModule__Group__53697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__ComponentsAssignment_5_in_rule__MetaModule__Group__5__Impl3724 = new BitSet(new long[]{0x0000100000000012L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__6__Impl_in_rule__MetaModule__Group__63755 = new BitSet(new long[]{0x0007928000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__7_in_rule__MetaModule__Group__63758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__0_in_rule__MetaModule__Group__6__Impl3785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group__7__Impl_in_rule__MetaModule__Group__73816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__MetaModule__Group__7__Impl3844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2__0__Impl_in_rule__MetaModule__Group_2__03891 = new BitSet(new long[]{0x0000820000000000L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2__1_in_rule__MetaModule__Group_2__03894 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__0_in_rule__MetaModule__Group_2__0__Impl3921 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2__1__Impl_in_rule__MetaModule__Group_2__13952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__MetaModule__Group_2__1__Impl3980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__0__Impl_in_rule__MetaModule__Group_2_0__04015 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__1_in_rule__MetaModule__Group_2_0__04018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_rule__MetaModule__Group_2_0__0__Impl4046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__1__Impl_in_rule__MetaModule__Group_2_0__14077 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__2_in_rule__MetaModule__Group_2_0__14080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__AttributesAssignment_2_0_1_in_rule__MetaModule__Group_2_0__1__Impl4107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__2__Impl_in_rule__MetaModule__Group_2_0__24137 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__MetaModule__Group_2_0__2__Impl4166 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_3__0__Impl_in_rule__MetaModule__Group_3__04205 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_3__1_in_rule__MetaModule__Group_3__04208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_rule__MetaModule__Group_3__0__Impl4236 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_3__1__Impl_in_rule__MetaModule__Group_3__14267 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_3__2_in_rule__MetaModule__Group_3__14270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__MatchingAssignment_3_1_in_rule__MetaModule__Group_3__1__Impl4297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_3__2__Impl_in_rule__MetaModule__Group_3__24327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__MetaModule__Group_3__2__Impl4355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_4__0__Impl_in_rule__MetaModule__Group_4__04392 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_4__1_in_rule__MetaModule__Group_4__04395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_rule__MetaModule__Group_4__0__Impl4423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_4__1__Impl_in_rule__MetaModule__Group_4__14454 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_4__2_in_rule__MetaModule__Group_4__14457 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__DescriptionAssignment_4_1_in_rule__MetaModule__Group_4__1__Impl4484 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_4__2__Impl_in_rule__MetaModule__Group_4__24514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__MetaModule__Group_4__2__Impl4542 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__0__Impl_in_rule__MetaModule__Group_6__04579 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__1_in_rule__MetaModule__Group_6__04582 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_rule__MetaModule__Group_6__0__Impl4610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__1__Impl_in_rule__MetaModule__Group_6__14641 = new BitSet(new long[]{0x0000009FFFF80010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__2_in_rule__MetaModule__Group_6__14644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_rule__MetaModule__Group_6__1__Impl4672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__2__Impl_in_rule__MetaModule__Group_6__24703 = new BitSet(new long[]{0x0000009FFFF80010L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__3_in_rule__MetaModule__Group_6__24706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MetaModule__RestrictionsAssignment_6_2_in_rule__MetaModule__Group_6__2__Impl4733 = new BitSet(new long[]{0x0000001FFFF80012L});
-    public static final BitSet FOLLOW_rule__MetaModule__Group_6__3__Impl_in_rule__MetaModule__Group_6__34764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__MetaModule__Group_6__3__Impl4792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__04831 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__04834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group__0__Impl4861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__14890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl4917 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__04952 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__04955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_rule__QualifiedName__Group_1__0__Impl4983 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__15014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group_1__1__Impl5041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__0__Impl_in_rule__Restriction__Group__05074 = new BitSet(new long[]{0x0000001FFFF80010L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__1_in_rule__Restriction__Group__05077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__GroupClauseAssignment_0_in_rule__Restriction__Group__0__Impl5104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__1__Impl_in_rule__Restriction__Group__15135 = new BitSet(new long[]{0x0000001FFFF80010L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__2_in_rule__Restriction__Group__15138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__ComponentAAssignment_1_in_rule__Restriction__Group__1__Impl5165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__2__Impl_in_rule__Restriction__Group__25196 = new BitSet(new long[]{0x0000001FFFF80010L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__3_in_rule__Restriction__Group__25199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__PermissionClauseAssignment_2_in_rule__Restriction__Group__2__Impl5226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__3__Impl_in_rule__Restriction__Group__35257 = new BitSet(new long[]{0x0000000000780010L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__4_in_rule__Restriction__Group__35260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__RelactionTypeAssignment_3_in_rule__Restriction__Group__3__Impl5287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__4__Impl_in_rule__Restriction__Group__45317 = new BitSet(new long[]{0x0000000000780010L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__5_in_rule__Restriction__Group__45320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__GroupClauseBAssignment_4_in_rule__Restriction__Group__4__Impl5347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__5__Impl_in_rule__Restriction__Group__55378 = new BitSet(new long[]{0x0010020000000000L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__6_in_rule__Restriction__Group__55381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__ComponentBAssignment_5_in_rule__Restriction__Group__5__Impl5408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__6__Impl_in_rule__Restriction__Group__65438 = new BitSet(new long[]{0x0010020000000000L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__7_in_rule__Restriction__Group__65441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group_6__0_in_rule__Restriction__Group__6__Impl5468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group__7__Impl_in_rule__Restriction__Group__75499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__Restriction__Group__7__Impl5527 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group_6__0__Impl_in_rule__Restriction__Group_6__05574 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Restriction__Group_6__1_in_rule__Restriction__Group_6__05577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_rule__Restriction__Group_6__0__Impl5605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__Group_6__1__Impl_in_rule__Restriction__Group_6__15636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Restriction__MessageAssignment_6_1_in_rule__Restriction__Group_6__1__Impl5663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__ASMLModel__NameAssignment_15702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__ASMLModel__ImportURIAssignment_3_15733 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_rule__ASMLModel__ComponentsAssignment_45764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__ASMLModel__IgnoreAssignment_5_1_05795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__View__NameAssignment_15826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttribute_in_rule__View__AttributesAssignment_3_0_15857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_rule__View__ComponentsAssignment_45888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRestriction_in_rule__View__RestrictionsAssignment_55919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__Attribute__NameAssignment_05950 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Attribute__ValueAssignment_25981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpressionMatchingClause_in_rule__ClassMatching__ExpressionMatchingAssignment_06015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__ClassMatching__ParameterAssignment_16046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__MetaModule__NameAssignment_06077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttribute_in_rule__MetaModule__AttributesAssignment_2_0_16108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__MetaModule__MatchingAssignment_3_16139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__MetaModule__DescriptionAssignment_4_16170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbstractComponent_in_rule__MetaModule__ComponentsAssignment_56201 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRestriction_in_rule__MetaModule__RestrictionsAssignment_6_26232 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseAssignment_06263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Restriction__ComponentAAssignment_16298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePermissionClause_in_rule__Restriction__PermissionClauseAssignment_26333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelactionType_in_rule__Restriction__RelactionTypeAssignment_36364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseBAssignment_46395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Restriction__ComponentBAssignment_56430 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Restriction__MessageAssignment_6_16465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__0__Impl_in_rule__ASMLModel__Group__01346 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__1_in_rule__ASMLModel__Group__01349 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_rule__ASMLModel__Group__0__Impl1377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__1__Impl_in_rule__ASMLModel__Group__11408 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__2_in_rule__ASMLModel__Group__11411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__NameAssignment_1_in_rule__ASMLModel__Group__1__Impl1438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__2__Impl_in_rule__ASMLModel__Group__21468 = new BitSet(new long[]{0x0000056000000010L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__3_in_rule__ASMLModel__Group__21471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_rule__ASMLModel__Group__2__Impl1499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__3__Impl_in_rule__ASMLModel__Group__31530 = new BitSet(new long[]{0x0000056000000010L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__4_in_rule__ASMLModel__Group__31533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__0_in_rule__ASMLModel__Group__3__Impl1560 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__4__Impl_in_rule__ASMLModel__Group__41591 = new BitSet(new long[]{0x0000056000000010L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__5_in_rule__ASMLModel__Group__41594 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__ComponentsAssignment_4_in_rule__ASMLModel__Group__4__Impl1621 = new BitSet(new long[]{0x0000040000000012L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__5__Impl_in_rule__ASMLModel__Group__51652 = new BitSet(new long[]{0x0000056000000010L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__6_in_rule__ASMLModel__Group__51655 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__0_in_rule__ASMLModel__Group__5__Impl1682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group__6__Impl_in_rule__ASMLModel__Group__61713 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__ASMLModel__Group__6__Impl1741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__0__Impl_in_rule__ASMLModel__Group_3__01786 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__1_in_rule__ASMLModel__Group_3__01789 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_rule__ASMLModel__Group_3__0__Impl1817 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__1__Impl_in_rule__ASMLModel__Group_3__11848 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__2_in_rule__ASMLModel__Group_3__11851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__ImportURIAssignment_3_1_in_rule__ASMLModel__Group_3__1__Impl1878 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_3__2__Impl_in_rule__ASMLModel__Group_3__21908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__ASMLModel__Group_3__2__Impl1936 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__0__Impl_in_rule__ASMLModel__Group_5__01973 = new BitSet(new long[]{0x0000008000000020L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__1_in_rule__ASMLModel__Group_5__01976 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__ASMLModel__Group_5__0__Impl2004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__1__Impl_in_rule__ASMLModel__Group_5__12035 = new BitSet(new long[]{0x0000008000000020L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__2_in_rule__ASMLModel__Group_5__12038 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__0_in_rule__ASMLModel__Group_5__1__Impl2065 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5__2__Impl_in_rule__ASMLModel__Group_5__22096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__ASMLModel__Group_5__2__Impl2124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__0__Impl_in_rule__ASMLModel__Group_5_1__02161 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__1_in_rule__ASMLModel__Group_5_1__02164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__IgnoreAssignment_5_1_0_in_rule__ASMLModel__Group_5_1__0__Impl2191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ASMLModel__Group_5_1__1__Impl_in_rule__ASMLModel__Group_5_1__12221 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_rule__ASMLModel__Group_5_1__1__Impl2250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group__0__Impl_in_rule__View__Group__02287 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__View__Group__1_in_rule__View__Group__02290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_rule__View__Group__0__Impl2318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group__1__Impl_in_rule__View__Group__12349 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__View__Group__2_in_rule__View__Group__12352 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__NameAssignment_1_in_rule__View__Group__1__Impl2379 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group__2__Impl_in_rule__View__Group__22409 = new BitSet(new long[]{0x00000CA7FFF80010L});
+    public static final BitSet FOLLOW_rule__View__Group__3_in_rule__View__Group__22412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_rule__View__Group__2__Impl2440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group__3__Impl_in_rule__View__Group__32471 = new BitSet(new long[]{0x00000CA7FFF80010L});
+    public static final BitSet FOLLOW_rule__View__Group__4_in_rule__View__Group__32474 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3__0_in_rule__View__Group__3__Impl2501 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group__4__Impl_in_rule__View__Group__42532 = new BitSet(new long[]{0x00000CA7FFF80010L});
+    public static final BitSet FOLLOW_rule__View__Group__5_in_rule__View__Group__42535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__ComponentsAssignment_4_in_rule__View__Group__4__Impl2562 = new BitSet(new long[]{0x0000040000000012L});
+    public static final BitSet FOLLOW_rule__View__Group__5__Impl_in_rule__View__Group__52593 = new BitSet(new long[]{0x00000CA7FFF80010L});
+    public static final BitSet FOLLOW_rule__View__Group__6_in_rule__View__Group__52596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__RestrictionsAssignment_5_in_rule__View__Group__5__Impl2623 = new BitSet(new long[]{0x00000007FFF80002L});
+    public static final BitSet FOLLOW_rule__View__Group__6__Impl_in_rule__View__Group__62654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__View__Group__6__Impl2682 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3__0__Impl_in_rule__View__Group_3__02727 = new BitSet(new long[]{0x0000088000000000L});
+    public static final BitSet FOLLOW_rule__View__Group_3__1_in_rule__View__Group_3__02730 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3_0__0_in_rule__View__Group_3__0__Impl2757 = new BitSet(new long[]{0x0000080000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3__1__Impl_in_rule__View__Group_3__12788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__View__Group_3__1__Impl2816 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3_0__0__Impl_in_rule__View__Group_3_0__02851 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__View__Group_3_0__1_in_rule__View__Group_3_0__02854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__View__Group_3_0__0__Impl2882 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3_0__1__Impl_in_rule__View__Group_3_0__12913 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__View__Group_3_0__2_in_rule__View__Group_3_0__12916 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__AttributesAssignment_3_0_1_in_rule__View__Group_3_0__1__Impl2943 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__View__Group_3_0__2__Impl_in_rule__View__Group_3_0__22973 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_rule__View__Group_3_0__2__Impl3002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__03041 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__03044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__NameAssignment_0_in_rule__Attribute__Group__0__Impl3071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__13101 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__13104 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__Attribute__Group__1__Impl3132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__23163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__ValueAssignment_2_in_rule__Attribute__Group__2__Impl3190 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClassMatching__Group__0__Impl_in_rule__ClassMatching__Group__03226 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ClassMatching__Group__1_in_rule__ClassMatching__Group__03229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClassMatching__ExpressionMatchingAssignment_0_in_rule__ClassMatching__Group__0__Impl3256 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClassMatching__Group__1__Impl_in_rule__ClassMatching__Group__13286 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClassMatching__ParameterAssignment_1_in_rule__ClassMatching__Group__1__Impl3313 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__0__Impl_in_rule__MetaModule__Group__03347 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__1_in_rule__MetaModule__Group__03350 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__NameAssignment_0_in_rule__MetaModule__Group__0__Impl3377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__1__Impl_in_rule__MetaModule__Group__13407 = new BitSet(new long[]{0x0001E4A000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__2_in_rule__MetaModule__Group__13410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_rule__MetaModule__Group__1__Impl3438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__2__Impl_in_rule__MetaModule__Group__23469 = new BitSet(new long[]{0x0001E4A000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__3_in_rule__MetaModule__Group__23472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2__0_in_rule__MetaModule__Group__2__Impl3499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__3__Impl_in_rule__MetaModule__Group__33530 = new BitSet(new long[]{0x0001E4A000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__4_in_rule__MetaModule__Group__33533 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_3__0_in_rule__MetaModule__Group__3__Impl3560 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__4__Impl_in_rule__MetaModule__Group__43591 = new BitSet(new long[]{0x0001E4A000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__5_in_rule__MetaModule__Group__43594 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_4__0_in_rule__MetaModule__Group__4__Impl3621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__5__Impl_in_rule__MetaModule__Group__53652 = new BitSet(new long[]{0x0001E4A000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__6_in_rule__MetaModule__Group__53655 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__ComponentsAssignment_5_in_rule__MetaModule__Group__5__Impl3682 = new BitSet(new long[]{0x0000040000000012L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__6__Impl_in_rule__MetaModule__Group__63713 = new BitSet(new long[]{0x0001E4A000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__7_in_rule__MetaModule__Group__63716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__0_in_rule__MetaModule__Group__6__Impl3743 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group__7__Impl_in_rule__MetaModule__Group__73774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__MetaModule__Group__7__Impl3802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2__0__Impl_in_rule__MetaModule__Group_2__03849 = new BitSet(new long[]{0x0000208000000000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2__1_in_rule__MetaModule__Group_2__03852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__0_in_rule__MetaModule__Group_2__0__Impl3879 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2__1__Impl_in_rule__MetaModule__Group_2__13910 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__MetaModule__Group_2__1__Impl3938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__0__Impl_in_rule__MetaModule__Group_2_0__03973 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__1_in_rule__MetaModule__Group_2_0__03976 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_rule__MetaModule__Group_2_0__0__Impl4004 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__1__Impl_in_rule__MetaModule__Group_2_0__14035 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__2_in_rule__MetaModule__Group_2_0__14038 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__AttributesAssignment_2_0_1_in_rule__MetaModule__Group_2_0__1__Impl4065 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_2_0__2__Impl_in_rule__MetaModule__Group_2_0__24095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_rule__MetaModule__Group_2_0__2__Impl4124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_3__0__Impl_in_rule__MetaModule__Group_3__04163 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_3__1_in_rule__MetaModule__Group_3__04166 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_rule__MetaModule__Group_3__0__Impl4194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_3__1__Impl_in_rule__MetaModule__Group_3__14225 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_3__2_in_rule__MetaModule__Group_3__14228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__MatchingAssignment_3_1_in_rule__MetaModule__Group_3__1__Impl4255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_3__2__Impl_in_rule__MetaModule__Group_3__24285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__MetaModule__Group_3__2__Impl4313 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_4__0__Impl_in_rule__MetaModule__Group_4__04350 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_4__1_in_rule__MetaModule__Group_4__04353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_rule__MetaModule__Group_4__0__Impl4381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_4__1__Impl_in_rule__MetaModule__Group_4__14412 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_4__2_in_rule__MetaModule__Group_4__14415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__DescriptionAssignment_4_1_in_rule__MetaModule__Group_4__1__Impl4442 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_4__2__Impl_in_rule__MetaModule__Group_4__24472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__MetaModule__Group_4__2__Impl4500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__0__Impl_in_rule__MetaModule__Group_6__04537 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__1_in_rule__MetaModule__Group_6__04540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_rule__MetaModule__Group_6__0__Impl4568 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__1__Impl_in_rule__MetaModule__Group_6__14599 = new BitSet(new long[]{0x00000027FFF80000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__2_in_rule__MetaModule__Group_6__14602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_rule__MetaModule__Group_6__1__Impl4630 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__2__Impl_in_rule__MetaModule__Group_6__24661 = new BitSet(new long[]{0x00000027FFF80000L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__3_in_rule__MetaModule__Group_6__24664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MetaModule__RestrictionsAssignment_6_2_in_rule__MetaModule__Group_6__2__Impl4691 = new BitSet(new long[]{0x00000007FFF80002L});
+    public static final BitSet FOLLOW_rule__MetaModule__Group_6__3__Impl_in_rule__MetaModule__Group_6__34722 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__MetaModule__Group_6__3__Impl4750 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__0__Impl_in_rule__QualifiedName__Group__04789 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__1_in_rule__QualifiedName__Group__04792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group__0__Impl4819 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group__1__Impl_in_rule__QualifiedName__Group__14848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0_in_rule__QualifiedName__Group__1__Impl4875 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__0__Impl_in_rule__QualifiedName__Group_1__04910 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1_in_rule__QualifiedName__Group_1__04913 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_rule__QualifiedName__Group_1__0__Impl4941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__QualifiedName__Group_1__1__Impl_in_rule__QualifiedName__Group_1__14972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__QualifiedName__Group_1__1__Impl4999 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__0__Impl_in_rule__Restriction__Group__05032 = new BitSet(new long[]{0x00000007FFF80000L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__1_in_rule__Restriction__Group__05035 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__GroupClauseAssignment_0_in_rule__Restriction__Group__0__Impl5062 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__1__Impl_in_rule__Restriction__Group__15093 = new BitSet(new long[]{0x00000007FFF80000L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__2_in_rule__Restriction__Group__15096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__PermissionClauseAssignment_1_in_rule__Restriction__Group__1__Impl5123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__2__Impl_in_rule__Restriction__Group__25154 = new BitSet(new long[]{0x0004008000380010L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__3_in_rule__Restriction__Group__25157 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__RelactionTypeAssignment_2_in_rule__Restriction__Group__2__Impl5184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__3__Impl_in_rule__Restriction__Group__35214 = new BitSet(new long[]{0x0004008000380010L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__4_in_rule__Restriction__Group__35217 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__GroupClauseBAssignment_3_in_rule__Restriction__Group__3__Impl5244 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__4__Impl_in_rule__Restriction__Group__45275 = new BitSet(new long[]{0x0004008000380010L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__5_in_rule__Restriction__Group__45278 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_4__0_in_rule__Restriction__Group__4__Impl5305 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__5__Impl_in_rule__Restriction__Group__55336 = new BitSet(new long[]{0x0004008000380010L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__6_in_rule__Restriction__Group__55339 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_5__0_in_rule__Restriction__Group__5__Impl5366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group__6__Impl_in_rule__Restriction__Group__65397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__Restriction__Group__6__Impl5425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_4__0__Impl_in_rule__Restriction__Group_4__05470 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_4__1_in_rule__Restriction__Group_4__05473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__ComponentBAssignment_4_0_in_rule__Restriction__Group_4__0__Impl5500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_4__1__Impl_in_rule__Restriction__Group_4__15530 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_rule__Restriction__Group_4__1__Impl5559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_5__0__Impl_in_rule__Restriction__Group_5__05596 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_5__1_in_rule__Restriction__Group_5__05599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_rule__Restriction__Group_5__0__Impl5627 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__Group_5__1__Impl_in_rule__Restriction__Group_5__15658 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Restriction__MessageAssignment_5_1_in_rule__Restriction__Group_5__1__Impl5685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__ASMLModel__NameAssignment_15724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__ASMLModel__ImportURIAssignment_3_15755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_rule__ASMLModel__ComponentsAssignment_45786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__ASMLModel__IgnoreAssignment_5_1_05817 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__View__NameAssignment_15848 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAttribute_in_rule__View__AttributesAssignment_3_0_15879 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_rule__View__ComponentsAssignment_45910 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRestriction_in_rule__View__RestrictionsAssignment_55941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__Attribute__NameAssignment_05972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Attribute__ValueAssignment_26003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpressionMatchingClause_in_rule__ClassMatching__ExpressionMatchingAssignment_06037 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__ClassMatching__ParameterAssignment_16068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_ASML_in_rule__MetaModule__NameAssignment_06099 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAttribute_in_rule__MetaModule__AttributesAssignment_2_0_16130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__MetaModule__MatchingAssignment_3_16161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__MetaModule__DescriptionAssignment_4_16192 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractComponent_in_rule__MetaModule__ComponentsAssignment_56223 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRestriction_in_rule__MetaModule__RestrictionsAssignment_6_26254 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseAssignment_06285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePermissionClause_in_rule__Restriction__PermissionClauseAssignment_16316 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelactionType_in_rule__Restriction__RelactionTypeAssignment_26347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGroupClause_in_rule__Restriction__GroupClauseBAssignment_36378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Restriction__ComponentBAssignment_4_06413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Restriction__MessageAssignment_5_16448 = new BitSet(new long[]{0x0000000000000002L});
 
 }
