@@ -1,4 +1,4 @@
-package asmlbuilder.restriction;
+package asmlbuilder.restriction.create;
 
 import java.util.Set;
 
@@ -8,36 +8,32 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.builder.Violation;
+import asmlbuilder.restriction.RestricionChecker;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.ComponentInstanceReference;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.GroupClause;
-import br.ufmg.dcc.asml.aSMLModel.PermissionClause;
+import br.ufmg.dcc.asml.aSMLModel.RelactionType;
 import br.ufmg.dcc.asml.aSMLModel.Restriction;
 
-public class ComponentACreateCompontB extends RestricionChecker {
+public class OnlyCanCreate extends RestricionChecker {
 
-	public ComponentACreateCompontB(ASMLContext asmlContext) {
+	public OnlyCanCreate(ASMLContext asmlContext) {
 		super(asmlContext);
 	}
 
 	@Override
-	public void checker(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
-		boolean onlyA = restriction.getGroupClause().equals(GroupClause.ONLY);
-		boolean can_create_B = restriction.getPermissionClause().equals(PermissionClause.CAN);
-		if (onlyA && can_create_B) {
-			onlyComponentACanCreateCompontB(restriction, componentA, componentB);
-		} else if (true) {
-
-		}
+	public void checker(Restriction restriction) {
+		onlyComponentACanCreateCompontB(restriction);
 	}
 
-	private void onlyComponentACanCreateCompontB(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB) {
+	private void onlyComponentACanCreateCompontB(Restriction restriction) {
+		AbstractComponent componentA =  (AbstractComponent) restriction.eContainer();
+		AbstractComponent componentB = null;//restriction.getComponentB();
 		Set<ComponentInstance> allInstances = asmlContext.getComponentInstances();
 		int lineNumber = 1;
 		for (ComponentInstance componentInstance : allInstances) {
 			if ((componentInstance.getResource().getFileExtension() + "").equals("java")) {
-				Set<ComponentInstanceReference> asmlASTNodes = componentInstance.getReferencesToOthersComponentInstances(ClassInstanceCreation.class);
+				Set<ComponentInstanceReference> asmlASTNodes = componentInstance.getReferencesToOthersComponentInstances(RelactionType.CREATE);
 				if (asmlASTNodes == null || asmlASTNodes.isEmpty())
 					continue;
 				for (ComponentInstanceReference asmlastNode : asmlASTNodes) {

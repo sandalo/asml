@@ -1,10 +1,10 @@
 package asmlbuilder.validation;
 
+import java.lang.reflect.Constructor;
 import java.util.Set;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import asmlbuilder.builder.ASMLContext;
@@ -22,51 +22,102 @@ public class ValidatorVisitor implements ComponentVisitor {
 	public ValidatorVisitor(ASMLContext asmlContext) {
 		this.asmlContext = asmlContext;
 	}
-	
+
 	@Override
 	public void visit(AbstractComponent abstractComponent) {
 		validateComponentRestrictions(abstractComponent);
 		validateLocalization(abstractComponent);
 	}
-	
-	
+
 	void validateComponentRestrictions(AbstractComponent abstractComponent) {
-		EList<Restriction> restrictions = ASMLContext.getRestrictions(abstractComponent);
+		EList<Restriction> restrictions = abstractComponent.getRestrictions();
 		for (Restriction restriction : restrictions) {
-			EList<AbstractComponent> componentsA = new BasicEList<AbstractComponent>();
-			if(!restriction.getComponentA().isEmpty()){
-				componentsA = restriction.getComponentA();
-			}else{
-				componentsA.add(abstractComponent);
+			String classRestriction = "";
+			classRestriction = getRestrictionCheckerClass(restriction);
+			RestricionChecker restricionChecker = asmlContext.getAsmlBinder().getBindRestrictionChecker().get(classRestriction);
+			if (restricionChecker == null) {
+				restricionChecker = instanciateChecker(classRestriction, restricionChecker);
 			}
-			AbstractComponent componentB = restriction.getComponentB();
-			for (AbstractComponent componentA : componentsA) {
-				RestricionChecker restricionChecker = asmlContext.getAsmlBinder().getBindRestrictionChecker().get(restriction.getRelactionType());
-				if (restricionChecker != null) {
-					try {
-						restricionChecker.checker(restriction, componentA, componentB);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+			restricionChecker.checker(restriction);
+		}
+
+	}
+
+	private RestricionChecker instanciateChecker(String classRestriction, RestricionChecker restricionChecker) {
+		Class<?> forName = null;
+		try {
+			forName = Class.forName(classRestriction);
+			Constructor<?> constructor;
+			try {
+				constructor = forName.getConstructor(ASMLContext.class);
+				restricionChecker = (RestricionChecker) constructor.newInstance(asmlContext);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			asmlContext.getAsmlBinder().getBindRestrictionChecker().put(classRestriction, restricionChecker);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return restricionChecker;
+	}
+
+	private String getRestrictionCheckerClass(Restriction restriction) {
+		String classRestriction;
+		classRestriction = "_" + restriction.getGroupClause() + "_" + restriction.getPermissionClause() + "_" + restriction.getRelactionType() + "_" + restriction.getGroupClauseB();
+		classRestriction = classRestriction.replaceAll("\\$null", "");
+		char[] classRestrictionChar = classRestriction.toCharArray();
+		classRestriction = "";
+		boolean upper = false;
+		for (int i = 0; i < classRestrictionChar.length; i++) {
+			if (classRestrictionChar[i] != '_') {
+				if (upper) {
+					classRestriction = classRestriction + (classRestrictionChar[i] + "").toUpperCase();
+					upper = false;
 				} else {
-					System.out.println("Restriction checker ainda não implementado.");
+					classRestriction = classRestriction + (classRestrictionChar[i] + "");
 				}
+			} else {
+				upper = true;
+			}
+		}
+		String aux = "asmlbuilder.restriction." + restriction.getRelactionType().getLiteral() + "." + classRestriction;
+		return aux;
+	}
+
+	void validateLocalization(AbstractComponent abstractComponent) {
+		Set<ComponentInstance> intancesOfComponent = abstractComponent.getInstances();
+		for (ComponentInstance instanceOfComponent : intancesOfComponent) {
+			if (!localizacaoCorreta(abstractComponent, instanceOfComponent.getResource())) {
+				AbstractComponent eContainer = (AbstractComponent) abstractComponent.eContainer();
+				String message = "O  componente  " + abstractComponent.getName() + " deveria estar localizado de acordo com a definição: "+eContainer.getFullName();
+				asmlContext.getViolations().add(new Violation(instanceOfComponent.getResource(), message, 1, IMarker.SEVERITY_ERROR));
 			}
 		}
 	}
 
-	void validateLocalization(AbstractComponent abstractComponent) {
-		Set<ComponentInstance> resourcesFilho = abstractComponent.getInstances();
-		for (ComponentInstance resourceFilho : resourcesFilho) {
-			if (!localizacaoCorreta(abstractComponent, resourceFilho.getResource())) {
-				String message = "O  componente  " + abstractComponent.getName() + " esta localizado no lugar errado";
-				asmlContext.getViolations().add(new Violation(resourceFilho.getResource(), message, 1, IMarker.SEVERITY_ERROR));
-			}
-		}
-	}
-	
 	private boolean localizacaoCorreta(AbstractComponent component, IResource resource) {
-		boolean matching = true;
-		return matching;
+		try {
+			if(resource==null)
+				return true;
+/*			if(resource instanceof IFolder)
+				return true;
+*/			String[] segments = resource.getFullPath().segments();
+			if(segments.length==1)
+				return true;
+			AbstractComponent componentPai = null;
+			if(component.eContainer()instanceof AbstractComponent)
+				componentPai = (AbstractComponent) component.eContainer();
+			else
+				return true;
+			Set<ComponentInstance> instancesParent = componentPai.getInstances();
+			for (ComponentInstance componentInstance : instancesParent) {
+				if (segments[segments.length - 2].equals(componentInstance.getResource().getName())) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Erro:  localizacaoCorreta");
+		}
+		return false;
 	}
 }

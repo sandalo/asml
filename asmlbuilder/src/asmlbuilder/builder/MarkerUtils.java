@@ -7,6 +7,8 @@ import org.eclipse.core.runtime.CoreException;
 public class MarkerUtils {
 	static public void addMarker(IResource resource, String message, int lineNumber, int severity, String MARKER_TYPE) {
 		try {
+			if(resource instanceof FileInJar)
+				return;
 			IMarker marker = resource.createMarker(MARKER_TYPE);
 			marker.setAttribute(IMarker.MESSAGE, message);
 			marker.setAttribute(IMarker.SEVERITY, severity);
@@ -14,7 +16,8 @@ public class MarkerUtils {
 				lineNumber = 1;
 			}
 			marker.setAttribute(IMarker.LINE_NUMBER, lineNumber);
-		} catch (CoreException e) {
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
 		}
 	}
 	

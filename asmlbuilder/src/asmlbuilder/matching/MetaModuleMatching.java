@@ -1,6 +1,11 @@
 package asmlbuilder.matching;
 
+import java.util.Set;
+
+import org.eclipse.core.resources.IFile;
+
 import asmlbuilder.builder.ASMLContext;
+import asmlbuilder.builder.FileInJar;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 
@@ -12,32 +17,68 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 
 	@Override
 	public boolean matching(ComponentInstance resource, AbstractComponent component) {
-		String matching = component.getMatching();
-		if(matching==null)
+		if (resource.getResource() instanceof IFile) {
+			return isMatchFileStrategy(resource, component);
+		} else if (resource.getResource() instanceof FileInJar) {
+			return isMatchFileStrategy(resource, component);
+		} else {
+			return isMatchFolderStrategy(resource, component);
+		}
+	}
+
+	private boolean isMatchFileStrategy(ComponentInstance resource, AbstractComponent component) {
+		boolean isMatch = false;
+		if (component.getMatching() == null)
 			return false;
-		String curinga = "{name}";
-		String index = "[index]";
-		int curinga_indexOf = matching.indexOf(curinga);
-		boolean isMatch = true;
-		if (curinga_indexOf > -1) {
-			String token = matching.substring(curinga_indexOf + curinga.length());
-			String fileExtension = resource.getResource().getFileExtension();
-			String name = resource.getResource().getName();
-			if (fileExtension != null)
-				name = resource.getResource().getName().replace("." + fileExtension, "");
-			int index_indexOf = token.indexOf(index);
-			if (index_indexOf > -1) {
-				token = token.replace(index, "");
+		String[] prefixAndSufix = getPrefixAndSufix(component);
+		if (prefixAndSufix.length > 0) {
+			String resourceName = getResourceName(resource);
+			if (prefixAndSufix.length == 1) {
+				String sufix = prefixAndSufix[0];
+				if (resourceName.endsWith(sufix)) {
+					isMatch = true;
+					Set<String> allTokens = asmlContext.getSufixAndPrefixNameConventionConvention();
+					for (String token_aux : allTokens) {
+						if (token_aux != null && !token_aux.equals(sufix) && token_aux.endsWith(sufix) && resourceName.endsWith(token_aux)) {
+							isMatch = false;
+							break;
+						}
+					}
+				} else {
+					isMatch = false;
+				}
+			}else if (prefixAndSufix.length == 2) {
+				String prefix = prefixAndSufix[0];
+				String sufix = prefixAndSufix[1];
+				if (resourceName.endsWith(sufix)) {
+					isMatch = true;
+					Set<String> allTokens = asmlContext.getSufixAndPrefixNameConventionConvention();
+					for (String token_aux : allTokens) {
+						if (token_aux != null && !token_aux.equals(sufix) && token_aux.endsWith(sufix) && resourceName.endsWith(token_aux)) {
+							isMatch = false;
+							break;
+						}
+					}
+					if (!resourceName.startsWith(prefix)) {
+						isMatch = false;
+					}
+				} else {
+					isMatch = false;
+				}
 			}
 
-			if (name.endsWith(token)) {
-				isMatch = true;
-			} else {
-				isMatch = false;
+		} else if (component.getMatching().contains(".*")) {
+			isMatch = false;
+			String parents[] = component.getMatching().split("\\.");
+			String segments[] = resource.getResource().getFullPath().segments();
+			if (parents.length > 1) {
+				if (parents[parents.length - 2].equals(segments[segments.length - 2])) {
+					isMatch = true;
+				}
 			}
 		} else {
 			isMatch = false;
-			String parents[] = matching.split("\\.");
+			String parents[] = component.getMatching().split("\\.");
 			String segments[] = resource.getResource().getFullPath().segments();
 			if (parents[parents.length - 1].equals(segments[segments.length - 1])) {
 				if (parents.length > 1) {
@@ -50,5 +91,57 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 			}
 		}
 		return isMatch;
+	}
+
+	private boolean isMatchFolderStrategy(ComponentInstance resource, AbstractComponent component) {
+		try {
+
+			String path = ModuleMatching.getFullPathComponent(component, true);
+			String[] segmentsComponent = path.split("\\.");
+			String[] segmentsResource = resource.getResource().getFullPath().segments();
+			boolean contains = false;
+			for (int i = 0; i < segmentsResource.length; i++) {
+				if (segmentsResource[i].equals(segmentsComponent[0])) {
+					contains = true;
+					break;
+				}
+			}
+			if (!contains)
+				return false;
+			String[] segmentsNew = new String[segmentsComponent.length];
+			int start = segmentsResource.length - segmentsNew.length;
+			System.arraycopy(segmentsResource, start, segmentsNew, 0, segmentsNew.length);
+
+			for (int i = 0; i < segmentsNew.length; i++) {
+				if (!segmentsComponent[i].equals(segmentsNew[i])) {
+					if (segmentsComponent[i].equals("{?}"))
+						continue;
+					return false;
+				}
+			}
+			return true;
+		} catch (IndexOutOfBoundsException e) {
+			// controlado
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	private String[] getPrefixAndSufix(AbstractComponent component) {
+		String curinga = "\\{\\?\\}";
+		String matchingAux = component.getMatching();
+		if(matchingAux!=null && !matchingAux.contains("?"))
+			return new String[]{};
+		String[] prefixAndSufix = matchingAux.split(curinga);
+		return prefixAndSufix;
+	}
+
+	private String getResourceName(ComponentInstance resource) {
+		String fileExtension = resource.getResource().getFileExtension();
+		String name = resource.getResource().getName();
+		if (fileExtension != null)
+			name = resource.getResource().getName().replace("." + fileExtension, "");
+		return name;
 	}
 }

@@ -12,9 +12,12 @@ import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 public class MatchingVisitor implements ComponentVisitor {
 
 	private ASMLContext asmlContext;
-
+	private List<ComponentInstance> componentInstances;
+	private boolean internal = true;
 	public MatchingVisitor(ASMLContext asmlContext) {
 		this.asmlContext = asmlContext;
+		componentInstances = new ArrayList<ComponentInstance>(asmlContext.getComponentInstances());
+		Collections.reverse(componentInstances);
 	}
 	
 	@Override
@@ -24,20 +27,30 @@ public class MatchingVisitor implements ComponentVisitor {
 	
 
 	protected void matching(AbstractComponent component) {
-		asmlContext.addMatchingCustom(component);
-		List<ComponentInstance> componentInstances = new ArrayList<ComponentInstance>(asmlContext.getComponentInstances());
-		Collections.reverse(componentInstances);
+//		component.componentInstancesClear();
+//		asmlContext.addMatchingCustom(component);
 		boolean matching = false;
 		for (ComponentInstance componentInstance : componentInstances) {
+			if(internal && componentInstance.isExternal() ||(componentInstance.isExternal() && componentInstance.getComponent()!=null))
+				continue;
 			IMatching iMatching = asmlContext.getMatching(component);
 			if (iMatching == null)
 				continue;
 			matching = iMatching.matching(componentInstance, component);
 			if (matching) {
+//				System.out.println("Achou instancia do componente:  "+component.getName()+" Nome do recurso: "+componentInstance.getRawName());
 				component.addComponentInstance(componentInstance);
 				componentInstance.setComponent(component);
 			}
 		}
 	}
-	
+
+	public boolean isInternal() {
+		return internal;
+	}
+
+	public void setInternal(boolean internal) {
+		this.internal = internal;
+	}
+		
 }

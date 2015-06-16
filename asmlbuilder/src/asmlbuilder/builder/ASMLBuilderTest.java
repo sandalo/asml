@@ -26,8 +26,6 @@ class BuilderTest implements IApplication {
 			IProjectDescription projectDescription = workspace.loadProjectDescription(projectDotProjectFile);
 			IProject project = workspace.getRoot().getProject(projectDescription.getName());
 			JavaCapabilityConfigurationPage.createProject(project, projectDescription.getLocationURI(), null);
-			// project.create(null);
-			System.out.println(project);
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}

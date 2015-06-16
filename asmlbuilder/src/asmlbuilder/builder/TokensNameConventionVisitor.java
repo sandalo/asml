@@ -3,17 +3,18 @@ package asmlbuilder.builder;
 import br.ufmg.dcc.asml.ComponentVisitor;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 
-public class ComponentRecoveryVisitor implements ComponentVisitor {
+public class TokensNameConventionVisitor implements ComponentVisitor {
 
 	private ASMLContext asmlContext;
 
-	public ComponentRecoveryVisitor(ASMLContext asmlContext) {
+	public TokensNameConventionVisitor(ASMLContext asmlContext) {
 		this.asmlContext = asmlContext;
+		asmlContext.clearSufixAndPrefixNameConventionConvention();
 	}
 	
 	@Override
 	public void visit(AbstractComponent abstractComponent) {
-		asmlContext.addDeclaredComponents(abstractComponent);
+		asmlContext.addMatchNameConvention(abstractComponent);
 	}
 
 }

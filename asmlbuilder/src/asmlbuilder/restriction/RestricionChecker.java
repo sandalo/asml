@@ -1,6 +1,7 @@
 package asmlbuilder.restriction;
 
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.emf.common.util.EList;
 
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.builder.Violation;
@@ -15,12 +16,24 @@ public abstract class RestricionChecker {
 		this.asmlContext = asmlContext;
 	}
 
-	public abstract void checker(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB);
+	public abstract void checker(Restriction restriction);
 
 
-	protected void addViolation(Restriction restriction, AbstractComponent componentA, AbstractComponent componentB, int lineNumber, ComponentInstance componentInstance, String defaultMessage) {
+	protected void addViolation(Restriction restriction, int lineNumber, ComponentInstance componentInstance, String defaultMessage) {
+		if(componentInstance.isExternal())
+			return;
 		if (restriction.getMessage() != null)
 			defaultMessage = restriction.getMessage();
 		asmlContext.getViolations().add(new Violation(componentInstance.getResource(), defaultMessage, lineNumber, IMarker.SEVERITY_ERROR));
 	}
+	
+	public static String getComponentNames(Restriction restriction) {
+		EList<AbstractComponent> components = restriction.getComponentB();
+		String name = "";
+		for (AbstractComponent abstractComponent : components) {
+			name = name +", "+abstractComponent.getName();
+		}
+		return name.substring(1);
+	}
+
 }

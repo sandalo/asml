@@ -43,7 +43,7 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 							return false;
 						String fisicalPathComponent = getFullPathComponent(component, true);
 						String[] componenteSegments = fisicalPathComponent.split("\\.");
-						String[] componenteSegmentsAux = new String[position+1];
+						String[] componenteSegmentsAux = new String[position + 1];
 						System.arraycopy(componenteSegments, 0, componenteSegmentsAux, 0, componenteSegmentsAux.length);// Discarta
 						boolean comparePath = comparePath(resourceSegments, componenteSegmentsAux);
 						return comparePath;
@@ -95,11 +95,9 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 				 * modulos // são / abstratos
 				 */
 				if (eObject instanceof MetaModule) {
-					fisicalPathComponent = "MetaModule" + "." + fisicalPathComponent;
-				} else {
 					String nameSpace = ModuleMatching.getNameSpace((AbstractComponent) eObject);
 					if (nameSpace.equals(""))
-						fisicalPathComponent =((AbstractComponent)eObject).getName() + "." + fisicalPathComponent;
+						fisicalPathComponent = ((AbstractComponent) eObject).getName() + "." + fisicalPathComponent;
 					else
 						fisicalPathComponent = nameSpace + "." + fisicalPathComponent;
 				}
@@ -115,7 +113,7 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 				if (eObject instanceof MetaModule) {
 					fisicalPathComponent = "MetaModule" + "." + fisicalPathComponent;
 				} else {
-					fisicalPathComponent = ((AbstractComponent)eObject).getName() + "." + fisicalPathComponent;
+					fisicalPathComponent = ((AbstractComponent) eObject).getName() + "." + fisicalPathComponent;
 				}
 				eObject = eObject.eContainer();
 			}
@@ -149,8 +147,8 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 		String value = getFullPathComponent(abstractComponent, true);
 		String nameSpace = getNameSpace(abstractComponent);
 		String[] names = value.split("\\.");
-		int initial = names.length-1;
-		int final_ = initial-nameSpace.split("\\.").length;
+		int initial = names.length - 1;
+		int final_ = initial - nameSpace.split("\\.").length;
 		for (int i = initial; i > final_; i--) {
 			if (resource.getName().equals(names[i])) {
 				return i;
@@ -160,11 +158,16 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	public static String getNameSpace(AbstractComponent abstractComponent) {
-		EList<Attribute> attributes = abstractComponent.getAttributes();
-		if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
-			return attributes.get(0).getValue();
+		if (abstractComponent == null)
+			return "";
+		if (abstractComponent.getMatching() == null){
+			if (abstractComponent.getName() == null)
+				return "";
+			else
+				return abstractComponent.getName();
+		}else{
+			return abstractComponent.getMatching();
 		}
-		return "";
 	}
 
 	public static boolean isJavaPackage(IResource resource, ASMLContext asmlContext) {
@@ -193,7 +196,7 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 		parent = module.eContainer();
 		while (parent != null && parent instanceof ASMLModel) {
 			EList<Attribute> attributes = null;
-				attributes = ((AbstractComponent) (parent)).getAttributes();
+			attributes = ((AbstractComponent) (parent)).getAttributes();
 			if (!attributes.isEmpty() && attributes.get(0).getName().equals("namespace")) {
 				Attribute attribute = attributes.get(0);
 				String[] names = attribute.getValue().split("\\.");

@@ -15,15 +15,16 @@ import java.util.logging.Logger;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.internal.core.ClassFile;
 
 import asmlbuilder.classloader.ASMLClassLoader;
 import asmlbuilder.matching.AbstraticMatching;
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.aSMLModel.ASMLModel;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
-import br.ufmg.dcc.asml.aSMLModel.Restriction;
 import br.ufmg.dcc.asml.aSMLModel.View;
 
 public class ASMLContext {
@@ -31,21 +32,30 @@ public class ASMLContext {
 	private ASMLClassLoader classLoader;
 	private long timeStampResource;
 	private final Set<ComponentInstance> componentInstances = new TreeSet<ComponentInstance>();
-
+	// private final Set<ComponentInstance> externalComponentInstances = new
+	// TreeSet<ComponentInstance>();
 	private ASMLModel asmlModel;
+	private Set<ASMLModel> otherAsmlModelReferenced = new HashSet<ASMLModel>();
 	private IJavaProject javaProject;
 	private ASMLReosurceJavaVisitor reosurceJavaVisitor;
 	private IClasspathContainer classpathMavenContainer;
 	private ASMLResourceVisitor resourceVisitor;
 	private ASMLResourceDeltaVisitor resourceDeltaVisitor;
 	private ASMLBinder asmlBinder = new ASMLBinder(this);
-	private Map<String, AbstractComponent> tokensNameConvention = new HashMap<String, AbstractComponent>();
-
-	private final Set<AbstractComponent> declaredComponents = new HashSet<AbstractComponent>(100);
+	private Map<String, AbstractComponent> sufixAndPrefixNameConvention = new HashMap<String, AbstractComponent>();
+	private Map<String, AbstractComponent> packageMathing = new HashMap<String, AbstractComponent>();
+	/*
+	 * private Map<String, IClassFile> classFilesByFullyQualifiedName = new
+	 * HashMap<String, IClassFile>(); private Map<String, Set<IClassFile>>
+	 * classFilesByPackageName = new HashMap<String, Set<IClassFile>>();
+	 */
+	// private final Set<AbstractComponent> declaredComponents = new
+	// HashSet<AbstractComponent>(100);
 
 	private List<Violation> violations = new ArrayList<Violation>();
 
-//	private Map<MetaClass, Set<MetaClass>> sublMetaClasses = new HashMap<MetaClass, Set<MetaClass>>(100);
+	// private Map<MetaClass, Set<MetaClass>> sublMetaClasses = new
+	// HashMap<MetaClass, Set<MetaClass>>(100);
 
 	class ResourceComparator implements Comparator<IResource> {
 		@Override
@@ -55,7 +65,7 @@ public class ASMLContext {
 	}
 
 	public AbstractComponent getComponentByName(String name) {
-		for (AbstractComponent abstractComponent : declaredComponents) {
+		for (AbstractComponent abstractComponent : asmlModel.getAllComponents()) {
 			if (abstractComponent.getName().equals(name)) {
 				return abstractComponent;
 			}
@@ -102,8 +112,24 @@ public class ASMLContext {
 		return Collections.unmodifiableSet(componentInstances);
 	}
 
+	/*
+	 * public void addExternalComponentInstance(ComponentInstance
+	 * componentInstance) { //
+	 * System.out.println(componentInstance.getResource().getName());
+	 * externalComponentInstances.add(componentInstance); }
+	 * 
+	 * public void removeExternalComponentInstance(ComponentInstance
+	 * componentInstance) {
+	 * externalComponentInstances.remove(componentInstance); }
+	 * 
+	 * public void clearExternalResource() { externalComponentInstances.clear();
+	 * }
+	 * 
+	 * public Set<ComponentInstance> getExternalComponentInstances() { return
+	 * Collections.unmodifiableSet(externalComponentInstances); }
+	 */
+
 	public void addComponentInstance(ComponentInstance componentInstance) {
-		System.out.println(componentInstance.getResource().getName());
 		componentInstances.add(componentInstance);
 	}
 
@@ -125,6 +151,10 @@ public class ASMLContext {
 
 	public void setAsmlModel(ASMLModel asmlModel) {
 		this.asmlModel = asmlModel;
+		EList<EObject> contents = asmlModel.eResource().getContents();
+		for (int i = 1; i < contents.size(); i++) {
+			this.otherAsmlModelReferenced.add((ASMLModel) contents.get(i));
+		}
 	}
 
 	public IJavaProject getJavaProject() {
@@ -237,10 +267,6 @@ public class ASMLContext {
 		this.asmlBinder = asmlBinder;
 	}
 
-	public static EList<Restriction> getRestrictions(AbstractComponent abstractComponent) {
-		return abstractComponent.getRestrictions();
-	}
-
 	public static EList<AbstractComponent> getComponentsChildren(AbstractComponent abstractComponent) {
 		return abstractComponent.getComponents();
 	}
@@ -253,34 +279,93 @@ public class ASMLContext {
 		this.timeStampResource = timeStampResource;
 	}
 
-	public Set<ComponentInstance> getResourcesMatchedInStaticAnalysis() {
-		Set<ComponentInstance> resourcesMatchedInStaticAnalysis = new HashSet<ComponentInstance>();
-		for (AbstractComponent abstractComponent : declaredComponents) {
-			resourcesMatchedInStaticAnalysis.addAll(abstractComponent.getInstances());
+	/*
+	 * public Set<ComponentInstance> getResourcesMatchedInStaticAnalysis() {
+	 * Set<ComponentInstance> resourcesMatchedInStaticAnalysis = new
+	 * HashSet<ComponentInstance>(); for (AbstractComponent abstractComponent :
+	 * declaredComponents) {
+	 * resourcesMatchedInStaticAnalysis.addAll(abstractComponent
+	 * .getInstances()); } return resourcesMatchedInStaticAnalysis; }
+	 */
+
+	public List<AbstractComponent> getDeclaredComponents() {
+		return Collections.unmodifiableList(this.asmlModel.getAllComponents());
+	}
+
+	public void addMatchNameConvention(AbstractComponent abstractComponent) {
+		addSufixAndPrefixNameConvention(abstractComponent);
+		addPackageMathing(abstractComponent);
+	}
+
+	private void addPackageMathing(AbstractComponent abstractComponent) {
+		String matching = abstractComponent.getMatching();
+		if (matching == null)
+			return;
+		if (matching.contains(".*")) {
+			matching = matching.replaceAll("\\.\\*", "");
+			packageMathing.put(matching, abstractComponent);
+		} else {
+			String[] segments = matching.split("\\.");
+			String matchingAux = "";
+			for (int i = 0; i < segments.length - 1; i++) {
+				matchingAux = matchingAux + "." + segments[i];
+			}
+			if (!matchingAux.equals(""))
+				packageMathing.put(matchingAux.substring(1), abstractComponent);
 		}
-		return resourcesMatchedInStaticAnalysis;
 	}
 
-	public Set<AbstractComponent> getDeclaredComponents() {
-		return Collections.unmodifiableSet(declaredComponents);
+	private void addSufixAndPrefixNameConvention(AbstractComponent abstractComponent) {
+		String matching = abstractComponent.getMatching();
+		if (matching != null) {
+			if (matching.contains("?")) {
+//				token = matching.replaceAll("\\{\\?\\}", "").replaceAll("\\{index\\}", "");
+				String sufixAndPrefixNames[] = matching.split("\\{\\?\\}");
+				if(sufixAndPrefixNames.length>0){
+					//No momento trata apenas colisão de prefixos. Ex. VO => BaseVO
+					sufixAndPrefixNameConvention.put(sufixAndPrefixNames[sufixAndPrefixNames.length-1], abstractComponent);
+				}
+			}
+		}
 	}
 
-	public void addDeclaredComponents(AbstractComponent abstractComponent) {
-		String token = abstractComponent.getMatching();
-		addTokensNameConvention(token, abstractComponent);
-		declaredComponents.add(abstractComponent);
+	/*
+	 * public void clearDeclaredComponents() { declaredComponents.clear(); }
+	 */
+
+	public void clearSufixAndPrefixNameConventionConvention() {
+		sufixAndPrefixNameConvention.clear();
 	}
 
-	public void clearDeclaredComponents() {
-		declaredComponents.clear();
+	public Set<String> getSufixAndPrefixNameConventionConvention() {
+		return Collections.unmodifiableSet(sufixAndPrefixNameConvention.keySet());
 	}
 
-	public void addTokensNameConvention(String token, AbstractComponent abstractComponent) {
-		tokensNameConvention.put(token, abstractComponent);
+	public Set<String> getPackagesMathing() {
+		return Collections.unmodifiableSet(packageMathing.keySet());
 	}
 
-	public Set<String> getTokensNameConvention() {
-		return Collections.unmodifiableSet(tokensNameConvention.keySet());
-	}
+	/*
+	 * public void addClassFile(String packageName, IClassFile classFile) {
+	 * //isere no mapa por qualifiedName
+	 * classFilesByFullyQualifiedName.put(classFile
+	 * .getType().getFullyQualifiedName(), classFile); //isere no mapa por
+	 * package Set<IClassFile> classFiles =
+	 * classFilesByPackageName.get(packageName); if(classFiles == null){
+	 * classFiles = new HashSet<IClassFile>();
+	 * classFilesByPackageName.put(packageName, classFiles); }
+	 * classFiles.add(classFile); }
+	 * 
+	 * public IClassFile getClassFileByFullName(String fullName){ return
+	 * classFilesByFullyQualifiedName.get(fullName); }
+	 */
 
+	/*
+	 * public Set<IClassFile> getClassFileByPackageName(String pck){ return
+	 * Collections.unmodifiableSet(classFilesByPackageName.get(pck)); }
+	 */
+
+	public Set<ASMLModel> getOtherAsmlModelReferenced() {
+		return Collections.unmodifiableSet(otherAsmlModelReferenced);
+	}
 }

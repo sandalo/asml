@@ -41,6 +41,7 @@ public class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IRe
 		switch (delta.getKind()) {
 		case IResourceDelta.ADDED:
 			componentInstance = new ComponentInstance();
+			componentInstance.setExternal(false);
 			componentInstance.setResource(resource);
 			asmlContext.addComponentInstance(componentInstance);
 			break;
