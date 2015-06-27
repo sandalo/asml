@@ -72,7 +72,9 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 			String parents[] = component.getMatching().split("\\.");
 			String segments[] = resource.getResource().getFullPath().segments();
 			if (parents.length > 1) {
-				if (parents[parents.length - 2].equals(segments[segments.length - 2])) {
+				String parent = parents[parents.length - 2];
+				String segment = segments[segments.length - 2];
+				if (parent.equals(segment)) {
 					isMatch = true;
 				}
 			}

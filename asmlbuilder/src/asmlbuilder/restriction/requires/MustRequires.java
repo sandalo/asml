@@ -31,7 +31,7 @@ public class MustRequires extends RestricionChecker {
 					continue exrenal_for;
 				}
 			}
-			String message = "Todo componente " + componentA.getName() + " requer um componente " + componentB.getName() + " de mesmo nome. Descrição do componente " + componentA.getName();
+			String message = "Todo  componente " + componentA.getName() + " requer um componente " + componentB.getName() + " de mesmo nome. Descrição do componente " + componentA.getName();
 			addViolation(restriction, 0, componentInstanceA, message);
 		}
 	}

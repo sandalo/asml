@@ -27,18 +27,15 @@ public class MatchingVisitor implements ComponentVisitor {
 	
 
 	protected void matching(AbstractComponent component) {
-//		component.componentInstancesClear();
-//		asmlContext.addMatchingCustom(component);
 		boolean matching = false;
 		for (ComponentInstance componentInstance : componentInstances) {
-			if(internal && componentInstance.isExternal() ||(componentInstance.isExternal() && componentInstance.getComponent()!=null))
+			if(internal && componentInstance.isExternal() ||(false/*componentInstance.isExternal() && componentInstance.getComponent()!=null*/ ))
 				continue;
 			IMatching iMatching = asmlContext.getMatching(component);
 			if (iMatching == null)
 				continue;
 			matching = iMatching.matching(componentInstance, component);
 			if (matching) {
-//				System.out.println("Achou instancia do componente:  "+component.getName()+" Nome do recurso: "+componentInstance.getRawName());
 				component.addComponentInstance(componentInstance);
 				componentInstance.setComponent(component);
 			}

@@ -40,8 +40,8 @@ public class CanDeclareOnly extends RestricionChecker {
 					if (componentInstanceReferenced == null) {
 						continue;
 					}
+					fullyQualifiedName = componentInstanceReferenced.getType().getFullyQualifiedName();
 					componenteB: for (AbstractComponent componentB : componentesB) {
-						fullyQualifiedName = componentInstanceReferenced.getType().getFullyQualifiedName();
 						if (componentB.containsType(fullyQualifiedName)) {
 							valideReference = true;
 							break componenteB;

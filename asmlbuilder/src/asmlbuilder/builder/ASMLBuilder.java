@@ -72,7 +72,6 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		allInternalComponentInstancesRecovery(kind);
 	}
 
-
 	private void allExternalComponentInstancesRecovery() {
 		try {
 			IJavaProject javaProject = JavaCore.create(getProject());
@@ -84,21 +83,20 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 						Set<String> paSet = asmlContext.getPackagesMathing();
 						IPackageFragment iPackageFragment = (IPackageFragment) iJavaElement2;
 						String elementName = iPackageFragment.getElementName();
-						if (!paSet.contains(elementName))
-							continue;
-						IClassFile[] classFiles = iPackageFragment.getClassFiles();
-						for (IClassFile iClassFile : classFiles) {
-							String typePath = iClassFile.getType().getFullyQualifiedName().replaceAll("\\.", "/");
-							// typePath =
-							// iPackageFragmentRoot.getPath().toString() +"/"+
-							// typePath;
-							FileInJar fileInJar = new FileInJar();
-							fileInJar.setFullPath(typePath);
-							ComponentInstance componentInstance = new ComponentInstance();
-							componentInstance.setType(iClassFile.getType());
-							componentInstance.setResource(fileInJar);
-							componentInstance.setExternal(true);
-							asmlContext.addComponentInstance(componentInstance);
+						for (String packageFragmentName : paSet) {
+							if (elementName.startsWith(packageFragmentName)) {
+								IClassFile[] classFiles = iPackageFragment.getClassFiles();
+								for (IClassFile iClassFile : classFiles) {
+									String typePath = iClassFile.getType().getFullyQualifiedName().replaceAll("\\.", "/");
+									FileInJar fileInJar = new FileInJar();
+									fileInJar.setFullPath(typePath);
+									ComponentInstance componentInstance = new ComponentInstance();
+									componentInstance.setType(iClassFile.getType());
+									componentInstance.setResource(fileInJar);
+									componentInstance.setExternal(true);
+									asmlContext.addComponentInstance(componentInstance);
+								}
+							}
 						}
 					}
 				}
@@ -146,7 +144,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		try {
 			IJavaProject javaProject = JavaCore.create(project);
 			String path_vaccine = ClassPathUtil.recuperaPathVaccine(javaProject);
-			if (asmlContext==null) {
+			if (asmlContext == null) {
 				asmlContext = new ASMLContext();
 				IClasspathEntry iClasspathEntryVaccine = ClassPathUtil.recuperaClassPathDaVaccina(javaProject);
 				IClasspathContainer classpathMavenContainer = ClassPathUtil.recuperaMavenContainerClassPath(javaProject);
@@ -161,10 +159,11 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 					asmlContext.setReosurceJavaVisitor(new ASMLReosurceJavaVisitor(asmlContext));
 					asmlContext.setResourceVisitor(new ASMLResourceVisitor(asmlContext));
 					asmlContext.setResourceDeltaVisitor(new ASMLResourceDeltaVisitor(asmlContext));
-					String workspacePath = project.getWorkspace().getRoot().getLocation().toString();// TODO:Melhor// as
-																													// duas
-																													// linhas
-																													// abaixo
+					String workspacePath = project.getWorkspace().getRoot().getLocation().toString();// TODO:Melhor//
+																										// as
+																										// duas
+																										// linhas
+																										// abaixo
 					URL[] urls = new URL[] { new URL("file:/" + workspacePath + iClasspathEntryVaccine.getPath() + "/target/classes/") };
 					asmlContext.setClassLoader(new ASMLClassLoader(urls, this.getClass().getClassLoader()));
 					asmlContext.getViolations().clear();

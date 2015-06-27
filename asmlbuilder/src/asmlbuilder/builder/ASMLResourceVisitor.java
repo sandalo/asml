@@ -1,6 +1,7 @@
 package asmlbuilder.builder;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +22,8 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 	}
 
 	public boolean visit(IResource resource) {
+		if(resource instanceof IProject)
+			return true;
 		if ((resource.getFileExtension() + "").equals("class")) {
 			return false;
 		}
