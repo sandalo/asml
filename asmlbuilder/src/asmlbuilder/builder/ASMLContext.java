@@ -250,6 +250,8 @@ public class ASMLContext {
 	}
 
 	public void clearAll() {
+		sufixAndPrefixNameConvention.clear();
+		packageMathing.clear();
 		componentInstances.clear();
 		violations.clear();
 	}

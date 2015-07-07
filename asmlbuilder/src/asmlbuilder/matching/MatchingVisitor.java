@@ -29,7 +29,7 @@ public class MatchingVisitor implements ComponentVisitor {
 	protected void matching(AbstractComponent component) {
 		boolean matching = false;
 		for (ComponentInstance componentInstance : componentInstances) {
-			if(internal && componentInstance.isExternal() ||(false/*componentInstance.isExternal() && componentInstance.getComponent()!=null*/ ))
+			if(internal && componentInstance.isExternal() || (componentInstance.isExternal() && componentInstance.getComponent()!=null ))
 				continue;
 			IMatching iMatching = asmlContext.getMatching(component);
 			if (iMatching == null)
@@ -37,7 +37,6 @@ public class MatchingVisitor implements ComponentVisitor {
 			matching = iMatching.matching(componentInstance, component);
 			if (matching) {
 				component.addComponentInstance(componentInstance);
-				componentInstance.setComponent(component);
 			}
 		}
 	}

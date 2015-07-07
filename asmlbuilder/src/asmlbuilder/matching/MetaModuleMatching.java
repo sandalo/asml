@@ -3,6 +3,7 @@ package asmlbuilder.matching;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 
 import asmlbuilder.builder.ASMLContext;
 import asmlbuilder.builder.FileInJar;
@@ -16,30 +17,41 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 	}
 
 	@Override
-	public boolean matching(ComponentInstance resource, AbstractComponent component) {
-		if (resource.getResource() instanceof IFile) {
-			return isMatchFileStrategy(resource, component);
-		} else if (resource.getResource() instanceof FileInJar) {
-			return isMatchFileStrategy(resource, component);
+	public boolean matching(ComponentInstance componentInstance, AbstractComponent component) {
+		boolean isMatch = false;
+		if (componentInstance.getResource() instanceof IFile) {
+			isMatch =  isMatchFileStrategy(componentInstance, component);
+		} else if (componentInstance.getResource() instanceof FileInJar) {
+			isMatch =  isMatchFileStrategy(componentInstance, component);
 		} else {
-			return isMatchFolderStrategy(resource, component);
+			isMatch =  isMatchFolderStrategy(componentInstance, component);
 		}
+		return isMatch;
 	}
 
-	private boolean isMatchFileStrategy(ComponentInstance resource, AbstractComponent component) {
+	private boolean isMatchFileStrategy(ComponentInstance componentInstance, AbstractComponent component) {
 		boolean isMatch = false;
 		if (component.getMatching() == null)
 			return false;
 		String[] prefixAndSufix = getPrefixAndSufix(component);
 		if (prefixAndSufix.length > 0) {
-			String resourceName = getResourceName(resource);
+			String resourceName = getResourceName(componentInstance);
 			if (prefixAndSufix.length == 1) {
-				String sufix = prefixAndSufix[0];
-				if (resourceName.endsWith(sufix)) {
+				String prefir_Or_sufix = prefixAndSufix[0];
+				if (resourceName.endsWith(prefir_Or_sufix)) {
 					isMatch = true;
 					Set<String> allTokens = asmlContext.getSufixAndPrefixNameConventionConvention();
 					for (String token_aux : allTokens) {
-						if (token_aux != null && !token_aux.equals(sufix) && token_aux.endsWith(sufix) && resourceName.endsWith(token_aux)) {
+						if (token_aux != null && !token_aux.equals(prefir_Or_sufix) && token_aux.endsWith(prefir_Or_sufix) && resourceName.endsWith(token_aux)) {
+							isMatch = false;
+							break;
+						}
+					}
+				} else if (resourceName.startsWith(prefir_Or_sufix)) {
+					isMatch = true;
+					Set<String> allTokens = asmlContext.getSufixAndPrefixNameConventionConvention();
+					for (String token_aux : allTokens) {
+						if (token_aux != null && !token_aux.equals(prefir_Or_sufix) && token_aux.startsWith(prefir_Or_sufix) && resourceName.startsWith(token_aux)) {
 							isMatch = false;
 							break;
 						}
@@ -47,30 +59,44 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 				} else {
 					isMatch = false;
 				}
-			}else if (prefixAndSufix.length == 2) {
+			} else if (prefixAndSufix.length == 2) {
 				String prefix = prefixAndSufix[0];
 				String sufix = prefixAndSufix[1];
-				if (resourceName.endsWith(sufix)) {
-					isMatch = true;
-					Set<String> allTokens = asmlContext.getSufixAndPrefixNameConventionConvention();
-					for (String token_aux : allTokens) {
-						if (token_aux != null && !token_aux.equals(sufix) && token_aux.endsWith(sufix) && resourceName.endsWith(token_aux)) {
-							isMatch = false;
-							break;
+				if (!sufix.contains("{")) {
+					if (resourceName.endsWith(sufix)) {
+						isMatch = true;
+						Set<String> allTokens = asmlContext.getSufixAndPrefixNameConventionConvention();
+						for (String token_aux : allTokens) {
+							if (token_aux != null && !token_aux.equals(sufix) && token_aux.endsWith(sufix) && resourceName.endsWith(token_aux)) {
+								isMatch = false;
+								break;
+							}
 						}
-					}
-					if (!resourceName.startsWith(prefix)) {
+						if (!resourceName.startsWith(prefix)) {
+							isMatch = false;
+						}
+					} else {
 						isMatch = false;
 					}
-				} else {
-					isMatch = false;
+				}else{
+					if (sufix.contains("extension")) {
+						isMatch = false;
+						String key_extensions[] = sufix.replaceAll("\\}", "").replaceAll("\\{", "").split("=");
+						String extensions[] = key_extensions[1].split("\\,");
+						for (String extension : extensions) {
+							if (extension.equals(componentInstance.getResource().getFileExtension())) {
+								isMatch = true;
+								break;
+							}
+						}
+					}
 				}
 			}
 
-		} else if (component.getMatching().contains(".*")) {
+		} else if (component.getMatching().contains(".*") && (componentInstance.getResource() instanceof IFolder || (componentInstance.getType() != null && componentInstance.getType().isBinary()))) {
 			isMatch = false;
 			String parents[] = component.getMatching().split("\\.");
-			String segments[] = resource.getResource().getFullPath().segments();
+			String segments[] = componentInstance.getResource().getFullPath().segments();
 			if (parents.length > 1) {
 				String parent = parents[parents.length - 2];
 				String segment = segments[segments.length - 2];
@@ -81,7 +107,7 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 		} else {
 			isMatch = false;
 			String parents[] = component.getMatching().split("\\.");
-			String segments[] = resource.getResource().getFullPath().segments();
+			String segments[] = componentInstance.getResource().getFullPath().segments();
 			if (parents[parents.length - 1].equals(segments[segments.length - 1])) {
 				if (parents.length > 1) {
 					if (parents[parents.length - 2].equals(segments[segments.length - 2])) {
@@ -133,8 +159,8 @@ public class MetaModuleMatching extends AbstraticMatching implements IMatching {
 	private String[] getPrefixAndSufix(AbstractComponent component) {
 		String curinga = "\\{\\?\\}";
 		String matchingAux = component.getMatching();
-		if(matchingAux!=null && !matchingAux.contains("?"))
-			return new String[]{};
+		if (matchingAux != null && !matchingAux.contains("?"))
+			return new String[] {};
 		String[] prefixAndSufix = matchingAux.split(curinga);
 		return prefixAndSufix;
 	}

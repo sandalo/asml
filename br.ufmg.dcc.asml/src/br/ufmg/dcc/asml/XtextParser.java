@@ -3,12 +3,12 @@ package br.ufmg.dcc.asml;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.resource.XtextResourceSet;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -17,7 +17,7 @@ import com.google.inject.Injector;
 public class XtextParser {
 
 	@Inject
-	private XtextResourceSet resourceSet;
+	private ASMLXtextResourceSet resourceSet;
 
 	public XtextParser() {
 		setupParser();
@@ -59,9 +59,10 @@ public class XtextParser {
 		//path = "jar:file:/C:/Prodemge/maven/.m2/repository/br/ufmg/asml/vaccine-dominio/0.0.2-SNAPSHOT/vaccine-dominio-0.0.2-SNAPSHOT.jar!/vaccine.asml";
 		try {
 			URI createURI = URI.createURI(path);
-			LazyLinkingResource resourceExterno = (LazyLinkingResource) resourceSet.getResource(createURI, true);
+			LazyLinkingResource resourceExterno = (LazyLinkingResource) resourceSet.getResource(createURI, true,false);
 			resourceExterno.load(resourceSet.getLoadOptions());
-			resource.getContents().addAll(resourceExterno.getContents());
+			EList<EObject> contents = resourceExterno.getContents();
+			resource.getContents().addAll(contents);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

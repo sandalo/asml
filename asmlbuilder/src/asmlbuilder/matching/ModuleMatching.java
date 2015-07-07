@@ -111,7 +111,7 @@ public class ModuleMatching extends AbstraticMatching implements IMatching {
 				 * modulos // são / abstratos
 				 */
 				if (eObject instanceof MetaModule) {
-					fisicalPathComponent = "MetaModule" + "." + fisicalPathComponent;
+					fisicalPathComponent = "{?}" + "." + fisicalPathComponent;
 				} else {
 					fisicalPathComponent = ((AbstractComponent) eObject).getName() + "." + fisicalPathComponent;
 				}

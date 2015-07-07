@@ -276,12 +276,14 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 				String segments[] = matching.split("\\{\\?\\}");
 				for (int i = 0; i < segments.length; i++) {
 					String token = segments[i];
-					name = name.replace(token, "").replace("." + getResource().getFileExtension(), "");
+					name = name.replace(token, "");
 				}
 			} catch (Exception e) {
 				return getResource().getName();
 			}
 		}
+		if(getResource().getFileExtension()!=null)
+			name = name.replace("." + getResource().getFileExtension(), "");
 		return name;
 	}
 
@@ -292,4 +294,10 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	public void setExternal(boolean external) {
 		this.external = external;
 	}
+	
+	public static void clearALl(){
+		componentInstanceIResourceName.clear();
+		componentInstanceITypeName.clear();
+	}
+	
 }

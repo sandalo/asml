@@ -18,6 +18,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.IClasspathContainer;
@@ -33,6 +34,7 @@ import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
 import asmlbuilder.classloader.ASMLClassLoader;
 import asmlbuilder.constants.ASMLConstant;
 import asmlbuilder.matching.MatchingVisitor;
+import asmlbuilder.matching.PrintMatchingVisitor;
 import asmlbuilder.validation.ValidatorVisitor;
 import br.ufmg.dcc.asml.ClassPathUtil;
 import br.ufmg.dcc.asml.ComponentInstance;
@@ -47,11 +49,13 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 	XtextParser xtextParser = new XtextParser();
 
 	protected IProject[] build(int kind, @SuppressWarnings("rawtypes") Map args, IProgressMonitor monitor) throws CoreException {
-		inicialize();
-		recovery(kind);
-		matching();
-		validate();
-		show_violations();
+		if (kind == FULL_BUILD) {
+			inicialize();
+			recovery(kind);
+			matching();
+			validate();
+			show_violations();
+		}
 		return null;
 	}
 
@@ -144,7 +148,7 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 		try {
 			IJavaProject javaProject = JavaCore.create(project);
 			String path_vaccine = ClassPathUtil.recuperaPathVaccine(javaProject);
-			if (asmlContext == null) {
+			if (true) {
 				asmlContext = new ASMLContext();
 				IClasspathEntry iClasspathEntryVaccine = ClassPathUtil.recuperaClassPathDaVaccina(javaProject);
 				IClasspathContainer classpathMavenContainer = ClassPathUtil.recuperaMavenContainerClassPath(javaProject);
@@ -152,18 +156,15 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 				asmlContext.setClasspathMavenContainer(classpathMavenContainer);
 				if (path_vaccine != null && !"".equals(path_vaccine)) {
 					Resource resource = recuperaASMLModelResource(javaProject);
-					ASMLModel asmlModel = (ASMLModel) resource.getContents().get(0);
+					EList<EObject> contents = resource.getContents();
+					ASMLModel asmlModel = (ASMLModel) contents.get(0);
 					asmlContext.setTimeStampResource(resource.getTimeStamp());
 					asmlContext.setAsmlModel(asmlModel);
 					asmlContext.clearAll();
 					asmlContext.setReosurceJavaVisitor(new ASMLReosurceJavaVisitor(asmlContext));
 					asmlContext.setResourceVisitor(new ASMLResourceVisitor(asmlContext));
 					asmlContext.setResourceDeltaVisitor(new ASMLResourceDeltaVisitor(asmlContext));
-					String workspacePath = project.getWorkspace().getRoot().getLocation().toString();// TODO:Melhor//
-																										// as
-																										// duas
-																										// linhas
-																										// abaixo
+					String workspacePath = project.getWorkspace().getRoot().getLocation().toString();// TODO:Melhorar as duas linhas abaixo
 					URL[] urls = new URL[] { new URL("file:/" + workspacePath + iClasspathEntryVaccine.getPath() + "/target/classes/") };
 					asmlContext.setClassLoader(new ASMLClassLoader(urls, this.getClass().getClassLoader()));
 					asmlContext.getViolations().clear();
@@ -175,36 +176,36 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 				}
 			} else {
 				Resource resource = recuperaASMLModelResource(javaProject);
-				if (asmlContext.getTimeStampResource() != resource.getTimeStamp()) {
-					ASMLModel asmlModel = (ASMLModel) resource.getContents().get(0);
-					asmlContext.setAsmlModel(asmlModel);
-					asmlContext.setTimeStampResource(resource.getTimeStamp());
-					asmlContext.clearAll();
-				} else {
-					// asmlContext.clearDeclaredComponents();
-					asmlContext.getViolations().clear();
-				}
+				ASMLModel asmlModel = (ASMLModel) resource.getContents().get(0);
+				asmlContext.setAsmlModel(asmlModel);
+				asmlContext.setTimeStampResource(resource.getTimeStamp());
+				asmlContext.clearAll();
+				ComponentInstance.clearALl();
 			}
 		} catch (Throwable e) {
+			MarkerUtils.addMarker(project, "Projeto não vacinado! Verifique se a vaccine consta no classpath do projeto.", 1, IMarker.SEVERITY_ERROR, ASMLConstant.MARKER_TYPE);
 			throw new CoreException(Status.CANCEL_STATUS);
 		}
 	}
 
 	private Resource recuperaASMLModelResource(IJavaProject javaProject) {
-		String path_vaccine = ClassPathUtil.recuperaPathVaccine(javaProject);
-		URI uri = URI.createURI(path_vaccine);
+		String path_vaccine_principal = ClassPathUtil.recuperaPathVaccine(javaProject);
+		URI uri = URI.createURI(path_vaccine_principal);
 		LazyLinkingResource resourcePrincipal = (LazyLinkingResource) xtextParser.getResource(uri);
 		resourcePrincipal.setModified(false);
 		List<IClasspathEntry> entries = ClassPathUtil.recuperaIClasspathEntriesDaVaccina(javaProject);
+		xtextParser.addAllResourcesImported(resourcePrincipal, path_vaccine_principal);
 		for (IClasspathEntry iClasspathEntry : entries) {
 			String path = "";
 			IPath nomeProjeto = iClasspathEntry.getPath();
 			if (iClasspathEntry.getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
 				path = "jar:file:/" + nomeProjeto.toString() + "!" + "/vaccine.asml";
-				xtextParser.addAllResourcesImported(resourcePrincipal, path);
+				if (!path.equals(path_vaccine_principal))
+					xtextParser.addAllResourcesImported(resourcePrincipal, path);
 			} else if (iClasspathEntry.getEntryKind() == IClasspathEntry.CPE_PROJECT) {
 				path = "file:/" + javaProject.getProject().getWorkspace().getRoot().getLocation() + nomeProjeto + "/src/main/resources/vaccine.asml";
-				xtextParser.addAllResourcesImported(resourcePrincipal, path);
+				if (!path.equals(path_vaccine_principal))
+					xtextParser.addAllResourcesImported(resourcePrincipal, path);
 			}
 		}
 		return resourcePrincipal;
@@ -220,20 +221,43 @@ public class ASMLBuilder extends IncrementalProjectBuilder {
 
 	void matching() {
 		MatchingVisitor matchingVisitor = new MatchingVisitor(asmlContext);
+
+		matchingExternal(matchingVisitor);
+
+		matchingInternal(matchingVisitor);
+
+		PrintMatchingVisitor printMatchingVisitor = new PrintMatchingVisitor(asmlContext);
+
 		Set<ASMLModel> otherAsmlModelReferenced = new HashSet<ASMLModel>(asmlContext.getOtherAsmlModelReferenced());
-		matchingVisitor.setInternal(false);
 		for (ASMLModel asmlModel : otherAsmlModelReferenced) {
+			List<AbstractComponent> components = asmlModel.getComponents();
+			for (AbstractComponent component : components) {
+				component.accept(printMatchingVisitor);
+			}
+		}
+
+	}
+
+	private void matchingInternal(MatchingVisitor matchingVisitor) {
+		matchingVisitor.setInternal(true);
+		ASMLModel asmlModelPrincipal2 = asmlContext.getAsmlModel();
+		for (AbstractComponent component : asmlModelPrincipal2.getComponents()) {
+			component.accept(matchingVisitor);
+		}
+	}
+
+	private void matchingExternal(MatchingVisitor matchingVisitor) {
+		matchingVisitor.setInternal(false);
+		Set<ASMLModel> otherAsmlModelReferenced = new HashSet<ASMLModel>(asmlContext.getOtherAsmlModelReferenced());
+		ASMLModel asmlModelPrincipal = asmlContext.getAsmlModel();
+		for (ASMLModel asmlModel : otherAsmlModelReferenced) {
+			if (asmlModelPrincipal.getName().equals(asmlModel.getName()))
+				continue;
 			List<AbstractComponent> components = asmlModel.getComponents();
 			for (AbstractComponent component : components) {
 				component.accept(matchingVisitor);
 			}
 		}
-
-		matchingVisitor.setInternal(true);
-		for (AbstractComponent component : asmlContext.getAsmlModel().getComponents()) {
-			component.accept(matchingVisitor);
-		}
-
 	}
 
 	void validate() {

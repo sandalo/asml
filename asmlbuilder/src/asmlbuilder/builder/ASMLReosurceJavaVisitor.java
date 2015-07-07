@@ -2,6 +2,7 @@ package asmlbuilder.builder;
 
 import java.util.logging.Logger;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
@@ -12,8 +13,10 @@ import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.IAnnotationBinding;
+import org.eclipse.jdt.core.dom.IBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.IVariableBinding;
+import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
@@ -21,7 +24,6 @@ import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.SingleMemberAnnotation;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.eclipse.jdt.internal.core.hierarchy.TypeHierarchy;
 
 import br.ufmg.dcc.asml.ComponentInstance;
 import br.ufmg.dcc.asml.ComponentInstanceReference;
@@ -49,6 +51,11 @@ public class ASMLReosurceJavaVisitor extends ASTVisitor {
 			componentInstanceReference.setComponentInstanceOwner(componentInstance);
 			componentInstanceReference.setComponentInstanceReferenced(componentInstanceReferenced);
 			componentInstance.addReference(componentInstanceReference);
+			if (componentInstanceReferenced == null && findType.isBinary()) {
+				asmlContext.getViolations().add(new Violation(componentInstance.getResource(), "Referencia desconhecida ao tipo :" + qualifiedName, componentInstanceReference.getLineNumber(), IMarker.SEVERITY_ERROR));
+			}/*else	if (componentInstanceReferenced == null) {
+				System.out.println();
+			}*/
 		} catch (JavaModelException e) {
 			e.printStackTrace();
 		}
@@ -92,6 +99,19 @@ public class ASMLReosurceJavaVisitor extends ASTVisitor {
 			addReference(node, qualifiedName, RelactionType.DECLARE);
 		} catch (Exception e) {
 			log.warning("Erro controlado. NormalAnnotation visit.");
+		}
+		return true;
+	}
+
+	@Override
+	public boolean visit(ImportDeclaration node) {
+		try {
+			ImportDeclaration importDeclaration = (ImportDeclaration) node;
+			String qualifiedName = importDeclaration.getName().getFullyQualifiedName();
+			if (qualifiedName != null && !qualifiedName.contains("*"))
+				addReference(node, qualifiedName, RelactionType.DECLARE);
+		} catch (Exception e) {
+			log.warning("Erro controlado. ImportDeclaration visit.");
 		}
 		return true;
 	}

@@ -48,7 +48,7 @@ public class CanDeclareOnly extends RestricionChecker {
 						}
 					}
 					if (!valideReference) {
-						String defaultMessage = "Classes do componente  " + componentA.getName() + "  não podem declarar "+ fullyQualifiedName+"."+
+						String defaultMessage = "Classes do componente " + componentA.getName() + "  não podem declarar "+ fullyQualifiedName+"."+
 								" Classes do componente  " + componentA.getName() + " podem declarar somente classes do(s) componente(s) " + getComponentNames(restriction);
 						addViolation(restriction, reference.getLineNumber(), reference.getComponentInstanceOwner(), defaultMessage);
 					}
