@@ -131,6 +131,10 @@ public interface AbstractComponent extends EObject
  
  public boolean isChild(AbstractComponent component);
 
-List<AbstractComponent> getAllComponents();
+ public List<AbstractComponent> getAllComponents();
   
+ public String getFullPathComponent();
+
+void componentInstancesClearAll();
+
 } // AbstractComponent

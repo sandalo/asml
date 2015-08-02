@@ -2,6 +2,7 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.impl;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -363,6 +364,15 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 	public void componentInstancesClear() {
 		componentInstances.clear();
 	}
+	
+	@Override
+	public void componentInstancesClearAll() {
+		List<AbstractComponent> components = getAllComponents();
+		for (AbstractComponent abstractComponent : components) {
+			abstractComponent.componentInstancesClear();
+		}
+	}
+
 
 	@Override
 	public String[] getAllTypesNames() {

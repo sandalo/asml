@@ -18,8 +18,7 @@ public class ClassPathUtil {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.core.internal.events.InternalBuilder#build(int,
-	 * java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
+	 * @see org.eclipse.core.internal.events.InternalBuilder#build(int, java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	public static String recuperaPathVaccine(IJavaProject javaProject) {
 		IClasspathEntry iClasspathEntryVaccine;
@@ -84,11 +83,37 @@ public class ClassPathUtil {
 		return null;
 	}
 
+	
+	public static List<IClasspathEntry> recuperaOpenedProjectsInClassPath(IJavaProject javaProject)  {
+		List<IClasspathEntry> entries = new ArrayList<IClasspathEntry>();
+		IClasspathContainer classpathMavenContainer = recuperaMavenContainerClassPath(javaProject);
+		if (classpathMavenContainer == null) {
+			log.info("N�o encoutro o classPathContainer Maven.");
+			return entries;
+		}
+		IClasspathEntry[] classpathEntryMaven = classpathMavenContainer.getClasspathEntries();
+		log.info("Come�a a varredura para encontrar iClasspathEntry de vaccine...");
+		for (IClasspathEntry iClasspathEntry : classpathEntryMaven) {
+			if (iClasspathEntry.getEntryKind() == IClasspathEntry.CPE_PROJECT) {
+				entries.add(iClasspathEntry);
+			}
+		}
+		return entries;
+	}
+
+	public static List<String> recuperaOpenedProjectNamesInClassPath(IJavaProject javaProject) {
+		List<String> names = new ArrayList<String>();
+		List<IClasspathEntry> entries = recuperaOpenedProjectsInClassPath(javaProject);
+		for (IClasspathEntry iClasspathEntry : entries) {
+			String name = iClasspathEntry.getPath().toString().replace("/", "");
+			names.add(name);
+		}
+		return names;
+	}
+
+	
 	public static IClasspathContainer recuperaMavenContainerClassPath(IJavaProject javaProject) {
-		/*
-		 * if (asmlContext != null && asmlContext.getClasspathMavenContainer()
-		 * != null) return asmlContext.getClasspathMavenContainer();
-		 */IClasspathEntry[] rawClasspath;
+		IClasspathEntry[] rawClasspath;
 		try {
 			rawClasspath = javaProject.getRawClasspath();
 			log.info("rawClasspath encontrados: " + rawClasspath + " size:" + rawClasspath.length);
@@ -100,11 +125,7 @@ public class ClassPathUtil {
 					log.info("      vai recuperar o classpathContainer no path: " + iClasspathEntryMAVEN.getPath() + " size:" + rawClasspath.length);
 					IClasspathContainer classpathMavenContainer = JavaCore.getClasspathContainer(iClasspathEntryMAVEN.getPath(), javaProject);
 					log.info("       Recuperou o classpathContainer MAVEN");
-					/*
-					 * if (asmlContext != null)
-					 * asmlContext.setClasspathMavenContainer
-					 * (classpathMavenContainer);
-					 */return classpathMavenContainer;
+					return classpathMavenContainer;
 				}
 			}
 		} catch (JavaModelException e) {

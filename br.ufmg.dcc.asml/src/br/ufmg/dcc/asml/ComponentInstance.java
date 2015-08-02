@@ -12,15 +12,12 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.ITypeHierarchy;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.RelactionType;
 
 public class ComponentInstance implements Comparable<ComponentInstance> {
-	private static final Map<String, ComponentInstance> componentInstanceIResourceName = new HashMap<String, ComponentInstance>();
-	private static final Map<String, ComponentInstance> componentInstanceITypeName = new HashMap<String, ComponentInstance>();
 	private IResource resource;
 	private boolean external = true;
 	// private final Map<View, AbstractComponent> components = new HashMap<View,
@@ -30,8 +27,16 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	private CompilationUnit compilationUnitAST;
 	private Object resourceType;
 
-	public ComponentInstance() {
+	private ComponentInstance() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public static ComponentInstance createInstance(IResource resource, boolean external, CompilationUnit compilationUnitAST){
+		ComponentInstance componentInstance = new ComponentInstance();
+		componentInstance.setCompilationUnitAST(compilationUnitAST);
+		componentInstance.setExternal(external);
+		componentInstance.setResource(resource);
+		return componentInstance;
 	}
 
 	public CompilationUnit getCompilationUnitAST() {
@@ -50,27 +55,18 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		if (resource == null)
 			return;
 		String key = resource.getFullPath().toString();
-		addCache(resource, key);
+//		addCache(resource, key);
 		this.resource = resource;
 	}
 
 	public void setResource(IResource resource, String key) {
-		addCache(resource, key);
+//		addCache(resource, key);
 		this.resource = resource;
 	}
 
-	private void addCache(IResource resource, String key) {
-		componentInstanceIResourceName.remove(key);
-		componentInstanceIResourceName.put(key, this);
-	}
 
 	/*
-	 * public Set<AbstractComponent> getComponents() {
-	 * Collection<AbstractComponent> values = components.values();
-	 * Collection<AbstractComponent> valuesSet = new
-	 * HashSet<AbstractComponent>(values); return
-	 * Collections.unmodifiableSet((Set<? extends AbstractComponent>)
-	 * valuesSet); }
+	 * public Set<AbstractComponent> getComponents() { Collection<AbstractComponent> values = components.values(); Collection<AbstractComponent> valuesSet = new HashSet<AbstractComponent>(values); return Collections.unmodifiableSet((Set<? extends AbstractComponent>) valuesSet); }
 	 */
 	public AbstractComponent getComponent() {
 		return component;
@@ -84,15 +80,13 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		}
 		this.component = component;
 		/*
-		 * this.components.put(view, component); if (this.components.size() > 1)
-		 * { System.out.println("Mais de um componente por ComponentIntance"); }
+		 * this.components.put(view, component); if (this.components.size() > 1) { System.out.println("Mais de um componente por ComponentIntance"); }
 		 */}
 
 	/*
 	 * public void componentClear() { components.clear(); }
 	 * 
-	 * public void componentRemove(AbstractComponent component) {
-	 * components.remove(component); }
+	 * public void componentRemove(AbstractComponent component) { components.remove(component); }
 	 */
 	@Override
 	public int compareTo(ComponentInstance o) {
@@ -123,10 +117,10 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	}
 
 	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances(RelactionType relactionType) {
-			Set<ComponentInstanceReference> set = componentInstanceReferences.get(relactionType);
-			if(set==null)
-				return new HashSet<ComponentInstanceReference>();
-			return set;
+		Set<ComponentInstanceReference> set = componentInstanceReferences.get(relactionType);
+		if (set == null)
+			return new HashSet<ComponentInstanceReference>();
+		return set;
 	}
 
 	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances() {
@@ -145,9 +139,6 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 
 	public void setType(Object iType) {
 		this.resourceType = iType;
-		String typeFullQualifyName = getTypeFullQualifyName();
-		if (typeFullQualifyName != null)
-			componentInstanceITypeName.put(typeFullQualifyName, this);
 	}
 
 	public IType getType() {
@@ -221,19 +212,6 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		return extend;
 	}
 
-	public static ComponentInstance getComponentInstanceByIResourceName(IResource resource) {
-		return componentInstanceIResourceName.get(resource.getFullPath().toString());
-	}
-
-	public static ComponentInstance getComponentInstanceByITypeName(IType type) {
-		String fullyQualifiedName = type.getFullyQualifiedName();
-		return componentInstanceITypeName.get(fullyQualifiedName);
-	}
-
-	public static ComponentInstance getComponentInstanceByITypeName(String fullyQualifiedName) {
-		return componentInstanceITypeName.get(fullyQualifiedName);
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof ComponentInstance) {
@@ -282,7 +260,7 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 				return getResource().getName();
 			}
 		}
-		if(getResource().getFileExtension()!=null)
+		if (getResource().getFileExtension() != null)
 			name = name.replace("." + getResource().getFileExtension(), "");
 		return name;
 	}
@@ -294,10 +272,4 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	public void setExternal(boolean external) {
 		this.external = external;
 	}
-	
-	public static void clearALl(){
-		componentInstanceIResourceName.clear();
-		componentInstanceITypeName.clear();
-	}
-	
 }
