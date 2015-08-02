@@ -12,12 +12,12 @@ import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 public class MatchingVisitor implements ComponentVisitor {
 
 	private ASMLContext asmlContext;
-	private List<ComponentInstance> componentInstances;
+//	private List<ComponentInstance> componentInstances;
 	private boolean internal = true;
 	public MatchingVisitor(ASMLContext asmlContext) {
 		this.asmlContext = asmlContext;
-		componentInstances = new ArrayList<ComponentInstance>(asmlContext.getComponentInstances());
-		Collections.reverse(componentInstances);
+//		componentInstances = new ArrayList<ComponentInstance>(asmlContext.getComponentInstances());
+//		Collections.reverse(componentInstances);
 	}
 	
 	@Override
@@ -28,7 +28,8 @@ public class MatchingVisitor implements ComponentVisitor {
 
 	protected void matching(AbstractComponent component) {
 		boolean matching = false;
-		for (ComponentInstance componentInstance : componentInstances) {
+		for (ComponentInstance componentInstance : asmlContext.getComponentInstances()) {
+			String a="";
 			if(internal && componentInstance.isExternal() || (componentInstance.isExternal() && componentInstance.getComponent()!=null ))
 				continue;
 			IMatching iMatching = asmlContext.getMatching(component);
@@ -39,6 +40,7 @@ public class MatchingVisitor implements ComponentVisitor {
 				component.addComponentInstance(componentInstance);
 			}
 		}
+		int i=0;
 	}
 
 	public boolean isInternal() {
@@ -47,6 +49,6 @@ public class MatchingVisitor implements ComponentVisitor {
 
 	public void setInternal(boolean internal) {
 		this.internal = internal;
-	}
+	}//30624
 		
 }

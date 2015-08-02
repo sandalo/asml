@@ -1,6 +1,7 @@
 package asmlbuilder.builder;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
@@ -22,7 +23,8 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 	}
 
 	public boolean visit(IResource resource) {
-		if(resource instanceof IProject)
+		System.out.println(resource);
+		if (resource instanceof IProject)
 			return true;
 		if ((resource.getFileExtension() + "").equals("class")) {
 			return false;
@@ -39,9 +41,12 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 			return true;
 		}
 
-		ComponentInstance componentInstance = new ComponentInstance();
-		componentInstance.setExternal(false);
-		componentInstance.setResource(resource);
+		ComponentInstance componentInstance = asmlContext.getComponentInstanceByIResourceName(resource);
+		if (componentInstance == null) {
+			if (resource.getFileExtension() == null || !resource.getFileExtension().equals("java")) {
+				componentInstance = ComponentInstance.createInstance(resource, false, null);
+			}
+		}
 		this.asmlContext.addComponentInstance(componentInstance);
 		if (resource instanceof IFile && resource.getFileExtension().equals("java"))
 			parse(componentInstance);
@@ -92,7 +97,7 @@ public class ASMLResourceVisitor implements IResourceVisitor {
 			parser.setResolveBindings(true);
 			final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
 			componentInstance.setCompilationUnitAST(cu);
-			componentInstance.setType(element.getTypes()[0]);//TODO - Considera apenas um tipo por arquivo...
+			componentInstance.setType(element.getTypes()[0]);// TODO - Considera apenas um tipo por arquivo...
 			ASMLReosurceJavaVisitor reosurceJavaVisitor = asmlContext.getReosurceJavaVisitor();
 			reosurceJavaVisitor.setComponentInstance(componentInstance);
 			cu.accept(reosurceJavaVisitor);

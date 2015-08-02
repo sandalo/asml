@@ -17,8 +17,8 @@ public class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IRe
 	 * .core.resources.IResourceDelta)
 	 */
 
-	public ASMLResourceDeltaVisitor(ASMLContext cacheASML) {
-		super(cacheASML);
+	public ASMLResourceDeltaVisitor(ASMLContext aSMLContext) {
+		super(aSMLContext);
 	}
 
 	public boolean visit(IResourceDelta delta) throws CoreException {
@@ -40,21 +40,18 @@ public class ASMLResourceDeltaVisitor extends ASMLResourceVisitor implements IRe
 		ComponentInstance componentInstance = null;
 		switch (delta.getKind()) {
 		case IResourceDelta.ADDED:
-			componentInstance = new ComponentInstance();
-			componentInstance.setExternal(false);
-			componentInstance.setResource(resource);
-			asmlContext.addComponentInstance(componentInstance);
+			componentInstance = (ComponentInstance) asmlContext.getComponentInstanceByIResourceName(resource);
 			break;
 		case IResourceDelta.REMOVED:
-			componentInstance = (ComponentInstance) ComponentInstance.getComponentInstanceByIResourceName(resource);
+			componentInstance = (ComponentInstance) asmlContext.getComponentInstanceByIResourceName(resource);
 			if(componentInstance ==null)
-				return false;
+				return true;
 			asmlContext.removeComponentInstance(componentInstance);
 			break;
 		case IResourceDelta.CHANGED:
-			componentInstance = (ComponentInstance) ComponentInstance.getComponentInstanceByIResourceName(resource);
-			if(componentInstance ==null)
-				return false;
+			componentInstance = (ComponentInstance) asmlContext.getComponentInstanceByIResourceName(resource);
+			if(componentInstance == null)
+				return true;
 			componentInstance.setResource(resource);
 			break;
 		}

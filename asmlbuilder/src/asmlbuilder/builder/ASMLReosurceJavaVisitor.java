@@ -44,7 +44,7 @@ public class ASMLReosurceJavaVisitor extends ASTVisitor {
 			IType findType;
 			IJavaProject javaProject = asmlContext.getJavaProject();
 			findType = javaProject.findType(qualifiedName);
-			ComponentInstance componentInstanceReferenced = ComponentInstance.getComponentInstanceByITypeName(findType);
+			ComponentInstance componentInstanceReferenced = asmlContext.getComponentInstanceByITypeName(findType);
 			ComponentInstanceReference componentInstanceReference = new ComponentInstanceReference();
 			componentInstanceReference.setRelactionType(relactionType);
 			componentInstanceReference.setAstNode(node);
@@ -135,7 +135,7 @@ public class ASMLReosurceJavaVisitor extends ASTVisitor {
 			TypeDeclaration typeDeclaration = (TypeDeclaration) node;
 			ITypeBinding typeDeclarationBinding = typeDeclaration.resolveBinding();
 			String qualifiedName = typeDeclarationBinding.getQualifiedName();
-			ComponentInstance componentInstanceByITypeName = ComponentInstance.getComponentInstanceByITypeName(qualifiedName);
+			ComponentInstance componentInstanceByITypeName = asmlContext.getComponentInstanceByITypeName(qualifiedName);
 			IType iType = componentInstanceByITypeName.getType();
 			ITypeHierarchy typeHierarchy = (ITypeHierarchy) iType.newSupertypeHierarchy(new NullProgressMonitor());
 			IType supertypes[] = typeHierarchy.getAllSupertypes(iType);

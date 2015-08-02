@@ -26,7 +26,7 @@ public class CanDeclareOnly extends RestricionChecker {
 
 	void componentACanDeclareOnlyCompontB(Restriction restriction) {
 		AbstractComponent componentA = (AbstractComponent) restriction.eContainer();
-		Set<ComponentInstance> allInstancesOfA = componentA.getInstances();
+		Set<ComponentInstance> allInstancesOfA = componentA.getAllComponentInstances();
 		String fullyQualifiedName = "";
 		for (ComponentInstance componentInstanceA : allInstancesOfA) {
 			IResource resource = componentInstanceA.getResource();
@@ -34,12 +34,16 @@ public class CanDeclareOnly extends RestricionChecker {
 				Set<ComponentInstanceReference> references = componentInstanceA.getReferencesToOthersComponentInstances(RelactionType.DECLARE);
 				boolean valideReference = false;
 				for (ComponentInstanceReference reference : references) {
-					valideReference = false;
-					EList<AbstractComponent> componentesB = restriction.getComponentB();
 					ComponentInstance componentInstanceReferenced = reference.getComponentInstanceReferenced();
 					if (componentInstanceReferenced == null) {
 						continue;
 					}
+					AbstractComponent component = componentInstanceReferenced.getComponent();
+					if(component==null)
+						continue;
+					if(component.isChild(componentA))
+						continue;
+					EList<AbstractComponent> componentesB = restriction.getComponentB();
 					fullyQualifiedName = componentInstanceReferenced.getType().getFullyQualifiedName();
 					componenteB: for (AbstractComponent componentB : componentesB) {
 						if (componentB.containsType(fullyQualifiedName)) {
@@ -48,7 +52,7 @@ public class CanDeclareOnly extends RestricionChecker {
 						}
 					}
 					if (!valideReference) {
-						String defaultMessage = "Classes do componente " + componentA.getName() + "  não podem declarar "+ fullyQualifiedName+"."+
+						String defaultMessage = "Classes do  componente  " + componentA.getName() + "  não podem declarar "+ fullyQualifiedName+"."+
 								" Classes do componente  " + componentA.getName() + " podem declarar somente classes do(s) componente(s) " + getComponentNames(restriction);
 						addViolation(restriction, reference.getLineNumber(), reference.getComponentInstanceOwner(), defaultMessage);
 					}

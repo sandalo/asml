@@ -110,8 +110,11 @@ public class ValidatorVisitor implements ComponentVisitor {
 			else
 				return true;
 			Set<ComponentInstance> instancesParent = componentPai.getInstances();
+			System.out.println();
 			for (ComponentInstance componentInstance : instancesParent) {
-				if (segments[segments.length - 2].equals(componentInstance.getResource().getName())) {
+				String string = segments[segments.length - 2];
+				String name = componentInstance.getResource().getName();
+				if (string.equals(name)) {
 					return true;
 				}
 			}

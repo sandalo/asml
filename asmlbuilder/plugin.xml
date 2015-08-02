@@ -101,7 +101,7 @@
             type="org.eclipse.core.resources.problemmarker">
       </super>
       <persistent
-            value="true">
+            value="false">
       </persistent>
    </extension>
    <extension
@@ -123,10 +123,7 @@
          </run>
       </application>
    </extension>
-   <extension point="org.eclipse.ui.ide.projectNatureImages">
-	<image id="org.eclipse.ui.javaNatureImage"
-    	natureId="asmlNature"  icon="icons/vaccine.jpg">
-  	</image>   
+  <extension point="org.eclipse.ui.ide.projectNatureImages">   
+	<image icon="icons/vaccine.jpeg" natureId="asmlNature" id="asmlNatureImage"/> 
   </extension>
-
 </plugin>
