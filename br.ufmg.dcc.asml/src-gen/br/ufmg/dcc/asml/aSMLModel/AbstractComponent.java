@@ -137,4 +137,10 @@ public interface AbstractComponent extends EObject
 
 void componentInstancesClearAll();
 
+EObject getRootComponent();
+
+void removeInstance(ComponentInstance componentInstance);
+
+ASMLModel getModel();
+
 } // AbstractComponent

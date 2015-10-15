@@ -574,7 +574,7 @@ public class ASMLModelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//STRING
 		public RuleCall getMessageSTRINGTerminalRuleCall_5_1_0() { return cMessageSTRINGTerminalRuleCall_5_1_0; }
-
+ 
 		//// Criar uma tipo para abarcar todos os atributos básicos, e assim evitar redundância e o uso exessivo de instanceof ao utilizar a linguagem programaticamente. (componentA+=([AbstractComponent|QualifiedName])*)?
 		//";"
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }

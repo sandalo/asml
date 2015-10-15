@@ -14,14 +14,14 @@ import org.eclipse.jdt.core.JavaModelException;
 
 public class ClassPathUtil {
 	private static final Logger log = Logger.getLogger(ClassPathUtil.class.getName());
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.eclipse.core.internal.events.InternalBuilder#build(int, java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	public static String recuperaPathVaccine(IJavaProject javaProject) {
-		IClasspathEntry iClasspathEntryVaccine;
+		IClasspathEntry iClasspathEntryVaccine; 
 		try {
 			iClasspathEntryVaccine = ClassPathUtil.recuperaClassPathDaVaccina(javaProject);
 			String path_vaccine_in_open_project;
@@ -32,7 +32,7 @@ public class ClassPathUtil {
 				path_vaccine_in_open_project = "file:/" + workspacePath + iClasspathEntryVaccine.getPath() + "/src/main/resources/" + "vaccine.asml";
 			}
 			return path_vaccine_in_open_project;
-		} catch (JavaModelException e) {
+		} catch (Exception e) {
 			String string = "N�o achou o path da vaccina";
 			log.log(Level.SEVERE, string, e);
 			throw new RuntimeException(string);
@@ -50,7 +50,7 @@ public class ClassPathUtil {
 			}
 			return path_vaccine_in_open_project;
 		} catch (Exception e) {
-			String string = "N�o achou o path da vaccina";
+			String string = "Não achou o path da vaccina";
 			log.log(Level.SEVERE, string, e);
 			throw new RuntimeException(string);
 		}
@@ -61,19 +61,21 @@ public class ClassPathUtil {
 
 		IClasspathContainer classpathMavenContainer = recuperaMavenContainerClassPath(javaProject);
 		if (classpathMavenContainer == null) {
-			log.info("N�o encoutro o classPathContainer Maven.");
+			log.info("Não encoutro o classPathContainer Maven.");
 			return null;
 		}
 		IClasspathEntry[] classpathEntryMaven = classpathMavenContainer.getClasspathEntries();
-		log.info("Come�a a varredura para encontrar iClasspathEntry de vaccine...");
+//		log.info("Começa a varredura para encontrar iClasspathEntry de vaccine...");
 		for (IClasspathEntry iClasspathEntry : classpathEntryMaven) {
-			log.info("Encontrou " + iClasspathEntry.getPath().toString());
+	//		log.info("Encontrou " + iClasspathEntry.getPath().toString());
 			IClasspathAttribute attributes[] = iClasspathEntry.getExtraAttributes();
 			for (IClasspathAttribute iClasspathAttribute : attributes) {
 				if (iClasspathAttribute.getValue().contains("vaccine")) {
 					String iClasspathAttributeSemVaccine = iClasspathAttribute.getValue().replaceFirst("vaccine", "");
+					if(iClasspathAttributeSemVaccine.startsWith("-"))
+						iClasspathAttributeSemVaccine = iClasspathAttributeSemVaccine.replaceFirst("-", "");
 					if (nomeProjeto.endsWith(iClasspathAttributeSemVaccine)) {
-						log.info("Encontrou jar ou porjeto maven da vaccine...:" + iClasspathEntry.getPath().toString());
+		//				log.info("Encontrou jar ou porjeto maven da vaccine...:" + iClasspathEntry.getPath().toString());
 						return iClasspathEntry;
 					}
 				}
@@ -116,15 +118,15 @@ public class ClassPathUtil {
 		IClasspathEntry[] rawClasspath;
 		try {
 			rawClasspath = javaProject.getRawClasspath();
-			log.info("rawClasspath encontrados: " + rawClasspath + " size:" + rawClasspath.length);
+//			log.info("rawClasspath encontrados: " + rawClasspath + " size:" + rawClasspath.length);
 			IClasspathEntry iClasspathEntryMAVEN = null;
 			for (IClasspathEntry iClasspathEntry : rawClasspath) {
-				log.info("   encontrou a entrada:" + iClasspathEntry.getPath() + " EntryKind:" + iClasspathEntry.getEntryKind() + " no classpath.");
+//				log.info("   encontrou a entrada:" + iClasspathEntry.getPath() + " EntryKind:" + iClasspathEntry.getEntryKind() + " no classpath.");
 				if (iClasspathEntry.getPath().toString().contains("MAVEN")) {
 					iClasspathEntryMAVEN = iClasspathEntry;
-					log.info("      vai recuperar o classpathContainer no path: " + iClasspathEntryMAVEN.getPath() + " size:" + rawClasspath.length);
+//					log.info("      vai recuperar o classpathContainer no path: " + iClasspathEntryMAVEN.getPath() + " size:" + rawClasspath.length);
 					IClasspathContainer classpathMavenContainer = JavaCore.getClasspathContainer(iClasspathEntryMAVEN.getPath(), javaProject);
-					log.info("       Recuperou o classpathContainer MAVEN");
+//					log.info("       Recuperou o classpathContainer MAVEN");
 					return classpathMavenContainer;
 				}
 			}
@@ -141,23 +143,23 @@ public class ClassPathUtil {
 		IClasspathContainer classpathMavenContainer;
 		classpathMavenContainer = recuperaMavenContainerClassPath(javaProject);
 		if (classpathMavenContainer == null) {
-			log.info("Não encoutro o classPathContainer Maven.");
+//			log.info("Não encoutro o classPathContainer Maven.");
 			return null;
 		}
 		IClasspathEntry[] classpathEntryMaven = classpathMavenContainer.getClasspathEntries();
-		log.info("Começa a varredura para encontrar iClasspathEntry de vaccine...");
+//		log.info("Começa a varredura para encontrar iClasspathEntry de vaccine...");
 		for (IClasspathEntry iClasspathEntry : classpathEntryMaven) {
-			log.info("Encontrou " + iClasspathEntry.getPath().toString());
+//			log.info("Encontrou " + iClasspathEntry.getPath().toString());
 			IClasspathAttribute attributes[] = iClasspathEntry.getExtraAttributes();
 			for (IClasspathAttribute iClasspathAttribute : attributes) {
 				if (iClasspathAttribute.getValue().contains("vaccine")) {
-					log.info("Encontrou jar ou porjeto maven da vaccine...:" + iClasspathEntry.getPath().toString());
+//					log.info("Encontrou jar ou porjeto maven da vaccine...:" + iClasspathEntry.getPath().toString());
 					IClasspathEntries.add(iClasspathEntry);
 					break;
 				}
 			}
 		}
-		log.info("N�o encontrou iClasspathEntry");
+//		log.info("N�o encontrou iClasspathEntry");
 		return IClasspathEntries;
 	}
 

@@ -2,7 +2,6 @@
  */
 package br.ufmg.dcc.asml.aSMLModel.impl;
 
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -33,7 +32,6 @@ import br.ufmg.dcc.asml.aSMLModel.ASMLModelPackage;
 import br.ufmg.dcc.asml.aSMLModel.AbstractComponent;
 import br.ufmg.dcc.asml.aSMLModel.Attribute;
 import br.ufmg.dcc.asml.aSMLModel.MetaModule;
-import br.ufmg.dcc.asml.aSMLModel.ModuleMatching;
 import br.ufmg.dcc.asml.aSMLModel.Restriction;
 import br.ufmg.dcc.asml.aSMLModel.View;
 
@@ -317,6 +315,12 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		return Collections.unmodifiableSet(componentInstances);
 	}
 
+	@Override
+	public void removeInstance(ComponentInstance componentInstance) {
+		componentInstances.remove(componentInstance);
+	}
+
+	
 	public Set<ComponentInstance> getAllComponentInstances() {
 		Set<ComponentInstance> resourcesAux = new HashSet<ComponentInstance>();
 		EList<AbstractComponent> children = getComponents();
@@ -331,19 +335,10 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void addComponentInstance(ComponentInstance componentInstance) {
 		try {
-			if (!(componentInstance.getResource() instanceof IFolder)) {
-				IType type = componentInstance.getType();
-				if (type != null) {
-					String[] segments_instance = type.getFullyQualifiedName().split("\\.");
-					String fullpath = getFullPathComponent();
-					String[] segments_component = fullpath.split("\\.");
-					for (int i = 0; i < segments_component.length && i < segments_instance.length && i < 5; i++) {// 5 é euristico, re-avaliar no futuro
-						if (!segments_component[i].equals("{?}") && !segments_component[i].equals(segments_instance[i])) {
-							return;
-						}
-					}
-				}
-			}
+/*			boolean falsePositive = false;
+			if (isFalsePositive(componentInstance)) {// Esse teste impede que recursos com mesmo nome mas de projetos diferentes sejam reconhecidos como instancas do componente. Este erro ocorre quando há clisão de nomes entre definições de arquiteturas.
+				return;
+			}*/
 			componentInstances.remove(componentInstance);
 			componentInstances.add(componentInstance);
 			componentInstance.setComponent(this);
@@ -352,27 +347,74 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		}
 	}
 
-	private AbstractComponent getRootComponent() {
+	private boolean isFalsePositive(ComponentInstance componentInstance) {
+		boolean falsePositive = false;
+		if (!(componentInstance.getResource() instanceof IFolder)) {
+			IType type = componentInstance.getType();
+			if (type != null) {
+				String[] segments_instance = type.getFullyQualifiedName().split("\\.");
+				String fullpath = getFullPathComponent();
+				String[] segments_component = fullpath.split("\\.");
+				for (int i = 0; i < segments_component.length && i < segments_instance.length && i < 5; i++) {
+					if (!segments_component[i].equals("{?}") && !segments_component[i].equals(segments_instance[i])) {
+						// TODO: Reavaliar se esse código é necessário.
+						falsePositive = true;
+					}
+				}
+			}
+		} else if (componentInstance.getResource() instanceof IFolder) {
+			String projectName = componentInstance.getResource().getProject().getName();
+			String[] split = projectName.split("-");
+			ASMLModel model = null;
+			if (this.eContainer instanceof ASMLModel)
+				model = (ASMLModel) this.eContainer;
+			else
+				model = (ASMLModel) this.getRootComponent().eContainer();
+			String[] split2 = model.getName().split("-");
+
+			int cont = split.length - 1;
+			for (int i = split2.length - 1; i >= 0; i--) {
+				if (!split[cont--].equals(split2[i])) {
+					falsePositive = true;
+				}
+			}
+		}
+		return falsePositive;
+	}
+
+	@Override
+	public AbstractComponent getRootComponent() {
 		EObject root = this.eContainer();
+		if(!(root instanceof AbstractComponent))
+			return null;
 		while (root != null && root.eContainer() instanceof AbstractComponent) {
 			root = root.eContainer();
 		}
 		return (AbstractComponent) root;
+	}
+	
+	@Override
+	public ASMLModel getModel() {
+		EObject root = this.eContainer();
+		while (root != null && root instanceof AbstractComponent) {
+			root = root.eContainer();
+		}
+		return (ASMLModel) root;
 	}
 
 	@Override
 	public void componentInstancesClear() {
 		componentInstances.clear();
 	}
-	
+
 	@Override
 	public void componentInstancesClearAll() {
 		List<AbstractComponent> components = getAllComponents();
 		for (AbstractComponent abstractComponent : components) {
 			abstractComponent.componentInstancesClear();
 		}
+		componentInstancesClear();
 	}
-
 
 	@Override
 	public String[] getAllTypesNames() {
@@ -391,7 +433,9 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 
 	@Override
 	public boolean containsType(String fullName) {
-		for (ComponentInstance componentInstance : getAllComponentInstances()) {
+		Set<ComponentInstance> instances = null;
+		instances = getAllComponentInstances();
+		for (ComponentInstance componentInstance : instances) {
 			IType iType = componentInstance.getType();
 			if (iType == null)
 				continue;
@@ -489,7 +533,7 @@ public class AbstractComponentImpl extends MinimalEObjectImpl.Container implemen
 		List<AbstractComponent> listAux = new ArrayList<AbstractComponent>();
 		EList<AbstractComponent> components = getComponents();
 		for (AbstractComponent child : components) {
-			List<AbstractComponent> comps = child.getComponents();
+			List<AbstractComponent> comps = child.getAllComponents();
 			listAux.addAll(comps);
 		}
 		listAux.addAll(getComponents());

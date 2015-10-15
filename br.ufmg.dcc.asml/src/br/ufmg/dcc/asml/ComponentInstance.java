@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,16 +21,15 @@ import br.ufmg.dcc.asml.aSMLModel.RelactionType;
 public class ComponentInstance implements Comparable<ComponentInstance> {
 	private IResource resource;
 	private boolean external = true;
-	// private final Map<View, AbstractComponent> components = new HashMap<View,
-	// AbstractComponent>();
 	private AbstractComponent component;
 	private Map<RelactionType, Set<ComponentInstanceReference>> componentInstanceReferences = new HashMap<RelactionType, Set<ComponentInstanceReference>>();
+	private Set<ComponentInstance> componentInstancesThatRequireMe = new LinkedHashSet<ComponentInstance>();
+	private Map<RelactionType, Set<ComponentInstanceReference>> referencesThatPointToMe = new HashMap<RelactionType, Set<ComponentInstanceReference>>();
+	
 	private CompilationUnit compilationUnitAST;
 	private Object resourceType;
 
-	private ComponentInstance() {
-		// TODO Auto-generated constructor stub
-	}
+	private ComponentInstance() {	}
 	
 	public static ComponentInstance createInstance(IResource resource, boolean external, CompilationUnit compilationUnitAST){
 		ComponentInstance componentInstance = new ComponentInstance();
@@ -73,6 +73,9 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	}
 
 	public void setComponent(AbstractComponent component) {
+		if(component==null)
+			return;
+		component.isChild(this.component);
 		if (this.component != null) {
 			System.out.println("Tentando configurar " + this.getRawName() + " para o componente " + component.getName());
 			System.out.println("Componente " + this.component.getName() + " já esta configurado para esta instancia.");
@@ -104,7 +107,7 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 		return "undefined";
 	}
 
-	public boolean addReference(ComponentInstanceReference componentInstanceReference) {
+	public boolean addDependency(ComponentInstanceReference componentInstanceReference) {
 		RelactionType relactionType = componentInstanceReference.getRelactionType();
 		boolean add = false;
 		Set<ComponentInstanceReference> astNodes = (Set<ComponentInstanceReference>) componentInstanceReferences.get(relactionType);
@@ -113,25 +116,56 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 			componentInstanceReferences.put(relactionType, astNodes);
 		}
 		add = astNodes.add(componentInstanceReference);
+		componentInstanceReference.setComponentInstance(this);
+		return add;
+	}
+	
+	public boolean addReferenceThatPointToMe(ComponentInstanceReference componentInstanceReference) {
+		RelactionType relactionType = componentInstanceReference.getRelactionType();
+		boolean add = false;
+		Set<ComponentInstanceReference> astNodes = (Set<ComponentInstanceReference>) referencesThatPointToMe.get(relactionType);
+		if (astNodes == null) {
+			astNodes = new HashSet<ComponentInstanceReference>();
+			referencesThatPointToMe.put(relactionType, astNodes);
+		}
+		add = astNodes.add(componentInstanceReference);
+		componentInstanceReference.setComponentInstanceReferenced(this);
+
 		return add;
 	}
 
-	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances(RelactionType relactionType) {
+	public Set<ComponentInstanceReference> getDependencies(RelactionType relactionType) {
 		Set<ComponentInstanceReference> set = componentInstanceReferences.get(relactionType);
 		if (set == null)
 			return new HashSet<ComponentInstanceReference>();
 		return set;
 	}
 
-	public Set<ComponentInstanceReference> getReferencesToOthersComponentInstances() {
+	public Set<ComponentInstanceReference> getDependencies() {
 		HashSet<ComponentInstanceReference> hashSet = new HashSet<ComponentInstanceReference>();
 		Collection<Set<ComponentInstanceReference>> values = componentInstanceReferences.values();
 		for (Set<ComponentInstanceReference> set : values) {
 			for (ComponentInstanceReference componentInstanceReference : set) {
-				ComponentInstance componentInstanceOwner = componentInstanceReference.getComponentInstanceOwner();
+				ComponentInstance componentInstanceOwner = componentInstanceReference.getComponentInstanceDependent();
 				AbstractComponent component2 = componentInstanceOwner.getComponent();
 				if (componentInstanceOwner != null && component2 != null)
 					hashSet.add(componentInstanceReference);
+			}
+		}
+		return Collections.unmodifiableSet(hashSet);
+	}
+	public void clearDependencies() {
+		componentInstanceReferences.clear();
+	}	
+	public Set<ComponentInstanceReference> getReferencesThatPointToMe() {
+		HashSet<ComponentInstanceReference> hashSet = new HashSet<ComponentInstanceReference>();
+		Collection<Set<ComponentInstanceReference>> values = referencesThatPointToMe.values();
+		for (Set<ComponentInstanceReference> references : values) {
+			for (ComponentInstanceReference referenceThatPointToMe : references) {
+/*				ComponentInstance componentInstanceOwner = componentInstanceReference.getComponentInstanceDependent();
+				AbstractComponent component2 = componentInstanceOwner.getComponent();
+				if (componentInstanceOwner != null && component2 != null)
+*/					hashSet.add(referenceThatPointToMe);
 			}
 		}
 		return Collections.unmodifiableSet(hashSet);
@@ -156,7 +190,7 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 	public String[] getAllSupertypesNames() {
 		IType iType = this.getType();
 		ITypeHierarchy typeHierarchy_;
-		String[] iTypesNames = null;
+		String[] iTypesNames = new String[0];
 		IType[] iTypes = null;
 		try {
 			typeHierarchy_ = iType.newSupertypeHierarchy(new NullProgressMonitor());
@@ -271,5 +305,13 @@ public class ComponentInstance implements Comparable<ComponentInstance> {
 
 	public void setExternal(boolean external) {
 		this.external = external;
+	}
+
+	public Set<ComponentInstance> getComponentInstancesThatRequireMe() {
+		return Collections.unmodifiableSet(componentInstancesThatRequireMe);
+	}
+
+	public void addComponentInstancesThatRequireMe(ComponentInstance componentInstancesThatRequireMe) {
+		this.componentInstancesThatRequireMe.add(componentInstancesThatRequireMe);
 	}
 }
