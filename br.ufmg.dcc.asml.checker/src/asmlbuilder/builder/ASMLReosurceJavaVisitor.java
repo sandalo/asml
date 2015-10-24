@@ -235,7 +235,7 @@ public class ASMLReosurceJavaVisitor extends ASTVisitor {
 				addReference(node, qualifiedName, RelactionType.DECLARE);
 			}
 			qualifiedName = "";
-/*			if (node.getReturnType2() != null && !(node.getReturnType2().isPrimitiveType() && ((PrimitiveType) node.getReturnType2()).getPrimitiveTypeCode() == PrimitiveType.VOID)&&!node.getReturnType2().isPrimitiveType()) {
+			if (node.getReturnType2() != null && !(node.getReturnType2().isPrimitiveType() && ((PrimitiveType) node.getReturnType2()).getPrimitiveTypeCode() == PrimitiveType.VOID)&&!node.getReturnType2().isPrimitiveType()) {
 				if (!node.getReturnType2().resolveBinding().isTypeVariable()) {
 					ITypeBinding iTypeBinding = node.getReturnType2().resolveBinding();
 					 qualifiedName = iTypeBinding.getBinaryName();
@@ -249,11 +249,11 @@ public class ASMLReosurceJavaVisitor extends ASTVisitor {
 				}
 
 			}
-*/
-			ITypeBinding returnBinding = methodDeclaration.resolveBinding().getReturnType();
+
+/*			ITypeBinding returnBinding = methodDeclaration.resolveBinding().getReturnType();
 			qualifiedName = returnBinding.getBinaryName();
 			addReference(node, qualifiedName, RelactionType.DECLARE);
-		} catch (Exception e) {
+*/		} catch (Exception e) {
 			if (asmlContext.isDesignMode())
 				log.warning("Erro controlado.  MethodDeclaration visit.");
 		}
